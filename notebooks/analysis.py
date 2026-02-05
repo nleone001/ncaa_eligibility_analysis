@@ -244,13 +244,11 @@ for elig in ELIGIBILITY_ORDER:
         total_aa = int(aa_by_eligibility[elig])
         champs = int(champs_by_eligibility.get(elig, 0))
         pct_of_total = total_aa / len(df) * 100
-        champ_rate = champs / total_aa * 100 if total_aa > 0 else 0
         summary_data.append({
             "Eligibility Year": elig,
             "All-Americans": total_aa,
             "% of Total": f"{pct_of_total:.1f}%",
-            "National Champions": champs,
-            "Champion Rate": f"{champ_rate:.1f}%"
+            "National Champions": champs
         })
 
 summary_df = pd.DataFrame(summary_data)

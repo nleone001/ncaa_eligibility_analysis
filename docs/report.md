@@ -45,13 +45,13 @@ The broader All-American picture shows a similar pattern, with upper classmen do
 
 ## Summary Table
 
-| Eligibility Year | All-Americans | % of Total | National Champions | Champion Rate |
-|:-----------------|:-------------:|:----------:|:------------------:|:-------------:|
-| Freshman         | 237           | 11.8%      | 22                 | 9.3%          |
-| Sophomore        | 423           | 21.1%      | 45                 | 10.6%         |
-| Junior           | 603           | 30.1%      | 78                 | 12.9%         |
-| Senior           | 694           | 34.7%      | 101                | 14.6%         |
-| Super Senior     | 43            | 2.1%       | 4                  | 9.3%          |
+| Eligibility Year | All-Americans | % of Total | National Champions |
+|:-----------------|:-------------:|:----------:|:------------------:|
+| Freshman         | 237           | 11.8%      | 22                 |
+| Sophomore        | 423           | 21.1%      | 45                 |
+| Junior           | 603           | 30.1%      | 78                 |
+| Senior           | 694           | 34.7%      | 101                |
+| Super Senior     | 43            | 2.1%       | 4                  |
 
 ## Methodology
 

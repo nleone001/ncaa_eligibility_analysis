@@ -32,11 +32,26 @@ ncaa-eligibility-analysis/
 └── README.md
 ```
 
-## Key Findings
+## Analysis Ideas
 
-- **Seniors dominate**: 34.7% of All-Americans are seniors
-- **Experience wins titles**: Senior champion rate is 14.6% vs 9.3% for freshmen
-- **2,000 All-American finishes** analyzed across 26 years
+- **Total National Champs and AAs by eligibility**
+- **Trend over time of NC and AAs by eligibliity**
+- **Multi-AA weight changes** % repeat AA after moving up/down
+- **Returning champs (<Sr) losing title % by class**
+- **Brackets/Years with most 1-2 finals**
+- **Most "Chalk" brackets and years** 
+- **invidual years/brackets with most Fr -> Sr AAs**
+- **oldest and youngest bracket/year**
+- **Average placing age over time** Exodus / barbarians @ gate
+- **Most Unseeded AAs per year/bracket** pre 2019
+- **highest seed placing for each podium position** pre 2019
+- **wrestlers with aesthetic improvement (3-4 year progression)** Eric Larkin 4-3-2-1
+- **overperforming/underperforming schools/individuals by seed and placement**
+- **last chance wrestlers - wrestlers who AAd on their last year of eligibility**
+- **covid beneficiaries - AAs in SSr year**
+- **General AAs and NC by school - total and over time**
+- **progression of Fr/So AAs by school**
+
 
 ## Reproducibility
 
