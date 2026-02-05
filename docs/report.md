@@ -3,7 +3,7 @@ layout: default
 title: NCAA Wrestling Eligibility Analysis
 ---
 
-<div class="container">
+<div class="container" markdown="1">
 
 # NCAA Wrestling All-Americans: An Eligibility Year Analysis
 
@@ -27,6 +27,7 @@ The distribution of national champions tells a clear story: experience correlate
 </figure>
 
 Over this 25-year period:
+
 - **101 seniors** won national titles (40.4% of all champions)
 - **78 juniors** won national titles (31.2%)
 - **45 sophomores** won national titles (18.0%)
@@ -57,6 +58,7 @@ The broader All-American picture shows a similar pattern, with upper classmen do
 This analysis includes all NCAA Division I Wrestling All-American finishes (places 1–8) from 2000 through 2025. Eligibility year classifications are as recorded in official NCAA records.
 
 **Data cleaning notes:**
+
 - Eligibility years were standardized (e.g., lowercase corrections, whitespace trimming)
 - Super seniors (SSr) represent athletes using additional eligibility, including COVID-era extensions
 

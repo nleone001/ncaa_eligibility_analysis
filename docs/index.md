@@ -3,7 +3,7 @@ layout: default
 title: NCAA Wrestling Eligibility Analysis
 ---
 
-<div class="container">
+<div class="container" markdown="1">
 
 # NCAA Wrestling Eligibility Analysis
 
