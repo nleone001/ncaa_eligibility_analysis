@@ -38,7 +38,7 @@ All outputs are saved to `/charts` and `/tables` directories.
 ---
 
 <footer>
-<p><a href="https://github.com/njleone/ncaa-eligibility-analysis">View on GitHub</a></p>
+<p><a href="https://github.com/nleone001/ncaa_eligibility_analysis">View on GitHub</a></p>
 </footer>
 
 </div>

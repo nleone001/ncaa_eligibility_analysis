@@ -1,7 +1,7 @@
 title: NCAA Wrestling Eligibility Analysis
 description: A data-driven analysis of NCAA Division I Wrestling All-Americans (2000-2025)
-baseurl: ""
-url: ""
+baseurl: "/ncaa_eligibility_analysis"
+url: "https://nleone001.github.io"
 
 markdown: kramdown
 kramdown:

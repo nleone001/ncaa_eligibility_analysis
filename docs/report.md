@@ -22,7 +22,7 @@ title: NCAA Wrestling Eligibility Analysis
 The distribution of national champions tells a clear story: experience correlates strongly with winning titles.
 
 <figure>
-<img src="charts/champions_by_eligibility.png" alt="Bar chart showing national champions by eligibility year">
+<img src="{{ site.baseurl }}/charts/champions_by_eligibility.png" alt="Bar chart showing national champions by eligibility year">
 <figcaption>National champions by eligibility year, 2000–2025. Seniors have won more titles than any other class.</figcaption>
 </figure>
 
@@ -38,7 +38,7 @@ Over this 25-year period:
 The broader All-American picture shows a similar pattern, with upper classmen dominating the podium.
 
 <figure>
-<img src="charts/all_americans_by_eligibility.png" alt="Bar chart showing all All-Americans by eligibility year">
+<img src="{{ site.baseurl }}/charts/all_americans_by_eligibility.png" alt="Bar chart showing all All-Americans by eligibility year">
 <figcaption>All-American finishes (places 1–8) by eligibility year, 2000–2025.</figcaption>
 </figure>
 
