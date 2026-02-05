@@ -1,0 +1,2001 @@
+Index,Year,Weight,Place,Wrestler,School,Seed,Placement-Seed Delta,Eligibility Year,Progression Eligible,AAs
+1,2000,125,1,Jeremy Hunter,Penn State,2,1,Sr,FALSE,1
+2,2000,125,2,Steve Garland,Virginia,8,6,Sr,FALSE,1
+3,2000,125,3,Jody Strittmatter,Iowa,1,-2,Jr,FALSE,2
+4,2000,125,4,T.J. Hill,Cal State-Fullerton,US,9,Fr,TRUE,1
+5,2000,125,5,Leroy Vega,Minnesota,3,-2,Jr,FALSE,2
+6,2000,125,6,Jeff Ragan,Oklahoma State,6,0,Sr,FALSE,1
+7,2000,125,7,Ruben DeLeon,CSU Bakersfield,US,6,So,FALSE,2
+8,2000,125,8,Paul Gomez,Nebraska,US,5,Sr,FALSE,1
+9,2000,133,1,Eric Juergens,Iowa,1,0,Jr,FALSE,2
+10,2000,133,2,Cody Sanderson,Iowa State,2,0,Sr,FALSE,1
+11,2000,133,3,Joe Warren,Michigan,4,1,Sr,FALSE,1
+12,2000,133,4,Rob Loper,Pittsburgh,10,6,Sr,FALSE,1
+13,2000,133,5,Todd Beckerman,Nebraska,7,2,Jr,FALSE,2
+14,2000,133,6,Pat McNamara,Michigan State,3,-3,Jr,FALSE,2
+15,2000,133,7,Roman Fleszar,Hofstra,5,-2,Jr,FALSE,2
+16,2000,133,8,Mike Coyle,James Madison,US,5,Sr,FALSE,1
+17,2000,141,1,Carl Perry,Illinois,8,7,Sr,FALSE,1
+18,2000,141,2,Michael Lightner,Oklahoma,2,0,Jr,FALSE,2
+19,2000,141,3,Doug Schwab,Iowa,1,-2,Jr,FALSE,2
+20,2000,141,4,Mark Angle,Clarion,4,0,Sr,FALSE,1
+21,2000,141,5,Scott Schatzman,Northwestern,3,-2,Sr,FALSE,1
+22,2000,141,6,Damion Logan,Michigan,6,0,Jr,FALSE,1
+23,2000,141,7,Sean Gray,Virginia Tech,9,2,So,FALSE,2
+24,2000,141,8,Chris Marshall,Central Michigan,7,-1,Sr,FALSE,1
+25,2000,149,1,Tony Davis,Northern Iowa,1,0,Sr,FALSE,1
+26,2000,149,2,Adam Tirapelle,Illinois,2,0,So,FALSE,2
+27,2000,149,3,Dave Esposito,Lehigh,5,2,Jr,FALSE,2
+28,2000,149,4,Reggie Wright,Oklahoma State,3,-1,Jr,FALSE,1
+29,2000,149,5,Eric Schmiesing,Hofstra,6,1,Jr,FALSE,2
+30,2000,149,6,Jared Lawrence,Minnesota,4,-2,Fr,TRUE,4
+31,2000,149,7,Mike Zadick,Iowa,7,0,Fr,TRUE,3
+32,2000,149,8,Quinn Foster,Arizona State,8,0,Jr,FALSE,1
+33,2000,157,1,Brett Matter,Pennsylvania,2,1,Sr,FALSE,1
+34,2000,157,2,Larry Quisel,Boise State,5,3,Sr,FALSE,1
+35,2000,157,3,T.J. Williams,Iowa,1,-2,Jr,FALSE,2
+36,2000,157,4,Cory Wallman,Wisconsin,11,7,Sr,FALSE,1
+37,2000,157,5,Bryan Snyder,Nebraska,3,-2,So,FALSE,3
+38,2000,157,6,Luke Becker,Minnesota,8,2,Fr,TRUE,4
+39,2000,157,7,Shaun Shapert,Edinboro,US,6,Jr,FALSE,1
+40,2000,157,8,Mike Ziska,Pittsburgh,US,5,Sr,FALSE,1
+41,2000,165,1,Don Pritzlaff,Wisconsin,2,1,Jr,FALSE,2
+42,2000,165,2,Joe Heskett,Iowa State,1,-1,So,FALSE,3
+43,2000,165,3,Steven Blackford,Arizona State,3,0,Jr,FALSE,2
+44,2000,165,4,Chris Martin,Virginia Tech,12,8,Sr,FALSE,1
+45,2000,165,5,Kirk White,Boise State,4,-1,Jr,FALSE,2
+46,2000,165,6,Travis Doto,Lehigh,7,1,Sr,FALSE,1
+47,2000,165,7,Brad Pike,Minnesota,9,2,Jr,FALSE,2
+48,2000,165,8,Joey Killar,Harvard,6,-2,Sr,FALSE,1
+49,2000,174,1,Byron Tucker,Oklahoma,1,0,Sr,FALSE,1
+50,2000,174,2,Josh Koscheck,Edinboro,3,1,So,FALSE,3
+51,2000,174,3,Ryan Cunningham,Central Michigan,4,1,Sr,FALSE,1
+52,2000,174,4,Randy Pugh,Northern Iowa,5,1,Sr,FALSE,1
+53,2000,174,5,Rick Springman,Pennsylvania,2,-3,So,FALSE,1
+54,2000,174,6,Mark Dufresne,Lehigh,US,7,Sr,FALSE,1
+55,2000,174,7,Kole Clauson,Wisconsin,8,1,Sr,FALSE,1
+56,2000,174,8,Ed Mosley,Harvard,6,-2,Sr,FALSE,1
+57,2000,184,1,Cael Sanderson,Iowa State,1,0,So,FALSE,3
+58,2000,184,2,Vertus Jones,West Virginia,2,0,Sr,FALSE,1
+59,2000,184,3,Brandon Eggum,Minnesota,4,1,Sr,FALSE,1
+60,2000,184,4,Doug Lee,Oregon,6,2,Jr,FALSE,1
+61,2000,184,5,Rob Rohn,Lehigh,9,4,So,FALSE,2
+62,2000,184,6,Kevin Welsh,Edinboro,7,1,Sr,FALSE,1
+63,2000,184,7,Cash Edwards,Boise State,US,6,Jr,FALSE,2
+64,2000,184,8,Shawn Scannell,Rider,12,4,Jr,FALSE,1
+65,2000,197,1,Brad Vering,Nebraska,2,1,Jr,FALSE,2
+66,2000,197,2,Zach Thompson,Iowa State,4,2,Jr,FALSE,1
+67,2000,197,3,Mark Munoz,Oklahoma State,1,-2,So,FALSE,2
+68,2000,197,4,Nick Muzashvili,Michigan State,3,-1,Sr,FALSE,1
+69,2000,197,5,Nick Preston,Ohio State,7,2,So,FALSE,2
+70,2000,197,6,Ross Thatcher,Penn State,9,3,Sr,FALSE,1
+71,2000,197,7,Orville Palmer,Oklahoma,5,-2,Jr,FALSE,1
+72,2000,197,8,Pat Quirk,Illinois,11,3,Jr,FALSE,2
+73,2000,285,1,Brock Lesnar,Minnesota,1,0,Sr,FALSE,1
+74,2000,285,2,Wes Hand,Iowa,3,1,Sr,FALSE,1
+75,2000,285,3,Trent Hynek,Iowa State,2,-1,Sr,FALSE,1
+76,2000,285,4,Antonio Garay,Boston College,6,2,So,FALSE,1
+77,2000,285,5,Tim Courtad,Ohio University,9,4,Sr,FALSE,1
+78,2000,285,6,Bandele Adeniyi-Bada,Pennsylvania,5,-1,So,FALSE,1
+79,2000,285,7,John Lockhart,Illinois,4,-3,So,FALSE,3
+80,2000,285,8,Matt Brink,Michigan,12,4,Jr,FALSE,2
+81,2001,125,1,Stephen Abas,Fresno State,1,0,Jr,FALSE,2
+82,2001,125,2,Jody Strittmatter,Iowa,2,0,Sr,FALSE,2
+83,2001,125,3,Leroy Vega,Minnesota,3,0,Sr,FALSE,2
+84,2001,125,4,A.J. Grant,Michigan,10,6,So,TRUE,2
+85,2001,125,5,Mario Stuart,Lehigh,US,8,Fr,TRUE,2
+86,2001,125,6,Matt Brown,Oklahoma State,6,0,Fr,TRUE,4
+87,2001,125,7,Chris Williams,Michigan State,7,0,Jr,FALSE,1
+88,2001,125,8,Ruben DeLeon,CSU Bakersfield,9,1,Jr,FALSE,2
+89,2001,133,1,Eric Juergens,Iowa,1,0,Sr,FALSE,2
+90,2001,133,2,Johnny Thompson,Oklahoma State,2,0,Fr,TRUE,4
+91,2001,133,3,Witt Durden,Oklahoma,US,10,So,TRUE,2
+92,2001,133,4,Todd Beckerman,Nebraska,3,-1,Sr,FALSE,2
+93,2001,133,5,Roman Fleszar,Hofstra,5,0,Sr,FALSE,2
+94,2001,133,6,Pat McNamara,Michigan State,4,-2,Sr,FALSE,2
+95,2001,133,7,David Douglas,Arizona State,11,4,Jr,FALSE,2
+96,2001,133,8,Brett Lawrence,Minnesota,10,2,Sr,FALSE,1
+97,2001,141,1,Michael Lightner,Oklahoma,2,1,Sr,FALSE,2
+98,2001,141,2,Doug Schwab,Iowa,1,-1,Sr,FALSE,2
+99,2001,141,3,Eric Larkin,Arizona State,3,0,So,TRUE,3
+100,2001,141,4,Grant Hoerr,Wisconsin,11,7,Sr,FALSE,1
+101,2001,141,5,Mark Conley,Navy,US,8,Jr,FALSE,2
+102,2001,141,6,Sean Gray,Virginia Tech,4,-2,Jr,FALSE,2
+103,2001,141,7,Robert Sessley,Ohio State,US,6,Jr,FALSE,2
+104,2001,141,8,Chad Erikson,Minnesota,7,-1,Jr,FALSE,2
+105,2001,149,1,Adam Tirapelle,Illinois,3,2,Jr,FALSE,2
+106,2001,149,2,Dave Esposito,Lehigh,4,2,Sr,FALSE,2
+107,2001,149,3,Mike Zadick,Iowa,US,10,So,TRUE,3
+108,2001,149,4,Jared Frayer,Oklahoma,8,4,Jr,FALSE,2
+109,2001,149,5,JaMarr Billman,Lock Haven,7,2,Jr,FALSE,2
+110,2001,149,6,Jared Lawrence,Minnesota,2,-4,So,TRUE,4
+111,2001,149,7,Mike Kulczycki,Michigan,11,4,So,TRUE,1
+112,2001,149,8,Eric Schmiesing,Hofstra,6,-2,Sr,FALSE,2
+113,2001,157,1,T.J. Williams,Iowa,1,0,Sr,FALSE,2
+114,2001,157,2,Bryan Snyder,Nebraska,2,0,Jr,FALSE,3
+115,2001,157,3,Shane Roller,Oklahoma State,12,9,So,TRUE,3
+116,2001,157,4,Luke Becker,Minnesota,6,2,So,TRUE,4
+117,2001,157,5,Eric Jorgensen,Oregon State,4,-1,Sr,FALSE,1
+118,2001,157,6,Kirk White,Boise State,5,-1,Sr,FALSE,2
+119,2001,157,7,Yoshi Nakamura,Pennsylvania,3,-4,Jr,FALSE,2
+120,2001,157,8,Gray Maynard,Michigan State,US,5,So,TRUE,3
+121,2001,165,1,Don Pritzlaff,Wisconsin,1,0,Sr,FALSE,2
+122,2001,165,2,Joe Heskett,Iowa State,2,0,Jr,FALSE,3
+123,2001,165,3,Matt Lackey,Illinois,5,2,So,TRUE,3
+124,2001,165,4,Brad Pike,Minnesota,6,2,Sr,FALSE,2
+125,2001,165,5,Steven Blackford,Arizona State,3,-2,Sr,FALSE,2
+126,2001,165,6,Kevin Stanley,Indiana,9,3,Sr,FALSE,1
+127,2001,165,7,Chris Vitale,Lehigh,US,6,Jr,FALSE,1
+128,2001,165,8,Ben Shirk,Iowa,US,5,Jr,FALSE,1
+129,2001,174,1,Josh Koscheck,Edinboro,1,0,Jr,FALSE,3
+130,2001,174,2,Maurice Worthy,Army,3,1,Sr,FALSE,1
+131,2001,174,3,Otto Olson,Michigan,2,-1,Jr,FALSE,2
+132,2001,174,4,Jacob Volkmann,Minnesota,10,6,Fr,TRUE,1
+133,2001,174,5,Tyrone Lewis,Oklahoma State,4,-1,Fr,TRUE,4
+134,2001,174,6,Gabe McMahan,Iowa,5,-1,Sr,FALSE,1
+135,2001,174,7,Jim Stanec,Cornell,US,6,Sr,FALSE,1
+136,2001,174,8,Ati Conner,Nebraska,12,4,Sr,FALSE,1
+137,2001,184,1,Cael Sanderson,Iowa State,1,0,Jr,FALSE,3
+138,2001,184,2,Daniel Cormier,Oklahoma State,3,1,Sr,FALSE,1
+139,2001,184,3,Viktor Sveda,Indiana,4,1,Jr,FALSE,1
+140,2001,184,4,Andy Hrovat,Michigan,7,3,Jr,FALSE,2
+141,2001,184,5,Damion Hahn,Minnesota,5,0,Fr,TRUE,4
+142,2001,184,6,Cash Edwards,Boise State,9,3,Sr,FALSE,2
+143,2001,184,7,Josh Lambrecht,Oklahoma,US,6,Fr,TRUE,3
+144,2001,184,8,Kyle Hansen,Northern Iowa,US,5,So,TRUE,2
+145,2001,197,1,Mark Munoz,Oklahoma State,1,0,Jr,FALSE,2
+146,2001,197,2,Pat Quirk,Illinois,7,5,Sr,FALSE,2
+147,2001,197,3,Owen Elzen,Minnesota,5,2,Jr,FALSE,2
+148,2001,197,4,Rusty Cook,Boise State,4,0,Sr,FALSE,1
+149,2001,197,5,Mike Fickell,Pennsylvania,11,6,Sr,FALSE,1
+150,2001,197,6,David Shunamon,Edinboro,US,7,Sr,FALSE,1
+151,2001,197,7,Brad Vering,Nebraska,2,-5,Sr,FALSE,2
+152,2001,197,8,Nik Fekete,Michigan State,US,5,Jr,FALSE,1
+153,2001,285,1,John Lockhart,Illinois,4,3,Jr,FALSE,3
+154,2001,285,2,Tommy Rowlands,Ohio State,2,0,Fr,TRUE,4
+155,2001,285,3,Garrett Lowney,Minnesota,1,-2,Jr,FALSE,2
+156,2001,285,4,Leonce Crump,Oklahoma,9,5,So,TRUE,2
+157,2001,285,5,Billy Blunt,Fresno State,7,2,Sr,FALSE,1
+158,2001,285,6,Paul Hynek,Northern Iowa,6,0,Jr,FALSE,2
+159,2001,285,7,Matt Brink,Michigan,5,-2,Sr,FALSE,2
+160,2001,285,8,Jake Vercelli,Purdue,US,5,Jr,FALSE,2
+161,2002,125,1,Stephen Abas,Fresno State,1,0,Sr,FALSE,2
+162,2002,125,2,Luke Eustice,Iowa,7,5,Jr,TRUE,1
+163,2002,125,3,Chris Fleeger,Purdue,4,1,Fr,TRUE,3
+164,2002,125,4,Ben VomBaur,Boise State,5,1,Jr,TRUE,2
+165,2002,125,5,Jason Powell,Nebraska,9,4,So,TRUE,3
+166,2002,125,6,Skyler Holman,Oklahoma State,3,-3,So,TRUE,1
+167,2002,125,7,Travis Lee,Cornell,11,4,Fr,TRUE,4
+168,2002,125,8,Chris Rodrigues,North Carolina,US,5,Fr,TRUE,1
+169,2002,133,1,Johnny Thompson,Oklahoma State,2,1,So,TRUE,4
+170,2002,133,2,Ryan Lewis,Minnesota,1,-1,Jr,TRUE,2
+171,2002,133,3,Witt Durden,Oklahoma,3,0,Jr,TRUE,2
+172,2002,133,4,Kevin Black,Wisconsin,4,0,Jr,TRUE,1
+173,2002,133,5,David Douglas,Arizona State,5,0,Sr,FALSE,2
+174,2002,133,6,Cliff Moore,Iowa,6,0,So,TRUE,3
+175,2002,133,7,Zach Roberson,Iowa State,9,2,So,TRUE,3
+176,2002,133,8,Cory Ace,Edinboro,US,5,Jr,TRUE,1
+177,2002,141,1,Aaron Holker,Iowa State,5,4,Jr,TRUE,2
+178,2002,141,2,Eric Larkin,Arizona State,2,0,Jr,TRUE,3
+179,2002,141,3,Cedric Haymon,Cal Poly,6,3,Sr,FALSE,1
+180,2002,141,4,Robert Sessley,Ohio State,11,7,Sr,FALSE,2
+181,2002,141,5,Nate Parker,Oklahoma,US,8,Sr,FALSE,1
+182,2002,141,6,Mark Conley,Navy,1,-5,Sr,FALSE,2
+183,2002,141,7,Chad Erikson,Minnesota,8,1,Sr,FALSE,2
+184,2002,141,8,Mike Maney,Lock Haven,US,5,Jr,TRUE,2
+185,2002,149,1,Jared Lawrence,Minnesota,2,1,Jr,TRUE,4
+186,2002,149,2,Jared Frayer,Oklahoma,4,2,Sr,FALSE,2
+187,2002,149,3,Jesse Jantzen,Harvard,5,2,So,TRUE,3
+188,2002,149,4,Jake Percival,Ohio University,8,4,Fr,TRUE,4
+189,2002,149,5,JaMarr Billman,Lock Haven,3,-2,Sr,FALSE,2
+190,2002,149,6,Bill Maldonado,Iowa State,7,1,Sr,FALSE,1
+191,2002,149,7,Mike Zadick,Iowa,1,-6,Jr,TRUE,3
+192,2002,149,8,Scott Frohardt,Air Force,12,4,Sr,FALSE,1
+193,2002,157,1,Luke Becker,Minnesota,3,2,Jr,TRUE,4
+194,2002,157,2,Bryan Snyder,Nebraska,1,-1,Sr,FALSE,3
+195,2002,157,3,Yoshi Nakamura,Pennsylvania,2,-1,Sr,FALSE,2
+196,2002,157,4,Shane Roller,Oklahoma State,4,0,Jr,TRUE,3
+197,2002,157,5,Scott Owen,Northern Illinois,5,0,Jr,TRUE,2
+198,2002,157,6,Ryan Bertin,Michigan,6,0,Fr,TRUE,4
+199,2002,157,7,Gray Maynard,Michigan State,9,2,Jr,TRUE,3
+200,2002,157,8,Griff Powell,Illinois,10,2,Sr,FALSE,1
+201,2002,165,1,Joe Heskett,Iowa State,1,0,Sr,FALSE,3
+202,2002,165,2,Matt Lackey,Illinois,2,0,Jr,TRUE,3
+203,2002,165,3,Tyrone Lewis,Oklahoma State,3,0,So,TRUE,4
+204,2002,165,4,Eugene Harris,Oregon,7,3,Sr,FALSE,1
+205,2002,165,5,Mark Fee,Appalachian State,US,8,Jr,TRUE,2
+206,2002,165,6,Robbie Waller,Oklahoma,9,3,Jr,TRUE,2
+207,2002,165,7,Josh Henson,Pennsylvania,5,-2,Jr,TRUE,1
+208,2002,165,8,Doc Vecchio,Penn State,11,3,Jr,TRUE,1
+209,2002,174,1,Greg Jones,West Virginia,2,1,Fr,TRUE,3
+210,2002,174,2,Greg Parker,Princeton,4,2,Jr,TRUE,2
+211,2002,174,3,Josh Koscheck,Edinboro,3,0,Sr,FALSE,3
+212,2002,174,4,Nathan Coy,Oregon State,11,7,Sr,FALSE,1
+213,2002,174,5,Otto Olson,Michigan,1,-4,Sr,FALSE,2
+214,2002,174,6,Rick Springman,Pennsylvania,6,0,Sr,FALSE,1
+215,2002,174,7,Terry Parham,Air Force,US,6,Jr,TRUE,1
+216,2002,174,8,Michael Barger,Oklahoma,US,5,Sr,FALSE,1
+217,2002,184,1,Rob Rohn,Lehigh,8,7,Sr,FALSE,2
+218,2002,184,2,Josh Lambrecht,Oklahoma,6,4,So,TRUE,3
+219,2002,184,3,Jessman Smith,Iowa,4,1,So,TRUE,2
+220,2002,184,4,Tom Tanis,Rutgers,US,9,Jr,TRUE,1
+221,2002,184,5,Damion Hahn,Minnesota,2,-3,So,TRUE,4
+222,2002,184,6,Clint Wattenberg,Cornell,7,1,Jr,TRUE,2
+223,2002,184,7,Andy Hrovat,Michigan,3,-4,Sr,FALSE,2
+224,2002,184,8,Kyle Hansen,Northern Iowa,US,5,Jr,TRUE,2
+225,2002,197,1,Cael Sanderson,Iowa State,1,0,Sr,FALSE,3
+226,2002,197,2,Jon Trenge,Lehigh,2,0,So,TRUE,3
+227,2002,197,3,Nick Preston,Ohio State,4,1,Sr,FALSE,2
+228,2002,197,4,Owen Elzen,Minnesota,3,-1,Sr,FALSE,2
+229,2002,197,5,Justin Ruiz,Nebraska,US,8,Jr,TRUE,2
+230,2002,197,6,Scott Barker,Missouri,5,-1,So,TRUE,2
+231,2002,197,7,Kyle Smith,Michigan,6,-1,Jr,TRUE,2
+232,2002,197,8,Jason Payne,Northern Iowa,8,0,Sr,FALSE,1
+233,2002,285,1,Tommy Rowlands,Ohio State,1,0,So,TRUE,4
+234,2002,285,2,Steve Mocco,Iowa,2,0,Fr,TRUE,4
+235,2002,285,3,John Lockhart,Illinois,5,2,Sr,FALSE,3
+236,2002,285,4,Jake Vercelli,Purdue,6,2,Sr,FALSE,2
+237,2002,285,5,Garrett Lowney,Minnesota,4,-1,Sr,FALSE,2
+238,2002,285,6,Paul Hynek,Northern Iowa,9,3,Sr,FALSE,2
+239,2002,285,7,Dawid Rechul,Harvard,7,0,Sr,FALSE,1
+240,2002,285,8,Kevin Hoy,Air Force,8,0,Jr,TRUE,2
+241,2003,125,1,Travis Lee,Cornell,2,1,So,TRUE,4
+242,2003,125,2,Chris Fleeger,Purdue,1,-1,So,TRUE,3
+243,2003,125,3,Jason Powell,Nebraska,9,6,Jr,TRUE,3
+244,2003,125,4,A.J. Grant,Michigan,4,0,Sr,TRUE,2
+245,2003,125,5,Tony Black,Wisconsin,10,5,Sr,TRUE,1
+246,2003,125,6,Ben VomBaur,Boise State,3,-3,Sr,TRUE,2
+247,2003,125,7,Nick Simmons,Michigan State,5,-2,Fr,TRUE,4
+248,2003,125,8,Bobbe Lowe,Minnesota,US,5,So,TRUE,2
+249,2003,133,1,Johnny Thompson,Oklahoma State,1,0,Jr,TRUE,4
+250,2003,133,2,Ryan Lewis,Minnesota,3,1,Sr,TRUE,2
+251,2003,133,3,Josh Moore,Penn State,7,4,Jr,TRUE,2
+252,2003,133,4,Zach Roberson,Iowa State,5,1,Jr,TRUE,3
+253,2003,133,5,Rad Martinez,Clarion,US,8,Sr,TRUE,1
+254,2003,133,6,Cliff Moore,Iowa,2,-4,Jr,TRUE,3
+255,2003,133,7,Evan Sola,North Carolina,US,6,So,TRUE,2
+256,2003,133,8,Brandon Lauer,West Virginia,US,5,So,TRUE,1
+257,2003,141,1,Teyon Ware,Oklahoma,1,0,Fr,TRUE,4
+258,2003,141,2,Dylan Long,Northern Iowa,3,1,Sr,TRUE,1
+259,2003,141,3,Phillip Simpson,Army,8,5,Fr,TRUE,3
+260,2003,141,4,Scott Moore,Penn State,9,5,Jr,TRUE,2
+261,2003,141,5,Jason Mester,Central Michigan,4,-1,Jr,TRUE,2
+262,2003,141,6,Shane Cunanan,West Virginia,US,7,Sr,TRUE,1
+263,2003,141,7,Aaron Holker,Iowa State,5,-2,Sr,TRUE,2
+264,2003,141,8,Mike Maney,Lock Haven,6,-2,Sr,TRUE,2
+265,2003,149,1,Eric Larkin,Arizona State,1,0,Sr,TRUE,3
+266,2003,149,2,Jared Lawrence,Minnesota,2,0,Sr,TRUE,4
+267,2003,149,3,Jesse Jantzen,Harvard,3,0,Jr,TRUE,3
+268,2003,149,4,Jerrod Sanders,Oklahoma State,5,1,Jr,TRUE,1
+269,2003,149,5,Jake Percival,Ohio University,4,-1,So,TRUE,4
+270,2003,149,6,Collin Robertson,Boise State,6,0,Sr,TRUE,1
+271,2003,149,7,Jon Masa,Hofstra,7,0,So,TRUE,3
+272,2003,149,8,Dustin Manotti,Cornell,10,2,Fr,TRUE,4
+273,2003,157,1,Ryan Bertin,Michigan,6,5,So,TRUE,4
+274,2003,157,2,Alex Tirapelle,Illinois,9,7,Fr,TRUE,2
+275,2003,157,3,Shane Roller,Oklahoma State,3,0,Sr,TRUE,3
+276,2003,157,4,Luke Becker,Minnesota,1,-3,Sr,TRUE,4
+277,2003,157,5,Scott Owen,Northern Illinois,4,-1,Sr,TRUE,2
+278,2003,157,6,Keaton Anderson,Ohio State,2,-4,Sr,TRUE,1
+279,2003,157,7,Gray Maynard,Michigan State,5,-2,Sr,TRUE,3
+280,2003,157,8,Derek Zinck,Lehigh,7,-1,Fr,TRUE,2
+281,2003,165,1,Matt Lackey,Illinois,1,0,Sr,TRUE,3
+282,2003,165,2,Troy Letters,Lehigh,2,0,So,TRUE,3
+283,2003,165,3,Jacob Volkmann,Minnesota,4,1,Jr,TRUE,2
+284,2003,165,4,Matt King,Edinboro,9,5,Jr,TRUE,2
+285,2003,165,5,Tyrone Lewis,Oklahoma State,3,-2,Jr,TRUE,4
+286,2003,165,6,John Clark,Ohio State,6,0,So,TRUE,2
+287,2003,165,7,Frank Edwards,Navy,US,6,Jr,TRUE,1
+288,2003,165,8,Tyron Woodley,Missouri,5,-3,So,TRUE,2
+289,2003,174,1,Robbie Waller,Oklahoma,3,2,Sr,TRUE,2
+290,2003,174,2,Carl Fronhofer,Pittsburgh,US,11,Sr,TRUE,1
+291,2003,174,3,Chris Pendleton,Oklahoma State,2,-1,So,TRUE,3
+292,2003,174,4,Curtis Owen,Arizona State,10,6,Sr,TRUE,1
+293,2003,174,5,Brad Dillon,Lehigh,7,2,Jr,TRUE,2
+294,2003,174,6,Shane Webster,Oregon,12,6,So,TRUE,2
+295,2003,174,7,Mark Fee,Appalachian State,11,4,Sr,TRUE,2
+296,2003,174,8,Ryan Lange,Purdue,4,-4,Jr,TRUE,2
+297,2003,184,1,Jake Rosholt,Oklahoma State,10,9,Fr,TRUE,4
+298,2003,184,2,Scott Barker,Missouri,4,2,Jr,TRUE,2
+299,2003,184,3,Josh Lambrecht,Oklahoma,6,3,Jr,TRUE,3
+300,2003,184,4,Jessman Smith,Iowa,1,-3,Jr,TRUE,2
+301,2003,184,5,Clint Wattenberg,Cornell,3,-2,Sr,TRUE,2
+302,2003,184,6,Ben Heizer,Northern Illinois,9,3,Jr,TRUE,2
+303,2003,184,7,Mark Becks,Penn State,5,-2,Sr,TRUE,1
+304,2003,184,8,Greg Parker,Princeton,2,-6,Sr,TRUE,2
+305,2003,197,1,Damion Hahn,Minnesota,6,5,Jr,TRUE,4
+306,2003,197,2,Jon Trenge,Lehigh,1,-1,Jr,TRUE,3
+307,2003,197,3,Muhammed Lawal,Oklahoma State,2,-1,Sr,TRUE,1
+308,2003,197,4,Sean Stender,Northern Iowa,10,6,So,TRUE,3
+309,2003,197,5,Justin Ruiz,Nebraska,3,-2,Sr,TRUE,2
+310,2003,197,6,Chris Skretkowicz,Hofstra,4,-2,So,TRUE,2
+311,2003,197,7,Kyle Smith,Michigan,9,2,Sr,TRUE,2
+312,2003,197,8,Marcio Botelho,Fresno State,US,5,So,TRUE,1
+313,2003,285,1,Steve Mocco,Iowa,1,0,So,TRUE,4
+314,2003,285,2,Kevin Hoy,Air Force,2,0,Sr,TRUE,2
+315,2003,285,3,Boe Rushton,Boise State,5,2,Sr,TRUE,1
+316,2003,285,4,Pat Cummins,Penn State,7,3,Jr,TRUE,2
+317,2003,285,5,Kellan Fluckiger,Arizona State,4,-1,Sr,TRUE,1
+318,2003,285,6,Tommy Rowlands,Ohio State,3,-3,Jr,TRUE,4
+319,2003,285,7,Matt Feast,Pennsylvania,6,-1,So,TRUE,3
+320,2003,285,8,John Testa,Clarion,9,1,Sr,TRUE,1
+321,2004,125,1,Jason Powell,Nebraska,1,0,Sr,TRUE,3
+322,2004,125,2,Kyle Ott,Illinois,6,4,So,TRUE,2
+323,2004,125,3,Sam Hazewinkel,Oklahoma,5,2,Fr,TRUE,4
+324,2004,125,4,Mario Stuart,Lehigh,US,9,Sr,TRUE,2
+325,2004,125,5,Matt Valenti,Pennsylvania,3,-2,Fr,TRUE,3
+326,2004,125,6,Vic Moreno,Cal Poly,10,4,So,TRUE,2
+327,2004,125,7,Rob Rebmann,Drexel,US,6,Jr,TRUE,1
+328,2004,125,8,Joe Dubuque,Indiana,8,0,So,TRUE,3
+329,2004,133,1,Zach Roberson,Iowa State,5,4,Sr,TRUE,3
+330,2004,133,2,Josh Moore,Penn State,6,4,Sr,TRUE,2
+331,2004,133,3,Johnny Thompson,Oklahoma State,3,0,Sr,TRUE,4
+332,2004,133,4,Darrel Vasquez,Cal Poly,7,3,Fr,TRUE,2
+333,2004,133,5,Travis Lee,Cornell,1,-4,Jr,TRUE,4
+334,2004,133,6,Foley Dowd,Michigan,4,-2,Sr,TRUE,1
+335,2004,133,7,Mark Jayne,Illinois,2,-5,Jr,TRUE,2
+336,2004,133,8,Matt Sanchez,CSU Bakersfield,8,0,Jr,TRUE,2
+337,2004,141,1,Cliff Moore,Iowa,5,4,Sr,TRUE,3
+338,2004,141,2,Matt Murray,Nebraska,7,5,Jr,TRUE,1
+339,2004,141,3,Scott Moore,Virginia,1,-2,Sr,TRUE,2
+340,2004,141,4,Jason Mester,Central Michigan,4,0,Sr,TRUE,2
+341,2004,141,5,Nate Gallick,Iowa State,2,-3,So,TRUE,3
+342,2004,141,6,Teyon Ware,Oklahoma,3,-3,So,TRUE,4
+343,2004,141,7,Cory Cooperman,Lehigh,9,2,So,TRUE,3
+344,2004,141,8,Coyte Cooper,Indiana,8,0,Sr,TRUE,1
+345,2004,149,1,Jesse Jantzen,Harvard,1,0,Sr,TRUE,3
+346,2004,149,2,Zack Esposito,Oklahoma State,2,0,So,TRUE,3
+347,2004,149,3,Ryan Churella,Michigan,4,1,So,TRUE,3
+348,2004,149,4,Dustin Manotti,Cornell,6,2,So,TRUE,4
+349,2004,149,5,Jeremy Spates,Missouri,7,2,Sr,TRUE,1
+350,2004,149,6,Jeff Ecklof,Oklahoma,10,4,Jr,TRUE,1
+351,2004,149,7,Travis Shufelt,Nebraska,3,-4,Jr,TRUE,1
+352,2004,149,8,Jeff Ratliff,Ohio State,11,3,Sr,TRUE,1
+353,2004,157,1,Matt Gentry,Stanford,2,1,Jr,TRUE,1
+354,2004,157,2,Jake Percival,Ohio University,4,2,Jr,TRUE,4
+355,2004,157,3,Ryan Bertin,Michigan,3,0,Jr,TRUE,4
+356,2004,157,4,Alex Tirapelle,Illinois,1,-3,So,TRUE,2
+357,2004,157,5,Johny Hendricks,Oklahoma State,6,1,Fr,TRUE,4
+358,2004,157,6,Travis Paulson,Iowa State,10,4,Fr,TRUE,3
+359,2004,157,7,Kenny Burleson,Missouri,5,-2,Sr,TRUE,1
+360,2004,157,8,Phillip Simpson,Army,7,-1,So,TRUE,3
+361,2004,165,1,Troy Letters,Lehigh,2,1,Jr,TRUE,3
+362,2004,165,2,Tyrone Lewis,Oklahoma State,1,-1,Sr,TRUE,4
+363,2004,165,3,Matt King,Edinboro,3,0,Sr,TRUE,2
+364,2004,165,4,Jacob Volkmann,Minnesota,4,0,Sr,TRUE,2
+365,2004,165,5,John Clark,Ohio State,10,5,Jr,TRUE,2
+366,2004,165,6,David Bolyard,Central Michigan,7,1,Jr,TRUE,1
+367,2004,165,7,Jacob Klein,Nebraska,US,6,So,TRUE,2
+368,2004,165,8,Tim Foley,Virginia,11,3,Sr,TRUE,1
+369,2004,174,1,Chris Pendleton,Oklahoma State,1,0,Jr,TRUE,3
+370,2004,174,2,Ben Askren,Missouri,6,4,Fr,TRUE,4
+371,2004,174,3,Tyler Nixt,Iowa,2,-1,Sr,TRUE,1
+372,2004,174,4,Brad Dillon,Lehigh,3,-1,Sr,TRUE,2
+373,2004,174,5,Ryan Lange,Purdue,4,-1,Sr,TRUE,2
+374,2004,174,6,Eric Hauan,Northern Iowa,5,-1,Jr,TRUE,2
+375,2004,174,7,Pete Friedl,Illinois,9,2,So,TRUE,3
+376,2004,174,8,Nate Yetzer,Edinboro,7,-1,Jr,TRUE,1
+377,2004,184,1,Greg Jones,West Virginia,1,0,Jr,TRUE,3
+378,2004,184,2,Ben Heizer,Northern Illinois,2,0,Sr,TRUE,2
+379,2004,184,3,Jake Rosholt,Oklahoma State,3,0,So,TRUE,4
+380,2004,184,4,Paul Bradley,Iowa,12,8,So,TRUE,2
+381,2004,184,5,Blake Kaplan,Ohio State,US,8,Sr,TRUE,1
+382,2004,184,6,Brian Glynn,Illinois,9,3,Jr,TRUE,2
+383,2004,184,7,Kurt Backes,Iowa State,8,1,Fr,TRUE,2
+384,2004,184,8,Travis Frick,Lehigh,10,2,Jr,TRUE,2
+385,2004,197,1,Damion Hahn,Minnesota,1,0,Sr,TRUE,4
+386,2004,197,2,Ryan Fulsaas,Iowa,10,8,Sr,TRUE,1
+387,2004,197,3,J.D. Bergman,Ohio State,US,10,Fr,TRUE,3
+388,2004,197,4,Ryan Bader,Arizona State,4,0,So,TRUE,2
+389,2004,197,5,Chris Skretkowicz,Hofstra,2,-3,Jr,TRUE,2
+390,2004,197,6,Sean Stender,Northern Iowa,3,-3,Jr,TRUE,3
+391,2004,197,7,Matt Greenberg,Cornell,8,1,Sr,TRUE,1
+392,2004,197,8,Kyle Cerminara,Buffalo,US,5,Jr,TRUE,1
+393,2004,285,1,Tommy Rowlands,Ohio State,1,0,Sr,TRUE,4
+394,2004,285,2,Pat Cummins,Penn State,2,0,Sr,TRUE,2
+395,2004,285,3,Leonce Crump,Oklahoma,4,1,Sr,TRUE,2
+396,2004,285,4,Cole Konrad,Minnesota,5,1,Fr,TRUE,4
+397,2004,285,5,Matt Feast,Pennsylvania,3,-2,Jr,TRUE,3
+398,2004,285,6,Greg Wagner,Michigan,6,0,So,TRUE,3
+399,2004,285,7,Willie Gruenwald,Oklahoma State,10,3,So,TRUE,1
+400,2004,285,8,Scott Coleman,Iowa State,12,4,Jr,TRUE,2
+401,2005,125,1,Joe Dubuque,Indiana,5,4,Jr,TRUE,3
+402,2005,125,2,Kyle Ott,Illinois,3,1,Jr,TRUE,2
+403,2005,125,3,Sam Hazewinkel,Oklahoma,1,-2,So,TRUE,4
+404,2005,125,4,Nick Simmons,Michigan State,2,-2,So,TRUE,4
+405,2005,125,5,Efren Ceballos,CSU Bakersfield,6,1,Sr,TRUE,1
+406,2005,125,6,Vic Moreno,Cal Poly,4,-2,Jr,TRUE,2
+407,2005,125,7,Bobbe Lowe,Minnesota,8,1,Sr,TRUE,2
+408,2005,125,8,Coleman Scott,Oklahoma State,9,1,Fr,TRUE,4
+409,2005,133,1,Travis Lee,Cornell,1,0,Sr,TRUE,4
+410,2005,133,2,Shawn Bunch,Edinboro,2,0,Jr,TRUE,2
+411,2005,133,3,Tom Clum,Wisconsin,5,2,Jr,TRUE,2
+412,2005,133,4,Mack Reiter,Minnesota,3,-1,Fr,TRUE,3
+413,2005,133,5,Matt Sanchez,CSU Bakersfield,10,5,Sr,TRUE,2
+414,2005,133,6,Evan Sola,North Carolina,11,5,Jr,TRUE,2
+415,2005,133,7,Mark Jayne,Illinois,4,-3,Sr,TRUE,2
+416,2005,133,8,Drew Headlee,Pittsburgh,US,5,So,TRUE,1
+417,2005,141,1,Teyon Ware,Oklahoma,2,1,Jr,TRUE,4
+418,2005,141,2,Nate Gallick,Iowa State,1,-1,Jr,TRUE,3
+419,2005,141,3,Cory Cooperman,Lehigh,4,1,Jr,TRUE,3
+420,2005,141,4,Daniel Frishkorn,Oklahoma State,7,3,Fr,TRUE,1
+421,2005,141,5,Michael Keefe,Tennessee-Chattanooga,11,6,So,TRUE,1
+422,2005,141,6,Andy Simmons,Michigan State,5,-1,Jr,TRUE,2
+423,2005,141,7,Casio Pero,Illinois,12,5,Jr,TRUE,1
+424,2005,141,8,Josh Churella,Michigan,3,-5,Fr,TRUE,3
+425,2005,149,1,Zack Esposito,Oklahoma State,1,0,Jr,TRUE,3
+426,2005,149,2,Phillip Simpson,Army,2,0,Jr,TRUE,3
+427,2005,149,3,Jon Masa,Hofstra,9,6,Jr,TRUE,3
+428,2005,149,4,Eric Tannenbaum,Michigan,5,1,Fr,TRUE,4
+429,2005,149,5,Ty Eustice,Iowa,6,1,Jr,TRUE,2
+430,2005,149,6,Dustin Manotti,Cornell,3,-3,Jr,TRUE,4
+431,2005,149,7,Matt Storniolo,Oklahoma,4,-3,So,TRUE,2
+432,2005,149,8,Mark DiSalvo,Central Michigan,10,2,Jr,TRUE,2
+433,2005,157,1,Ryan Bertin,Michigan,2,1,Sr,TRUE,4
+434,2005,157,2,Joe Johnston,Iowa,8,6,Jr,TRUE,2
+435,2005,157,3,Jake Percival,Ohio University,5,2,Sr,TRUE,4
+436,2005,157,4,Trent Paulson,Iowa State,6,2,So,TRUE,3
+437,2005,157,5,Brandon Becker,Indiana,US,8,Fr,TRUE,3
+438,2005,157,6,Brian Stith,Arizona State,10,4,So,TRUE,2
+439,2005,157,7,Matt Lebe,West Virginia,7,0,Sr,TRUE,1
+440,2005,157,8,Chris Horning,Clarion,11,3,Sr,TRUE,1
+441,2005,165,1,Johny Hendricks,Oklahoma State,3,2,So,TRUE,4
+442,2005,165,2,Mark Perry,Iowa,4,2,Fr,TRUE,4
+443,2005,165,3,Troy Letters,Lehigh,1,-2,Sr,TRUE,3
+444,2005,165,4,Ryan Churella,Michigan,2,-2,Jr,TRUE,3
+445,2005,165,5,John Sioredas,Tennessee-Chattanooga,6,1,Sr,TRUE,1
+446,2005,165,6,Matt Nagel,Minnesota,10,4,Jr,TRUE,1
+447,2005,165,7,Tyron Woodley,Missouri,5,-2,Sr,TRUE,2
+448,2005,165,8,Matt Palmer,Columbia,US,5,Fr,TRUE,2
+449,2005,174,1,Chris Pendleton,Oklahoma State,1,0,Sr,TRUE,3
+450,2005,174,2,Ben Askren,Missouri,2,0,So,TRUE,4
+451,2005,174,3,Jake Herbert,Northwestern,4,1,Fr,TRUE,4
+452,2005,174,4,Pete Friedl,Illinois,3,-1,Jr,TRUE,3
+453,2005,174,5,Joe Mazzurco,Cornell,5,0,Jr,TRUE,2
+454,2005,174,6,Eric Hauan,Northern Iowa,9,3,Sr,TRUE,2
+455,2005,174,7,Mitch Hancock,Central Michigan,6,-1,Sr,TRUE,1
+456,2005,174,8,Daniel Waters,American,US,5,Sr,TRUE,1
+457,2005,184,1,Greg Jones,West Virginia,1,0,Sr,TRUE,3
+458,2005,184,2,Tyler Baier,Cornell,7,5,Sr,TRUE,1
+459,2005,184,3,Brian Glynn,Illinois,5,2,Sr,TRUE,2
+460,2005,184,4,Eric Bradley,Penn State,4,0,Jr,TRUE,2
+461,2005,184,5,Paul Bradley,Iowa,8,3,Jr,TRUE,2
+462,2005,184,6,Travis Pascoe,Nebraska,3,-3,Sr,TRUE,1
+463,2005,184,7,Matt Pell,Missouri,US,6,So,TRUE,2
+464,2005,184,8,Ben Wissel,Purdue,US,5,Jr,TRUE,2
+465,2005,197,1,Jake Rosholt,Oklahoma State,2,1,Jr,TRUE,4
+466,2005,197,2,Sean Stender,Northern Iowa,5,3,Sr,TRUE,3
+467,2005,197,3,Jon Trenge,Lehigh,1,-2,Sr,TRUE,3
+468,2005,197,4,Joel Flaggert,Oklahoma,US,9,So,TRUE,2
+469,2005,197,5,B.J. Padden,Nebraska,11,6,Jr,TRUE,2
+470,2005,197,6,Wynn Michalak,Central Michigan,12,6,Fr,TRUE,3
+471,2005,197,7,Phil Davis,Penn State,US,6,Fr,TRUE,4
+472,2005,197,8,Ryan Flaherty,Wisconsin,US,5,Jr,TRUE,1
+473,2005,285,1,Steve Mocco,Oklahoma State,1,0,Jr,TRUE,4
+474,2005,285,2,Cole Konrad,Minnesota,2,0,So,TRUE,4
+475,2005,285,3,Pat DeGain,Indiana,4,1,Sr,TRUE,1
+476,2005,285,4,Greg Wagner,Michigan,5,1,Jr,TRUE,3
+477,2005,285,5,Cain Velasquez,Arizona State,3,-2,Jr,TRUE,2
+478,2005,285,6,Matt Feast,Pennsylvania,6,0,Sr,TRUE,3
+479,2005,285,7,Scott Coleman,Iowa State,10,3,Sr,TRUE,2
+480,2005,285,8,Bill Stouffer,Central Michigan,7,-1,Sr,TRUE,1
+481,2006,125,1,Joe Dubuque,Indiana,3,2,Sr,TRUE,3
+482,2006,125,2,Troy Nickerson,Cornell,5,3,Fr,TRUE,4
+483,2006,125,3,Sam Hazewinkel,Oklahoma,2,-1,Jr,TRUE,4
+484,2006,125,4,Nick Simmons,Michigan State,1,-3,Jr,TRUE,4
+485,2006,125,5,Coleman Scott,Oklahoma State,6,1,So,TRUE,4
+486,2006,125,6,Chad Mendes,Cal Poly,9,3,So,TRUE,2
+487,2006,125,7,John Velez,Northwestern,8,1,Jr,TRUE,1
+488,2006,125,8,Tanner Gardner,Stanford,12,4,So,TRUE,3
+489,2006,133,1,Matt Valenti,Pennsylvania,6,5,Jr,TRUE,3
+490,2006,133,2,Chris Fleeger,Purdue,5,3,Sr,TRUE,3
+491,2006,133,3,Shawn Bunch,Edinboro,1,-2,Sr,TRUE,2
+492,2006,133,4,Mack Reiter,Minnesota,4,0,So,TRUE,3
+493,2006,133,5,Tom Clum,Wisconsin,3,-2,Sr,TRUE,2
+494,2006,133,6,Nathan Morgan,Oklahoma State,2,-4,So,TRUE,3
+495,2006,133,7,Tyler McCormick,Missouri,US,6,So,TRUE,2
+496,2006,133,8,Matt Keller,Tennessee-Chattanooga,8,0,Jr,TRUE,2
+497,2006,141,1,Nate Gallick,Iowa State,1,0,Sr,TRUE,3
+498,2006,141,2,Teyon Ware,Oklahoma,2,0,Sr,TRUE,4
+499,2006,141,3,Cory Cooperman,Lehigh,3,0,Sr,TRUE,3
+500,2006,141,4,Ryan Lang,Northwestern,US,9,So,TRUE,2
+501,2006,141,5,Andy Simmons,Michigan State,4,-1,Sr,TRUE,2
+502,2006,141,6,Brandon Rader,West Virginia,9,3,So,TRUE,2
+503,2006,141,7,Alex Tsirtsis,Iowa,7,0,So,TRUE,1
+504,2006,141,8,David Hoffman,Virginia Tech,US,5,Sr,TRUE,1
+505,2006,149,1,Dustin Schlatter,Minnesota,1,0,Fr,TRUE,3
+506,2006,149,2,Ty Eustice,Iowa,2,0,Sr,TRUE,2
+507,2006,149,3,Zack Esposito,Oklahoma State,3,0,Sr,TRUE,3
+508,2006,149,4,Matt Storniolo,Oklahoma,4,0,Jr,TRUE,2
+509,2006,149,5,Jon Masa,Hofstra,6,1,Sr,TRUE,3
+510,2006,149,6,Eric Tannenbaum,Michigan,8,2,So,TRUE,4
+511,2006,149,7,Gregor Gillespie,Edinboro,7,0,Fr,TRUE,4
+512,2006,149,8,Mark DiSalvo,Central Michigan,5,-3,Sr,TRUE,2
+513,2006,157,1,Ben Cherrington,Boise State,5,4,Sr,TRUE,1
+514,2006,157,2,Brian Stith,Arizona State,10,8,Jr,TRUE,2
+515,2006,157,3,Dustin Manotti,Cornell,7,4,Sr,TRUE,4
+516,2006,157,4,Trent Paulson,Iowa State,1,-3,Jr,TRUE,3
+517,2006,157,5,Derek Zinck,Lehigh,11,6,Sr,TRUE,2
+518,2006,157,6,Joe Johnston,Iowa,9,3,Sr,TRUE,2
+519,2006,157,7,Brandon Becker,Indiana,6,-1,So,TRUE,3
+520,2006,157,8,Craig Henning,Wisconsin,8,0,Jr,TRUE,2
+521,2006,165,1,Johny Hendricks,Oklahoma State,2,1,Jr,TRUE,4
+522,2006,165,2,Ryan Churella,Michigan,1,-1,Sr,TRUE,3
+523,2006,165,3,Muzaffar Abdurakhmanov,American,3,0,Sr,TRUE,1
+524,2006,165,4,Deonte Penn,Edinboro,US,9,Jr,TRUE,2
+525,2006,165,5,Joey Bracamonte,Oregon,US,8,Sr,TRUE,1
+526,2006,165,6,Travis Paulson,Iowa State,8,2,Jr,TRUE,3
+527,2006,165,7,Dan Thompson,Citadel,US,6,Sr,TRUE,1
+528,2006,165,8,Eric Luedke,Iowa,US,5,Jr,TRUE,2
+529,2006,174,1,Ben Askren,Missouri,1,0,Jr,TRUE,4
+530,2006,174,2,Jake Herbert,Northwestern,2,0,So,TRUE,4
+531,2006,174,3,Mark Perry,Iowa,3,0,So,TRUE,4
+532,2006,174,4,Mike Patrovich,Hofstra,5,1,Jr,TRUE,2
+533,2006,174,5,Matt Herrington,Pennsylvania,12,7,Jr,TRUE,1
+534,2006,174,6,Travis Frick,Lehigh,8,2,Sr,TRUE,2
+535,2006,174,7,Jacob Klein,Nebraska,4,-3,Sr,TRUE,2
+536,2006,174,8,James Yonushonis,Penn State,9,1,Sr,TRUE,1
+537,2006,184,1,Shane Webster,Oregon,5,4,Sr,TRUE,2
+538,2006,184,2,Roger Kish,Minnesota,2,0,So,TRUE,2
+539,2006,184,3,Pete Friedl,Illinois,6,3,Sr,TRUE,3
+540,2006,184,4,Josh Glenn,American,1,-3,So,TRUE,3
+541,2006,184,5,C.B. Dollaway,Arizona State,10,5,Sr,TRUE,1
+542,2006,184,6,Joe Mazzurco,Cornell,4,-2,Sr,TRUE,2
+543,2006,184,7,Ben Wissel,Purdue,3,-4,Sr,TRUE,2
+544,2006,184,8,Eric Bradley,Penn State,8,0,Sr,TRUE,2
+545,2006,197,1,Jake Rosholt,Oklahoma State,4,3,Sr,TRUE,4
+546,2006,197,2,Phil Davis,Penn State,6,4,So,TRUE,4
+547,2006,197,3,B.J. Padden,Nebraska,3,0,Sr,TRUE,2
+548,2006,197,4,Jerry Rinaldi,Cornell,7,3,Jr,TRUE,2
+549,2006,197,5,Joel Flaggert,Oklahoma,5,0,Jr,TRUE,2
+550,2006,197,6,Chris Weidman,Hofstra,US,7,Jr,TRUE,2
+551,2006,197,7,Ryan Bader,Arizona State,8,1,Sr,TRUE,2
+552,2006,197,8,Wynn Michalak,Central Michigan,1,-7,So,TRUE,3
+553,2006,285,1,Cole Konrad,Minnesota,1,0,Jr,TRUE,4
+554,2006,285,2,Steve Mocco,Oklahoma State,2,0,Sr,TRUE,4
+555,2006,285,3,Greg Wagner,Michigan,3,0,Sr,TRUE,3
+556,2006,285,4,Cain Velasquez,Arizona State,4,0,Sr,TRUE,2
+557,2006,285,5,Mike Faust,Virginia Tech,8,3,Sr,TRUE,1
+558,2006,285,6,Bode Ogunwole,Harvard,5,-1,Jr,TRUE,1
+559,2006,285,7,Jake Hager,Oklahoma,7,0,Sr,TRUE,1
+560,2006,285,8,Kirk Nail,Ohio State,US,5,Sr,TRUE,1
+561,2007,125,1,Paul Donahoe,Nebraska,6,5,So,TRUE,3
+562,2007,125,2,Sam Hazewinkel,Oklahoma,1,-1,Sr,TRUE,4
+563,2007,125,3,Troy Nickerson,Cornell,2,-1,So,TRUE,4
+564,2007,125,4,Angel Escobedo,Indiana,7,3,Fr,TRUE,4
+565,2007,125,5,Jayson Ness,Minnesota,4,-1,Fr,TRUE,4
+566,2007,125,6,Ode Blanc,Lock Haven,9,3,Jr,TRUE,1
+567,2007,125,7,Tanner Gardner,Stanford,3,-4,Jr,TRUE,3
+568,2007,125,8,Charlie Falck,Iowa,5,-3,So,TRUE,2
+569,2007,133,1,Matt Valenti,Pennsylvania,2,1,Sr,TRUE,3
+570,2007,133,2,Coleman Scott,Oklahoma State,4,2,Jr,TRUE,4
+571,2007,133,3,Nick Simmons,Michigan State,1,-2,Sr,TRUE,4
+572,2007,133,4,Matt Keller,Tennessee-Chattanooga,5,1,Sr,TRUE,2
+573,2007,133,5,Darrel Vasquez,Cal Poly,6,1,Sr,TRUE,2
+574,2007,133,6,Tyler McCormick,Missouri,8,2,Jr,TRUE,2
+575,2007,133,7,Jake Strayer,Penn State,US,6,So,TRUE,1
+576,2007,133,8,Andrae Hernandez,Indiana,US,5,So,TRUE,1
+577,2007,141,1,Derek Moore,California-Davis,2,1,Sr,TRUE,1
+578,2007,141,2,Ryan Lang,Northwestern,1,-1,Jr,TRUE,2
+579,2007,141,3,Charles Griffin,Hofstra,11,8,Jr,TRUE,2
+580,2007,141,4,Nathan Morgan,Oklahoma State,3,-1,Jr,TRUE,3
+581,2007,141,5,Don Fisch,Rider,US,8,Jr,TRUE,1
+582,2007,141,6,Brandon Rader,West Virginia,7,1,Jr,TRUE,2
+583,2007,141,7,J Jaggers,Ohio State,US,6,So,TRUE,3
+584,2007,141,8,Max Meltzer,Harvard,US,5,Sr,TRUE,1
+585,2007,149,1,Gregor Gillespie,Edinboro,5,4,So,TRUE,4
+586,2007,149,2,Josh Churella,Michigan,3,1,Jr,TRUE,3
+587,2007,149,3,Dustin Schlatter,Minnesota,1,-2,So,TRUE,3
+588,2007,149,4,Lance Palmer,Ohio State,10,6,Fr,TRUE,4
+589,2007,149,5,J.P. O'Connor,Harvard,6,1,Fr,TRUE,3
+590,2007,149,6,Tyler Turner,Wisconsin,US,7,Sr,TRUE,1
+591,2007,149,7,Matt Coughlin,Indiana,US,6,Fr,TRUE,1
+592,2007,149,8,Jordan Leen,Cornell,4,-4,So,TRUE,3
+593,2007,157,1,Trent Paulson,Iowa State,1,0,Sr,TRUE,3
+594,2007,157,2,Craig Henning,Wisconsin,7,5,Sr,TRUE,2
+595,2007,157,3,Michael Poeta,Illinois,5,2,So,TRUE,3
+596,2007,157,4,James Strouse,Hofstra,3,-1,Jr,TRUE,1
+597,2007,157,5,Matt Kocher,Pittsburgh,11,6,Jr,TRUE,1
+598,2007,157,6,C.P. Schlatter,Minnesota,4,-2,Jr,TRUE,1
+599,2007,157,7,Josh Zupancic,Stanford,US,6,Jr,TRUE,2
+600,2007,157,8,Ryan Hluschak,Drexel,US,5,Jr,TRUE,1
+601,2007,165,1,Mark Perry,Iowa,2,1,Jr,TRUE,4
+602,2007,165,2,Johny Hendricks,Oklahoma State,1,-1,Sr,TRUE,4
+603,2007,165,3,Matt Pell,Missouri,9,6,Sr,TRUE,2
+604,2007,165,4,Eric Tannenbaum,Michigan,3,-1,Jr,TRUE,4
+605,2007,165,5,Travis Paulson,Iowa State,4,-1,Sr,TRUE,3
+606,2007,165,6,Mike Patrovich,Hofstra,6,0,Sr,TRUE,2
+607,2007,165,7,Deonte Penn,Edinboro,7,0,Sr,TRUE,2
+608,2007,165,8,Mike Miller,Central Michigan,US,5,So,TRUE,2
+609,2007,174,1,Ben Askren,Missouri,1,0,Sr,TRUE,4
+610,2007,174,2,Keith Gavin,Pittsburgh,2,0,Jr,TRUE,2
+611,2007,174,3,Eric Luedke,Iowa,5,2,Sr,TRUE,2
+612,2007,174,4,Matt Stolpinski,Navy,8,4,Jr,TRUE,2
+613,2007,174,5,Brandon Mason,Oklahoma State,US,8,So,TRUE,1
+614,2007,174,6,Steve Luke,Michigan,3,-3,So,TRUE,3
+615,2007,174,7,Brandon Sinnott,Central Michigan,7,0,Jr,TRUE,2
+616,2007,174,8,Matt Palmer,Columbia,9,1,Jr,TRUE,2
+617,2007,184,1,Jake Herbert,Northwestern,1,0,Jr,TRUE,4
+618,2007,184,2,Jake Varner,Iowa State,6,4,Fr,TRUE,4
+619,2007,184,3,Roger Kish,Minnesota,2,-1,Jr,TRUE,2
+620,2007,184,4,Alex Clemsen,Edinboro,7,3,Sr,TRUE,1
+621,2007,184,5,Tyler Todd,Michigan,4,-1,So,TRUE,2
+622,2007,184,6,Mike Pucillo,Ohio State,3,-3,Fr,TRUE,3
+623,2007,184,7,Louis Caputo,Harvard,10,3,So,TRUE,2
+624,2007,184,8,Josh Arnone,Cornell,US,5,So,TRUE,1
+625,2007,197,1,Josh Glenn,American,2,1,Jr,TRUE,3
+626,2007,197,2,Kurt Backes,Iowa State,9,7,Sr,TRUE,2
+627,2007,197,3,Chris Weidman,Hofstra,11,8,Sr,TRUE,2
+628,2007,197,4,J.D. Bergman,Ohio State,6,2,Jr,TRUE,3
+629,2007,197,5,Phil Davis,Penn State,4,-1,Jr,TRUE,4
+630,2007,197,6,Jerry Rinaldi,Cornell,5,-1,Sr,TRUE,2
+631,2007,197,7,Mike Tamillow,Northwestern,3,-4,Jr,TRUE,1
+632,2007,197,8,Nick Roy,Michigan,US,5,Sr,TRUE,1
+633,2007,285,1,Cole Konrad,Minnesota,1,0,Sr,TRUE,4
+634,2007,285,2,Aaron Anspach,Penn State,2,0,Sr,TRUE,1
+635,2007,285,3,Dustin Fox,Northwestern,4,1,Jr,TRUE,2
+636,2007,285,4,Ty Watterson,Oregon State,5,1,Sr,TRUE,1
+637,2007,285,5,Bubba Gritter,Central Michigan,3,-2,Jr,TRUE,2
+638,2007,285,6,Wade Sauer,Cal State-Fullerton,12,6,So,TRUE,1
+639,2007,285,7,Payam Zarrinpour,Sacred Heart,US,6,Sr,TRUE,1
+640,2007,285,8,Mike Spaid,Bloomsburg,9,1,Sr,TRUE,1
+641,2008,125,1,Angel Escobedo,Indiana,1,0,So,TRUE,4
+642,2008,125,2,Jayson Ness,Minnesota,2,0,So,TRUE,4
+643,2008,125,3,Paul Donahoe,Nebraska,3,0,Jr,TRUE,3
+644,2008,125,4,Mark McKnight,Penn State,US,9,Sr,TRUE,1
+645,2008,125,5,Tanner Gardner,Stanford,4,-1,Sr,TRUE,3
+646,2008,125,6,Charlie Falck,Iowa,5,-1,Jr,TRUE,2
+647,2008,125,7,Brandon Precin,Northwestern,8,1,So,TRUE,3
+648,2008,125,8,James Nicholson,Old Dominion,10,2,Fr,TRUE,2
+649,2008,133,1,Coleman Scott,Oklahoma State,3,2,Sr,TRUE,4
+650,2008,133,2,Joey Slaton,Iowa,4,2,So,TRUE,1
+651,2008,133,3,Frank Gomez,Michigan State,1,-2,So,TRUE,3
+652,2008,133,4,James Kennedy,Illinois,2,-2,So,TRUE,3
+653,2008,133,5,Mack Reiter,Minnesota,8,3,Sr,TRUE,3
+654,2008,133,6,Mike Grey,Cornell,7,1,Fr,TRUE,2
+655,2008,133,7,Nick Fanthorpe,Iowa State,5,-2,So,TRUE,1
+656,2008,133,8,Joe Baker,Navy,11,3,Jr,TRUE,2
+657,2008,141,1,J Jaggers,Ohio State,6,5,Jr,TRUE,3
+658,2008,141,2,Chad Mendes,Cal Poly,1,-1,Sr,TRUE,2
+659,2008,141,3,Charles Griffin,Hofstra,2,-1,Sr,TRUE,2
+660,2008,141,4,Nathan Morgan,Oklahoma State,4,0,Sr,TRUE,3
+661,2008,141,5,Nick Gallick,Iowa State,9,4,So,TRUE,2
+662,2008,141,6,Matt Kyler,Army,US,7,So,TRUE,1
+663,2008,141,7,Manny Rivera,Minnesota,5,-2,Sr,TRUE,1
+664,2008,141,8,Cody Cleveland,Tennessee-Chattanooga,10,2,So,TRUE,1
+665,2008,149,1,Brent Metcalf,Iowa,1,0,So,TRUE,3
+666,2008,149,2,Bubba Jenkins,Penn State,6,4,So,TRUE,2
+667,2008,149,3,Jordan Burroughs,Nebraska,4,1,So,TRUE,3
+668,2008,149,4,Josh Churella,Michigan,5,1,Sr,TRUE,3
+669,2008,149,5,Darrion Caldwell,North Carolina State,7,2,So,TRUE,2
+670,2008,149,6,J.P. O'Connor,Harvard,3,-3,So,TRUE,3
+671,2008,149,7,Dustin Schlatter,Minnesota,2,-5,Jr,TRUE,3
+672,2008,149,8,Lance Palmer,Ohio State,9,1,So,TRUE,4
+673,2008,157,1,Jordan Leen,Cornell,8,7,Jr,TRUE,3
+674,2008,157,2,Michael Poeta,Illinois,2,0,Jr,TRUE,3
+675,2008,157,3,Dan Vallimont,Penn State,3,0,So,TRUE,2
+676,2008,157,4,Brandon Becker,Indiana,4,0,Sr,TRUE,3
+677,2008,157,5,Gregor Gillespie,Edinboro,1,-4,Jr,TRUE,4
+678,2008,157,6,Josh Zupancic,Stanford,12,6,Sr,TRUE,2
+679,2008,157,7,Cyler Sanderson,Iowa State,7,0,So,TRUE,2
+680,2008,157,8,Matt Moley,Bloomsburg,US,5,So,TRUE,2
+681,2008,165,1,Mark Perry,Iowa,2,1,Sr,TRUE,4
+682,2008,165,2,Eric Tannenbaum,Michigan,1,-1,Sr,TRUE,4
+683,2008,165,3,Nick Marable,Missouri,3,0,So,TRUE,2
+684,2008,165,4,Mack Lewnes,Cornell,4,0,Fr,TRUE,3
+685,2008,165,5,Moza Fay,Northern Iowa,8,3,Jr,TRUE,2
+686,2008,165,6,Michael Cannon,American,10,4,So,TRUE,3
+687,2008,165,7,Jonathan Reader,Iowa State,6,-1,Fr,TRUE,3
+688,2008,165,8,Stephen Dwyer,Nebraska,5,-3,So,TRUE,2
+689,2008,174,1,Keith Gavin,Pittsburgh,1,0,Sr,TRUE,2
+690,2008,174,2,Steve Luke,Michigan,2,0,Jr,TRUE,3
+691,2008,174,3,Jay Borschel,Iowa,4,1,So,TRUE,2
+692,2008,174,4,Brandon Browne,Nebraska,3,-1,Jr,TRUE,1
+693,2008,174,5,Brandon Sinnott,Central Michigan,5,0,Sr,TRUE,2
+694,2008,174,6,Steve Anceravage,Cornell,11,5,Jr,TRUE,2
+695,2008,174,7,Matt Stolpinski,Navy,7,0,Sr,TRUE,2
+696,2008,174,8,Alton Lucas,Hofstra,6,-2,Jr,TRUE,1
+697,2008,184,1,Mike Pucillo,Ohio State,2,1,So,TRUE,3
+698,2008,184,2,Jake Varner,Iowa State,1,-1,So,TRUE,4
+699,2008,184,3,Tyler Todd,Michigan,3,0,Jr,TRUE,2
+700,2008,184,4,Christian Sinnott,Central Michigan,4,0,Sr,TRUE,1
+701,2008,184,5,Raymond Jordan,Missouri,6,1,Jr,TRUE,2
+702,2008,184,6,Phillip Keddy,Iowa,7,1,So,TRUE,3
+703,2008,184,7,Jack Jensen,Oklahoma State,12,5,Sr,TRUE,1
+704,2008,184,8,Kirk Smith,Boise State,10,2,So,TRUE,2
+705,2008,197,1,Phil Davis,Penn State,2,1,Sr,TRUE,4
+706,2008,197,2,Wynn Michalak,Central Michigan,4,2,Sr,TRUE,3
+707,2008,197,3,Hudson Taylor,Maryland,7,4,So,TRUE,3
+708,2008,197,4,Craig Brester,Nebraska,8,4,So,TRUE,3
+709,2008,197,5,Josh Glenn,American,1,-4,Sr,TRUE,3
+710,2008,197,6,Dallas Herbst,Wisconsin,6,0,Jr,TRUE,1
+711,2008,197,7,Max Askren,Missouri,5,-2,So,TRUE,3
+712,2008,197,8,David Bertolino,Iowa State,US,5,Sr,TRUE,1
+713,2008,285,1,Dustin Fox,Northwestern,1,0,Sr,TRUE,2
+714,2008,285,2,J.D. Bergman,Ohio State,2,0,Sr,TRUE,3
+715,2008,285,3,Ed Prendergast,Navy,3,0,Sr,TRUE,1
+716,2008,285,4,Jared Rosholt,Oklahoma State,5,1,So,TRUE,3
+717,2008,285,5,Matt Fields,Iowa,4,-1,Sr,TRUE,1
+718,2008,285,6,David Zabriskie,Iowa State,7,1,So,TRUE,3
+719,2008,285,7,Bubba Gritter,Central Michigan,8,1,Sr,TRUE,2
+720,2008,285,8,Kyle Massey,Wisconsin,6,-2,Jr,TRUE,1
+721,2009,125,1,Troy Nickerson,Cornell,2,1,Jr,TRUE,4
+722,2009,125,2,Paul Donahoe,Edinboro,1,-1,Sr,TRUE,3
+723,2009,125,3,Brandon Precin,Northwestern,4,1,Jr,TRUE,3
+724,2009,125,4,Anthony Robles,Arizona State,12,8,So,TRUE,3
+725,2009,125,5,Angel Escobedo,Indiana,3,-2,Jr,TRUE,4
+726,2009,125,6,Zachary Sanders,Minnesota,11,5,Fr,TRUE,4
+727,2009,125,7,Scott Sentes,Central Michigan,10,3,Fr,TRUE,2
+728,2009,125,8,Nic Bedelyon,Kent State,US,5,So,TRUE,2
+729,2009,133,1,Frank Gomez,Michigan State,1,0,Jr,TRUE,3
+730,2009,133,2,Reece Humphrey,Ohio State,2,0,Jr,TRUE,2
+731,2009,133,3,Jayson Ness,Minnesota,6,3,Jr,TRUE,4
+732,2009,133,4,Andrew Hochstrasser,Boise State,5,1,So,TRUE,2
+733,2009,133,5,James Kennedy,Illinois,3,-2,Jr,TRUE,3
+734,2009,133,6,Steve Bell,Maryland,12,6,Jr,TRUE,2
+735,2009,133,7,Daniel Dennis,Iowa,4,-3,Jr,TRUE,2
+736,2009,133,8,Joe Baker,Navy,8,0,Sr,TRUE,2
+737,2009,141,1,J Jaggers,Ohio State,3,2,Sr,TRUE,3
+738,2009,141,2,Ryan Williams,Old Dominion,8,6,Sr,TRUE,1
+739,2009,141,3,Nick Gallick,Iowa State,6,3,Jr,TRUE,2
+740,2009,141,4,Zach Tanelli,Wisconsin,2,-2,Sr,TRUE,1
+741,2009,141,5,Alex Krom,Maryland,US,8,Jr,TRUE,1
+742,2009,141,6,Chris Drouin,Arizona State,7,1,So,TRUE,1
+743,2009,141,7,Kellan Russell,Michigan,1,-6,So,TRUE,3
+744,2009,141,8,Frank Molinaro,Penn State,US,5,Fr,TRUE,4
+745,2009,149,1,Darrion Caldwell,North Carolina State,3,2,Jr,TRUE,2
+746,2009,149,2,Brent Metcalf,Iowa,1,-1,Jr,TRUE,3
+747,2009,149,3,Kyle Ruschell,Wisconsin,5,2,Jr,TRUE,2
+748,2009,149,4,Lance Palmer,Ohio State,4,0,Jr,TRUE,4
+749,2009,149,5,Jake Patacsil,Purdue,6,1,Sr,TRUE,1
+750,2009,149,6,Bryce Saddoris,Navy,7,1,So,TRUE,2
+751,2009,149,7,Kyle Borshoff,American,10,3,Jr,TRUE,2
+752,2009,149,8,Heinrich Barnes,Oregon State,US,5,Sr,TRUE,1
+753,2009,157,1,Jordan Burroughs,Nebraska,1,0,Jr,TRUE,3
+754,2009,157,2,Michael Poeta,Illinois,2,0,Sr,TRUE,3
+755,2009,157,3,Jordan Leen,Cornell,3,0,Sr,TRUE,3
+756,2009,157,4,Gregor Gillespie,Edinboro,4,0,Sr,TRUE,4
+757,2009,157,5,Michael Chandler,Missouri,6,1,Sr,TRUE,1
+758,2009,157,6,Matt Moley,Bloomsburg,7,1,Jr,TRUE,2
+759,2009,157,7,Chase Pami,Cal Poly,11,4,Jr,TRUE,2
+760,2009,157,8,Tyler Safratowich,Minnesota,US,5,Jr,TRUE,1
+761,2009,165,1,Jarrod King,Edinboro,12,11,Jr,TRUE,2
+762,2009,165,2,Andrew Howe,Wisconsin,2,0,Fr,TRUE,4
+763,2009,165,3,Ryan Morningstar,Iowa,3,0,Jr,TRUE,2
+764,2009,165,4,Jonathan Reader,Iowa State,8,4,So,TRUE,3
+765,2009,165,5,Andrew Rendos,Bucknell,US,8,Jr,TRUE,2
+766,2009,165,6,Moza Fay,Northern Iowa,4,-2,Sr,TRUE,2
+767,2009,165,7,Nick Marable,Missouri,5,-2,Jr,TRUE,2
+768,2009,165,8,Tyler Sherfey,Boise State,US,5,Sr,TRUE,1
+769,2009,174,1,Steve Luke,Michigan,1,0,Sr,TRUE,3
+770,2009,174,2,Mike Miller,Central Michigan,7,5,Jr,TRUE,2
+771,2009,174,3,Raymond Jordan,Missouri,5,2,Sr,TRUE,2
+772,2009,174,4,Brandon Browne,Nebraska,3,-1,Sr,TRUE,1
+773,2009,174,5,Steve Anceravage,Cornell,6,1,Sr,TRUE,2
+774,2009,174,6,Quentin Wright,Penn State,11,5,Fr,TRUE,4
+775,2009,174,7,Chris Henrich,Virginia,8,1,So,TRUE,3
+776,2009,174,8,Michael Cannon,American,2,-6,Jr,TRUE,3
+777,2009,184,1,Jake Herbert,Northwestern,1,0,Sr,TRUE,4
+778,2009,184,2,Mike Pucillo,Ohio State,3,1,Jr,TRUE,3
+779,2009,184,3,Doug Umbehauer,Rider,7,4,Sr,TRUE,1
+780,2009,184,4,Phillip Keddy,Iowa,2,-2,Jr,TRUE,3
+781,2009,184,5,Joe LeBlanc,Wyoming,9,4,Fr,TRUE,4
+782,2009,184,6,Vince Jones,Nebraska,12,6,Sr,TRUE,1
+783,2009,184,7,Joshua Patterson,Binghampton,6,-1,Jr,TRUE,1
+784,2009,184,8,Louis Caputo,Harvard,11,3,Jr,TRUE,2
+785,2009,197,1,Jake Varner,Iowa State,2,1,Jr,TRUE,4
+786,2009,197,2,Craig Brester,Nebraska,1,-1,Jr,TRUE,3
+787,2009,197,3,Hudson Taylor,Maryland,10,7,Jr,TRUE,3
+788,2009,197,4,Tyrel Todd,Michigan,4,0,Sr,TRUE,1
+789,2009,197,5,Max Askren,Missouri,6,1,Jr,TRUE,3
+790,2009,197,6,Brent Chriswell,Boise State,3,-3,So,TRUE,1
+791,2009,197,7,Brandon Halsey,CSU Bakersfield,7,0,Sr,TRUE,1
+792,2009,197,8,Cam Simaz,Cornell,US,5,Fr,TRUE,4
+793,2009,285,1,Mark Ellis,Missouri,2,1,Jr,TRUE,2
+794,2009,285,2,Konrad Dudziak,Duke,5,3,Jr,TRUE,2
+795,2009,285,3,Jared Rosholt,Oklahoma State,4,1,Jr,TRUE,3
+796,2009,285,4,Dan Erekson,Iowa,7,3,Jr,TRUE,2
+797,2009,285,5,David Zabriskie,Iowa State,1,-4,Jr,TRUE,3
+798,2009,285,6,Jermail Porter,Kent State,3,-3,Sr,TRUE,1
+799,2009,285,7,John Wise,Illinois,9,2,Sr,TRUE,1
+800,2009,285,8,Zach Sheaffer,Pittsburgh,US,5,Sr,TRUE,1
+801,2010,125,1,Matt McDonough,Iowa,3,2,Fr,TRUE,3
+802,2010,125,2,Andrew Long,Iowa State,5,3,Fr,TRUE,2
+803,2010,125,3,Angel Escobedo,Indiana,1,-2,Sr,TRUE,4
+804,2010,125,4,Troy Nickerson,Cornell,2,-2,Sr,TRUE,4
+805,2010,125,5,Zachary Sanders,Minnesota,6,1,So,TRUE,4
+806,2010,125,6,Cashe Quiroga,Purdue,US,7,Fr,TRUE,1
+807,2010,125,7,Anthony Robles,Arizona State,4,-3,Jr,TRUE,3
+808,2010,125,8,Nikko Triggas,Ohio State,US,5,Jr,TRUE,1
+809,2010,133,1,Jayson Ness,Minnesota,1,0,Sr,TRUE,4
+810,2010,133,2,Daniel Dennis,Iowa,2,0,Sr,TRUE,2
+811,2010,133,3,Frank Gomez,Michigan State,3,0,Sr,TRUE,3
+812,2010,133,4,Jordan Oliver,Oklahoma State,4,0,Fr,TRUE,4
+813,2010,133,5,Tyler Graff,Wisconsin,8,3,Fr,TRUE,4
+814,2010,133,6,Dan Mitcheff,Kent State,6,0,Sr,TRUE,1
+815,2010,133,7,Boris Novachkov,Cal Poly,5,-2,So,TRUE,3
+816,2010,133,8,Steve Bell,Maryland,9,1,Sr,TRUE,2
+817,2010,141,1,Kyle Dake,Cornell,1,0,Fr,TRUE,4
+818,2010,141,2,Montell Marion,Iowa,6,4,So,TRUE,3
+819,2010,141,3,Reece Humphrey,Ohio State,4,1,Sr,TRUE,2
+820,2010,141,4,Zack Bailey,Oklahoma,5,1,Jr,TRUE,2
+821,2010,141,5,Tyler Nauman,Pittsburgh,10,5,Jr,TRUE,2
+822,2010,141,6,Germane Lindsey,Ohio University,US,7,Jr,TRUE,1
+823,2010,141,7,Mike Thorn,Minnesota,3,-4,Jr,TRUE,2
+824,2010,141,8,Christopher Diaz,Virginia Tech,11,3,Jr,TRUE,1
+825,2010,149,1,Brent Metcalf,Iowa,2,1,Sr,TRUE,3
+826,2010,149,2,Lance Palmer,Ohio State,1,-1,Sr,TRUE,4
+827,2010,149,3,Kyle Terry,Oklahoma,3,0,Sr,TRUE,1
+828,2010,149,4,Kyle Ruschell,Wisconsin,4,0,Sr,TRUE,2
+829,2010,149,5,Frank Molinaro,Penn State,5,0,So,TRUE,4
+830,2010,149,6,Torsten Gillespie,Edinboro,US,7,Jr,TRUE,1
+831,2010,149,7,Kevin LeValley,Bucknell,9,2,Jr,TRUE,2
+832,2010,149,8,Kyle Borshoff,American,US,5,Sr,TRUE,2
+833,2010,157,1,J.P. O'Connor,Harvard,1,0,Sr,TRUE,3
+834,2010,157,2,Chase Pami,Cal Poly,7,5,Sr,TRUE,2
+835,2010,157,3,Adam Hall,Boise State,2,-1,Jr,TRUE,2
+836,2010,157,4,Justin Lister,Binghampton,US,9,Jr,TRUE,1
+837,2010,157,5,Steven Fittery,American,5,0,Jr,TRUE,2
+838,2010,157,6,Cyler Sanderson,Penn State,4,-2,Sr,TRUE,2
+839,2010,157,7,Justin Gaethje,Northern Colorado,US,6,Jr,TRUE,1
+840,2010,157,8,Steven Brown,Central Michigan,US,5,Sr,TRUE,1
+841,2010,165,1,Andrew Howe,Wisconsin,1,0,So,TRUE,4
+842,2010,165,2,Dan Vallimont,Penn State,6,4,Sr,TRUE,2
+843,2010,165,3,Jarrod King,Edinboro,2,-1,Sr,TRUE,2
+844,2010,165,4,Nick Amuchastegui,Stanford,US,9,So,TRUE,3
+845,2010,165,5,Tyler Caldwell,Oklahoma,US,8,Fr,TRUE,4
+846,2010,165,6,Andrew Rendos,Bucknell,9,3,Sr,TRUE,2
+847,2010,165,7,Ryan Morningstar,Iowa,7,0,Sr,TRUE,2
+848,2010,165,8,Chris Brown,Old Dominion,US,5,Sr,TRUE,1
+849,2010,174,1,Jay Borschel,Iowa,2,1,Sr,TRUE,2
+850,2010,174,2,Mack Lewnes,Cornell,1,-1,Jr,TRUE,3
+851,2010,174,3,Chris Henrich,Virginia,3,0,Jr,TRUE,3
+852,2010,174,4,Stephen Dwyer,Nebraska,4,0,Sr,TRUE,2
+853,2010,174,5,Jordan Blanton,Illinois,10,5,So,TRUE,3
+854,2010,174,6,Ben Bennett,Central Michigan,7,1,Fr,TRUE,4
+855,2010,174,7,Scott Giffin,Pennsylvania,US,6,Jr,TRUE,1
+856,2010,174,8,Jarion Beets,Northern Iowa,US,5,Sr,TRUE,1
+857,2010,184,1,Max Askren,Missouri,6,5,Sr,TRUE,3
+858,2010,184,2,Kirk Smith,Boise State,1,-1,Jr,TRUE,2
+859,2010,184,3,Michael Cannon,American,4,1,Sr,TRUE,3
+860,2010,184,4,Joe LeBlanc,Wyoming,7,3,So,TRUE,4
+861,2010,184,5,John Dergo,Illinois,2,-3,Sr,TRUE,1
+862,2010,184,6,Clayton Foster,Oklahoma State,5,-1,Jr,TRUE,2
+863,2010,184,7,Dustin Kilgore,Kent State,3,-4,So,TRUE,3
+864,2010,184,8,Phillip Keddy,Iowa,9,1,Sr,TRUE,3
+865,2010,197,1,Jake Varner,Iowa State,1,0,Sr,TRUE,4
+866,2010,197,2,Craig Brester,Nebraska,2,0,Sr,TRUE,3
+867,2010,197,3,Cam Simaz,Cornell,4,1,So,TRUE,4
+868,2010,197,4,Hudson Taylor,Maryland,3,-1,Sr,TRUE,3
+869,2010,197,5,Eric Lapotsky,Oklahoma,6,1,Sr,TRUE,1
+870,2010,197,6,Trevor Brandvold,Wisconsin,5,-1,Jr,TRUE,2
+871,2010,197,7,Alan Gelogaev,Oklahoma State,US,6,So,TRUE,2
+872,2010,197,8,Sonny Yohn,Minnesota,US,5,So,TRUE,3
+873,2010,285,1,David Zabriskie,Iowa State,1,0,Sr,TRUE,3
+874,2010,285,2,Jared Rosholt,Oklahoma State,2,0,Sr,TRUE,3
+875,2010,285,3,Zachery Rey,Lehigh,3,0,So,TRUE,3
+876,2010,285,4,Konrad Dudziak,Duke,4,0,Sr,TRUE,2
+877,2010,285,5,Mitch Monteiro,CSU Bakersfield,11,6,Sr,TRUE,1
+878,2010,285,6,Mark Ellis,Missouri,9,3,Sr,TRUE,2
+879,2010,285,7,Dan Erekson,Iowa,5,-2,Sr,TRUE,2
+880,2010,285,8,Jarod Trice,Central Michigan,7,-1,So,TRUE,3
+881,2011,125,1,Anthony Robles,Arizona State,1,0,Sr,TRUE,3
+882,2011,125,2,Matt McDonough,Iowa,2,0,So,TRUE,3
+883,2011,125,3,Brandon Precin,Northwestern,3,0,Sr,TRUE,3
+884,2011,125,4,Ben Kjar,Utah Valley State,US,9,Sr,TRUE,1
+885,2011,125,5,Zachary Sanders,Minnesota,5,0,Jr,TRUE,4
+886,2011,125,6,Ryan Mango,Stanford,7,1,So,TRUE,2
+887,2011,125,7,Jarrod Patterson,Oklahoma,8,1,So,TRUE,1
+888,2011,125,8,James Nicholson,Old Dominion,4,-4,Sr,TRUE,2
+889,2011,133,1,Jordan Oliver,Oklahoma State,1,0,So,TRUE,4
+890,2011,133,2,Andrew Hochstrasser,Boise State,2,0,Sr,TRUE,2
+891,2011,133,3,Andrew Long,Penn State,3,0,So,TRUE,2
+892,2011,133,4,Scott Sentes,Central Michigan,11,7,Jr,TRUE,2
+893,2011,133,5,Tyler Graff,Wisconsin,4,-1,So,TRUE,4
+894,2011,133,6,Mike Grey,Cornell,8,2,Sr,TRUE,2
+895,2011,133,7,Lou Ruggirello,Hofstra,5,-2,Sr,TRUE,1
+896,2011,133,8,Bernard Futrell,Illinois,7,-1,Jr,TRUE,2
+897,2011,141,1,Kellan Russell,Michigan,1,0,Jr,TRUE,3
+898,2011,141,2,Boris Novachkov,Cal Poly,3,1,Jr,TRUE,3
+899,2011,141,3,Mike Thorn,Minnesota,2,-1,Sr,TRUE,2
+900,2011,141,4,Montell Marion,Iowa,5,1,Jr,TRUE,3
+901,2011,141,5,James Kennedy,Illinois,4,-1,Sr,TRUE,3
+902,2011,141,6,Todd Schavrien,Missouri,10,4,Sr,TRUE,1
+903,2011,141,7,Zack Bailey,Oklahoma,8,1,Sr,TRUE,2
+904,2011,141,8,Zack Kemmerer,Pennsylvania,12,4,Sr,TRUE,1
+905,2011,149,1,Kyle Dake,Cornell,4,3,So,TRUE,4
+906,2011,149,2,Frank Molinaro,Penn State,2,0,Jr,TRUE,4
+907,2011,149,3,Jason Chamberlain,Boise State,6,3,Jr,TRUE,2
+908,2011,149,4,Ganbayar Sanjaa,American,8,4,Jr,TRUE,2
+909,2011,149,5,Jamal Parks,Oklahoma State,5,0,Jr,TRUE,1
+910,2011,149,6,Andrew Naudhir,Northwestern,11,5,Sr,TRUE,1
+911,2011,149,7,Kevin LeValley,Bucknell,3,-4,Sr,TRUE,2
+912,2011,149,8,Derek Valenti,Virginia,US,5,Jr,TRUE,1
+913,2011,157,1,Bubba Jenkins,Arizona State,4,3,Sr,TRUE,2
+914,2011,157,2,David Taylor,Penn State,3,1,Fr,TRUE,4
+915,2011,157,3,Steven Fittery,American,2,-1,Sr,TRUE,2
+916,2011,157,4,Derek St. John,Iowa,6,2,Fr,TRUE,4
+917,2011,157,5,Adam Hall,Boise State,1,-4,Sr,TRUE,2
+918,2011,157,6,Jason Welch,Northwestern,8,2,So,TRUE,3
+919,2011,157,7,Bryce Saddoris,Navy,7,0,Sr,TRUE,2
+920,2011,157,8,Walter Peppelman,Harvard,11,3,Fr,TRUE,2
+921,2011,165,1,Jordan Burroughs,Nebraska,1,0,Sr,TRUE,3
+922,2011,165,2,Tyler Caldwell,Oklahoma,3,1,So,TRUE,4
+923,2011,165,3,Andrew Howe,Wisconsin,2,-1,Jr,TRUE,4
+924,2011,165,4,Colt Sponseller,Ohio State,5,1,Sr,TRUE,1
+925,2011,165,5,Shane Onufer,Wyoming,7,2,Jr,TRUE,1
+926,2011,165,6,John Asper,Maryland,4,-2,So,TRUE,2
+927,2011,165,7,Brandon Hatchett,Lehigh,US,6,Jr,TRUE,2
+928,2011,165,8,Paul Gillespie,Hofstra,US,5,Sr,TRUE,1
+929,2011,174,1,Jonathan Reader,Iowa State,1,0,Sr,TRUE,3
+930,2011,174,2,Nick Amuchastegui,Stanford,7,5,Jr,TRUE,3
+931,2011,174,3,Ed Ruth,Penn State,2,-1,Fr,TRUE,4
+932,2011,174,4,Mack Lewnes,Cornell,3,-1,Sr,TRUE,3
+933,2011,174,5,Colby Covington,Oregon State,4,-1,Sr,TRUE,1
+934,2011,174,6,Chris Henrich,Virginia,5,-1,Sr,TRUE,3
+935,2011,174,7,Mike Letts,Maryland,8,1,Sr,TRUE,1
+936,2011,174,8,Ben Bennett,Central Michigan,6,-2,So,TRUE,4
+937,2011,184,1,Quentin Wright,Penn State,9,8,So,TRUE,4
+938,2011,184,2,Robert Hamlin,Lehigh,2,0, So,#N/A,3
+939,2011,184,3,Grant Gambrall,Iowa,12,9,So,TRUE,1
+940,2011,184,4,Steve Bosak,Cornell,3,-1,Fr,TRUE,3
+941,2011,184,5,Chris Honeycutt,Edinboro,1,-4,Jr,TRUE,2
+942,2011,184,6,Joe LeBlanc,Wyoming,5,-1,Jr,TRUE,4
+943,2011,184,7,Travis Rutt,Wisconsin,4,-3,Jr,TRUE,1
+944,2011,184,8,Kevin Steinhaus,Minnesota,8,0,Fr,TRUE,3
+945,2011,197,1,Dustin Kilgore,Kent State,4,3,Jr,TRUE,3
+946,2011,197,2,Clayton Foster,Oklahoma State,2,0,Sr,TRUE,2
+947,2011,197,3,Cam Simaz,Cornell,1,-2,Jr,TRUE,4
+948,2011,197,4,Trevor Brandvold,Wisconsin,3,-1,Sr,TRUE,2
+949,2011,197,5,Luke Lofthouse,Iowa,5,0,Sr,TRUE,1
+950,2011,197,6,Zack Giesen,Stanford,12,6,Sr,TRUE,1
+951,2011,197,7,Sonny Yohn,Minnesota,9,2,Jr,TRUE,3
+952,2011,197,8,Matt Powless,Indiana,8,0,Jr,TRUE,1
+953,2011,285,1,Zachery Rey,Lehigh,1,0,Jr,TRUE,3
+954,2011,285,2,Ryan Flores,American,3,1,Jr,TRUE,2
+955,2011,285,3,Dom Bradley,Missouri,4,1,Jr,TRUE,2
+956,2011,285,4,Jarod Trice,Central Michigan,2,-2,Jr,TRUE,3
+957,2011,285,5,Ricardo Alcala,Indiana,US,8,Sr,TRUE,1
+958,2011,285,6,Spencer Myers,Maryland,US,7,Jr,TRUE,1
+959,2011,285,7,Anthony Nelson,Minnesota,8,1,Fr,TRUE,4
+960,2011,285,8,Levi Cooper,Arizona State,US,5,Jr,TRUE,1
+961,2012,125,1,Matt McDonough,Iowa,1,0,Jr,TRUE,3
+962,2012,125,2,Nico Megaludis,Penn State,10,8,Fr,TRUE,3
+963,2012,125,3,Zachary Sanders,Minnesota,2,-1,Sr,TRUE,4
+964,2012,125,4,Frank Perrelli,Cornell,6,2,Sr,TRUE,1
+965,2012,125,5,Ryan Mango,Stanford,8,3,Jr,TRUE,2
+966,2012,125,6,Nic Bedelyon,Kent State,5,-1,Sr,TRUE,2
+967,2012,125,7,Jesse Delgado,Illinois,4,-3,Fr,TRUE,3
+968,2012,125,8,Steve Bonanno,Hofstra,12,4,Sr,TRUE,1
+969,2012,133,1,Logan Stieber,Ohio State,2,1,Fr,TRUE,4
+970,2012,133,2,Jordan Oliver,Oklahoma State,1,-1,Jr,TRUE,4
+971,2012,133,3,Tony Ramos,Iowa,3,0,So,TRUE,3
+972,2012,133,4,Chris Dardanes,Minnesota,10,6,Fr,TRUE,3
+973,2012,133,5,Devin Carter,Virginia Tech,6,1,So,TRUE,3
+974,2012,133,6,Bernard Futrell,Illinois,4,-2,Sr,TRUE,2
+975,2012,133,7,Zach Stevens,Michigan,8,1,Sr,TRUE,1
+976,2012,133,8,Steve Keith,Harvard,11,3,Jr,TRUE,1
+977,2012,141,1,Kellan Russell,Michigan,1,0,Sr,TRUE,3
+978,2012,141,2,Montell Marion,Iowa,3,1,Sr,TRUE,3
+979,2012,141,3,Boris Novachkov,Cal Poly,6,3,Sr,TRUE,3
+980,2012,141,4,Kendric Maple,Oklahoma,2,-2,So,TRUE,3
+981,2012,141,5,Michael Mangrum,Oregon State,4,-1,Jr,TRUE,1
+982,2012,141,6,Hunter Stieber,Ohio State,5,-1,Fr,TRUE,2
+983,2012,141,7,Michael Nevinger,Cornell,US,6,So,TRUE,2
+984,2012,141,8,Darius Little,North Carolina State,8,0,Sr,TRUE,1
+985,2012,149,1,Frank Molinaro,Penn State,1,0,Sr,TRUE,4
+986,2012,149,2,Dylan Ness,Minnesota,7,5,Fr,TRUE,4
+987,2012,149,3,Don Vinson,Binghampton,4,1,Sr,TRUE,1
+988,2012,149,4,Cam Tessari,Ohio State,10,6,Fr,TRUE,1
+989,2012,149,5,Tyler Nauman,Pittsburgh,6,1,Sr,TRUE,2
+990,2012,149,6,Justin Accordino,Hofstra,US,7,Sr,TRUE,1
+991,2012,149,7,Scott Sakaguchi,Oregon State,US,6,So,TRUE,2
+992,2012,149,8,Nick Lester,Oklahoma,US,5,So,TRUE,1
+993,2012,157,1,Kyle Dake,Cornell,1,0,Jr,TRUE,4
+994,2012,157,2,Derek St. John,Iowa,2,0,So,TRUE,4
+995,2012,157,3,Dylan Alton,Penn State,7,4,Fr,TRUE,1
+996,2012,157,4,Jason Welch,Northwestern,3,-1,Jr,TRUE,3
+997,2012,157,5,James Fleming,Clarion,6,1,Jr,TRUE,2
+998,2012,157,6,Ganbayar Sanjaa,American,5,-1,Sr,TRUE,2
+999,2012,157,7,James Green,Nebraska,11,4,Fr,TRUE,4
+1000,2012,157,8,Walter Peppelman,Harvard,4,-4,So,TRUE,2
+1001,2012,165,1,David Taylor,Penn State,1,0,So,TRUE,4
+1002,2012,165,2,Brandon Hatchett,Lehigh,11,9,Sr,TRUE,2
+1003,2012,165,3,Bekzod Abdurakhmanov,Clarion,4,1,Sr,TRUE,1
+1004,2012,165,4,Kyle Blevins,Appalachian State,US,9,Sr,TRUE,1
+1005,2012,165,5,Peter Yates,Virginia Tech,6,1,Jr,TRUE,2
+1006,2012,165,6,John Asper,Maryland,7,1,Jr,TRUE,2
+1007,2012,165,7,Ben Jordan,Wisconsin,US,6,Sr,TRUE,1
+1008,2012,165,8,Conrad Polz,Illinois,9,1,Jr,TRUE,2
+1009,2012,174,1,Ed Ruth,Penn State,1,0,So,TRUE,4
+1010,2012,174,2,Nick Amuchastegui,Stanford,3,1,Sr,TRUE,3
+1011,2012,174,3,Chris Perry,Oklahoma State,2,-1,So,TRUE,3
+1012,2012,174,4,Jordan Blanton,Illinois,7,3,Jr,TRUE,3
+1013,2012,174,5,Nick Heflin,Ohio State,9,4,So,TRUE,3
+1014,2012,174,6,Logan Storley,Minnesota,4,-2,Fr,TRUE,4
+1015,2012,174,7,Ethen Lofthouse,Iowa,5,-2,So,TRUE,2
+1016,2012,174,8,Ryan DesRoches,Cal Poly,6,-2,Sr,TRUE,1
+1017,2012,184,1,Steve Bosak,Cornell,4,3,Jr,TRUE,3
+1018,2012,184,2,Quentin Wright,Penn State,6,4,Jr,TRUE,4
+1019,2012,184,3,Austin Trotman,Appalachian State,9,6,Sr,TRUE,1
+1020,2012,184,4,Robert Hamlin,Lehigh,2,-2,Jr,TRUE,3
+1021,2012,184,5,Kevin Steinhaus,Minnesota,5,0,So,TRUE,3
+1022,2012,184,6,Ben Bennett,Central Michigan,3,-3,Jr,TRUE,4
+1023,2012,184,7,Joe LeBlanc,Wyoming,1,-6,Sr,TRUE,4
+1024,2012,184,8,Josh Ihnen,Nebraska,7,-1,Jr,TRUE,1
+1025,2012,197,1,Cam Simaz,Cornell,1,0,Sr,TRUE,4
+1026,2012,197,2,Chris Honeycutt,Edinboro,2,0,Sr,TRUE,2
+1027,2012,197,3,Cayle Byers,Oklahoma State,5,2,Sr,TRUE,1
+1028,2012,197,4,Matthew Wilps,Pittsburgh,3,-1,Jr,TRUE,2
+1029,2012,197,5,Sonny Yohn,Minnesota,10,5,Sr,TRUE,3
+1030,2012,197,6,Alfonso Hernandez,Wyoming,9,3,Jr,TRUE,2
+1031,2012,197,7,Micah Burak,Pennsylvania,11,4,Jr,TRUE,1
+1032,2012,197,8,Joe Kennedy,Lehigh,12,4,Sr,TRUE,1
+1033,2012,285,1,Anthony Nelson,Minnesota,2,1,So,TRUE,4
+1034,2012,285,2,Zachery Rey,Lehigh,4,2,Sr,TRUE,3
+1035,2012,285,3,Michael McMullan,Northwestern,10,7,Fr,TRUE,4
+1036,2012,285,4,Clayton Jack,Oregon State,3,-1,Sr,TRUE,1
+1037,2012,285,5,Bobby Telford,Iowa,5,0,Fr,TRUE,3
+1038,2012,285,6,Ryan Flores,American,1,-5,Sr,TRUE,2
+1039,2012,285,7,Jeremy Johnson,Ohio University,7,0,So,TRUE,2
+1040,2012,285,8,Nick Gwiazdowski,Binghampton,US,5,Fr,TRUE,4
+1041,2013,125,1,Jesse Delgado,Illinois,2,1,So,TRUE,3
+1042,2013,125,2,Nico Megaludis,Penn State,4,2,So,TRUE,3
+1043,2013,125,3,Nahshon Garrett,Cornell,6,3,Fr,TRUE,4
+1044,2013,125,4,Alan Waters,Missouri,1,-3,Jr,TRUE,2
+1045,2013,125,5,Trent Sprenkle,North Dakota State,9,4,Sr,TRUE,1
+1046,2013,125,6,Jarrod Garnett,Virginia Tech,5,-1,Sr,TRUE,1
+1047,2013,125,7,David Thorn,Minnesota,US,6,Jr,TRUE,2
+1048,2013,125,8,Tyler Cox,Wyoming,12,4,Sr,TRUE,1
+1049,2013,133,1,Logan Stieber,Ohio State,1,0,So,TRUE,4
+1050,2013,133,2,Tony Ramos,Iowa,2,0,Jr,TRUE,3
+1051,2013,133,3,Tyler Graff,Wisconsin,3,0,Jr,TRUE,4
+1052,2013,133,4,Aaron Schopp,Edinboro,4,0,So,TRUE,3
+1053,2013,133,5,Jon Morrison,Oklahoma State,7,2,Jr,TRUE,1
+1054,2013,133,6,Chris Dardanes,Minnesota,5,-1,So,TRUE,3
+1055,2013,133,7,Cody Brewer,Oklahoma,8,1,Fr,TRUE,4
+1056,2013,133,8,Nathan McCormick,Missouri,6,-2,Sr,TRUE,1
+1057,2013,141,1,Kendric Maple,Oklahoma,2,1,Jr,TRUE,3
+1058,2013,141,2,Mitchell Port,Edinboro,4,2,So,TRUE,3
+1059,2013,141,3,Hunter Stieber,Ohio State,1,-2,So,TRUE,2
+1060,2013,141,4,Ugi Khishignnyam,Citadel,6,2,Fr,TRUE,1
+1061,2013,141,5,Michael Nevinger,Cornell,11,6,Jr,TRUE,2
+1062,2013,141,6,Evan Henderson,North Carolina,5,-1,So,TRUE,2
+1063,2013,141,7,Nick Dardanes,Minnesota,8,1,So,TRUE,1
+1064,2013,141,8,Zach Niebert,Virginia Tech,US,5,Jr,TRUE,1
+1065,2013,149,1,Jordan Oliver,Oklahoma State,1,0,Sr,TRUE,4
+1066,2013,149,2,Jason Chamberlain,Boise State,2,0,Sr,TRUE,2
+1067,2013,149,3,Steve Santos,Columbia,5,2,Sr,TRUE,1
+1068,2013,149,4,Dylan Ness,Minnesota,6,2,So,TRUE,4
+1069,2013,149,5,Scott Sakaguchi,Oregon State,7,2,Jr,TRUE,2
+1070,2013,149,6,Drake Houdashelt,Missouri,US,7,So,TRUE,3
+1071,2013,149,7,Ivan Lopouchanski,Purdue,10,3,Sr,TRUE,1
+1072,2013,149,8,Nick Brascetta,Virginia Tech,8,0,So,TRUE,3
+1073,2013,157,1,Derek St. John,Iowa,2,1,Jr,TRUE,4
+1074,2013,157,2,Jason Welch,Northwestern,1,-1,Sr,TRUE,3
+1075,2013,157,3,Alex Dieringer,Oklahoma State,6,3,Fr,TRUE,4
+1076,2013,157,4,David Bonin,Northern Iowa,US,9,Sr,TRUE,1
+1077,2013,157,5,Roger Pena,Oregon State,10,5,Jr,TRUE,1
+1078,2013,157,6,Jedd Moore,Virginia,12,6,Sr,TRUE,1
+1079,2013,157,7,James Green,Nebraska,4,-3,So,TRUE,4
+1080,2013,157,8,James Fleming,Clarion,5,-3,Sr,TRUE,2
+1081,2013,165,1,Kyle Dake,Cornell,1,0,Sr,TRUE,4
+1082,2013,165,2,David Taylor,Penn State,2,0,Jr,TRUE,4
+1083,2013,165,3,Tyler Caldwell,Oklahoma State,4,1,Jr,TRUE,4
+1084,2013,165,4,Peter Yates,Virginia Tech,3,-1,Sr,TRUE,2
+1085,2013,165,5,Conrad Polz,Illinois,7,2,Sr,TRUE,2
+1086,2013,165,6,Michael Moreno,Iowa State,US,7,Jr,TRUE,2
+1087,2013,165,7,Cody Yohn,Minnesota,11,4,Sr,TRUE,1
+1088,2013,165,8,Nick Sulzer,Virginia,8,0,So,TRUE,3
+1089,2013,174,1,Chris Perry,Oklahoma State,1,0,Jr,TRUE,3
+1090,2013,174,2,Matt Brown,Penn State,2,0,So,TRUE,4
+1091,2013,174,3,Robert Kokesh,Nebraska,4,1,So,TRUE,3
+1092,2013,174,4,Logan Storley,Minnesota,6,2,So,TRUE,4
+1093,2013,174,5,Nick Heflin,Ohio State,8,3,Jr,TRUE,3
+1094,2013,174,6,Michael Evans,Iowa,3,-3,So,TRUE,3
+1095,2013,174,7,Jordan Blanton,Illinois,7,0,Sr,TRUE,3
+1096,2013,174,8,Cody Walters,Ohio University,US,5,Fr,TRUE,2
+1097,2013,184,1,Ed Ruth,Penn State,1,0,Jr,TRUE,4
+1098,2013,184,2,Robert Hamlin,Lehigh,3,1,Sr,TRUE,3
+1099,2013,184,3,Steve Bosak,Cornell,4,1,Sr,TRUE,3
+1100,2013,184,4,Ben Bennett,Central Michigan,2,-2,Sr,TRUE,4
+1101,2013,184,5,Ethen Lofthouse,Iowa,12,7,Jr,TRUE,2
+1102,2013,184,6,Jimmy Sheptock,Maryland,7,1,Jr,TRUE,2
+1103,2013,184,7,Ryan Loder,Northern Iowa,6,-1,Sr,TRUE,1
+1104,2013,184,8,Michael Larson,Missouri,11,3,Sr,TRUE,1
+1105,2013,197,1,Quentin Wright,Penn State,2,1,Sr,TRUE,4
+1106,2013,197,2,Dustin Kilgore,Kent State,1,-1,Sr,TRUE,3
+1107,2013,197,3,Matthew Wilps,Pittsburgh,3,0,Sr,TRUE,2
+1108,2013,197,4,Taylor Meeks,Oregon State,5,1,So,TRUE,1
+1109,2013,197,5,Scott Schiller,Minnesota,10,5,So,TRUE,3
+1110,2013,197,6,Kyven Gadson,Iowa State,6,0,So,TRUE,3
+1111,2013,197,7,Alfonso Hernandez,Wyoming,4,-3,Sr,TRUE,2
+1112,2013,197,8,Blake Rosholt,Oklahoma State,11,3,Jr,TRUE,1
+1113,2013,285,1,Anthony Nelson,Minnesota,2,1,Jr,TRUE,4
+1114,2013,285,2,Michael McMullan,Northwestern,5,3,So,TRUE,4
+1115,2013,285,3,Alan Gelogaev,Oklahoma State,3,0,Sr,TRUE,2
+1116,2013,285,4,Dom Bradley,Missouri,1,-3,Sr,TRUE,2
+1117,2013,285,5,Zac Thomusseit,Pittsburgh,9,4,Sr,TRUE,1
+1118,2013,285,6,Jarod Trice,Central Michigan,10,4,Sr,TRUE,3
+1119,2013,285,7,Andrew Delaney,Citadel,US,6,Sr,TRUE,1
+1120,2013,285,8,Mathew Gibson,Iowa State,US,9,Sr,TRUE,1
+1121,2014,125,1,Jesse Delgado,Illinois,1,0,Jr,TRUE,3
+1122,2014,125,2,Nahshon Garrett,Cornell,2,0,So,TRUE,4
+1123,2014,125,3,Nico Megaludis,Penn State,3,0,Jr,TRUE,3
+1124,2014,125,4,Joey Dance,Virginia Tech,4,0,Fr,TRUE,2
+1125,2014,125,5,Cory Clark,Iowa,8,3,Fr,TRUE,4
+1126,2014,125,6,Dylan Peters,Northern Iowa,5,-1,Fr,TRUE,2
+1127,2014,125,7,Darian Cruz,Lehigh,US,10,Fr,TRUE,3
+1128,2014,125,8,Earl Hall,Iowa State,US,9,Fr,TRUE,2
+1129,2014,133,1,Tony Ramos,Iowa,3,2,Sr,TRUE,3
+1130,2014,133,2,Tyler Graff,Wisconsin,5,3,Sr,TRUE,4
+1131,2014,133,3,Joe Colon,Northern Iowa,1,-2,Sr,TRUE,1
+1132,2014,133,4,Aaron Schopp,Edinboro,2,-2,Jr,TRUE,3
+1133,2014,133,5,David Thorn,Minnesota,8,3,Sr,TRUE,2
+1134,2014,133,6,Mason Beckman,Lehigh,6,0,So,TRUE,2
+1135,2014,133,7,Joe Roth,Central Michigan,12,5,Sr,TRUE,1
+1136,2014,133,8,Cody Brewer,Oklahoma,13,5,So,TRUE,4
+1137,2014,141,1,Logan Stieber,Ohio State,2,1,Jr,TRUE,4
+1138,2014,141,2,Devin Carter,Virginia Tech,4,2,Jr,TRUE,3
+1139,2014,141,3,Mitchell Port,Edinboro,1,-2,Jr,TRUE,3
+1140,2014,141,4,Evan Henderson,North Carolina,9,5,Jr,TRUE,2
+1141,2014,141,5,Zain Retherford,Penn State,3,-2,Fr,TRUE,4
+1142,2014,141,6,Joey Lazor,Northern Iowa,11,5,Sr,TRUE,1
+1143,2014,141,7,Steve Dutton,Michigan,13,6,Jr,TRUE,1
+1144,2014,141,8,Richard Durso,Franklin & Marshall,12,4,Jr,TRUE,1
+1145,2014,149,1,Jason Tsirtsis,Northwestern,5,4,Fr,TRUE,3
+1146,2014,149,2,Joshua Kindig,Oklahoma State,11,9,Jr,TRUE,1
+1147,2014,149,3,Eric Grajales,Michigan,9,6,Sr,TRUE,1
+1148,2014,149,4,David Habat,Edinboro,8,4,Jr,TRUE,2
+1149,2014,149,5,Drake Houdashelt,Missouri,1,-4,Jr,TRUE,3
+1150,2014,149,6,Mitch Minotti,Lehigh,15,9,Fr,TRUE,2
+1151,2014,149,7,James English,Penn State,US,10,Sr,TRUE,1
+1152,2014,149,8,Kendric Maple,Oklahoma,4,-4,Sr,TRUE,3
+1153,2014,157,1,Alex Dieringer,Oklahoma State,3,2,So,TRUE,4
+1154,2014,157,2,Dylan Ness,Minnesota,9,7,Jr,TRUE,4
+1155,2014,157,3,James Green,Nebraska,1,-2,Jr,TRUE,4
+1156,2014,157,4,Ian Miller,Kent State,4,0,So,TRUE,3
+1157,2014,157,5,Derek St. John,Iowa,2,-3,Sr,TRUE,4
+1158,2014,157,6,Brian Realbuto,Cornell,7,1,Fr,TRUE,3
+1159,2014,157,7,Isaac Jordan,Wisconsin,5,-2,Fr,TRUE,4
+1160,2014,157,8,Anthony Perrotti,Rutgers,US,9,So,TRUE,2
+1161,2014,165,1,David Taylor,Penn State,1,0,Sr,TRUE,4
+1162,2014,165,2,Tyler Caldwell,Oklahoma State,2,0,Sr,TRUE,4
+1163,2014,165,3,Steve Monk,North Dakota State,4,1,Sr,TRUE,1
+1164,2014,165,4,Nick Sulzer,Virginia,3,-1,Jr,TRUE,3
+1165,2014,165,5,Michael Moreno,Iowa State,8,3,Sr,TRUE,2
+1166,2014,165,6,Turtogtokh Luvsandorj,Citadel,11,5,Sr,TRUE,1
+1167,2014,165,7,Daniel Zilverberg,Minnesota,15,8,Sr,TRUE,1
+1168,2014,165,8,Pierce Harger,Northwestern,7,-1,Jr,TRUE,1
+1169,2014,174,1,Chris Perry,Oklahoma State,1,0,Sr,TRUE,3
+1170,2014,174,2,Andrew Howe,Oklahoma,2,0,Sr,TRUE,4
+1171,2014,174,3,Logan Storley,Minnesota,6,3,Jr,TRUE,4
+1172,2014,174,4,Robert Kokesh,Nebraska,3,-1,Jr,TRUE,3
+1173,2014,174,5,Matt Brown,Penn State,5,0,Jr,TRUE,4
+1174,2014,174,6,Michael Evans,Iowa,4,-2,Jr,TRUE,3
+1175,2014,174,7,Tyler Wilps,Pittsburgh,7,0,Jr,TRUE,2
+1176,2014,174,8,Bryce Hammond,CSU Bakersfield,8,0,So,TRUE,1
+1177,2014,184,1,Ed Ruth,Penn State,2,1,Sr,TRUE,4
+1178,2014,184,2,Jimmy Sheptock,Maryland,1,-1,Sr,TRUE,2
+1179,2014,184,3,Gabe Dean,Cornell,3,0,Fr,TRUE,4
+1180,2014,184,4,Jack Dechow,Old Dominion,13,9,Fr,TRUE,1
+1181,2014,184,5,Kevin Steinhaus,Minnesota,7,2,Sr,TRUE,3
+1182,2014,184,6,Lorenzo Thomas,Pennsylvania,11,5,So,TRUE,1
+1183,2014,184,7,Ophir Bernstein,Brown,12,5,Jr,TRUE,1
+1184,2014,184,8,Jacob Swartz,Boise State,6,-2,Sr,TRUE,1
+1185,2014,197,1,J'den Cox,Missouri,2,1,Fr,TRUE,4
+1186,2014,197,2,Nick Heflin,Ohio State,1,-1,Sr,TRUE,3
+1187,2014,197,3,Scott Schiller,Minnesota,4,1,Jr,TRUE,3
+1188,2014,197,4,Kyven Gadson,Iowa State,6,2,Jr,TRUE,3
+1189,2014,197,5,Conner Hartmann,Duke,US,12,So,TRUE,3
+1190,2014,197,6,Chris Penny,Virginia Tech,14,8,Sr,TRUE,1
+1191,2014,197,7,Morgan McIntosh,Penn State,3,-4,So,TRUE,3
+1192,2014,197,8,Nathan Burak,Iowa,11,3,So,TRUE,3
+1193,2014,285,1,Nick Gwiazdowski,North Carolina State,2,1,So,TRUE,4
+1194,2014,285,2,Anthony Nelson,Minnesota,1,-1,Sr,TRUE,4
+1195,2014,285,3,Michael McMullan,Northwest Missouri,6,3,Jr,TRUE,4
+1196,2014,285,4,Bobby Telford,Iowa,5,1,Jr,TRUE,3
+1197,2014,285,5,Mike McClure,Michigan State,7,2,sr,TRUE,1
+1198,2014,285,6,Adam Chalfant,Indiana,3,-3,Jr,TRUE,1
+1199,2014,285,7,Jeremy Johnson,Ohio University,10,3,Sr,TRUE,2
+1200,2014,285,8,Austin Marsden,Oklahoma State,11,3,So,TRUE,2
+1201,2015,125,1,Nathan Tomasello,Ohio State,4,3,Fr,TRUE,4
+1202,2015,125,2,Zeke Moisey,West Virginia,US,15,Fr,TRUE,2
+1203,2015,125,3,Alan Waters,Missouri,1,-2,Sr,TRUE,2
+1204,2015,125,4,Thomas Gilman,Iowa,6,2,So,TRUE,3
+1205,2015,125,5,Nahshon Garrett,Cornell,2,-3,Jr,TRUE,4
+1206,2015,125,6,Connor Youtsey,Michigan,US,11,So,TRUE,2
+1207,2015,125,7,Edward Klimara,Oklahoma State,7,0,Jr,TRUE,1
+1208,2015,125,8,Jordan Conaway,Penn State,11,3,Jr,TRUE,2
+1209,2015,133,1,Cody Brewer,Oklahoma,13,12,Jr,TRUE,4
+1210,2015,133,2,Cory Clark,Iowa,3,1,So,TRUE,4
+1211,2015,133,3,Aaron Schopp,Edinboro,9,6,Sr,TRUE,3
+1212,2015,133,4,Chris Dardanes,Minnesota,1,-3,Sr,TRUE,3
+1213,2015,133,5,James Gulibon,Penn State,7,2,So,TRUE,1
+1214,2015,133,6,Mason Beckman,Lehigh,10,4,Jr,TRUE,2
+1215,2015,133,7,Bradley Taylor,Wisconsin,2,-5,So,TRUE,1
+1216,2015,133,8,Rossi Bruno,Michigan,14,6,Jr,TRUE,1
+1217,2015,141,1,Logan Stieber,Ohio State,1,0,Sr,TRUE,4
+1218,2015,141,2,Mitchell Port,Edinboro,2,0,Sr,TRUE,3
+1219,2015,141,3,Devin Carter,Virginia Tech,4,1,Sr,TRUE,3
+1220,2015,141,4,Dean Heil,Oklahoma State,14,10,Fr,TRUE,3
+1221,2015,141,5,Kevin Jack,North Carolina State,US,12,Fr,TRUE,3
+1222,2015,141,6,Chris Mecate,Old Dominion,11,5,Jr,TRUE,2
+1223,2015,141,7,Lavion Mayes,Missouri,3,-4,So,TRUE,3
+1224,2015,141,8,Anthony Ashnault,Rutgers,7,-1,Fr,TRUE,4
+1225,2015,149,1,Drake Houdashelt,Missouri,1,0,Sr,TRUE,3
+1226,2015,149,2,David Habat,Edinboro,3,1,Sr,TRUE,2
+1227,2015,149,3,Jason Tsirtsis,Northwestern,2,-1,So,TRUE,3
+1228,2015,149,4,Brandon Sorensen,Iowa,4,0,Fr,TRUE,4
+1229,2015,149,5,Bryant Clagon,Rider,15,10,Fr,TRUE,1
+1230,2015,149,6,Chris Villalonga,Cornell,5,-1,Sr,TRUE,1
+1231,2015,149,7,Alexander Richardson,Old Dominion,8,1,Jr,TRUE,1
+1232,2015,149,8,Daniel Neff,Lock Haven,US,9,Jr,TRUE,1
+1233,2015,157,1,Isaiah Martinez,Illinois,1,0,Fr,TRUE,4
+1234,2015,157,2,Brian Realbuto,Cornell,2,0,So,TRUE,3
+1235,2015,157,3,James Green,Nebraska,4,1,Sr,TRUE,4
+1236,2015,157,4,Nick Brascetta,Virginia Tech,US,13,Jr,TRUE,3
+1237,2015,157,5,Ian Miller,Kent State,7,2,Jr,TRUE,3
+1238,2015,157,6,Dylan Ness,Minnesota,3,-3,Sr,TRUE,4
+1239,2015,157,7,Brian Murphy,Michigan,11,4,So,TRUE,1
+1240,2015,157,8,Mitch Minotti,Lehigh,12,4,So,TRUE,2
+1241,2015,165,1,Alex Dieringer,Oklahoma State,1,0,Jr,TRUE,4
+1242,2015,165,2,Taylor Walsh,Indiana,6,4,Sr,TRUE,1
+1243,2015,165,3,Bo Jordan,Ohio State,5,2,Fr,TRUE,4
+1244,2015,165,4,Jackson Morse,Illinois,9,5,Sr,TRUE,1
+1245,2015,165,5,Nick Sulzer,Virginia,4,-1,Sr,TRUE,3
+1246,2015,165,6,Ethan Ramos,North Carolina,15,9,Fr,TRUE,1
+1247,2015,165,7,Isaac Jordan,Wisconsin,3,-4,So,TRUE,4
+1248,2015,165,8,Jim Wilson,Stanford,10,2,Jr,TRUE,1
+1249,2015,174,1,Matt Brown,Penn State,2,1,Sr,TRUE,4
+1250,2015,174,2,Tyler Wilps,Pittsburgh,8,6,Sr,TRUE,2
+1251,2015,174,3,Robert Kokesh,Nebraska,1,-2,Sr,TRUE,3
+1252,2015,174,4,Logan Storley,Minnesota,6,2,Sr,TRUE,4
+1253,2015,174,5,Kyle Crutchmer,Oklahoma State,12,7,So,TRUE,2
+1254,2015,174,6,Michael Evans,Iowa,3,-3,Sr,TRUE,3
+1255,2015,174,7,Zach Epperly,Virginia Tech,7,0,Fr,TRUE,2
+1256,2015,174,8,Kurtis Julson,North Dakota State,US,9,Sr,TRUE,1
+1257,2015,184,1,Gabe Dean,Cornell,1,0,So,TRUE,4
+1258,2015,184,2,Nathaniel Brown,Lehigh,7,5,Jr,TRUE,2
+1259,2015,184,3,Victor Avery,Edinboro,13,10,Jr,TRUE,1
+1260,2015,184,4,Blake Stauffer,Arizona State,3,-1,Jr,TRUE,1
+1261,2015,184,5,Kenny Courts,Ohio State,US,12,Jr,TRUE,1
+1262,2015,184,6,Hayden Zillmer,North Dakota State,6,0,Jr,TRUE,1
+1263,2015,184,7,Willie Miklus,Missouri,US,10,Fr,TRUE,4
+1264,2015,184,8,Timothy Dudley,Nebraska,16,8,So,TRUE,3
+1265,2015,197,1,Kyven Gadson,Iowa State,3,2,Sr,TRUE,3
+1266,2015,197,2,Kyle Snyder,Ohio State,4,2,Fr,TRUE,4
+1267,2015,197,3,Morgan McIntosh,Penn State,2,-1,Jr,TRUE,3
+1268,2015,197,4,Scott Schiller,Minnesota,5,1,Sr,TRUE,3
+1269,2015,197,5,J'den Cox,Missouri,1,-4,So,TRUE,4
+1270,2015,197,6,Conner Hartmann,Duke,10,4,Jr,TRUE,3
+1271,2015,197,7,Nathan Burak,Iowa,6,-1,Jr,TRUE,3
+1272,2015,197,8,Max Huntley,Michigan,8,0,Jr,TRUE,1
+1273,2015,285,1,Nick Gwiazdowski,North Carolina State,1,0,Jr,TRUE,4
+1274,2015,285,2,Adam Coon,Michigan,6,4,So,TRUE,3
+1275,2015,285,3,Michael McMullan,Northwestern,2,-1,Sr,TRUE,4
+1276,2015,285,4,Connor Medbery,Wisconsin,5,1,Jr,TRUE,2
+1277,2015,285,5,Bobby Telford,Iowa,3,-2,Sr,TRUE,3
+1278,2015,285,6,Jimmy Lawson,Penn State,8,2,Jr,TRUE,1
+1279,2015,285,7,Ty Walz,Virginia Tech,10,3,So,TRUE,3
+1280,2015,285,8,Michael Kroells,Minnesota,9,1,So,TRUE,3
+1281,2016,125,1,Nico Megaludis,Penn State,3,2,Sr,TRUE,1
+1282,2016,125,2,Thomas Gilman,Iowa,4,2,Jr,TRUE,3
+1283,2016,125,3,Nathan Tomasello,Ohio State,1,-2,So,TRUE,4
+1284,2016,125,4,David Terao,American,15,11,Sr,TRUE,1
+1285,2016,125,5,Connor Youtsey,Michigan,US,12,Jr,TRUE,2
+1286,2016,125,6,Dylan Peters,Northern Iowa,9,3,Jr,TRUE,2
+1287,2016,125,7,Ryan Millhof,Oklahoma,5,-2,So,TRUE,1
+1288,2016,125,8,Connor Schram,Stanford,10,2,So,TRUE,1
+1289,2016,133,1,Nahshon Garrett,Cornell,1,0,Sr,TRUE,4
+1290,2016,133,2,Cory Clark,Iowa,2,0,Jr,TRUE,4
+1291,2016,133,3,Cody Brewer,Oklahoma,4,1,Sr,TRUE,4
+1292,2016,133,4,Zane Richards,Illinois,3,-1,Jr,TRUE,2
+1293,2016,133,5,Eric Montoya,Nebraska,7,2,Jr,TRUE,2
+1294,2016,133,6,Jordan Conaway,Penn State,5,-1,Sr,TRUE,2
+1295,2016,133,7,Earl Hall,Iowa State,8,1,Jr,TRUE,2
+1296,2016,133,8,Jade Rauser,Utah Valley State,15,7,Sr,TRUE,1
+1297,2016,141,1,Dean Heil,Oklahoma State,1,0,So,TRUE,3
+1298,2016,141,2,Bryce Meredith,Wyoming,14,12,So,TRUE,3
+1299,2016,141,3,Joey McKenna,Stanford,2,-1,Fr,TRUE,3
+1300,2016,141,4,Anthony Ashnault,Rutgers,4,0,So,TRUE,4
+1301,2016,141,5,Chris Mecate,Old Dominion,12,7,Sr,TRUE,2
+1302,2016,141,6,Solomon Chishko,Virginia Tech,7,1,Fr,TRUE,2
+1303,2016,141,7,Joseph Ward,North Carolina,8,1,Jr,TRUE,1
+1304,2016,141,8,Randy Cruz,Lehigh,16,8,Jr,TRUE,1
+1305,2016,149,1,Zain Retherford,Penn State,1,0,So,TRUE,4
+1306,2016,149,2,Brandon Sorensen,Iowa,2,0,So,TRUE,4
+1307,2016,149,3,Lavion Mayes,Missouri,3,0,Jr,TRUE,3
+1308,2016,149,4,Anthony Collica,Oklahoma State,11,7,Jr,TRUE,1
+1309,2016,149,5,Michael Depalma,Kent State,10,5,Sr,TRUE,1
+1310,2016,149,6,Alec Pantaleo,Michigan,5,-1,So,TRUE,3
+1311,2016,149,7,Justin Oliver,Central Michigan,9,2,Fr,TRUE,1
+1312,2016,149,8,Geo Martinez,Boise State,12,4,So,TRUE,1
+1313,2016,157,1,Isaiah Martinez,Illinois,1,0,So,TRUE,4
+1314,2016,157,2,Jason Nolf,Penn State,3,1,Fr,TRUE,4
+1315,2016,157,3,Nick Brascetta,Virginia Tech,8,5,Sr,TRUE,3
+1316,2016,157,4,Dylan Palacio,Cornell,5,1,Jr,TRUE,2
+1317,2016,157,5,Chad Walsh,Rider,15,10,So,TRUE,2
+1318,2016,157,6,Ian Miller,Kent State,4,-2,Sr,TRUE,3
+1319,2016,157,7,Joseph Smith,Oklahoma State,6,-1,Fr,TRUE,2
+1320,2016,157,8,Thomas Gantt,North Carolina State,2,-6,Sr,TRUE,1
+1321,2016,165,1,Alex Dieringer,Oklahoma State,1,0,Sr,TRUE,4
+1322,2016,165,2,Isaac Jordan,Wisconsin,2,0,Jr,TRUE,4
+1323,2016,165,3,Bo Jordan,Ohio State,3,0,So,TRUE,4
+1324,2016,165,4,Daniel Lewis,Missouri,4,0,Fr,TRUE,4
+1325,2016,165,5,Steven Rodrigues,Illinois,6,1,Sr,TRUE,1
+1326,2016,165,6,David McFadden,Virginia Tech,14,8,Fr,TRUE,3
+1327,2016,165,7,Austin Wilson,Nebraska,10,3,Sr,TRUE,1
+1328,2016,165,8,Anthony Perrotti,Rutgers,7,-1,Sr,TRUE,2
+1329,2016,174,1,Myles Martin,Ohio State,11,10,Fr,TRUE,4
+1330,2016,174,2,Bo Nickal,Penn State,1,-1,Fr,TRUE,4
+1331,2016,174,3,Zach Epperly,Virginia Tech,8,5,So,TRUE,2
+1332,2016,174,4,Casey Kent,Pennsylvania,US,13,Jr,TRUE,1
+1333,2016,174,5,Nathan Jackson,Indiana,12,7,Jr,TRUE,2
+1334,2016,174,6,Lelund Weatherspoon,Iowa State,US,11,Jr,TRUE,1
+1335,2016,174,7,Cody Walters,Ohio University,7,0,Sr,TRUE,2
+1336,2016,174,8,Alex Meyer,Iowa,13,5,Jr,TRUE,1
+1337,2016,184,1,Gabe Dean,Cornell,1,0,Jr,TRUE,4
+1338,2016,184,2,Timothy Dudley,Nebraska,7,5,Jr,TRUE,3
+1339,2016,184,3,Pete Renda,North Carolina State,13,10,Jr,TRUE,1
+1340,2016,184,4,Nolan Boyd,Oklahoma State,8,4,Jr,TRUE,2
+1341,2016,184,5,Mathew Miller,Navy,9,4,Sr,TRUE,1
+1342,2016,184,6,Willie Miklus,Missouri,14,8,So,TRUE,4
+1343,2016,184,7,Nathaniel Brown,Lehigh,10,3,Sr,TRUE,2
+1344,2016,184,8,Sammy Brooks,Iowa,2,-6,Jr,TRUE,1
+1345,2016,197,1,J'den Cox,Missouri,2,1,Jr,TRUE,4
+1346,2016,197,2,Morgan McIntosh,Penn State,1,-1,Sr,TRUE,3
+1347,2016,197,3,Brett Pfarr,Minnesota,3,0,Jr,TRUE,2
+1348,2016,197,4,Nathan Burak,Iowa,4,0,Sr,TRUE,3
+1349,2016,197,5,Patrick Downey,Iowa State,US,12,So,TRUE,1
+1350,2016,197,6,Jared Haught,Virginia Tech,6,0,So,TRUE,3
+1351,2016,197,7,Conner Hartmann,Duke,5,-2,Sr,TRUE,3
+1352,2016,197,8,Brett Harner,Princeton,7,-1,Jr,TRUE,1
+1353,2016,285,1,Kyle Snyder,Ohio State,2,1,So,TRUE,4
+1354,2016,285,2,Nick Gwiazdowski,North Carolina State,1,-1,Sr,TRUE,4
+1355,2016,285,3,Adam Coon,Michigan,5,2,Jr,TRUE,3
+1356,2016,285,4,Ty Walz,Virginia Tech,3,-1,Jr,TRUE,3
+1357,2016,285,5,Amar Dhesi,Oregon State,7,2,So,TRUE,3
+1358,2016,285,6,Austin Marsden,Oklahoma State,4,-2,Sr,TRUE,2
+1359,2016,285,7,Michael Kroells,Minnesota,9,2,Jr,TRUE,3
+1360,2016,285,8,Max Wessell,Lehigh,8,0,Sr,TRUE,1
+1361,2017,125,1,Darian Cruz,Lehigh,4,3,Jr,TRUE,3
+1362,2017,125,2,Ethan Lizak,Minnesota,6,4,So,TRUE,3
+1363,2017,125,3,Thomas Gilman,Iowa,1,-2,Sr,TRUE,3
+1364,2017,125,4,Nick Piccininni,Oklahoma State,8,4,Fr,TRUE,2
+1365,2017,125,5,Joey Dance,Virginia Tech,2,-3,Sr,TRUE,2
+1366,2017,125,6,Jack Mueller,Virginia,10,4,Fr,TRUE,2
+1367,2017,125,7,Sean Russell,Edinboro,7,0,So,TRUE,1
+1368,2017,125,8,Nathan Kraisser,Campbell,16,8,Sr,TRUE,1
+1369,2017,133,1,Cory Clark,Iowa,4,3,Sr,TRUE,4
+1370,2017,133,2,Seth Gross,South Dakota State,2,0,So,TRUE,2
+1371,2017,133,3,Nathan Tomasello,Ohio State,1,-2,Jr,TRUE,4
+1372,2017,133,4,Stevan Micic,Michigan,5,1,Fr,TRUE,3
+1373,2017,133,5,Kaid Brock,Oklahoma State,3,-2,Fr,TRUE,2
+1374,2017,133,6,Eric Montoya,Nebraska,7,1,Sr,TRUE,2
+1375,2017,133,7,Zane Richards,Illinois,8,1,Sr,TRUE,2
+1376,2017,133,8,Scotty Parker,Lehigh,9,1,So,TRUE,1
+1377,2017,141,1,Dean Heil,Oklahoma State,1,0,Jr,TRUE,3
+1378,2017,141,2,George DiCamillo,Virginia,6,4,Sr,TRUE,1
+1379,2017,141,3,Kevin Jack,North Carolina State,2,-1,Jr,TRUE,3
+1380,2017,141,4,Bryce Meredith,Wyoming,10,6,Jr,TRUE,3
+1381,2017,141,5,Jaydin Eierman,Missouri,8,3,Fr,TRUE,4
+1382,2017,141,6,Anthony Ashnault,Rutgers,5,-1,Jr,TRUE,4
+1383,2017,141,7,Matt Kolodzik,Princeton,4,-3,Fr,TRUE,3
+1384,2017,141,8,Tommy Thorn,Minnesota,14,6,So,TRUE,1
+1385,2017,149,1,Zain Retherford,Penn State,1,0,Jr,TRUE,4
+1386,2017,149,2,Lavion Mayes,Missouri,3,1,Sr,TRUE,3
+1387,2017,149,3,Brandon Sorensen,Iowa,5,2,Jr,TRUE,4
+1388,2017,149,4,Micah Jordan,Ohio State,4,0,So,TRUE,3
+1389,2017,149,5,Max Thomsen,Northern Iowa,7,2,Fr,TRUE,1
+1390,2017,149,6,Solomon Chishko,Virginia Tech,6,0,So,TRUE,2
+1391,2017,149,7,Kenny Theobald,Rutgers,15,8,Sr,TRUE,1
+1392,2017,149,8,Alex Kocer,South Dakota State,US,9,Sr,TRUE,1
+1393,2017,157,1,Jason Nolf,Penn State,1,0,So,TRUE,4
+1394,2017,157,2,Joey Lavallee,Missouri,3,1,Jr,TRUE,1
+1395,2017,157,3,Michael Kemerer,Iowa,2,-1,Fr,TRUE,4
+1396,2017,157,4,Joseph Smith,Oklahoma State,5,1,So,TRUE,2
+1397,2017,157,5,Tyler Berger,Nebraska,4,-1,So,TRUE,3
+1398,2017,157,6,Dylan Palacio,Cornell,7,1,Sr,TRUE,2
+1399,2017,157,7,Paul Fox,Stanford,US,10,So,TRUE,1
+1400,2017,157,8,Sal Mastriani,Virginia Tech,14,6,Sr,TRUE,1
+1401,2017,165,1,Vincenzo Joseph,Penn State,3,2,Fr,TRUE,3
+1402,2017,165,2,Isaiah Martinez,Illinois,1,-1,Jr,TRUE,4
+1403,2017,165,3,Logan Massa,Michigan,2,-1,Fr,TRUE,3
+1404,2017,165,4,Isaac Jordan,Wisconsin,4,0,Sr,TRUE,4
+1405,2017,165,5,Chandler Rogers,Oklahoma State,9,4,So,TRUE,2
+1406,2017,165,6,Daniel Lewis,Missouri,6,0,So,TRUE,4
+1407,2017,165,7,Chad Walsh,Rider,5,-2,Jr,TRUE,2
+1408,2017,165,8,Brandon Womack,Cornell,13,5,So,TRUE,1
+1409,2017,174,1,Mark Hall,Penn State,5,4,Fr,TRUE,3
+1410,2017,174,2,Bo Jordan,Ohio State,3,1,Jr,TRUE,4
+1411,2017,174,3,Zahid Valencia,Arizona State,1,-2,Fr,TRUE,3
+1412,2017,174,4,Myles Amine,Michigan,9,5,Fr,TRUE,5
+1413,2017,174,5,Brian Realbuto,Cornell,2,-3,Sr,TRUE,3
+1414,2017,174,6,Zach Brunson,Illinois,10,4,Sr,TRUE,1
+1415,2017,174,7,Kyle Crutchmer,Oklahoma State,7,0,Sr,TRUE,2
+1416,2017,174,8,Jake Residori,SIU Edwardsville,US,9,Sr,TRUE,1
+1417,2017,184,1,Bo Nickal,Penn State,2,1,So,TRUE,4
+1418,2017,184,2,Gabe Dean,Cornell,1,-1,Sr,TRUE,4
+1419,2017,184,3,Timothy Dudley,Nebraska,7,4,Sr,TRUE,3
+1420,2017,184,4,Sammy Brooks,Iowa,3,-1,Sr,TRUE,1
+1421,2017,184,5,Myles Martin,Ohio State,6,1,So,TRUE,4
+1422,2017,184,6,Nolan Boyd,Oklahoma State,4,-2,Sr,TRUE,2
+1423,2017,184,7,Drew Foster,Northern Iowa,12,5,So,TRUE,2
+1424,2017,184,8,Nathan Jackson,Indiana,9,1,Sr,TRUE,2
+1425,2017,197,1,J'den Cox,Missouri,1,0,Sr,TRUE,4
+1426,2017,197,2,Brett Pfarr,Minnesota,2,0,Sr,TRUE,2
+1427,2017,197,3,Kollin Moore,Ohio State,3,0,Fr,TRUE,3
+1428,2017,197,4,Jared Haught,Virginia Tech,4,0,Jr,TRUE,3
+1429,2017,197,5,Aaron Studebaker,Nebraska,7,2,Sr,TRUE,1
+1430,2017,197,6,Preston Weigel,Oklahoma State,6,0,So,TRUE,2
+1431,2017,197,7,Ryan Wolfe,Rider,8,1,Sr,TRUE,1
+1432,2017,197,8,Kevin Beazley,Old Dominion,10,2,Jr,TRUE,1
+1433,2017,285,1,Kyle Snyder,Ohio State,1,0,Jr,TRUE,4
+1434,2017,285,2,Connor Medbery,Wisconsin,2,0,Sr,TRUE,2
+1435,2017,285,3,Tanner Hall,Arizona State,7,4,So,TRUE,1
+1436,2017,285,4,Ty Walz,Virginia Tech,3,-1,Sr,TRUE,3
+1437,2017,285,5,Nick Nevills,Penn State,5,0,So,TRUE,2
+1438,2017,285,6,Jacob Kasper,Duke,4,-2,Jr,TRUE,2
+1439,2017,285,7,Michael Kroells,Minnesota,8,1,Sr,TRUE,3
+1440,2017,285,8,Denzel Dejournette,Appalachian State,9,1,Sr,TRUE,1
+1441,2018,125,1,Spencer Lee,Iowa,3,2,Fr,TRUE,4
+1442,2018,125,2,Nick Suriano,Rutgers,4,2,So,TRUE,3
+1443,2018,125,3,Nathan Tomasello,Ohio State,2,-1,Sr,TRUE,4
+1444,2018,125,4,Ethan Lizak,Minnesota,8,4,Jr,TRUE,3
+1445,2018,125,5,Darian Cruz,Lehigh,1,-4,Sr,TRUE,3
+1446,2018,125,6,Sebastian Rivera,Northwestern,10,4,Fr,TRUE,4
+1447,2018,125,7,Ronnie Bresser,Oregon State,9,2,Jr,TRUE,2
+1448,2018,125,8,Zeke Moisey,West Virginia,13,5,Jr,TRUE,2
+1449,2018,133,1,Seth Gross,South Dakota State,1,0,Jr,TRUE,2
+1450,2018,133,2,Stevan Micic,Michigan,2,0,So,TRUE,3
+1451,2018,133,3,Tariq Wilson,North Carolina State,US,14,Fr,TRUE,3
+1452,2018,133,4,Luke Pletcher,Ohio State,3,-1,So,TRUE,2
+1453,2018,133,5,Kaid Brock,Oklahoma State,4,-1,So,TRUE,2
+1454,2018,133,6,Scott Delvecchio,Rutgers,US,11,Sr,TRUE,1
+1455,2018,133,7,Scott Parker,Lehigh,6,-1,Sr,TRUE,1
+1456,2018,133,8,Montorie Bridges,Wyoming,8,0,Fr,TRUE,1
+1457,2018,141,1,Yianni Diakomihalis,Cornell,3,2,Fr,TRUE,4
+1458,2018,141,2,Bryce Meredith,Wyoming,1,-1,Sr,TRUE,3
+1459,2018,141,3,Joey McKenna,Ohio State,4,1,Jr,TRUE,3
+1460,2018,141,4,Jaydin Eierman,Missouri,2,-2,So,TRUE,4
+1461,2018,141,5,Nick Lee,Penn State,8,3,Fr,TRUE,4
+1462,2018,141,6,Kevin Jack,North Carolina State,5,-1,Sr,TRUE,3
+1463,2018,141,7,Chad Red,Nebraska,US,10,Fr,TRUE,3
+1464,2018,141,8,Sa'Derian Perry,Eastern Michigan,US,9,So,TRUE,1
+1465,2018,149,1,Zain Retherford,Penn State,1,0,Sr,TRUE,4
+1466,2018,149,2,Ronnie Perry,Lock Haven,15,13,Sr,TRUE,1
+1467,2018,149,3,Matt Kolodzik,Princeton,11,8,So,TRUE,3
+1468,2018,149,4,Troy Heilmann,North Carolina,4,0,Sr,TRUE,1
+1469,2018,149,5,Brandon Sorensen,Iowa,2,-3,Sr,TRUE,4
+1470,2018,149,6,Grant Leeth,Missouri,3,-3,Jr,TRUE,1
+1471,2018,149,7,Jason Tsirtsis,Arizona State,10,3,Sr,TRUE,3
+1472,2018,149,8,Boo Lewallen,Oklahoma State,8,0,So,TRUE,2
+1473,2018,157,1,Jason Nolf,Penn State,3,2,Jr,TRUE,4
+1474,2018,157,2,Hayden Hidlay,North Carolina State,1,-1,Fr,TRUE,4
+1475,2018,157,3,Tyler Berger,Nebraska,8,5,Jr,TRUE,3
+1476,2018,157,4,Michael Kemerer,Iowa,6,2,So,TRUE,4
+1477,2018,157,5,Alec Pantaleo,Michigan,5,0,Jr,TRUE,3
+1478,2018,157,6,Micah Jordan,Ohio State,7,1,Jr,TRUE,3
+1479,2018,157,7,Joshua Shields,Arizona State,4,-3,So,TRUE,1
+1480,2018,157,8,Luke Zilverberg,South Dakota State,13,5,Sr,TRUE,1
+1481,2018,165,1,Vincenzo Joseph,Penn State,3,2,So,TRUE,3
+1482,2018,165,2,Isaiah Martinez,Illinois,1,-1,Sr,TRUE,4
+1483,2018,165,3,Evan Wick,Wisconsin,10,7,Fr,TRUE,3
+1484,2018,165,4,Chance Marsteller,Lock Haven,9,5,Jr,TRUE,2
+1485,2018,165,5,David McFadden,Virginia Tech,2,-3,So,TRUE,3
+1486,2018,165,6,Alex Marinelli,Iowa,5,-1,Fr,TRUE,3
+1487,2018,165,7,Jon Jay Chavez,Cornell,16,9,Jr,TRUE,1
+1488,2018,165,8,Chandler Rogers,Oklahoma State,8,0,Jr,TRUE,2
+1489,2018,174,1,Zahid Valencia,Arizona State,1,0,So,TRUE,3
+1490,2018,174,2,Mark Hall,Penn State,2,0,So,TRUE,3
+1491,2018,174,3,Myles Amine,Michigan,5,2,So,TRUE,5
+1492,2018,174,4,Daniel Lewis,Missouri,3,-1,Jr,TRUE,4
+1493,2018,174,5,Bo Jordan,Ohio State,6,1,Sr,TRUE,4
+1494,2018,174,6,Jordan Kutler,Lehigh,4,-2,So,TRUE,2
+1495,2018,174,7,David Kocer,South Dakota State,11,4,Sr,TRUE,1
+1496,2018,174,8,Jacobe Smith,Oklahoma State,13,5,Jr,TRUE,1
+1497,2018,184,1,Bo Nickal,Penn State,1,0,Jr,TRUE,4
+1498,2018,184,2,Myles Martin,Ohio State,2,0,Jr,TRUE,4
+1499,2018,184,3,Emory Parker,Illinois,10,7,Jr,TRUE,2
+1500,2018,184,4,Taylor Venz,Nebraska,7,3,Fr,TRUE,1
+1501,2018,184,5,Domenic Abounader,Michigan,5,0,Sr,TRUE,1
+1502,2018,184,6,Zachary Zavatsky,Virginia Tech,6,0,Jr,TRUE,1
+1503,2018,184,7,Chip Ness,North Carolina,US,10,Jr,TRUE,2
+1504,2018,184,8,Max Dean,Cornell,9,1,Fr,TRUE,4
+1505,2018,197,1,Michael Macchiavello,North Carolina State,4,3,Sr,TRUE,1
+1506,2018,197,2,Jared Haught,Virginia Tech,3,1,Sr,TRUE,3
+1507,2018,197,3,Kyle Conel,Kent State,US,14,Jr,TRUE,1
+1508,2018,197,4,Kollin Moore,Ohio State,1,-3,So,TRUE,3
+1509,2018,197,5,Jacob Holschlag,Northern Iowa,US,12,So,TRUE,1
+1510,2018,197,6,Ben Darmstadt,Cornell,2,-4,Fr,TRUE,1
+1511,2018,197,7,Shakur Rasheed,Penn State,5,-2,Jr,TRUE,1
+1512,2018,197,8,Willie Miklus,Missouri,6,-2,Jr,TRUE,4
+1513,2018,285,1,Kyle Snyder,Ohio State,1,0,Sr,TRUE,4
+1514,2018,285,2,Adam Coon,Michigan,2,0,Sr,TRUE,3
+1515,2018,285,3,Amar Dhesi,Oregon State,6,3,Jr,TRUE,3
+1516,2018,285,4,Jacob Kasper,Duke,4,0,Sr,TRUE,2
+1517,2018,285,5,Sam Stoll,Iowa,5,0,Jr,TRUE,1
+1518,2018,285,6,Mike Hughes,Hofstra,11,5,Sr,TRUE,1
+1519,2018,285,7,Nick Nevills,Penn State,3,-4,Jr,TRUE,2
+1520,2018,285,8,Youssif Hemida,Maryland,12,4,Jr,TRUE,2
+1521,2019,125,1,Spencer Lee,Iowa,3,2,So,TRUE,4
+1522,2019,125,2,Jack Mueller,Virginia,5,3,Jr,TRUE,2
+1523,2019,125,3,Sebastian Rivera,Northwestern,1,-2,So,TRUE,4
+1524,2019,125,4,Vito Arujau,Cornell,8,4,Fr,TRUE,4
+1525,2019,125,5,Nick Piccininni,Oklahoma State,2,-3,Jr,TRUE,2
+1526,2019,125,6,Pat Glory,Princeton,7,1,Fr,TRUE,3
+1527,2019,125,7,RayVon Foley,Michigan State,9,2,So,TRUE,1
+1528,2019,125,8,Ronnie Bresser,Oregon State,4,-4,Sr,TRUE,2
+1529,2019,133,1,Nick Suriano,Rutgers,3,2,Jr,TRUE,3
+1530,2019,133,2,Daton Fix,Oklahoma State,1,-1,Fr,TRUE,5
+1531,2019,133,3,Stevan Micic,Michigan,2,-1,So,TRUE,3
+1532,2019,133,4,Luke Pletcher,Ohio State,5,1,Jr,TRUE,2
+1533,2019,133,5,Austin DeSanto,Iowa,7,2,So,TRUE,3
+1534,2019,133,6,John Erneste,Missouri,8,2,Sr,TRUE,1
+1535,2019,133,7,Ethan Lizak,Minnesota,6,-1,Sr,TRUE,3
+1536,2019,133,8,Roman Bravo-Young,Penn State,10,2,Fr,TRUE,4
+1537,2019,141,1,Yianni Diakomihalis,Cornell,1,0,So,TRUE,4
+1538,2019,141,2,Joey McKenna,Ohio State,2,0,Sr,TRUE,3
+1539,2019,141,3,Jaydin Eierman,Missouri,5,2,Jr,TRUE,4
+1540,2019,141,4,Dom Demas,Oklahoma,9,5,Fr,TRUE,1
+1541,2019,141,5,Nick Lee,Penn State,3,-2,So,TRUE,4
+1542,2019,141,6,Mitch McKee,Minnesota,7,1,Jr,TRUE,1
+1543,2019,141,7,Kyle Shoop,Lock Haven,13,6,Jr,TRUE,1
+1544,2019,141,8,Chad Red,Nebraska,16,8,So,TRUE,3
+1545,2019,149,1,Anthony Ashnault,Rutgers,1,0,Sr,TRUE,4
+1546,2019,149,2,Micah Jordan,Ohio State,2,0,Sr,TRUE,3
+1547,2019,149,3,Austin O'Connor,North Carolina,6,3,Fr,TRUE,4
+1548,2019,149,4,Finn Eisnert,Duke,3,-1,Sr,TRUE,1
+1549,2019,149,5,Matt Kolodzik,Princeton,5,0,Jr,TRUE,3
+1550,2019,149,6,Brock Mauller,Missouri,4,-2,Fr,TRUE,3
+1551,2019,149,7,Jarrett Degen,Iowa State,8,1,So,TRUE,1
+1552,2019,149,8,Pat Lugo,Iowa,10,2,Sr,TRUE,1
+1553,2019,157,1,Jason Nolf,Penn State,1,0,Sr,TRUE,4
+1554,2019,157,2,Tyler Berger,Nebraska,2,0,Sr,TRUE,3
+1555,2019,157,3,Alec Pantaleo,Michigan,4,1,Sr,TRUE,3
+1556,2019,157,4,Hayden Hidlay,North Carolina State,5,1,So,TRUE,4
+1557,2019,157,5,Kaleb Young,Iowa,6,1,So,TRUE,2
+1558,2019,157,6,Ryan Deakin,Northwestern,3,-3,So,TRUE,3
+1559,2019,157,7,Christian Pagdilao,Arizona State,9,2,Sr,TRUE,1
+1560,2019,157,8,Larry Early,Old Dominion,7,-1,Jr,TRUE,1
+1561,2019,165,1,Mekhi Lewis,Virginia Tech,8,7,Fr,TRUE,4
+1562,2019,165,2,Vincenzo Joseph,Penn State,2,0,Jr,TRUE,3
+1563,2019,165,3,Chance Marsteller,Lock Haven,5,2,Sr,TRUE,2
+1564,2019,165,4,Evan Wick,Wisconsin,4,0,So,TRUE,3
+1565,2019,165,5,Isaiah White,Nebraska,7,2,Jr,TRUE,1
+1566,2019,165,6,Josh Shields,Arizona State,3,-3,Jr,TRUE,1
+1567,2019,165,7,Alex Marinelli,Iowa,1,-6,So,TRUE,3
+1568,2019,165,8,Bryce Steiert,Northern Iowa,11,3,Jr,TRUE,1
+1569,2019,174,1,Zahid Valencia,Arizona State,3,2,Jr,TRUE,3
+1570,2019,174,2,Mark Hall,Penn State,1,-1,Jr,TRUE,3
+1571,2019,174,3,Myles Amine,Michigan,4,1,Jr,TRUE,5
+1572,2019,174,4,Daniel Lewis,Missouri,2,-2,Sr,TRUE,4
+1573,2019,174,5,David McFadden,Virginia Tech,6,1,Jr,TRUE,3
+1574,2019,174,6,Mikey Labriola,Nebraska,10,4,Fr,TRUE,4
+1575,2019,174,7,Jordan Kutler,Lehigh,5,-2,Jr,TRUE,2
+1576,2019,174,8,Devin Skatzka,Minnesota,9,1,Jr,TRUE,1
+1577,2019,184,1,Drew Foster,Northern Iowa,6,5,Sr,TRUE,2
+1578,2019,184,2,Max Dean,Cornell,5,3,So,TRUE,4
+1579,2019,184,3,Myles Martin,Ohio State,1,-2,Sr,TRUE,4
+1580,2019,184,4,Ryan Preisch,Lehigh,8,4,Sr,TRUE,1
+1581,2019,184,5,Emory Parker,Illinois,4,-1,Sr,TRUE,2
+1582,2019,184,6,Chip Ness,North Carolina,15,9,Sr,TRUE,2
+1583,2019,184,7,Dakota Geer,Oklahoma State,26,19,So,TRUE,2
+1584,2019,184,8,Zack Zavatsky,Virginia Tech,3,-5,Sr,TRUE,1
+1585,2019,197,1,Bo Nickal,Penn State,1,0,Sr,TRUE,4
+1586,2019,197,2,Kollin Moore,Ohio State,2,0,Jr,TRUE,3
+1587,2019,197,3,Preston Weigel,Oklahoma State,3,0,Sr,TRUE,2
+1588,2019,197,4,Patrick Brucki,Princeton,4,0,So,TRUE,1
+1589,2019,197,5,Josh Hokit,Fresno State,16,11,Jr,TRUE,1
+1590,2019,197,6,Willie Miklus,Iowa State,6,0,Sr,TRUE,4
+1591,2019,197,7,Jacob Warner,Iowa,5,-2,Fr,TRUE,4
+1592,2019,197,8,Ben Honis,Cornell,9,1,Sr,TRUE,1
+1593,2019,285,1,Anthony Cassar,Penn State,2,1,Sr,TRUE,1
+1594,2019,285,2,Derek White,Oklahoma State,1,-1,Sr,TRUE,1
+1595,2019,285,3,Gable Steveson,Minnesota,3,0,Fr,TRUE,4
+1596,2019,285,4,Jordan Wood,Lehigh,4,0,So,TRUE,2
+1597,2019,285,5,Amar Dhesi,Oregon State,6,1,Sr,TRUE,3
+1598,2019,285,6,Youssif Hemida,Maryland,10,4,Sr,TRUE,2
+1599,2019,285,7,Matt Stencel,Central Michigan,9,2,So,TRUE,1
+1600,2019,285,8,Trent Hillger,Wisconsin,7,-1,Fr,TRUE,3
+1601,2021,125,1,Spencer Lee,Iowa,1,0,Jr,TRUE,4
+1602,2021,125,2,Brandon Courtney,Arizona State,3,1,So,TRUE,3
+1603,2021,125,3,Patrick McKee,Minnesota,15,12,Fr,TRUE,2
+1604,2021,125,4,Drew Hildebrandt,Central Michigan,4,0,Sr,TRUE,1
+1605,2021,125,5,Taylor LaMont,Utah Valley,7,2,Jr,TRUE,1
+1606,2021,125,6,Sam Latona,Virginia Tech,2,-4,Fr,TRUE,2
+1607,2021,125,7,Killian Cardinale,West Virginia,17,10,So,TRUE,2
+1608,2021,125,8,Eric Barnett,Wisconsin,19,11,Fr,TRUE,3
+1609,2021,133,1,Roman Bravo-Young,Penn State,2,1,So,TRUE,4
+1610,2021,133,2,Daton Fix,Oklahoma State,1,-1,So,TRUE,5
+1611,2021,133,3,Austin DeSanto,Iowa,4,1,Jr,TRUE,3
+1612,2021,133,4,Korbin Myers,Virginia Tech,3,-1,Sr,TRUE,2
+1613,2021,133,5,Lucas Byrd,Illinois,7,2,Fr,TRUE,3
+1614,2021,133,6,Michael McGee,Arizona State,9,3,So,TRUE,3
+1615,2021,133,7,Chris Cannon,Northwestern,8,1,Fr,TRUE,2
+1616,2021,133,8,Louie Hayes,Virginia,10,2,Sr,TRUE,1
+1617,2021,141,1,Nick Lee,Penn State,2,1,Jr,TRUE,4
+1618,2021,141,2,Jaydin Eierman,Iowa,1,-1,SSr,TRUE,4
+1619,2021,141,3,Tariq Wilson,North Carolina State,4,1,Jr,TRUE,3
+1620,2021,141,4,Sebastian Rivera,Rutgers,3,-1,Jr,TRUE,4
+1621,2021,141,5,Dylan Duncan,Illinois,14,9,Sr,TRUE,1
+1622,2021,141,6,Chad Red,Nebraska,8,2,Jr,TRUE,3
+1623,2021,141,7,Zachary Sherman,North Carolina,10,3,Jr,TRUE,1
+1624,2021,141,8,Clay Carlson,South Dakota State,15,7,So,TRUE,2
+1625,2021,149,1,Austin O'Connor,North Carolina,2,1,Jr,TRUE,4
+1626,2021,149,2,Sammy Sasso,Ohio State,1,-1,Fr,TRUE,3
+1627,2021,149,3,Yahya Thomas,Northwestern,25,22,Jr,TRUE,1
+1628,2021,149,4,Boo Lewallen,Oklahoma State,4,0,Sr,TRUE,2
+1629,2021,149,5,Brock Mauller,Missouri,3,-2,So,TRUE,3
+1630,2021,149,6,Kyle Parco,Fresno State,17,11,Fr,TRUE,4
+1631,2021,149,7,Jaden Abas,Stanford,8,1,Fr,TRUE,1
+1632,2021,149,8,Jonathan Millner,Appalachian State,7,-1,Jr,TRUE,2
+1633,2021,157,1,David Carr,Iowa State,3,2,So,TRUE,4
+1634,2021,157,2,Jesse Dellavecchia,Rider,4,2,Sr,TRUE,1
+1635,2021,157,3,Ryan Deakin,Northwestern,1,-2,Jr,TRUE,3
+1636,2021,157,4,Jacori Teemer,Arizona State,11,7,So,TRUE,3
+1637,2021,157,5,Hayden Hidlay,North Carolina State,2,-3,Sr,TRUE,4
+1638,2021,157,6,Brayton Lee,Minnesota,6,0,So,TRUE,1
+1639,2021,157,7,Kaleb Young,Iowa,5,-2,Sr,TRUE,2
+1640,2021,157,8,Wyatt Sheets,Oklahoma State,33,25,Jr,TRUE,1
+1641,2021,165,1,Shane Griffith,Stanford,8,7,Fr,TRUE,4
+1642,2021,165,2,Jake Wentzel,Pittsburgh,3,1,Jr,TRUE,1
+1643,2021,165,3,Keegan O’Toole,Missouri,6,3,Fr,TRUE,5
+1644,2021,165,4,Travis Wittlake,Oklahoma State,10,6,So,TRUE,1
+1645,2021,165,5,Ethan Smith,Ohio State,7,2,Jr,TRUE,2
+1646,2021,165,6,Zach Hartman,Bucknell,5,-1,Jr,TRUE,1
+1647,2021,165,7,Cameron Amine,Michigan,11,4,Fr,TRUE,4
+1648,2021,165,8,Anthony Valencia,Arizona State,2,-6,Sr,TRUE,1
+1649,2021,174,1,Carter Starocci,Penn State,3,2,Fr,TRUE,5
+1650,2021,174,2,Michael Kemerer,Iowa,1,-1,Jr,TRUE,4
+1651,2021,174,3,Mikey Labriola,Nebraska,4,1,So,TRUE,4
+1652,2021,174,4,Bernie Truax,Cal Poly,12,8,So,TRUE,4
+1653,2021,174,5,Logan Massa,Michigan,5,0,Sr,TRUE,3
+1654,2021,174,6,Demetrius Romero,Utah Valley,2,-4,Sr,TRUE,1
+1655,2021,174,7,Daniel Bullard,North Carolina State,8,1,Sr,TRUE,1
+1656,2021,174,8,Jackson Turley,Rutgers,26,18,So,TRUE,1
+1657,2021,184,1,Aaron Brooks,Penn State,1,0,Fr,TRUE,4
+1658,2021,184,2,Trent Hidlay,North Carolina State,2,0,Fr,TRUE,4
+1659,2021,184,3,Parker Keckeisen,Northern Iowa,4,1,Fr,TRUE,5
+1660,2021,184,4,John Poznanski,Rutgers,6,2,Fr,TRUE,1
+1661,2021,184,5,Dakota Geer,Oklahoma State,11,6,Sr,TRUE,2
+1662,2021,184,6,Brit Wilson,Northern Illinois,7,1,Jr,TRUE,1
+1663,2021,184,7,Hunter Bolen,Virginia Tech,5,-2,Jr,TRUE,1
+1664,2021,184,8,Lou Deprez,Binghamton,3,-5,Jr,TRUE,1
+1665,2021,197,1,AJ Ferrari,Oklahoma State,4,3,Fr,TRUE,2
+1666,2021,197,2,Nino Bonaccorsi,Pittsburgh,6,4,So,TRUE,2
+1667,2021,197,3,Myles Amine,Michigan,1,-2,Sr,TRUE,5
+1668,2021,197,4,Jacob Warner,Iowa,5,1,Jr,TRUE,4
+1669,2021,197,5,Rocky Elam,Missouri,7,2,Fr,TRUE,4
+1670,2021,197,6,Jake Woodley,Oklahoma,26,20,Jr,TRUE,1
+1671,2021,197,7,Michael Beard,Penn State,15,8,Fr,TRUE,2
+1672,2021,197,8,Stephen Buchanan,Wyoming,8,0,Fr,TRUE,4
+1673,2021,285,1,Gable Steveson,Minnesota,1,0,Jr,TRUE,4
+1674,2021,285,2,Mason Parris,Michigan,2,0,So,TRUE,3
+1675,2021,285,3,Tony Cassioppi,Iowa,5,2,Fr,TRUE,3
+1676,2021,285,4,Cohlton Schultz,Arizona State,4,0,Fr,TRUE,5
+1677,2021,285,5,Gannon Gremmel,Iowa State,6,1,Sr,TRUE,1
+1678,2021,285,6,Trent Hillger,Wisconsin,14,8,So,TRUE,3
+1679,2021,285,7,Greg Kerkvliet,Penn State,9,2,Fr,TRUE,5
+1680,2021,285,8,Tate Orndorff,Ohio State,21,13,Jr,TRUE,1
+1681,2022,125,1,Nick Suriano,Michigan,1,0,Sr,TRUE,3
+1682,2022,125,2,Pat Glory,Princeton,3,1,Jr,TRUE,3
+1683,2022,125,3,Vito Arujau,Cornell,2,-1,So,TRUE,4
+1684,2022,125,4,Michael DeAugustino,Northwestern,10,6,Jr,TRUE,1
+1685,2022,125,5,Patrick McKee,Minnesota,8,3,So,TRUE,2
+1686,2022,125,6,Brandon Courtney,Arizona State,4,-2,Jr,TRUE,3
+1687,2022,125,7,Eric Barnett,Wisconsin,6,-1,So,TRUE,3
+1688,2022,125,8,Brandon Kaylor,Oregon State,11,3,Jr,TRUE,1
+1689,2022,133,1,Roman Bravo-Young,Penn State,1,0,Jr,TRUE,4
+1690,2022,133,2,Daton Fix,Oklahoma State,2,0,Jr,TRUE,5
+1691,2022,133,3,Austin DeSanto,Iowa,5,2,Sr,TRUE,3
+1692,2022,133,4,Michael McGee,Arizona State,3,-1,Jr,TRUE,3
+1693,2022,133,5,Lucas Byrd,Illinois,7,2,So,TRUE,3
+1694,2022,133,6,Korbin Myers,Virginia Tech,4,-2,SSr,TRUE,2
+1695,2022,133,7,Chris Cannon,Northwestern,10,3,So,TRUE,2
+1696,2022,133,8,Devan Turner,Oregon State,11,3,SSr,TRUE,1
+1697,2022,141,1,Nick Lee,Penn State,1,0,Sr,TRUE,4
+1698,2022,141,2,Kizhan Clarke,North Carolina,15,13,SSr,TRUE,1
+1699,2022,141,3,Sebastian Rivera,Rutgers,3,0,Sr,TRUE,4
+1700,2022,141,4,Grant Willits,Oregon State,8,4,Sr,TRUE,1
+1701,2022,141,5,Cole Matthews,Pittsburgh,6,1,Jr,TRUE,1
+1702,2022,141,6,Real Woods,Stanford,4,-2,So,TRUE,3
+1703,2022,141,7,Jake Bergland,Minnesota,10,3,Sr,TRUE,1
+1704,2022,141,8,CJ Composto,Pennsylvania,12,4,Fr,TRUE,2
+1705,2022,149,1,Yianni Diakomihalis,Cornell,1,0,Jr,TRUE,4
+1706,2022,149,2,Ridge Lovett,Nebraska,10,8,So,TRUE,3
+1707,2022,149,3,Bryce Andonian,Virginia Tech,11,8,So,TRUE,3
+1708,2022,149,4,Austin Gomez,Wisconsin,3,-1,So,TRUE,2
+1709,2022,149,5,Sammy Sasso,Ohio State,4,-1,So,TRUE,3
+1710,2022,149,6,Jonathan Millner,Appalachian State,6,0,Sr,TRUE,2
+1711,2022,149,7,Tariq Wilson,North Carolina State,2,-5,Sr,TRUE,3
+1712,2022,149,8,Kyle Parco,Arizona State,5,-3,So,TRUE,4
+1713,2022,157,1,Ryan Deakin,Northwestern,2,1,Sr,TRUE,3
+1714,2022,157,2,Quincy Monday,Princeton,5,3,Jr,TRUE,2
+1715,2022,157,3,David Carr,Iowa State,1,-2,Jr,TRUE,4
+1716,2022,157,4,Peyton Robb,Nebraska,10,6,Jr,TRUE,3
+1717,2022,157,5,Will Lewan,Michigan,8,3,So,TRUE,2
+1718,2022,157,6,Jacori Teemer,Arizona State,3,-3,Jr,TRUE,3
+1719,2022,157,7,Hunter Willits,Oregon State,17,10,Sr,TRUE,1
+1720,2022,157,8,Austin O'Connor,North Carolina,11,3,Sr,TRUE,4
+1721,2022,165,1,Keegan O’Toole,Missouri,2,1,So,TRUE,5
+1722,2022,165,2,Shane Griffith,Stanford,5,3,So,TRUE,4
+1723,2022,165,3,Evan Wick,Cal Poly,1,-2,Sr,TRUE,3
+1724,2022,165,4,Cameron Amine,Michigan,6,2,So,TRUE,4
+1725,2022,165,5,Alex Marinelli,Iowa,3,-2,Jr,TRUE,3
+1726,2022,165,6,Dean Hamiti,Wisconsin,4,-2,Fr,TRUE,3
+1727,2022,165,7,Carson Kharchla,Ohio State,7,0,Fr,TRUE,1
+1728,2022,165,8,Peyton Hall,West Virginia,9,1,So,TRUE,3
+1729,2022,174,1,Carter Starocci,Penn State,1,0,So,TRUE,5
+1730,2022,174,2,Mekhi Lewis,Virginia Tech,2,0,Jr,TRUE,4
+1731,2022,174,3,Hayden Hidlay,North Carolina State,4,1,SSr,TRUE,4
+1732,2022,174,4,Michael Kemerer,Iowa,5,1,Sr,TRUE,4
+1733,2022,174,5,Logan Massa,Michigan,3,-2,SSr,TRUE,3
+1734,2022,174,6,Dustin Plott,Oklahoma State,6,0,So,TRUE,4
+1735,2022,174,7,Mikey Labriola,Nebraska,9,2,Jr,TRUE,4
+1736,2022,174,8,Clay Lautt,North Carolina,10,2,Sr,TRUE,1
+1737,2022,184,1,Aaron Brooks,Penn State,2,1,So,TRUE,4
+1738,2022,184,2,Myles Amine,Michigan,1,-1,SSr,TRUE,5
+1739,2022,184,3,Parker Keckeisen,Northern Iowa,4,1,So,TRUE,5
+1740,2022,184,4,Bernie Truax,Cal Poly,5,1,Jr,TRUE,4
+1741,2022,184,5,Trent Hidlay,North Carolina State,3,-2,So,TRUE,4
+1742,2022,184,6,Kaleb Romero,Ohio State,7,1,Jr,TRUE,2
+1743,2022,184,7,Marcus Coleman,Iowa State,8,1,Jr,TRUE,2
+1744,2022,184,8,Jonathan Loew,Cornell,11,3,So,TRUE,1
+1745,2022,197,1,Max Dean,Penn State,1,0,Jr,TRUE,4
+1746,2022,197,2,Jacob Warner,Iowa,6,4,Sr,TRUE,4
+1747,2022,197,3,Stephen Buchanan,Wyoming,2,-1,So,TRUE,4
+1748,2022,197,4,Rocky Elam,Missouri,7,3,So,TRUE,4
+1749,2022,197,5,Yonger Bastida,Iowa State,10,5,Fr,TRUE,1
+1750,2022,197,6,Gavin Hoffman,Ohio State,21,15,Jr,TRUE,1
+1751,2022,197,7,Eric Schultz,Nebraska,3,-4,SSr,TRUE,1
+1752,2022,197,8,Greg Bulsak,Rutgers,14,6,SSr,TRUE,1
+1753,2022,285,1,Gable Steveson,Minnesota,1,0,Sr,TRUE,4
+1754,2022,285,2,Cohlton Schultz,Arizona State,2,0,So,TRUE,5
+1755,2022,285,3,Jordan Wood,Lehigh,6,3,Sr,TRUE,2
+1756,2022,285,4,Greg Kerkvliet,Penn State,4,0,So,TRUE,5
+1757,2022,285,5,Mason Parris,Michigan,7,2,Jr,TRUE,3
+1758,2022,285,6,Lucas Davison,Northwestern,9,3,So,TRUE,3
+1759,2022,285,7,Tony Cassioppi,Iowa,3,-4,So,TRUE,3
+1760,2022,285,8,Christian Lance,Nebraska,12,4,SSr,TRUE,1
+1761,2023,125,1,Pat Glory,Princeton,2,1,Sr,TRUE,3
+1762,2023,125,2,Matt Ramos,Purdue,4,2,So,TRUE,2
+1763,2023,125,3,Brandon Courtney,Arizona State,10,7,Sr,TRUE,3
+1764,2023,125,4,Anthony Noto,Lock Haven,8,4,So,TRUE,2
+1765,2023,125,5,Liam Cronin,Nebraska,3,-2,SSr,TRUE,1
+1766,2023,125,6,Spencer Lee,Iowa,1,-5,Sr,TRUE,4
+1767,2023,125,7,Eddie Ventresca,Virginia Tech,27,20,Fr,TRUE,2
+1768,2023,125,8,Killian Cardinale,West Virginia,28,20,Sr,TRUE,2
+1769,2023,133,1,Vito Arujau,Cornell,3,2,Jr,TRUE,4
+1770,2023,133,2,Roman Bravo-Young,Penn State,1,-1,Sr,TRUE,4
+1771,2023,133,3,Michael McGee,Arizona State,4,1,Sr,TRUE,3
+1772,2023,133,4,Daton Fix,Oklahoma State,2,-2,Sr,TRUE,5
+1773,2023,133,5,Aaron Nagao,Minnesota,8,3,Fr,TRUE,1
+1774,2023,133,6,Jesse Mendez,Ohio State,13,7,Fr,TRUE,3
+1775,2023,133,7,Sam Latona,Virginia Tech,6,-1,Jr,TRUE,2
+1776,2023,133,8,Kai Orine,North Carolina State,5,-3,So,TRUE,2
+1777,2023,141,1,Andrew Alirez,Northern Colorado,2,1,Sr,TRUE,1
+1778,2023,141,2,Real Woods,Iowa,1,-1,Jr,TRUE,3
+1779,2023,141,3,Beau Bartlett,Penn State,6,3,So,TRUE,3
+1780,2023,141,4,Lachlan McNeil,North Carolina,10,6,Fr,TRUE,3
+1781,2023,141,5,Clay Carlson,South Dakota State,11,6,Jr,TRUE,2
+1782,2023,141,6,Brock Hardy,Nebraska,4,-2,Fr,TRUE,3
+1783,2023,141,7,Parker Filius,Purdue,12,5,SSr,TRUE,1
+1784,2023,141,8,Dylan D’Emilio,Ohio State,17,9,Jr,TRUE,2
+1785,2023,149,1,Yianni Diakomihalis,Cornell,1,0,Sr,TRUE,4
+1786,2023,149,2,Sammy Sasso,Ohio State,2,0,Jr,TRUE,3
+1787,2023,149,3,Shayne Van Ness,Penn State,12,9,Fr,TRUE,2
+1788,2023,149,4,Kyle Parco,Arizona State,3,-1,Jr,TRUE,4
+1789,2023,149,5,Caleb Henson,Virginia Tech,4,-1,Fr,TRUE,3
+1790,2023,149,6,Max Murin,Iowa,8,2,SSr,TRUE,1
+1791,2023,149,7,Brock Mauller,Missouri,6,-1,Sr,TRUE,3
+1792,2023,149,8,Michael Blockhus,Minnesota,10,2,Sr,TRUE,1
+1793,2023,157,1,Austin O'Connor,North Carolina,1,0,SSr,TRUE,4
+1794,2023,157,2,Levi Haines,Penn State,2,0,Jr,TRUE,3
+1795,2023,157,3,Josh Humphreys,Lehigh,5,2,Sr,TRUE,1
+1796,2023,157,4,Jared Franek,North Dakota State,4,0,Sr,TRUE,2
+1797,2023,157,5,Ed Scott,North Carolina State,8,3,Jr,TRUE,1
+1798,2023,157,6,Peyton Robb,Nebraska,3,-3,Sr,TRUE,3
+1799,2023,157,7,Bryce Andonian,Virginia Tech,7,0,Jr,TRUE,3
+1800,2023,157,8,Will Lewan,Michigan,9,1,Jr,TRUE,2
+1801,2023,165,1,Keegan O’Toole,Missouri,2,1,Jr,TRUE,5
+1802,2023,165,2,David Carr,Iowa State,1,-1,Sr,TRUE,4
+1803,2023,165,3,Quincy Monday,Princeton,5,2,Sr,TRUE,2
+1804,2023,165,4,Cameron Amine,Michigan,11,7,Jr,TRUE,4
+1805,2023,165,5,Shane Griffith,Stanford,9,4,Jr,TRUE,4
+1806,2023,165,6,Dean Hamiti,Wisconsin,3,-3,So,TRUE,3
+1807,2023,165,7,Mike Caliendo,North Dakota State,7,0,Fr,TRUE,1
+1808,2023,165,8,Izzak Olejnik,Northern Illinois,12,4,Jr,TRUE,2
+1809,2023,174,1,Carter Starocci,Penn State,1,0,Jr,TRUE,5
+1810,2023,174,2,Mikey Labriola,Nebraska,2,0,Sr,TRUE,4
+1811,2023,174,3,Chris Foca,Cornell,4,1,So,TRUE,2
+1812,2023,174,4,Mekhi Lewis,Virginia Tech,3,-1,Sr,TRUE,4
+1813,2023,174,5,Nelson Brands,Iowa,11,6,Jr,TRUE,1
+1814,2023,174,6,Dustin Plott,Oklahoma State,5,-1,Jr,TRUE,4
+1815,2023,174,7,Ethan Smith,Ohio State,6,-1,SSr,TRUE,2
+1816,2023,174,8,Peyton Mocco,Missouri,7,-1,Sr,TRUE,1
+1817,2023,184,1,Aaron Brooks,Penn State,3,2,Jr,TRUE,4
+1818,2023,184,2,Parker Keckeisen,Northern Iowa,1,-1,Jr,TRUE,5
+1819,2023,184,3,Kaleb Romero,Ohio State,6,3,Sr,TRUE,2
+1820,2023,184,4,Trent Hidlay,North Carolina State,2,-2,Jr,TRUE,4
+1821,2023,184,5,Marcus Coleman,Iowa State,5,0,Sr,TRUE,2
+1822,2023,184,6,Trey Munoz,Oregon State,4,-2,Jr,TRUE,2
+1823,2023,184,7,Will Feldkamp,Clarion,14,7,Sr,TRUE,1
+1824,2023,184,8,Gavin Kane,North Carolina,11,3,So,TRUE,1
+1825,2023,197,1,Nino Bonaccorsi,Pittsburgh,1,0,Sr,TRUE,2
+1826,2023,197,2,Tanner Sloan,South Dakota State,7,5,Jr,TRUE,2
+1827,2023,197,3,Rocky Elam,Missouri,3,0,Jr,TRUE,4
+1828,2023,197,4,Bernie Truax,Cal Poly,2,-2,Sr,TRUE,4
+1829,2023,197,5,Jacob Warner,Iowa,14,9,SSr,TRUE,4
+1830,2023,197,6,Ethan Laird,Rider,4,-2,SSr,TRUE,1
+1831,2023,197,7,Max Dean,Penn State,9,2,Sr,TRUE,4
+1832,2023,197,8,Jacob Cardenas,Cornell,10,2,So,TRUE,3
+1833,2023,285,1,Mason Parris,Michigan,1,0,Sr,TRUE,3
+1834,2023,285,2,Greg Kerkvliet,Penn State,3,1,Jr,TRUE,5
+1835,2023,285,3,Wyatt Hendrickson,Air Force,2,-1,Jr,TRUE,3
+1836,2023,285,4,Tony Cassioppi,Iowa,4,0,Jr,TRUE,3
+1837,2023,285,5,Lucas Davison,Northwestern,9,4,Jr,TRUE,3
+1838,2023,285,6,Zach Elam,Missouri,10,4,Sr,TRUE,2
+1839,2023,285,7,Cohlton Schultz,Arizona State,5,-2,Jr,TRUE,5
+1840,2023,285,8,Trent Hillger,Wisconsin,11,3,Sr,TRUE,3
+1841,2024,125,1,Richard Figueroa,Arizona State,8,7,So,TRUE,1
+1842,2024,125,2,Drake Ayala,Iowa,3,1,So,TRUE,2
+1843,2024,125,3,Anthony Noto,Lock Haven,12,9,Jr,TRUE,2
+1844,2024,125,4,Eric Barnett,Wisconsin,10,6,Sr,TRUE,3
+1845,2024,125,5,Luke Stanich,Lehigh,2,-3,Fr,TRUE,1
+1846,2024,125,6,Caleb Smith,Nebraska,15,9,Jr,TRUE,2
+1847,2024,125,7,Jore Volk,Wyoming,5,-2,So,TRUE,1
+1848,2024,125,8,Tanner Jordan,South Dakota State,23,15,Sr,TRUE,1
+1849,2024,133,1,Vito Arujau,Cornell,6,5,Sr,TRUE,4
+1850,2024,133,2,Daton Fix,Oklahoma State,1,-1,SSr,TRUE,5
+1851,2024,133,3,Ryan Crookham,Lehigh,2,-1,Fr,TRUE,1
+1852,2024,133,4,Nasir Bailey,Little Rock,7,3,Fr,TRUE,1
+1853,2024,133,5,Dylan Ragusin,Michigan,5,0,Sr,TRUE,1
+1854,2024,133,6,Evan Frost,Iowa State,8,2,Fr,TRUE,1
+1855,2024,133,7,Dylan Shawver,Rutgers,4,-3,Jr,TRUE,1
+1856,2024,133,8,Kai Orine,North Carolina State,3,-5,Jr,TRUE,2
+1857,2024,141,1,Jesse Mendez,Ohio State,1,0,So,TRUE,3
+1858,2024,141,2,Beau Bartlett,Penn State,2,0,Jr,TRUE,3
+1859,2024,141,3,Brock Hardy,Nebraska,9,6,So,TRUE,3
+1860,2024,141,4,Real Woods,Iowa,3,-1,Sr,TRUE,3
+1861,2024,141,5,Anthony Echemendia,Iowa State,5,0,So,TRUE,1
+1862,2024,141,6,Lachlan McNeil,North Carolina,6,0,So,TRUE,3
+1863,2024,141,7,Ryan Jack,North Carolina State,4,-3,Jr,TRUE,1
+1864,2024,141,8,Vance Vombaur,Minnesota,26,18,Fr,TRUE,2
+1865,2024,149,1,Caleb Henson,Virginia Tech,4,3,So,TRUE,3
+1866,2024,149,2,Austin Gomez,Michigan,6,4,Sr,TRUE,2
+1867,2024,149,3,Tyler Kasak,Penn State,7,4,Fr,TRUE,2
+1868,2024,149,4,Ty Watters,West Virginia,5,1,Fr,TRUE,1
+1869,2024,149,5,Kyle Parco,Arizona State,2,-3,Sr,TRUE,4
+1870,2024,149,6,Ridge Lovett,Nebraska,1,-5,Jr,TRUE,3
+1871,2024,149,7,Casey Swiderski,Iowa State,8,1,So,TRUE,1
+1872,2024,149,8,Quinn Kinner,Rider,11,3,Sr,TRUE,1
+1873,2024,157,1,Levi Haines,Penn State,1,0,So,TRUE,3
+1874,2024,157,2,Jacori Teemer,Arizona State,2,0,Sr,TRUE,3
+1875,2024,157,3,Meyer Shapiro,Cornell,3,0,Fr,TRUE,2
+1876,2024,157,4,Daniel Cardenas,Stanford,6,2,So,TRUE,1
+1877,2024,157,5,Peyten Kellar,Ohio,7,2,So,TRUE,1
+1878,2024,157,6,Bryce Andonian,Virginia Tech,12,6,Sr,TRUE,3
+1879,2024,157,7,Peyton Robb,Nebraska,8,1,SSr,TRUE,3
+1880,2024,157,8,Jared Franek,Iowa,10,2,SSr,TRUE,2
+1881,2024,165,1,David Carr,Iowa State,4,3,SSr,TRUE,4
+1882,2024,165,2,Mitchell Mesenbrink,Penn State,2,0,Fr,TRUE,2
+1883,2024,165,3,Keegan O’Toole,Missouri,1,-2,Sr,TRUE,5
+1884,2024,165,4,Mike Caliendo,Iowa,6,2,So,TRUE,2
+1885,2024,165,5,Izzak Olejnik,Oklahoma State,7,2,Sr,TRUE,2
+1886,2024,165,6,Hunter Garvin,Stanford,20,14,Fr,TRUE,2
+1887,2024,165,7,Peyton Hall,West Virginia,9,2,Sr,TRUE,3
+1888,2024,165,8,Antrell Taylor,Nebraska,8,0,Fr,TRUE,2
+1889,2024,174,1,Carter Starocci,Penn State,9,8,Sr,TRUE,5
+1890,2024,174,2,Rocco Welsh,Ohio State,6,4,Fr,TRUE,1
+1891,2024,174,3,Shane Griffith,Michigan,4,1,Sr,TRUE,4
+1892,2024,174,4,Mekhi Lewis,Virginia Tech,1,-3,SSr,TRUE,4
+1893,2024,174,5,Cade DeVos,South Dakota State,2,-3,Sr,TRUE,2
+1894,2024,174,6,Lennox Wolak,Columbia,7,1,Jr,TRUE,1
+1895,2024,174,7,Edmond Ruth,Illinois,3,-4,Jr,TRUE,1
+1896,2024,174,8,Benjamin Pasiuk,army,18,10,Sr,TRUE,1
+1897,2024,184,1,Parker Keckeisen,Northern Iowa,1,0,Sr,TRUE,5
+1898,2024,184,2,Dustin Plott,Oklahoma State,3,1,Sr,TRUE,4
+1899,2024,184,3,Trey Munoz,Oregon State,4,1,Sr,TRUE,2
+1900,2024,184,4,Bennett Berge,South Dakota State,9,5,Fr,TRUE,1
+1901,2024,184,5,Bernie Truax,Penn State,6,1,SSr,TRUE,4
+1902,2024,184,6,Isaiah Salazar,Minnesota,2,-4,Jr,TRUE,1
+1903,2024,184,7,Thomas Stewart Jr,Virginia Tech,7,0,Fr,TRUE,1
+1904,2024,184,8,David Key,Navy,25,17,Sr,TRUE,1
+1905,2024,197,1,Aaron Brooks,Penn State,1,0,Sr,TRUE,4
+1906,2024,197,2,Trent Hidlay,North Carolina State,2,0,Sr,TRUE,4
+1907,2024,197,3,Stephen Buchanan,Oklahoma,8,5,Jr,TRUE,4
+1908,2024,197,4,Jacob Cardenas,Cornell,5,1,Jr,TRUE,3
+1909,2024,197,5,Tanner Sloan,South Dakota State,3,-2,Sr,TRUE,2
+1910,2024,197,6,Rocky Elam,Missouri,12,6,Sr,TRUE,4
+1911,2024,197,7,Stephen Little,Little Rock,9,2,Fr,TRUE,2
+1912,2024,197,8,Michael Beard,Lehigh,4,-4,Sr,TRUE,2
+1913,2024,285,1,Greg Kerkvliet,Penn State,1,0,Sr,TRUE,5
+1914,2024,285,2,Lucas Davison,Michigan,10,8,Sr,TRUE,3
+1915,2024,285,3,Wyatt Hendrickson,Air Force,3,0,Sr,TRUE,3
+1916,2024,285,4,Zach Elam,Missouri,6,2,SSr,TRUE,2
+1917,2024,285,5,Nick Feldman,Ohio State,9,4,Fr,TRUE,1
+1918,2024,285,6,Cohlton Schultz,Arizona State,4,-2,Sr,TRUE,5
+1919,2024,285,7,Yaraslau Slavikouski,Rutgers,13,6,Sr,TRUE,1
+1920,2024,285,8,Taye Ghadiali,Campbell,7,-1,Sr,TRUE,1
+1921,2025,125,1,Vincent Robinson,North Carolina State,4,3,Fr,TRUE,1
+1922,2025,125,2,Troy Spratley,Oklahoma State,7,5,So,TRUE,1
+1923,2025,125,3,Luke Lilledahl,Penn State,1,-2,Fr,TRUE,1
+1924,2025,125,4,Matt Ramos,Purdue,2,-2,Sr,TRUE,2
+1925,2025,125,5,Eddie Ventresca,Virginia Tech,3,-2,So,TRUE,2
+1926,2025,125,6,Sheldon Seymour,Lehigh,8,2,Jr,TRUE,1
+1927,2025,125,7,Caleb Smith,Nebraska,9,2,Sr,TRUE,2
+1928,2025,125,8,Stevo Poulin,Northern Colorado,10,2,Jr,TRUE,1
+1929,2025,133,1,Lucas Byrd,Illinois,1,0,Sr,TRUE,3
+1930,2025,133,2,Drake Ayala,Iowa,2,0,Jr,TRUE,2
+1931,2025,133,3,Zeth Romney,Cal Poly,4,1,So,TRUE,1
+1932,2025,133,4,Zan Fugitt,Wisconsin,14,10,Fr,TRUE,1
+1933,2025,133,5,Braeden Davis,Penn State,8,3,So,TRUE,1
+1934,2025,133,6,Connor McGonagle,Virginia Tech,6,0,Sr,TRUE,1
+1935,2025,133,7,Jacob Van Dee,Nebraska,17,10,So,TRUE,1
+1936,2025,133,8,Tyler Knox,Stanford,13,5,Fr,TRUE,1
+1937,2025,141,1,Jesse Mendez,Ohio State,3,2,Jr,TRUE,3
+1938,2025,141,2,Brock Hardy,Nebraska,1,-1,Jr,TRUE,3
+1939,2025,141,3,Beau Bartlett,Penn State,2,-1,Sr,TRUE,3
+1940,2025,141,4,CJ Composto,Pennsylvania,10,6,Jr,TRUE,2
+1941,2025,141,5,Cael Happel,Northern Iowa,5,0,So,TRUE,1
+1942,2025,141,6,Josh Koderhandt,Navy,4,-2,Jr,TRUE,1
+1943,2025,141,7,Jacob Frost,Iowa State,9,2,Fr,TRUE,1
+1944,2025,141,8,Vance Vombaur,Minnesota,6,-2,So,TRUE,2
+1945,2025,149,1,Ridge Lovett,Nebraska,2,1,Sr,TRUE,3
+1946,2025,149,2,Caleb Henson,Virginia Tech,1,-1,Jr,TRUE,3
+1947,2025,149,3,Shayne Van Ness,Penn State,3,0,So,TRUE,2
+1948,2025,149,4,Dylan D’Emilio,Ohio State,13,9,SSr,TRUE,2
+1949,2025,149,5,Lachlan McNeil,North Carolina,6,1,Jr,TRUE,3
+1950,2025,149,6,Ethan Stiles,Oregon State,12,6,Fr,TRUE,1
+1951,2025,149,7,Sammy Alvarez,Rider,11,4,SSr,TRUE,1
+1952,2025,149,8,Gavin Drexler,North Dakota State,22,14,So,TRUE,1
+1953,2025,157,1,Antrell Taylor,Nebraska,3,2,So,TRUE,2
+1954,2025,157,2,Joey Blaze,Purdue,8,6,So,TRUE,1
+1955,2025,157,3,Tyler Kasak,Penn State,1,-2,So,TRUE,2
+1956,2025,157,4,Trevor Chumbley,Northwestern,20,16,SSr,TRUE,1
+1957,2025,157,5,Meyer Shapiro,Cornell,2,-3,So,TRUE,2
+1958,2025,157,6,Vinny Zerban,Northern Colorado,7,1,Jr,TRUE,1
+1959,2025,157,7,Matty Bianchi,Little Rock,11,4,Jr,TRUE,1
+1960,2025,157,8,Caleb Fish,Oklahoma State,12,4,SSr,TRUE,1
+1961,2025,165,1,Mitchell Mesenbrink,Penn State,1,0,So,TRUE,2
+1962,2025,165,2,Mike Caliendo,Iowa,3,1,Jr,TRUE,2
+1963,2025,165,3,Peyton Hall,West Virginia,2,-1,SSr,TRUE,3
+1964,2025,165,4,Christopher Minto,Nebraska,12,8,Fr,TRUE,1
+1965,2025,165,5,Terrell Barraclough,Utah Valley,4,-1,SSr,TRUE,1
+1966,2025,165,6,Hunter Garvin,Stanford,7,1,So,TRUE,2
+1967,2025,165,7,Cam Steed,Missouri,9,2,So,TRUE,1
+1968,2025,165,8,Cameron Amine,Oklahoma State,8,0,SSr,TRUE,4
+1969,2025,174,1,Dean Hamiti,Oklahoma State,3,2,Sr,TRUE,3
+1970,2025,174,2,Keegan O’Toole,Missouri,1,-1,SSr,TRUE,5
+1971,2025,174,3,Levi Haines,Penn State,2,-1,Jr,TRUE,3
+1972,2025,174,4,Patrick Kennedy,Iowa,11,7,Jr,TRUE,1
+1973,2025,174,5,Simon Ruiz,Cornell,5,0,Fr,TRUE,1
+1974,2025,174,6,Cade DeVos,South Dakota State,13,7,SSr,TRUE,2
+1975,2025,174,7,Matthew Singleton,North Carolina State,14,7,So,TRUE,1
+1976,2025,174,8,Danny Wask,Navy,7,-1,So,TRUE,1
+1977,2025,184,1,Carter Starocci,Penn State,1,0,SSr,TRUE,5
+1978,2025,184,2,Parker Keckeisen,Northern Iowa,2,0,SSr,TRUE,5
+1979,2025,184,3,Max McEnelly,Minnesota,3,0,Fr,TRUE,1
+1980,2025,184,4,Dustin Plott,Oklahoma State,4,0,SSr,TRUE,4
+1981,2025,184,5,Chris Foca,Cornell,6,1,Sr,TRUE,2
+1982,2025,184,6,Jaxon Smith,Maryland,8,2,Jr,TRUE,1
+1983,2025,184,7,Silas Allred,Nebraska,12,5,Jr,TRUE,1
+1984,2025,184,8,Donnell Washington,Indiana,22,14,SSr,TRUE,1
+1985,2025,197,1,Stephen Buchanan,Iowa,2,1,Sr,TRUE,4
+1986,2025,197,2,Josh Barr,Penn State,4,2,Fr,TRUE,1
+1987,2025,197,3,AJ Ferrari,CSU Bakersfield,3,0,So,TRUE,2
+1988,2025,197,4,Jacob Cardenas,Michigan,1,-3,Sr,TRUE,3
+1989,2025,197,5,Joseph Novak,Wyoming,15,10,So,TRUE,1
+1990,2025,197,6,Stephen Little,Little Rock,12,6,So,TRUE,2
+1991,2025,197,7,Mac Stout,Pittsburgh,6,-1,So,TRUE,1
+1992,2025,197,8,Camden McDanel,Nebraska,20,12,Fr,TRUE,1
+1993,2025,285,1,Wyatt Hendrickson,Oklahoma State,2,1,SSr,TRUE,3
+1994,2025,285,2,Gable Steveson,Minnesota,1,-1,SSr,TRUE,4
+1995,2025,285,3,Cohlton Schultz,Arizona State,9,6,SSr,TRUE,5
+1996,2025,285,4,Isaac Trumble,North Carolina State,7,3,Jr,TRUE,1
+1997,2025,285,5,Owen Trephan,Lehigh,4,-1,SSr,TRUE,1
+1998,2025,285,6,Greg Kerkvliet,Penn State,3,-3,SSr,TRUE,5
+1999,2025,285,7,Joshua Heindselman,Michigan,6,-1,SSr,TRUE,1
+2000,2025,285,8,Ben Kueter,Iowa,5,-3,Fr,TRUE,1

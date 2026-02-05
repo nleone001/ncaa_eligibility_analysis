@@ -1,0 +1,14 @@
+title: NCAA Wrestling Eligibility Analysis
+description: A data-driven analysis of NCAA Division I Wrestling All-Americans (2000-2025)
+baseurl: ""
+url: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
