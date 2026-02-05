@@ -18,7 +18,7 @@ ROOT_DIR = Path(__file__).parent.parent
 DATA_PATH = ROOT_DIR / "data" / "raw_data.csv"
 CHARTS_DIR = ROOT_DIR / "charts"
 TABLES_DIR = ROOT_DIR / "tables"
-SITE_CHARTS_DIR = ROOT_DIR / "site" / "charts"  # For GitHub Pages
+SITE_CHARTS_DIR = ROOT_DIR / "docs" / "charts"  # For GitHub Pages
 
 # Ensure output directories exist
 CHARTS_DIR.mkdir(exist_ok=True)
