@@ -51,6 +51,7 @@ ncaa-eligibility-analysis/
 - **covid beneficiaries - AAs in SSr year**
 - **General AAs and NC by school - total and over time**
 - **progression of Fr/So AAs by school**
+- **Standout class of 2010 (so 2008, jr 2009, sr 2010)**
 
 
 ## Reproducibility
