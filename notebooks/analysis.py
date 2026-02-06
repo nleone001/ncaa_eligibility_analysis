@@ -32,6 +32,10 @@ plt.rcParams["savefig.bbox"] = "tight"
 plt.rcParams["figure.facecolor"] = "white"
 plt.rcParams["axes.facecolor"] = "white"
 plt.rcParams["font.family"] = "sans-serif"
+plt.rcParams["font.sans-serif"] = ["Avenir", "Helvetica Neue", "Helvetica", "Arial"]
+plt.rcParams["font.weight"] = "light"
+plt.rcParams["axes.labelweight"] = "light"
+plt.rcParams["axes.titleweight"] = "medium"
 
 # Eligibility year order (for consistent plotting)
 ELIGIBILITY_ORDER = ["Fr", "So", "Jr", "Sr", "SSr"]
