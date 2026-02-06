@@ -21,7 +21,7 @@ That's my cue. I spent 20 hours compiling every NCAA D1 All-American finish and 
 
 ## The Answer
 
-**Underclassmen performance has trended upwards since 2000, narrowing the gap in the 2010s. But experience still wins, and the margin remains decisive.**
+**For 20 years, underclassmen closed the gap on upperclassmen. Then the trends diverged. Seniors reclaimed championship dominance post-2020, even as All-American honors equalized across all classes. The podium has democratized. The top step has not.**
 
 ## Methodology
 
@@ -62,9 +62,15 @@ National Champions since 2000:
 
 *Year-to-year variability in National Champions by class. With only 10 titles per year, individual years are noisy.*
 
-The early 2000s tell a clear story: seniors and juniors dominated the top step of the podium. But that gap narrowed through the 2010s as underclassmen became more competitive. Only in the last 4 years have seniors re-emerged as the plurality of champions.
+The 25-year totals tell one story: seniors dominate with ~40% of all national championships. But the year-over-year trend reveals something more complex: a 20-year convergence followed by a dramatic senior resurgence. 
 
-For every underclassman who makes his mark on championship history, nearly four upperclassmen do the same. The trend line Christian asked for? Relatively stable. Most years see 0-2 freshman champions, with a singular standout in 2021: zero seniors and four freshmen (Shane Griffith, Carter Starocci, Aaron Brooks, AJ Ferrari). But with the monstrous 2026 freshmen class showing great promise leading into the final months of the season, we may see another era shift begin. 
+**For 2000 to 2020, the gap narrowed steadily.** Seniors and juniors started the millennium winning nearly 90% of all titles per year, while underclassmen rarely broke through. But through the 2000s and 2010s, that hierarchy eroded. By the late 2010s, all four classes were competing on more equal footing for national titles, with upperclassmen retaining a slight edge. 
+
+**Then, post-2020, seniors surged back.** From 2022-2025, seniors reclaimed dominance, winning almost half of the available titles. In that same time, sophomores edged juniors in titles for the first time. 
+
+For every underclassman who makes his mark on championship history, nearly four upperclassmen do the same. Most years see 0-2 freshman champions, with a singular standout in 2021: zero seniors and four freshmen (Shane Griffith, Carter Starocci, Aaron Brooks, AJ Ferrari). But with the monstrous 2026 freshmen class showing great promise leading into the final months of the season, we may see another era shift begin.
+
+The trend line Christian asked for? More complicated than "flat" or "rising". It's a V-shape: convergence for 20 years, then senior resurgence in the post-COVID era. 
 
 ## All-Americans Trend
 
@@ -90,18 +96,37 @@ All-Americans since 2000:
 
 *Year-to-year variability in All-Americans by class. Each panel shows the raw yearly counts.*
 
-The broader All-American picture tells a similar story. Upperclassmen dominated the early 2000s podium, but underclassmen gained ground through the 2010s. Even the gap between seniors and juniors narrowed significantly. The story emerging from the data: seniors no longer have the maturity and experience edge over the field that they held 20 years ago. The floor has risen across all eligibility years.
+The All-American trend reveals something remarkable, but only when you look at the full timeline. 
 
-Despite this convergence, the 25-year totals still show the traditional hierarchy: seniors lead the pack with 694 All-American finishes, followed by juniors with 603. 
+**From 2000 to 2020, the story is identical for both championships and All-Americans.** Seniors and juniors dominated, but their advantage eroded steadily as underclassmen gained ground. The convergence was real and consistent across both the top step of the podium and the broader All-American honors. 
+
+**But after 2020, the two datasets tell different stories.**
+
+For national championships, seniors surged back, reclaiming a dominance at the top of the podium, as seen in the early 2000s. 
+
+For All-Americans, the convergence accelerated. By 2025, all four classes cluster within a narrow band: juniors (23-24), seniors (22-23), sophomores (18-19), and freshmen (12-13). The hierarchy that defined the podium for two decades has given way to a more competitive environment. 
+
+**What changed after 2020?** Two factors likely explain this trend: 
+
+**First, extended eligibility may have diminished senior All-American performance.** The introduction of longer competition windows, extended by the 2020 extension and more readily granted medical and olympic redshirts, likely has put a strain on these "Super Seniors", where their final years of competition no longer represent their peak performance. 
+
+**Second, freshmen development has accelerated.** Better high school competition, year-round training, early RTC access, and advanced strength and conditioning programs mean today's freshmen arrive ready to compete immediately. The gap between a freshman and a senior in 2025 is far smaller than it was in 2000. Freshmen can compete for podium spots: they've more than doubled their All-American rate. But this may still not be enough to finish on top when it matters most.
+
+The result: **a two-tiered system has emerged.** The challenge to earn a spot on the podium has become more equitable to all years of athletes, while that final step to champion still heavily favors experience. 
+
+The game has changed for places 2-8. Place 1 still belongs to upperclassmen.
+
 
 ## Conclusion
 So, to answer the question: **No, the prime window for a national title has not shifted to the freshman-sophomore years**. 
 
-While underclassmen have become more competitive, especially through the 2010s, the data shows upperclassmen retaining their lead on titles and All-American honors. Seniors alone account for 40% of all national championships over the past 25 years. 
+While underclassmen have become more competitive, the data reveals a crucial distinction: **making the podium is no longer an upperclassman's game, but winning still is.** 
 
-The convergence we see in the 2010s is real and notable: the gap between underclassmen and upperclassmen narrowed as the overall talent floor rose. But the recent resurgence of senior champions (2022-2025) suggests that experience remains the most reliable predictor of success at the highest level. 
+From 2000-2020, both All-American honors and championships followed identical convergence patterns as underclassmen gained ground. But after 2020, these trends diverged. All-American placements equalized across eligibility, while seniors surged back to dominance in national titles. 
 
-Freshmen get the headlines when they win because it is rare and they usually merit more attention for the rest of their career. But for every Spencer Lee or Yianni Diakomihalis, there are eight upperclassmen standing on the top of the podium, and that ratio has held steady for 25 years. 
+The post-2020 split likely reflects two changes: freshmen arriving better prepared than ever, while extended eligibility has diminished the competitive peak of our most seasoned competitors. 
+
+Freshmen earn the headlines when they win because it is rare and attention follows for the rest of their career. But for every Spencer Lee or Yianni Diakomihalis, there are eight upperclassmen standing on the top of the podium, and that ratio has held steady for 25 years. The path to the podium has democratized. The path to the top step remains the same: experience.
 
 
 ---
