@@ -234,6 +234,117 @@ print(f"Saved: {chart_path}")
 print(f"Saved: {site_chart_path}")
 
 # ==============================================================================
+# CHART 3: All-Americans by Eligibility Year - Trend Over Time
+# ==============================================================================
+
+# Pivot: count of AAs by year and eligibility
+aa_by_year_elig = df.pivot_table(
+    index="Year", 
+    columns="Eligibility Year", 
+    aggfunc="size", 
+    fill_value=0
+)
+
+# Calculate percentage of total AAs per year
+aa_pct_by_year = aa_by_year_elig.div(aa_by_year_elig.sum(axis=1), axis=0) * 100
+
+# Reorder columns
+plot_order = [e for e in ELIGIBILITY_ORDER if e in aa_pct_by_year.columns]
+aa_pct_by_year = aa_pct_by_year[plot_order]
+
+fig, ax = plt.subplots(figsize=(10, 6))
+
+for elig in plot_order:
+    ax.plot(
+        aa_pct_by_year.index, 
+        aa_pct_by_year[elig],
+        color=ELIGIBILITY_COLORS.get(elig, "#888888"),
+        linewidth=2,
+        marker="o",
+        markersize=4,
+        label=elig
+    )
+
+ax.set_xlabel("Year", fontsize=12)
+ax.set_ylabel("% of All-Americans", fontsize=12)
+ax.set_title("All-Americans by Eligibility Year Over Time", fontsize=14, fontweight="bold")
+ax.legend(title="Eligibility", loc="upper right")
+ax.set_ylim(0, 55)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.grid(axis="y", alpha=0.3)
+
+plt.tight_layout()
+chart_path = CHARTS_DIR / "aa_trend_by_eligibility.png"
+site_chart_path = SITE_CHARTS_DIR / "aa_trend_by_eligibility.png"
+plt.savefig(chart_path, dpi=150)
+plt.savefig(site_chart_path, dpi=150)
+plt.close()
+print(f"Saved: {chart_path}")
+print(f"Saved: {site_chart_path}")
+
+# ==============================================================================
+# CHART 4: National Champions by Eligibility Year - Trend Over Time
+# ==============================================================================
+
+# Pivot: count of NCs by year and eligibility
+nc_by_year_elig = champions.pivot_table(
+    index="Year", 
+    columns="Eligibility Year", 
+    aggfunc="size", 
+    fill_value=0
+)
+
+# Calculate percentage of total NCs per year
+nc_pct_by_year = nc_by_year_elig.div(nc_by_year_elig.sum(axis=1), axis=0) * 100
+
+# Reorder columns
+plot_order_nc = [e for e in ELIGIBILITY_ORDER if e in nc_pct_by_year.columns]
+nc_pct_by_year = nc_pct_by_year[plot_order_nc]
+
+# Calculate 3-year rolling average to smooth the noisy NC data
+nc_pct_smoothed = nc_pct_by_year.rolling(window=3, center=True, min_periods=1).mean()
+
+fig, ax = plt.subplots(figsize=(10, 6))
+
+for elig in plot_order_nc:
+    # Plot smoothed line (bold)
+    ax.plot(
+        nc_pct_smoothed.index, 
+        nc_pct_smoothed[elig],
+        color=ELIGIBILITY_COLORS.get(elig, "#888888"),
+        linewidth=2.5,
+        label=elig
+    )
+    # Plot raw data points (lighter)
+    ax.scatter(
+        nc_pct_by_year.index, 
+        nc_pct_by_year[elig],
+        color=ELIGIBILITY_COLORS.get(elig, "#888888"),
+        s=20,
+        alpha=0.4
+    )
+
+ax.set_xlabel("Year", fontsize=12)
+ax.set_ylabel("% of National Champions", fontsize=12)
+ax.set_title("National Champions by Eligibility Year Over Time\n(3-year rolling average, dots show actual)", 
+             fontsize=14, fontweight="bold")
+ax.legend(title="Eligibility", loc="upper right")
+ax.set_ylim(0, 80)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.grid(axis="y", alpha=0.3)
+
+plt.tight_layout()
+chart_path = CHARTS_DIR / "nc_trend_by_eligibility.png"
+site_chart_path = SITE_CHARTS_DIR / "nc_trend_by_eligibility.png"
+plt.savefig(chart_path, dpi=150)
+plt.savefig(site_chart_path, dpi=150)
+plt.close()
+print(f"Saved: {chart_path}")
+print(f"Saved: {site_chart_path}")
+
+# ==============================================================================
 # EXPORT TABLES
 # ==============================================================================
 

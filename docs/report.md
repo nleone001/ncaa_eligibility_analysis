@@ -53,6 +53,24 @@ The broader All-American picture shows a similar pattern, with upper classmen do
 | Senior           | 694           | 34.7%    | 101                | 40.4%    |
 | Super Senior     | 43            | 2.1%     | 4                  | 1.6%     |
 
+## Trends Over Time
+
+Has the eligibility distribution changed over 25 years? These charts show how each class's share of All-Americans and National Champions has evolved.
+
+### All-Americans Trend
+
+<figure>
+<img src="{{ site.baseurl }}/charts/aa_trend_by_eligibility.png" alt="Line chart showing All-Americans by eligibility year over time">
+<figcaption>Percentage of All-Americans by eligibility class, 2000–2025. Seniors consistently lead, but the gap has narrowed in recent years.</figcaption>
+</figure>
+
+### National Champions Trend
+
+<figure>
+<img src="{{ site.baseurl }}/charts/nc_trend_by_eligibility.png" alt="Line chart showing National Champions by eligibility year over time">
+<figcaption>Percentage of National Champions by eligibility class, 2000–2025. Lines show 3-year rolling average; dots show actual values. With only 10 champions per year, individual years are noisy.</figcaption>
+</figure>
+
 ## Methodology
 
 This analysis includes all NCAA Division I Wrestling All-American finishes (places 1–8) from 2000 through 2025. Eligibility year classifications are as recorded in official NCAA records.
