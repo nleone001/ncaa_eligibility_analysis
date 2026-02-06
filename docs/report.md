@@ -5,9 +5,9 @@ title: NCAA Wrestling Eligibility Analysis
 
 <div class="container" markdown="1">
 
-# 2,000 All-Americans Since 2000: The Experience Premium in NCAA Wrestling
 
-<p class="meta">Data spans 2000–2025 | 2,000 All-American finishes analyzed</p>
+# Experience vs Youth: 25 Years of NCAA Wrestling
+## What 2,000 All-Americans Since 2000 Tell Us About the Changing Podium
 
 ## The Question
 
