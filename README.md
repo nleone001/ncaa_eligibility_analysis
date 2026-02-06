@@ -22,15 +22,23 @@ ncaa-eligibility-analysis/
 │   └── analysis.py           # All analysis code
 ├── charts/                   # Generated PNG charts
 ├── tables/                   # Generated markdown tables
-├── site/                     # GitHub Pages site
+├── docs/                     # Current GitHub Pages site (live)
 │   ├── _config.yml
 │   ├── _layouts/
 │   ├── index.md
-│   ├── report.md
+│   ├── report.md             # Main report (unchanged)
 │   └── styles.css
+├── site/                     # Multi-report site (TOC + reports/)
+│   ├── index.md              # Landing / table of contents
+│   ├── styles.css
+│   └── reports/
+│       ├── report_01_overview.md
+│       └── report_02_placeholder.md
 ├── requirements.txt
 └── README.md
 ```
+
+The live site is currently served from `docs/`. The `site/` directory holds the new structure (landing page with table of contents and multiple report pages) for when you switch publishing to it.
 
 ## Analysis Ideas
 
