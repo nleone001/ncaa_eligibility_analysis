@@ -34,24 +34,24 @@ ncaa-eligibility-analysis/
 
 ## Analysis Ideas
 
-- **Total National Champs and AAs by eligibility**
-- **Trend over time of NC and AAs by eligibliity**
-- **Multi-AA weight changes** % repeat AA after moving up/down
-- **Returning champs (<Sr) losing title % by class**
-- **Brackets/Years with most 1-2 finals**
-- **Most "Chalk" brackets and years** 
-- **invidual years/brackets with most Fr -> Sr AAs**
-- **oldest and youngest bracket/year**
-- **Average placing age over time** Exodus / barbarians @ gate
-- **Most Unseeded AAs per year/bracket** pre 2019
-- **highest seed placing for each podium position** pre 2019
-- **wrestlers with aesthetic improvement (3-4 year progression)** Eric Larkin 4-3-2-1
-- **overperforming/underperforming schools/individuals by seed and placement**
-- **last chance wrestlers - wrestlers who AAd on their last year of eligibility**
-- **covid beneficiaries - AAs in SSr year**
-- **General AAs and NC by school - total and over time**
-- **progression of Fr/So AAs by school**
-- **Standout class of 2010 (so 2008, jr 2009, sr 2010)**
+- 1. **Total National Champs and AAs by eligibility**
+- 2. **Trend over time of NC and AAs by eligibliity**
+- 3. **Multi-AA weight changes** % repeat AA after moving up/down
+- 4. **Returning champs (<Sr) losing title % by class**
+- 5. **Brackets/Years with most 1-2 finals**
+- 6. **Most "Chalk" brackets and years** 
+- 7. **invidual years/brackets with most Fr -> Sr AAs**
+- 8. **oldest and youngest bracket/year**
+- 9. **Average placing age over time** Exodus / barbarians @ gate
+- 10. **Most Unseeded AAs per year/bracket** pre 2019
+- 11. **highest seed placing for each podium position** pre 2019
+- 12. **wrestlers with aesthetic improvement (3-4 year progression)** Eric Larkin 4-3-2-1
+- 13. **overperforming/underperforming schools/individuals by seed and placement**
+- 14. **last chance wrestlers - wrestlers who AAd on their last year of eligibility**
+- 15. **covid beneficiaries - AAs in SSr year**
+- 16. **General AAs and NC by school - total and over time**
+- 17. **progression of Fr/So AAs by school**
+- 18. **Standout class of 2010 (so 2008, jr 2009, sr 2010)**
 
 
 ## Reproducibility
@@ -76,9 +76,25 @@ Source: NCAA Division I Wrestling Championships records, 2000-2025
 | School | Institution |
 | Eligibility Year | Fr, So, Jr, Sr, SSr |
 
+## Testing the report stats
+
+The report (`docs/report.md`) pulls NC/AA counts and percentages from `docs/_data/report_stats.json`, which is written when you run the analysis. To confirm everything lines up (no broken Liquid, data present):
+
+```bash
+# 1. Regenerate data (if you changed raw_data.csv)
+python notebooks/analysis.py
+
+# 2. Check that report placeholders resolve and key numbers appear
+python scripts/test_report_render.py
+```
+
+You should see: `OK: All report_stats placeholders resolve; rendered report contains expected values.`
+
+To see the report with numbers rendered in the browser, build the Jekyll site from `docs/` (e.g. `jekyll build` or GitHub Pages); the test script does not require Jekyll.
+
 ## View the Report
 
-Visit the [live site](#) or open `site/report.md` locally.
+Visit the [live site](#) or open `docs/report.md` locally (Liquid will only render when the site is built).
 
 ## License
 

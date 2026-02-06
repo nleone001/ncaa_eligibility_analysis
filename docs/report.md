@@ -48,11 +48,11 @@ This means Shane Griffith, Carter Starocci, and Aaron Brooks—who all competed 
 
 National Champions since 2000: 
 
-- **101 Seniors** (40.4% of all champions)
-- **78 Juniors** (31.2%)
-- **45 Sophomores** (18.0%)
-- **22 Freshmen**  (8.8%)
-- **4 Super Seniors** (1.6%)
+- **{{ site.data.report_stats.nc.Sr.count }} Seniors** ({{ site.data.report_stats.nc.Sr.pct }}% of all champions)
+- **{{ site.data.report_stats.nc.Jr.count }} Juniors** ({{ site.data.report_stats.nc.Jr.pct }}%)
+- **{{ site.data.report_stats.nc.So.count }} Sophomores** ({{ site.data.report_stats.nc.So.pct }}%)
+- **{{ site.data.report_stats.nc.Fr.count }} Freshmen**  ({{ site.data.report_stats.nc.Fr.pct }}%)
+- **{{ site.data.report_stats.nc.SSr.count }} Super Seniors** ({{ site.data.report_stats.nc.SSr.pct }}%)
 
 ![Smoothed trend lines showing National Champions by eligibility year over time]({{ site.baseurl }}/charts/nc_trend_by_eligibility.png)
 
@@ -82,11 +82,11 @@ We've answered the championship question, but what about the other seven All-Ame
 
 All-Americans since 2000:
 
-- **694 Seniors** (34.7% of all AAs)
-- **603 Juniors** (30.1%)
-- **423 Sophomores** (21.1%)
-- **237 Freshmen** (11.8%)
-- **43 Super Seniors** (2.1%)
+- **{{ site.data.report_stats.aa.Sr.count }} Seniors** ({{ site.data.report_stats.aa.Sr.pct }}% of all AAs)
+- **{{ site.data.report_stats.aa.Jr.count }} Juniors** ({{ site.data.report_stats.aa.Jr.pct }}%)
+- **{{ site.data.report_stats.aa.So.count }} Sophomores** ({{ site.data.report_stats.aa.So.pct }}%)
+- **{{ site.data.report_stats.aa.Fr.count }} Freshmen** ({{ site.data.report_stats.aa.Fr.pct }}%)
+- **{{ site.data.report_stats.aa.SSr.count }} Super Seniors** ({{ site.data.report_stats.aa.SSr.pct }}%)
 
 ![Smoothed trend lines showing All-Americans by eligibility year over time]({{ site.baseurl }}/charts/aa_trend_by_eligibility.png)
 

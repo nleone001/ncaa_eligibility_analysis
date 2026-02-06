@@ -4,6 +4,7 @@ NCAA Wrestling All-Americans Eligibility Analysis
 Analyzes eligibility year patterns among NCAA D1 Wrestling All-Americans (2000-2024)
 """
 
+import json
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -19,11 +20,13 @@ DATA_PATH = ROOT_DIR / "data" / "raw_data.csv"
 CHARTS_DIR = ROOT_DIR / "charts"
 TABLES_DIR = ROOT_DIR / "tables"
 SITE_CHARTS_DIR = ROOT_DIR / "docs" / "charts"  # For GitHub Pages
+REPORT_DATA_DIR = ROOT_DIR / "docs" / "_data"   # Jekyll data for report.md
 
 # Ensure output directories exist
 CHARTS_DIR.mkdir(exist_ok=True)
 TABLES_DIR.mkdir(exist_ok=True)
 SITE_CHARTS_DIR.mkdir(exist_ok=True)
+REPORT_DATA_DIR.mkdir(exist_ok=True)
 
 # Plot style configuration for reproducibility
 plt.style.use("default")
@@ -494,6 +497,45 @@ print(f"\nSaved: {table_path}")
 print("\n" + md_table)
 
 # ==============================================================================
+# REPORT STATS (for docs/report.md via Jekyll site.data.report_stats)
+# ==============================================================================
+
+ELIGIBILITY_LABELS = {
+    "Fr": "Freshmen",
+    "So": "Sophomores",
+    "Jr": "Juniors",
+    "Sr": "Seniors",
+    "SSr": "Super Seniors",
+}
+
+total_aa = len(df)
+report_stats = {
+    "year_min": year_min,
+    "year_max": year_max,
+    "year_range": f"{year_min}–{year_max}",
+    "nc": {},
+    "aa": {},
+}
+for elig in ELIGIBILITY_ORDER:
+    nc_count = int(champs_by_eligibility.get(elig, 0))
+    aa_count = int(aa_by_eligibility.get(elig, 0))
+    report_stats["nc"][elig] = {
+        "count": nc_count,
+        "pct": f"{nc_count / total_champs * 100:.1f}" if total_champs else "0",
+        "label": ELIGIBILITY_LABELS[elig],
+    }
+    report_stats["aa"][elig] = {
+        "count": aa_count,
+        "pct": f"{aa_count / total_aa * 100:.1f}" if total_aa else "0",
+        "label": ELIGIBILITY_LABELS[elig],
+    }
+
+report_stats_path = REPORT_DATA_DIR / "report_stats.json"
+with open(report_stats_path, "w") as f:
+    json.dump(report_stats, f, indent=2)
+print(f"\nSaved: {report_stats_path}")
+
+# ==============================================================================
 # DONE
 # ==============================================================================
 
@@ -503,3 +545,4 @@ print("="*60)
 print(f"\nOutputs saved to:")
 print(f"  Charts: {CHARTS_DIR}")
 print(f"  Tables: {TABLES_DIR}")
+print(f"  Report data (Jekyll): {REPORT_DATA_DIR}")
