@@ -60,15 +60,25 @@ Has the eligibility distribution changed over 25 years? These charts show how ea
 ### All-Americans Trend
 
 <figure>
-<img src="{{ site.baseurl }}/charts/aa_trend_by_eligibility.png" alt="Line chart showing All-Americans by eligibility year over time">
-<figcaption>All-American counts by eligibility class, 2000–2025. Dots show actual yearly counts; lines are smoothed trends.</figcaption>
+<img src="{{ site.baseurl }}/charts/aa_trend_by_eligibility.png" alt="Smoothed trend lines showing All-Americans by eligibility year over time">
+<figcaption>Five-year smoothed trend in All-Americans by eligibility class, 2000–2025.</figcaption>
+</figure>
+
+<figure>
+<img src="{{ site.baseurl }}/charts/aa_variability_by_eligibility.png" alt="Small multiples showing yearly All-American counts by eligibility class">
+<figcaption>Year-to-year variability in All-Americans by class. Each panel shows the raw yearly counts.</figcaption>
 </figure>
 
 ### National Champions Trend
 
 <figure>
-<img src="{{ site.baseurl }}/charts/nc_trend_by_eligibility.png" alt="Line chart showing National Champions by eligibility year over time">
-<figcaption>National Champion counts by eligibility class, 2000–2025. Dots show actual yearly counts; lines are smoothed trends.</figcaption>
+<img src="{{ site.baseurl }}/charts/nc_trend_by_eligibility.png" alt="Smoothed trend lines showing National Champions by eligibility year over time">
+<figcaption>Five-year smoothed trend in National Champions by eligibility class, 2000–2025.</figcaption>
+</figure>
+
+<figure>
+<img src="{{ site.baseurl }}/charts/nc_variability_by_eligibility.png" alt="Small multiples showing yearly National Champion counts by eligibility class">
+<figcaption>Year-to-year variability in National Champions by class. With only 10 titles per year, individual years are noisy.</figcaption>
 </figure>
 
 ## Methodology

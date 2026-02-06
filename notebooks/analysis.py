@@ -234,10 +234,8 @@ print(f"Saved: {chart_path}")
 print(f"Saved: {site_chart_path}")
 
 # ==============================================================================
-# CHART 3: All-Americans by Eligibility Year - Trend Over Time (Counts)
+# CHART 3: All-Americans Trend (Primary) - Smoothed Lines with Direct Labels
 # ==============================================================================
-
-from scipy.ndimage import gaussian_filter1d
 
 # Pivot: count of AAs by year and eligibility
 aa_by_year_elig = df.pivot_table(
@@ -247,42 +245,49 @@ aa_by_year_elig = df.pivot_table(
     fill_value=0
 )
 
-# Reorder columns (exclude SSr for cleaner main trend - too few data points)
+# Reorder columns (exclude SSr - too few data points)
 plot_order = [e for e in ["Fr", "So", "Jr", "Sr"] if e in aa_by_year_elig.columns]
 aa_counts = aa_by_year_elig[plot_order]
+
+# 5-year rolling mean for smoothing
+aa_smoothed = aa_counts.rolling(window=5, center=True, min_periods=1).mean()
+
+# Eligibility labels for direct annotation
+ELIG_LABELS = {"Fr": "Freshman", "So": "Sophomore", "Jr": "Junior", "Sr": "Senior"}
 
 fig, ax = plt.subplots(figsize=(10, 6))
 
 for elig in plot_order:
-    years = aa_counts.index.values
-    counts = aa_counts[elig].values
+    years = aa_smoothed.index.values
+    smoothed = aa_smoothed[elig].values
     
-    # Plot actual data points
-    ax.scatter(
-        years, 
-        counts,
-        color=ELIGIBILITY_COLORS.get(elig, "#888888"),
-        s=40,
-        alpha=0.6,
-        zorder=3
-    )
-    
-    # Plot smoothed trend line (Gaussian smoothing)
-    smoothed = gaussian_filter1d(counts.astype(float), sigma=2)
+    # Plot smoothed trend line only
     ax.plot(
         years, 
         smoothed,
         color=ELIGIBILITY_COLORS.get(elig, "#888888"),
-        linewidth=2.5,
-        label=elig,
-        zorder=2
+        linewidth=3,
+    )
+    
+    # Direct label at end of line
+    ax.annotate(
+        ELIG_LABELS[elig],
+        xy=(years[-1], smoothed[-1]),
+        xytext=(8, 0),
+        textcoords="offset points",
+        va="center",
+        ha="left",
+        fontsize=11,
+        fontweight="medium",
+        color=ELIGIBILITY_COLORS.get(elig, "#888888")
     )
 
 ax.set_xlabel("Year", fontsize=12)
 ax.set_ylabel("Number of All-Americans", fontsize=12)
-ax.set_title("All-Americans by Eligibility Year Over Time", fontsize=14, fontweight="bold")
-ax.legend(title="Eligibility", loc="upper right")
-ax.set_ylim(0, aa_counts.max().max() * 1.15)
+ax.set_title("All-Americans by Eligibility Class Over Time\n(5-year smoothed trend)", 
+             fontsize=14, fontweight="bold")
+ax.set_ylim(0, 45)
+ax.set_xlim(aa_smoothed.index.min(), aa_smoothed.index.max() + 3)  # Extra space for labels
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 ax.grid(axis="y", alpha=0.3)
@@ -297,7 +302,57 @@ print(f"Saved: {chart_path}")
 print(f"Saved: {site_chart_path}")
 
 # ==============================================================================
-# CHART 4: National Champions by Eligibility Year - Trend Over Time (Counts)
+# CHART 4: All-Americans Variability (Secondary) - Small Multiples
+# ==============================================================================
+
+fig, axes = plt.subplots(2, 2, figsize=(10, 7), sharex=True, sharey=True)
+axes = axes.flatten()
+
+for idx, elig in enumerate(plot_order):
+    ax = axes[idx]
+    years = aa_counts.index.values
+    counts = aa_counts[elig].values
+    
+    # Thin line for raw yearly data
+    ax.plot(
+        years, 
+        counts,
+        color=ELIGIBILITY_COLORS.get(elig, "#888888"),
+        linewidth=1.5,
+        alpha=0.8
+    )
+    
+    # Fill under the line
+    ax.fill_between(
+        years, 
+        counts, 
+        alpha=0.2,
+        color=ELIGIBILITY_COLORS.get(elig, "#888888")
+    )
+    
+    ax.set_title(ELIG_LABELS[elig], fontsize=12, fontweight="medium",
+                 color=ELIGIBILITY_COLORS.get(elig, "#888888"))
+    ax.set_ylim(0, 45)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.grid(axis="y", alpha=0.3)
+
+# Common labels
+fig.supxlabel("Year", fontsize=12)
+fig.supylabel("Number of All-Americans", fontsize=12)
+fig.suptitle("All-Americans by Year: Variability by Class", fontsize=14, fontweight="bold", y=1.02)
+
+plt.tight_layout()
+chart_path = CHARTS_DIR / "aa_variability_by_eligibility.png"
+site_chart_path = SITE_CHARTS_DIR / "aa_variability_by_eligibility.png"
+plt.savefig(chart_path, dpi=150)
+plt.savefig(site_chart_path, dpi=150)
+plt.close()
+print(f"Saved: {chart_path}")
+print(f"Saved: {site_chart_path}")
+
+# ==============================================================================
+# CHART 5: National Champions Trend (Primary) - Smoothed Lines with Direct Labels
 # ==============================================================================
 
 # Pivot: count of NCs by year and eligibility
@@ -308,43 +363,46 @@ nc_by_year_elig = champions.pivot_table(
     fill_value=0
 )
 
-# Reorder columns (exclude SSr for cleaner main trend)
+# Reorder columns (exclude SSr)
 plot_order_nc = [e for e in ["Fr", "So", "Jr", "Sr"] if e in nc_by_year_elig.columns]
 nc_counts = nc_by_year_elig[plot_order_nc]
+
+# 5-year rolling mean for smoothing
+nc_smoothed = nc_counts.rolling(window=5, center=True, min_periods=1).mean()
 
 fig, ax = plt.subplots(figsize=(10, 6))
 
 for elig in plot_order_nc:
-    years = nc_counts.index.values
-    counts = nc_counts[elig].values
+    years = nc_smoothed.index.values
+    smoothed = nc_smoothed[elig].values
     
-    # Plot actual data points
-    ax.scatter(
-        years, 
-        counts,
-        color=ELIGIBILITY_COLORS.get(elig, "#888888"),
-        s=40,
-        alpha=0.6,
-        zorder=3
-    )
-    
-    # Plot smoothed trend line (Gaussian smoothing with higher sigma for noisy NC data)
-    smoothed = gaussian_filter1d(counts.astype(float), sigma=2.5)
+    # Plot smoothed trend line only
     ax.plot(
         years, 
         smoothed,
         color=ELIGIBILITY_COLORS.get(elig, "#888888"),
-        linewidth=2.5,
-        label=elig,
-        zorder=2
+        linewidth=3,
+    )
+    
+    # Direct label at end of line
+    ax.annotate(
+        ELIG_LABELS[elig],
+        xy=(years[-1], smoothed[-1]),
+        xytext=(8, 0),
+        textcoords="offset points",
+        va="center",
+        ha="left",
+        fontsize=11,
+        fontweight="medium",
+        color=ELIGIBILITY_COLORS.get(elig, "#888888")
     )
 
 ax.set_xlabel("Year", fontsize=12)
 ax.set_ylabel("Number of National Champions", fontsize=12)
-ax.set_title("National Champions by Eligibility Year Over Time", fontsize=14, fontweight="bold")
-ax.legend(title="Eligibility", loc="upper right")
-ax.set_ylim(0, 10)
-ax.set_yticks(range(0, 11, 2))
+ax.set_title("National Champions by Eligibility Class Over Time\n(5-year smoothed trend)", 
+             fontsize=14, fontweight="bold")
+ax.set_ylim(0, 8)
+ax.set_xlim(nc_smoothed.index.min(), nc_smoothed.index.max() + 3)  # Extra space for labels
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 ax.grid(axis="y", alpha=0.3)
@@ -352,6 +410,56 @@ ax.grid(axis="y", alpha=0.3)
 plt.tight_layout()
 chart_path = CHARTS_DIR / "nc_trend_by_eligibility.png"
 site_chart_path = SITE_CHARTS_DIR / "nc_trend_by_eligibility.png"
+plt.savefig(chart_path, dpi=150)
+plt.savefig(site_chart_path, dpi=150)
+plt.close()
+print(f"Saved: {chart_path}")
+print(f"Saved: {site_chart_path}")
+
+# ==============================================================================
+# CHART 6: National Champions Variability (Secondary) - Small Multiples
+# ==============================================================================
+
+fig, axes = plt.subplots(2, 2, figsize=(10, 7), sharex=True, sharey=True)
+axes = axes.flatten()
+
+for idx, elig in enumerate(plot_order_nc):
+    ax = axes[idx]
+    years = nc_counts.index.values
+    counts = nc_counts[elig].values
+    
+    # Thin line for raw yearly data
+    ax.plot(
+        years, 
+        counts,
+        color=ELIGIBILITY_COLORS.get(elig, "#888888"),
+        linewidth=1.5,
+        alpha=0.8
+    )
+    
+    # Fill under the line
+    ax.fill_between(
+        years, 
+        counts, 
+        alpha=0.2,
+        color=ELIGIBILITY_COLORS.get(elig, "#888888")
+    )
+    
+    ax.set_title(ELIG_LABELS[elig], fontsize=12, fontweight="medium",
+                 color=ELIGIBILITY_COLORS.get(elig, "#888888"))
+    ax.set_ylim(0, 10)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.grid(axis="y", alpha=0.3)
+
+# Common labels
+fig.supxlabel("Year", fontsize=12)
+fig.supylabel("Number of National Champions", fontsize=12)
+fig.suptitle("National Champions by Year: Variability by Class", fontsize=14, fontweight="bold", y=1.02)
+
+plt.tight_layout()
+chart_path = CHARTS_DIR / "nc_variability_by_eligibility.png"
+site_chart_path = SITE_CHARTS_DIR / "nc_variability_by_eligibility.png"
 plt.savefig(chart_path, dpi=150)
 plt.savefig(site_chart_path, dpi=150)
 plt.close()
