@@ -25,14 +25,16 @@ That's my cue. I spent 20 hours compiling every NCAA D1 All-American finish and 
 
 ## Methodology
 
-Before we get into the anlaysis, let's clarify a few rules. This analysis includes all NCAA Division I Wrestling All-American finishes (places 1–8) from 2000 through 2025. Eligibility year classifications are determined as recorded in official team rosters, media publications, or tournament brackets. 
+Before we get into the analysis, let's clarify a few rules. This analysis includes all NCAA Division I Wrestling All-American finishes (places 1–8) from 2000 through 2025. Eligibility year classifications are determined as recorded in official team rosters, media publications, or tournament brackets. 
 
-2020 makes eligibility weird. How the 2020 season affected NCAA eligiblity is that if a wrestler was using one of their four years of eligibility in 2020, they lost that year due to the tournament cancellation, but gained one additional year, except for the wrestlers using their last year of eligibility in 2020, who did not get another year (Luke Pletcher, Mark Hall, Vincenzo Joseph, Kollin Moore, Alex Marinelli and more). The catch is that if a wrestler was redshirting (regular redshirt or olympic redshirt), they did not lose one of their four years, but *did* still gain another year. This led to an era of what we will refer to in this analysis as "Super Seniors". For the purpose of this analysis, for any eligibility classifications after 2020, I classified the wrestlers eligibility as their Nth year of competition so in a wrestlers 4th year of competition, that is their Senior year and for their 5th season of competition, that is their "Super Senior" year. 
+The Covid Problem: The 2020 tournament cancellation created eligibility chaos. Here's what happened: 
+
+2020 makes eligibility weird. How the 2020 season affected NCAA eligibility is that if a wrestler was using one of their four years of eligibility in 2020, they lost that year due to the tournament cancellation, but gained one additional year, except for the wrestlers using their last year of eligibility in 2020, who did not get another year (Luke Pletcher, Mark Hall, Vincenzo Joseph, Kollin Moore, Alex Marinelli and more). The catch is that if a wrestler was redshirting (regular redshirt or olympic redshirt), they did not lose one of their four years, but *did* still gain another year. This led to an era of what we will refer to in this analysis as "Super Seniors". For the purpose of this analysis, for any eligibility classifications after 2020, I classified the wrestlers eligibility as their Nth year of competition so in a wrestlers 4th year of competition, that is their Senior year and for their 5th season of competition, that is their "Super Senior" year. 
 
 
 ## National Champions Trend
 
-{% include figure.html src="/charts/champions_by_eligibility.png" alt="Bar chart showing national champions by eligibility year" caption="National champions by eligibility year, 2000–2025. Seniors have won more titles than any other class." %}
+<figure><img src="{{ site.baseurl }}/charts/champions_by_eligibility.png" alt="Bar chart showing national champions by eligibility year"><figcaption>National champions by eligibility year, 2000–2025. Seniors have won more titles than any other class.</figcaption></figure>
 
 National Champions since 2000: 
 
@@ -42,9 +44,9 @@ National Champions since 2000:
 - **22 Freshmen**  (8.8%)
 - **4 Super Seniors** (1.6%)
 
-{% include figure.html src="/charts/nc_trend_by_eligibility.png" alt="Smoothed trend lines showing National Champions by eligibility year over time" caption="Three-year smoothed trend in National Champions by eligibility class, 2000–2025." %}
+<figure><img src="{{ site.baseurl }}/charts/nc_trend_by_eligibility.png" alt="Smoothed trend lines showing National Champions by eligibility year over time"><figcaption>Three-year smoothed trend in National Champions by eligibility class, 2000–2025.</figcaption></figure>
 
-{% include figure.html src="/charts/nc_variability_by_eligibility.png" alt="Small multiples showing yearly National Champion counts by eligibility class" caption="Year-to-year variability in National Champions by class. With only 10 titles per year, individual years are noisy." %}
+<figure><img src="{{ site.baseurl }}/charts/nc_variability_by_eligibility.png" alt="Small multiples showing yearly National Champion counts by eligibility class"><figcaption>Year-to-year variability in National Champions by class. With only 10 titles per year, individual years are noisy.</figcaption></figure>
 
 The early 2000s tell a clear story: seniors and juniors dominated the top step of the podium. But that gap narrowed through the 2010s as underclassmen became more competitive. Only in the last 4 years have seniors re-emerged as the plurality of champions.
 
@@ -54,7 +56,7 @@ For every underclassmen who makes his mark on championship history, nearly 4 upp
 
 We've answered the championship question, but what about the other seven All-American spots on the podium? 
 
-{% include figure.html src="/charts/all_americans_by_eligibility.png" alt="Bar chart showing all All-Americans by eligibility year" caption="All-American finishes (places 1–8) by eligibility year, 2000–2025." %}
+<figure><img src="{{ site.baseurl }}/charts/all_americans_by_eligibility.png" alt="Bar chart showing all All-Americans by eligibility year"><figcaption>All-American finishes (places 1–8) by eligibility year, 2000–2025.</figcaption></figure>
 
 All-Americans since 2000:
 
@@ -64,9 +66,9 @@ All-Americans since 2000:
 - **237 Freshmen** (11.8%)
 - **43 Super Seniors** (2.1%)
 
-{% include figure.html src="/charts/aa_trend_by_eligibility.png" alt="Smoothed trend lines showing All-Americans by eligibility year over time" caption="Three-year smoothed trend in All-Americans by eligibility class, 2000–2025." %}
+<figure><img src="{{ site.baseurl }}/charts/aa_trend_by_eligibility.png" alt="Smoothed trend lines showing All-Americans by eligibility year over time"><figcaption>Three-year smoothed trend in All-Americans by eligibility class, 2000–2025.</figcaption></figure>
 
-{% include figure.html src="/charts/aa_variability_by_eligibility.png" alt="Small multiples showing yearly All-American counts by eligibility class" caption="Year-to-year variability in All-Americans by class. Each panel shows the raw yearly counts." %}
+<figure><img src="{{ site.baseurl }}/charts/aa_variability_by_eligibility.png" alt="Small multiples showing yearly All-American counts by eligibility class"><figcaption>Year-to-year variability in All-Americans by class. Each panel shows the raw yearly counts.</figcaption></figure>
 
 The broader All-American picture tells a similar story. Upperclassmen dominated the early 2000s podium, but underclassmen gained ground through the 2010s. Even the gap between seniors and juniors narrowed significantly. The story emerging from the data: seniors no longer have the maturity and experience edge over the field that they held 20 years ago. The floor has risen across all eligibility years.
 
@@ -75,7 +77,7 @@ Despite this convergence, the 25-year totals still show the traditional hierarch
 ## Conclusion
 So, to answer the question: **No, the prime window for a national title has not shifted to the freshman-sophomore years**. 
 
-While underclassmen have become more competitive, especially through the 2010s, the data shows upperclassmen retaining their lead on titels and All-American honors. Seniors alone account for 40% of all national championsihps over the past 25 years. 
+While underclassmen have become more competitive, especially through the 2010s, the data shows upperclassmen retaining their lead on titles and All-American honors. Seniors alone account for 40% of all national championships over the past 25 years. 
 
 The convergence we see in the 2010s is real and notable: the gap between underclassmen and upperclassmen narrowed as the overall talent floor rose. But the recent resurgence of senior champions (2022-2025) suggests that experience remains the most reliable predictor of success at the highest level. 
 
@@ -84,4 +86,4 @@ Freshmen get the headlines when they win because it is rare and they usually mer
 
 ---
 
-{% include report_footer.html %}
+<footer><p>Data source: NCAA Wrestling Championships records, media publications, historic team rosters.</p></footer></div>
