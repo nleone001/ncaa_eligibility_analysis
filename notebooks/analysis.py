@@ -234,8 +234,10 @@ print(f"Saved: {chart_path}")
 print(f"Saved: {site_chart_path}")
 
 # ==============================================================================
-# CHART 3: All-Americans by Eligibility Year - Trend Over Time
+# CHART 3: All-Americans by Eligibility Year - Trend Over Time (Counts)
 # ==============================================================================
+
+from scipy.ndimage import gaussian_filter1d
 
 # Pivot: count of AAs by year and eligibility
 aa_by_year_elig = df.pivot_table(
@@ -245,31 +247,42 @@ aa_by_year_elig = df.pivot_table(
     fill_value=0
 )
 
-# Calculate percentage of total AAs per year
-aa_pct_by_year = aa_by_year_elig.div(aa_by_year_elig.sum(axis=1), axis=0) * 100
-
-# Reorder columns
-plot_order = [e for e in ELIGIBILITY_ORDER if e in aa_pct_by_year.columns]
-aa_pct_by_year = aa_pct_by_year[plot_order]
+# Reorder columns (exclude SSr for cleaner main trend - too few data points)
+plot_order = [e for e in ["Fr", "So", "Jr", "Sr"] if e in aa_by_year_elig.columns]
+aa_counts = aa_by_year_elig[plot_order]
 
 fig, ax = plt.subplots(figsize=(10, 6))
 
 for elig in plot_order:
-    ax.plot(
-        aa_pct_by_year.index, 
-        aa_pct_by_year[elig],
+    years = aa_counts.index.values
+    counts = aa_counts[elig].values
+    
+    # Plot actual data points
+    ax.scatter(
+        years, 
+        counts,
         color=ELIGIBILITY_COLORS.get(elig, "#888888"),
-        linewidth=2,
-        marker="o",
-        markersize=4,
-        label=elig
+        s=40,
+        alpha=0.6,
+        zorder=3
+    )
+    
+    # Plot smoothed trend line (Gaussian smoothing)
+    smoothed = gaussian_filter1d(counts.astype(float), sigma=2)
+    ax.plot(
+        years, 
+        smoothed,
+        color=ELIGIBILITY_COLORS.get(elig, "#888888"),
+        linewidth=2.5,
+        label=elig,
+        zorder=2
     )
 
 ax.set_xlabel("Year", fontsize=12)
-ax.set_ylabel("% of All-Americans", fontsize=12)
+ax.set_ylabel("Number of All-Americans", fontsize=12)
 ax.set_title("All-Americans by Eligibility Year Over Time", fontsize=14, fontweight="bold")
 ax.legend(title="Eligibility", loc="upper right")
-ax.set_ylim(0, 55)
+ax.set_ylim(0, aa_counts.max().max() * 1.15)
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 ax.grid(axis="y", alpha=0.3)
@@ -284,7 +297,7 @@ print(f"Saved: {chart_path}")
 print(f"Saved: {site_chart_path}")
 
 # ==============================================================================
-# CHART 4: National Champions by Eligibility Year - Trend Over Time
+# CHART 4: National Champions by Eligibility Year - Trend Over Time (Counts)
 # ==============================================================================
 
 # Pivot: count of NCs by year and eligibility
@@ -295,42 +308,43 @@ nc_by_year_elig = champions.pivot_table(
     fill_value=0
 )
 
-# Calculate percentage of total NCs per year
-nc_pct_by_year = nc_by_year_elig.div(nc_by_year_elig.sum(axis=1), axis=0) * 100
-
-# Reorder columns
-plot_order_nc = [e for e in ELIGIBILITY_ORDER if e in nc_pct_by_year.columns]
-nc_pct_by_year = nc_pct_by_year[plot_order_nc]
-
-# Calculate 3-year rolling average to smooth the noisy NC data
-nc_pct_smoothed = nc_pct_by_year.rolling(window=3, center=True, min_periods=1).mean()
+# Reorder columns (exclude SSr for cleaner main trend)
+plot_order_nc = [e for e in ["Fr", "So", "Jr", "Sr"] if e in nc_by_year_elig.columns]
+nc_counts = nc_by_year_elig[plot_order_nc]
 
 fig, ax = plt.subplots(figsize=(10, 6))
 
 for elig in plot_order_nc:
-    # Plot smoothed line (bold)
+    years = nc_counts.index.values
+    counts = nc_counts[elig].values
+    
+    # Plot actual data points
+    ax.scatter(
+        years, 
+        counts,
+        color=ELIGIBILITY_COLORS.get(elig, "#888888"),
+        s=40,
+        alpha=0.6,
+        zorder=3
+    )
+    
+    # Plot smoothed trend line (Gaussian smoothing with higher sigma for noisy NC data)
+    smoothed = gaussian_filter1d(counts.astype(float), sigma=2.5)
     ax.plot(
-        nc_pct_smoothed.index, 
-        nc_pct_smoothed[elig],
+        years, 
+        smoothed,
         color=ELIGIBILITY_COLORS.get(elig, "#888888"),
         linewidth=2.5,
-        label=elig
-    )
-    # Plot raw data points (lighter)
-    ax.scatter(
-        nc_pct_by_year.index, 
-        nc_pct_by_year[elig],
-        color=ELIGIBILITY_COLORS.get(elig, "#888888"),
-        s=20,
-        alpha=0.4
+        label=elig,
+        zorder=2
     )
 
 ax.set_xlabel("Year", fontsize=12)
-ax.set_ylabel("% of National Champions", fontsize=12)
-ax.set_title("National Champions by Eligibility Year Over Time\n(3-year rolling average, dots show actual)", 
-             fontsize=14, fontweight="bold")
+ax.set_ylabel("Number of National Champions", fontsize=12)
+ax.set_title("National Champions by Eligibility Year Over Time", fontsize=14, fontweight="bold")
 ax.legend(title="Eligibility", loc="upper right")
-ax.set_ylim(0, 80)
+ax.set_ylim(0, 10)
+ax.set_yticks(range(0, 11, 2))
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 ax.grid(axis="y", alpha=0.3)

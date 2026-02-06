@@ -61,14 +61,14 @@ Has the eligibility distribution changed over 25 years? These charts show how ea
 
 <figure>
 <img src="{{ site.baseurl }}/charts/aa_trend_by_eligibility.png" alt="Line chart showing All-Americans by eligibility year over time">
-<figcaption>Percentage of All-Americans by eligibility class, 2000–2025. Seniors consistently lead, but the gap has narrowed in recent years.</figcaption>
+<figcaption>All-American counts by eligibility class, 2000–2025. Dots show actual yearly counts; lines are smoothed trends.</figcaption>
 </figure>
 
 ### National Champions Trend
 
 <figure>
 <img src="{{ site.baseurl }}/charts/nc_trend_by_eligibility.png" alt="Line chart showing National Champions by eligibility year over time">
-<figcaption>Percentage of National Champions by eligibility class, 2000–2025. Lines show 3-year rolling average; dots show actual values. With only 10 champions per year, individual years are noisy.</figcaption>
+<figcaption>National Champion counts by eligibility class, 2000–2025. Dots show actual yearly counts; lines are smoothed trends.</figcaption>
 </figure>
 
 ## Methodology
