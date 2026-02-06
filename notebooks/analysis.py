@@ -242,17 +242,20 @@ print("EXPORTING TABLES")
 print("="*60)
 
 # Table 1: Summary by Eligibility Year
+total_champs = len(champions)
 summary_data = []
 for elig in ELIGIBILITY_ORDER:
     if elig in aa_by_eligibility.index:
         total_aa = int(aa_by_eligibility[elig])
         champs = int(champs_by_eligibility.get(elig, 0))
-        pct_of_total = total_aa / len(df) * 100
+        pct_of_aas = total_aa / len(df) * 100
+        pct_of_ncs = champs / total_champs * 100 if total_champs > 0 else 0
         summary_data.append({
             "Eligibility Year": elig,
             "All-Americans": total_aa,
-            "% of Total": f"{pct_of_total:.1f}%",
-            "National Champions": champs
+            "% of AAs": f"{pct_of_aas:.1f}%",
+            "National Champions": champs,
+            "% of NCs": f"{pct_of_ncs:.1f}%"
         })
 
 summary_df = pd.DataFrame(summary_data)
