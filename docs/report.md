@@ -11,7 +11,7 @@ title: NCAA Wrestling Eligibility Analysis
 
 ## The Question
 
-<p class="lead">On a recent FloWrestling Radio Live episode (1,197), the question was posed that has been an emerging topic in the wrestling landscape: <em>"Is the prime window for a national title freshman-sophomore year?"</em></p>
+<p class="lead">On a recent <a href="https://youtu.be/cqx0uUKThuc?list=PLMVwHRxOFNq8FnVpMPbu0ve-dyM3LPBZa&t=4456" target="_blank" rel="noopener">FloWrestling Radio Live episode (#1,197)</a>, the question was posed that has been an emerging topic in the wrestling landscape: <em>"Is the prime window for a national title freshman-sophomore year?"</em></p>
 
 The premise makes intuitive sense. High school wrestlers now compete at levels that rival college athletes, thanks to better coaching, access to advanced competition, and early access to RTC training programs. College coaches have more data on incoming recruits and proven early development through RTC access and redshirt years. All athletes have better access to advanced strength, conditioning, and nutrition science to develop and optimize earlier. Freshman have hit the national stage ready to win big. Spencer Lee. Yianni Diakomihalis. Aaron Brooks. Carter Starocci. The names stack up. 
 
