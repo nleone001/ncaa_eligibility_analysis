@@ -27,10 +27,18 @@ That's my cue. I spent 20 hours compiling every NCAA D1 All-American finish and 
 
 Before we get into the analysis, let's clarify a few rules. This analysis includes all NCAA Division I Wrestling All-American finishes (places 1–8) from 2000 through 2025. Eligibility year classifications are determined as recorded in official team rosters, media publications, or tournament brackets. 
 
-The Covid Problem: The 2020 tournament cancellation created eligibility chaos. Here's what happened: 
+**The COVID Problem**: The 2020 tournament cancellation led to blanket eligibility relief in October 2020. The NCAA ruled that the 2019-20 season wouldn't count against anyone's four-year eligibility clock, giving all wrestlers an extra year—including seniors who could return for a fifth season.
+This created the "Super Senior" class. Some 2020 seniors like Luke Pletcher, Mark Hall, and Vincenzo Joseph chose not to use their extra year, while others returned to compete in a fifth NCAA tournament.
 
-2020 makes eligibility weird. How the 2020 season affected NCAA eligibility is that if a wrestler was using one of their four years of eligibility in 2020, they lost that year due to the tournament cancellation, but gained one additional year, except for the wrestlers using their last year of eligibility in 2020, who did not get another year (Luke Pletcher, Mark Hall, Vincenzo Joseph, Kollin Moore, Alex Marinelli and more). The catch is that if a wrestler was redshirting (regular redshirt or olympic redshirt), they did not lose one of their four years, but *did* still gain another year. This led to an era of what we will refer to in this analysis as "Super Seniors". For the purpose of this analysis, for any eligibility classifications after 2020, I classified the wrestlers eligibility as their Nth year of competition so in a wrestlers 4th year of competition, that is their Senior year and for their 5th season of competition, that is their "Super Senior" year. 
+**My Classification Rule**: I classified wrestlers by tournament count rather than academic year:
 
+1st NCAA tournament = Freshman
+4th NCAA tournament = Senior
+5th NCAA tournament = Super Senior
+
+This means Shane Griffith, Carter Starocci, and Aaron Brooks—who all competed in 2019-20—are classified as "freshmen" for their 2021 tournament appearance because it was their first NCAA Championship, even though they had a year of college competition.
+
+**Redshirt Note**: Redshirt freshmen and true freshmen are combined into "Freshman" throughout this analysis. Redshirt data is unreliable for early years and doesn't affect the core experience thesis.
 
 ## National Champions Trend
 
@@ -56,7 +64,7 @@ National Champions since 2000:
 
 The early 2000s tell a clear story: seniors and juniors dominated the top step of the podium. But that gap narrowed through the 2010s as underclassmen became more competitive. Only in the last 4 years have seniors re-emerged as the plurality of champions.
 
-For every underclassmen who makes his mark on championship history, nearly 4 upperclassmen do the same. The trend line Christian asked for? Relatively stable. We saw 0-2 freshman champs every year; with a singular standout year in 2021 with 0 senior and 4 freshman champs: Shane Griffith, Carter Starocci, Aaron Brooks, AJ Ferrari. But with a monstrous 2026 class of freshmen, we may see another era shift begin. 
+For every underclassman who makes his mark on championship history, nearly four upperclassmen do the same. The trend line Christian asked for? Relatively stable. Most years see 0-2 freshman champions, with a singular standout in 2021: zero seniors and four freshmen (Shane Griffith, Carter Starocci, Aaron Brooks, AJ Ferrari). But with the monstrous 2026 freshmen class showing great promise leading into the final months of the season, we may see another era shift begin. 
 
 ## All-Americans Trend
 
@@ -84,7 +92,7 @@ All-Americans since 2000:
 
 The broader All-American picture tells a similar story. Upperclassmen dominated the early 2000s podium, but underclassmen gained ground through the 2010s. Even the gap between seniors and juniors narrowed significantly. The story emerging from the data: seniors no longer have the maturity and experience edge over the field that they held 20 years ago. The floor has risen across all eligibility years.
 
-Despite this convergence, the 25-year totals still show the traditional hierarchy: seniors narrowly lead the pack. 
+Despite this convergence, the 25-year totals still show the traditional hierarchy: seniors lead the pack with 694 All-American finishes, followed by juniors with 603. 
 
 ## Conclusion
 So, to answer the question: **No, the prime window for a national title has not shifted to the freshman-sophomore years**. 
@@ -93,7 +101,7 @@ While underclassmen have become more competitive, especially through the 2010s, 
 
 The convergence we see in the 2010s is real and notable: the gap between underclassmen and upperclassmen narrowed as the overall talent floor rose. But the recent resurgence of senior champions (2022-2025) suggests that experience remains the most reliable predictor of success at the highest level. 
 
-Freshmen get the headlines when they win because it is rare and they usually merit more attention for the rest of their career. But for every Spencer Lee or Yianni Diakomihalis, there are 8 upperclassmen standing on the top of the podium and that ratio has held steady for 25 years. 
+Freshmen get the headlines when they win because it is rare and they usually merit more attention for the rest of their career. But for every Spencer Lee or Yianni Diakomihalis, there are eight upperclassmen standing on the top of the podium, and that ratio has held steady for 25 years. 
 
 
 ---
