@@ -32,9 +32,9 @@ This created the "Super Senior" class. Some 2020 seniors like Luke Pletcher, Mar
 
 **My Classification Rule**: I classified wrestlers by tournament count rather than academic year:
 
-1st NCAA tournament = Freshman
-4th NCAA tournament = Senior
-5th NCAA tournament = Super Senior
+- 1st NCAA tournament = Freshman
+- 4th NCAA tournament = Senior
+- 5th NCAA tournament = Super Senior
 
 This means Shane Griffith, Carter Starocci, and Aaron Brooks—who all competed in 2019-20—are classified as "freshmen" for their 2021 tournament appearance because it was their first NCAA Championship, even though they had a year of college competition.
 
