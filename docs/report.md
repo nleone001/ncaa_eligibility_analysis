@@ -34,7 +34,9 @@ The Covid Problem: The 2020 tournament cancellation created eligibility chaos. H
 
 ## National Champions Trend
 
-<figure><img src="{{ site.baseurl }}/charts/champions_by_eligibility.png" alt="Bar chart showing national champions by eligibility year"><figcaption>National champions by eligibility year, 2000–2025. Seniors have won more titles than any other class.</figcaption></figure>
+![Bar chart showing national champions by eligibility year]({{ site.baseurl }}/charts/champions_by_eligibility.png)
+
+*National champions by eligibility year, 2000–2025. Seniors have won more titles than any other class.*
 
 National Champions since 2000: 
 
@@ -44,9 +46,13 @@ National Champions since 2000:
 - **22 Freshmen**  (8.8%)
 - **4 Super Seniors** (1.6%)
 
-<figure><img src="{{ site.baseurl }}/charts/nc_trend_by_eligibility.png" alt="Smoothed trend lines showing National Champions by eligibility year over time"><figcaption>Three-year smoothed trend in National Champions by eligibility class, 2000–2025.</figcaption></figure>
+![Smoothed trend lines showing National Champions by eligibility year over time]({{ site.baseurl }}/charts/nc_trend_by_eligibility.png)
 
-<figure><img src="{{ site.baseurl }}/charts/nc_variability_by_eligibility.png" alt="Small multiples showing yearly National Champion counts by eligibility class"><figcaption>Year-to-year variability in National Champions by class. With only 10 titles per year, individual years are noisy.</figcaption></figure>
+*Three-year smoothed trend in National Champions by eligibility class, 2000–2025.*
+
+![Small multiples showing yearly National Champion counts by eligibility class]({{ site.baseurl }}/charts/nc_variability_by_eligibility.png)
+
+*Year-to-year variability in National Champions by class. With only 10 titles per year, individual years are noisy.*
 
 The early 2000s tell a clear story: seniors and juniors dominated the top step of the podium. But that gap narrowed through the 2010s as underclassmen became more competitive. Only in the last 4 years have seniors re-emerged as the plurality of champions.
 
@@ -56,7 +62,9 @@ For every underclassmen who makes his mark on championship history, nearly 4 upp
 
 We've answered the championship question, but what about the other seven All-American spots on the podium? 
 
-<figure><img src="{{ site.baseurl }}/charts/all_americans_by_eligibility.png" alt="Bar chart showing all All-Americans by eligibility year"><figcaption>All-American finishes (places 1–8) by eligibility year, 2000–2025.</figcaption></figure>
+![Bar chart showing all All-Americans by eligibility year]({{ site.baseurl }}/charts/all_americans_by_eligibility.png)
+
+*All-American finishes (places 1–8) by eligibility year, 2000–2025.*
 
 All-Americans since 2000:
 
@@ -66,9 +74,13 @@ All-Americans since 2000:
 - **237 Freshmen** (11.8%)
 - **43 Super Seniors** (2.1%)
 
-<figure><img src="{{ site.baseurl }}/charts/aa_trend_by_eligibility.png" alt="Smoothed trend lines showing All-Americans by eligibility year over time"><figcaption>Three-year smoothed trend in All-Americans by eligibility class, 2000–2025.</figcaption></figure>
+![Smoothed trend lines showing All-Americans by eligibility year over time]({{ site.baseurl }}/charts/aa_trend_by_eligibility.png)
 
-<figure><img src="{{ site.baseurl }}/charts/aa_variability_by_eligibility.png" alt="Small multiples showing yearly All-American counts by eligibility class"><figcaption>Year-to-year variability in All-Americans by class. Each panel shows the raw yearly counts.</figcaption></figure>
+*Three-year smoothed trend in All-Americans by eligibility class, 2000–2025.*
+
+![Small multiples showing yearly All-American counts by eligibility class]({{ site.baseurl }}/charts/aa_variability_by_eligibility.png)
+
+*Year-to-year variability in All-Americans by class. Each panel shows the raw yearly counts.*
 
 The broader All-American picture tells a similar story. Upperclassmen dominated the early 2000s podium, but underclassmen gained ground through the 2010s. Even the gap between seniors and juniors narrowed significantly. The story emerging from the data: seniors no longer have the maturity and experience edge over the field that they held 20 years ago. The floor has risen across all eligibility years.
 
