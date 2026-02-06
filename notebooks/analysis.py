@@ -249,8 +249,9 @@ aa_by_year_elig = df.pivot_table(
 plot_order = [e for e in ["Fr", "So", "Jr", "Sr"] if e in aa_by_year_elig.columns]
 aa_counts = aa_by_year_elig[plot_order]
 
-# 7-year rolling mean for smoothing
-aa_smoothed = aa_counts.rolling(window=7, center=True, min_periods=1).mean()
+# 5-year rolling mean + light Gaussian smoothing for extra smoothness
+from scipy.ndimage import gaussian_filter1d
+aa_rolled = aa_counts.rolling(window=5, center=True, min_periods=1).mean()
 
 # Eligibility labels for direct annotation
 ELIG_LABELS = {"Fr": "Freshman", "So": "Sophomore", "Jr": "Junior", "Sr": "Senior"}
@@ -258,8 +259,10 @@ ELIG_LABELS = {"Fr": "Freshman", "So": "Sophomore", "Jr": "Junior", "Sr": "Senio
 fig, ax = plt.subplots(figsize=(10, 6))
 
 for elig in plot_order:
-    years = aa_smoothed.index.values
-    smoothed = aa_smoothed[elig].values
+    years = aa_rolled.index.values
+    rolled = aa_rolled[elig].values
+    # Apply light Gaussian smoothing on top
+    smoothed = gaussian_filter1d(rolled, sigma=1.2)
     
     # Plot smoothed trend line only
     ax.plot(
@@ -284,10 +287,10 @@ for elig in plot_order:
 
 ax.set_xlabel("Year", fontsize=12)
 ax.set_ylabel("Number of All-Americans", fontsize=12)
-ax.set_title("All-Americans by Eligibility Class Over Time\n(7-year smoothed trend)", 
+ax.set_title("All-Americans by Eligibility Class Over Time\n(5-year smoothed trend)", 
              fontsize=14, fontweight="bold")
 ax.set_ylim(0, 45)
-ax.set_xlim(aa_smoothed.index.min(), aa_smoothed.index.max() + 3)  # Extra space for labels
+ax.set_xlim(aa_rolled.index.min(), aa_rolled.index.max() + 3)  # Extra space for labels
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 ax.grid(axis="y", alpha=0.3)
@@ -359,14 +362,16 @@ nc_by_year_elig = champions.pivot_table(
 plot_order_nc = [e for e in ["Fr", "So", "Jr", "Sr"] if e in nc_by_year_elig.columns]
 nc_counts = nc_by_year_elig[plot_order_nc]
 
-# 5-year rolling mean for smoothing
-nc_smoothed = nc_counts.rolling(window=5, center=True, min_periods=1).mean()
+# 5-year rolling mean + light Gaussian smoothing
+nc_rolled = nc_counts.rolling(window=5, center=True, min_periods=1).mean()
 
 fig, ax = plt.subplots(figsize=(10, 6))
 
 for elig in plot_order_nc:
-    years = nc_smoothed.index.values
-    smoothed = nc_smoothed[elig].values
+    years = nc_rolled.index.values
+    rolled = nc_rolled[elig].values
+    # Apply light Gaussian smoothing on top
+    smoothed = gaussian_filter1d(rolled, sigma=1.2)
     
     # Plot smoothed trend line only
     ax.plot(
@@ -394,7 +399,7 @@ ax.set_ylabel("Number of National Champions", fontsize=12)
 ax.set_title("National Champions by Eligibility Class Over Time\n(5-year smoothed trend)", 
              fontsize=14, fontweight="bold")
 ax.set_ylim(0, 8)
-ax.set_xlim(nc_smoothed.index.min(), nc_smoothed.index.max() + 3)  # Extra space for labels
+ax.set_xlim(nc_rolled.index.min(), nc_rolled.index.max() + 3)  # Extra space for labels
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 ax.grid(axis="y", alpha=0.3)
