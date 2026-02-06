@@ -61,7 +61,7 @@ Has the eligibility distribution changed over 25 years? These charts show how ea
 
 <figure>
 <img src="{{ site.baseurl }}/charts/aa_trend_by_eligibility.png" alt="Smoothed trend lines showing All-Americans by eligibility year over time">
-<figcaption>Five-year smoothed trend in All-Americans by eligibility class, 2000–2025.</figcaption>
+<figcaption>Seven-year smoothed trend in All-Americans by eligibility class, 2000–2025.</figcaption>
 </figure>
 
 <figure>

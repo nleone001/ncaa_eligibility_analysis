@@ -249,8 +249,8 @@ aa_by_year_elig = df.pivot_table(
 plot_order = [e for e in ["Fr", "So", "Jr", "Sr"] if e in aa_by_year_elig.columns]
 aa_counts = aa_by_year_elig[plot_order]
 
-# 5-year rolling mean for smoothing
-aa_smoothed = aa_counts.rolling(window=5, center=True, min_periods=1).mean()
+# 7-year rolling mean for smoothing
+aa_smoothed = aa_counts.rolling(window=7, center=True, min_periods=1).mean()
 
 # Eligibility labels for direct annotation
 ELIG_LABELS = {"Fr": "Freshman", "So": "Sophomore", "Jr": "Junior", "Sr": "Senior"}
@@ -284,7 +284,7 @@ for elig in plot_order:
 
 ax.set_xlabel("Year", fontsize=12)
 ax.set_ylabel("Number of All-Americans", fontsize=12)
-ax.set_title("All-Americans by Eligibility Class Over Time\n(5-year smoothed trend)", 
+ax.set_title("All-Americans by Eligibility Class Over Time\n(7-year smoothed trend)", 
              fontsize=14, fontweight="bold")
 ax.set_ylim(0, 45)
 ax.set_xlim(aa_smoothed.index.min(), aa_smoothed.index.max() + 3)  # Extra space for labels
@@ -302,7 +302,7 @@ print(f"Saved: {chart_path}")
 print(f"Saved: {site_chart_path}")
 
 # ==============================================================================
-# CHART 4: All-Americans Variability (Secondary) - Small Multiples
+# CHART 4: All-Americans Variability (Secondary) - Small Multiples Bar Charts
 # ==============================================================================
 
 fig, axes = plt.subplots(2, 2, figsize=(10, 7), sharex=True, sharey=True)
@@ -313,21 +313,13 @@ for idx, elig in enumerate(plot_order):
     years = aa_counts.index.values
     counts = aa_counts[elig].values
     
-    # Thin line for raw yearly data
-    ax.plot(
+    # Bar chart for raw yearly data
+    ax.bar(
         years, 
         counts,
         color=ELIGIBILITY_COLORS.get(elig, "#888888"),
-        linewidth=1.5,
-        alpha=0.8
-    )
-    
-    # Fill under the line
-    ax.fill_between(
-        years, 
-        counts, 
-        alpha=0.2,
-        color=ELIGIBILITY_COLORS.get(elig, "#888888")
+        alpha=0.6,
+        width=0.8
     )
     
     ax.set_title(ELIG_LABELS[elig], fontsize=12, fontweight="medium",
@@ -340,7 +332,7 @@ for idx, elig in enumerate(plot_order):
 # Common labels
 fig.supxlabel("Year", fontsize=12)
 fig.supylabel("Number of All-Americans", fontsize=12)
-fig.suptitle("All-Americans by Year: Variability by Class", fontsize=14, fontweight="bold", y=1.02)
+fig.suptitle("All-Americans by Year: Yearly Counts by Class", fontsize=14, fontweight="bold", y=1.02)
 
 plt.tight_layout()
 chart_path = CHARTS_DIR / "aa_variability_by_eligibility.png"
@@ -417,7 +409,7 @@ print(f"Saved: {chart_path}")
 print(f"Saved: {site_chart_path}")
 
 # ==============================================================================
-# CHART 6: National Champions Variability (Secondary) - Small Multiples
+# CHART 6: National Champions Variability (Secondary) - Small Multiples Bar Charts
 # ==============================================================================
 
 fig, axes = plt.subplots(2, 2, figsize=(10, 7), sharex=True, sharey=True)
@@ -428,21 +420,13 @@ for idx, elig in enumerate(plot_order_nc):
     years = nc_counts.index.values
     counts = nc_counts[elig].values
     
-    # Thin line for raw yearly data
-    ax.plot(
+    # Bar chart for raw yearly data
+    ax.bar(
         years, 
         counts,
         color=ELIGIBILITY_COLORS.get(elig, "#888888"),
-        linewidth=1.5,
-        alpha=0.8
-    )
-    
-    # Fill under the line
-    ax.fill_between(
-        years, 
-        counts, 
-        alpha=0.2,
-        color=ELIGIBILITY_COLORS.get(elig, "#888888")
+        alpha=0.6,
+        width=0.8
     )
     
     ax.set_title(ELIG_LABELS[elig], fontsize=12, fontweight="medium",
@@ -455,7 +439,7 @@ for idx, elig in enumerate(plot_order_nc):
 # Common labels
 fig.supxlabel("Year", fontsize=12)
 fig.supylabel("Number of National Champions", fontsize=12)
-fig.suptitle("National Champions by Year: Variability by Class", fontsize=14, fontweight="bold", y=1.02)
+fig.suptitle("National Champions by Year: Yearly Counts by Class", fontsize=14, fontweight="bold", y=1.02)
 
 plt.tight_layout()
 chart_path = CHARTS_DIR / "nc_variability_by_eligibility.png"
