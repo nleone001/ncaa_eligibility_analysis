@@ -466,10 +466,35 @@ print("\n" + "="*60)
 print("REPORT 2: Multi-AA and aesthetic progressions")
 print("="*60)
 
-# Filter: Include only wrestlers with complete observable career window.
-# We can't assume future results, so exclude wrestlers who could still AA in a non-SSr year.
-# Exclude: Fr in 2024-2025; So in 2023-2025; Jr in 2023-2025. Do not exclude Sr (possible SSr return).
-# Include: SSr at any time; Sr at any time; Jr ≤2022; So ≤2021; Fr ≤2020.
+# Filter: Include only wrestlers whose full career falls in the dataset window (2000-2025).
+# (1) Career complete: exclude those who could still AA in a non-SSr year; include SSr, Sr (any), Jr ≤2022, So ≤2021, Fr ≤2020.
+# (2) Career in window: each AA (Eligibility Year, Year) must satisfy year bounds so the whole career is observable:
+#     Fr:  year-1>=1999 and year+4<=2025  -> 2000<=year<=2021
+#     So:  year-2>=1999 and year+3<=2025  -> 2001<=year<=2022
+#     Jr:  year-3>=1999 and year+2<=2025  -> 2002<=year<=2023
+#     Sr:  year-4>=1999 and year+1<=2025  -> 2003<=year<=2024
+#     SSr: year-5>=1999 and year+0<=2025  -> 2004<=year<=2025
+CAREER_WINDOW = (1999, 2025)
+ELIG_YEAR_BOUNDS = {
+    "Fr":  (CAREER_WINDOW[0] + 1, CAREER_WINDOW[1] - 4),   # 2000..2021
+    "So":  (CAREER_WINDOW[0] + 2, CAREER_WINDOW[1] - 3),   # 2001..2022
+    "Jr":  (CAREER_WINDOW[0] + 3, CAREER_WINDOW[1] - 2),   # 2002..2023
+    "Sr":  (CAREER_WINDOW[0] + 4, CAREER_WINDOW[1] - 1),   # 2003..2024
+    "SSr": (CAREER_WINDOW[0] + 5, CAREER_WINDOW[1]),       # 2004..2025
+}
+
+
+def career_fully_in_window(wrestler_df):
+    """True if every AA (Eligibility Year, Year) for this wrestler is within the allowed year bounds."""
+    for _, row in wrestler_df.iterrows():
+        elig = row["Eligibility Year"]
+        year = row["Year"]
+        lo, hi = ELIG_YEAR_BOUNDS.get(elig, (0, 0))
+        if not (lo <= year <= hi):
+            return False
+    return True
+
+
 wrestler_latest = (
     df.loc[df.groupby("Wrestler")["Year"].idxmax()][["Wrestler", "Eligibility Year", "Year"]]
     .rename(columns={"Eligibility Year": "Latest_Eligibility", "Year": "Latest_Year"})
@@ -495,9 +520,11 @@ def career_is_complete(row):
 
 wrestler_latest["Career_Complete"] = wrestler_latest.apply(career_is_complete, axis=1)
 valid_wrestlers = wrestler_latest[wrestler_latest["Career_Complete"]]["Wrestler"].tolist()
+# Require full career in window: every (Eligibility Year, Year) must be in bounds (excludes e.g. Cael Sanderson: So 2000 < 2001)
+valid_wrestlers = [w for w in valid_wrestlers if career_fully_in_window(df[df["Wrestler"] == w])]
 df_filtered = df[df["Wrestler"].isin(valid_wrestlers)].copy()
 n_complete_careers = len(valid_wrestlers)
-print(f"\nWrestlers with complete observable careers: {n_complete_careers:,} (excluded {df['Wrestler'].nunique() - n_complete_careers:,} still-eligible)")
+print(f"\nWrestlers with complete observable careers (full career in window): {n_complete_careers:,}")
 
 # Use df_filtered for all multi-AA analysis (funnel, tiers, multi-weight, progression).
 # Unique wrestlers (each row = one AA finish; Wrestler may appear multiple times)
@@ -703,13 +730,8 @@ for n in [1, 2, 3, 4, 5]:
     nc_combo_html_lines.append(combo_df_to_html_nc(nc_table, nc_cols) + "\n")
     if n >= 3:
         sub_nc = nc_tiers_df[(nc_tiers_df["n_nc"] == n) & (nc_tiers_df["elig_combo"].apply(len) == n)]
-        names = sub_nc["wrestler"].tolist()
-        if n == 3 and "Cael Sanderson" in names:
-            names = [name + "*" if name == "Cael Sanderson" else name for name in names]
-        names_str = ", ".join(names)
+        names_str = ", ".join(sub_nc["wrestler"].tolist())
         nc_combo_html_lines.append(f'<p class="combo-names">{names_str}</p>\n')
-        if n == 3 and "Cael Sanderson" in sub_nc["wrestler"].tolist():
-            nc_combo_html_lines.append('<p class="combo-names combo-footnote">*Cael Sanderson\'s 1999 title was not included in dataset.</p>\n')
     print(f"  {n}× NC: {len(nc_table)} combinations (total wrestlers {total_n:,})")
 
 nc_combo_table_path = TABLES_DIR / "nc_eligibility_combos_by_tier.md"

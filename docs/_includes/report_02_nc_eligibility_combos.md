@@ -1,5 +1,5 @@
 <h1>When NC was won: combinations by eligibility year</h1><p><em>National champions only (place = 1). Sorted by most common to least. Gold shaded cells = NC in that eligibility year.</em></p>
-<h2 class="combo-tier-header">1× Champs (99)</h2>
+<h2 class="combo-tier-header">1× Champs (80)</h2>
 <table class="eligibility-combo-table eligibility-combo-nc ">
 <thead><tr>
 <th>Fr</th>
@@ -16,8 +16,8 @@
 <td class="combo-no"></td>
 <td class="combo-yes-nc">●</td>
 <td class="combo-no"></td>
-<td>59</td>
-<td>59.6%</td>
+<td>45</td>
+<td>56.2%</td>
 </tr>
 <tr>
 <td class="combo-no"></td>
@@ -25,8 +25,8 @@
 <td class="combo-yes-nc">●</td>
 <td class="combo-no"></td>
 <td class="combo-no"></td>
-<td>27</td>
-<td>27.3%</td>
+<td>22</td>
+<td>27.5%</td>
 </tr>
 <tr>
 <td class="combo-yes-nc">●</td>
@@ -35,7 +35,7 @@
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td>7</td>
-<td>7.1%</td>
+<td>8.8%</td>
 </tr>
 <tr>
 <td class="combo-no"></td>
@@ -44,7 +44,7 @@
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td>5</td>
-<td>5.1%</td>
+<td>6.2%</td>
 </tr>
 <tr>
 <td class="combo-no"></td>
@@ -53,11 +53,11 @@
 <td class="combo-no"></td>
 <td class="combo-yes-nc">●</td>
 <td>1</td>
-<td>1.0%</td>
+<td>1.2%</td>
 </tr>
 </tbody></table>
 
-<h2 class="combo-tier-header">2× Champs (44)</h2>
+<h2 class="combo-tier-header">2× Champs (41)</h2>
 <table class="eligibility-combo-table eligibility-combo-nc ">
 <thead><tr>
 <th>Fr</th>
@@ -74,8 +74,8 @@
 <td class="combo-yes-nc">●</td>
 <td class="combo-yes-nc">●</td>
 <td class="combo-no"></td>
-<td>20</td>
-<td>45.5%</td>
+<td>17</td>
+<td>41.5%</td>
 </tr>
 <tr>
 <td class="combo-no"></td>
@@ -84,7 +84,7 @@
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td>11</td>
-<td>25.0%</td>
+<td>26.8%</td>
 </tr>
 <tr>
 <td class="combo-no"></td>
@@ -93,7 +93,7 @@
 <td class="combo-yes-nc">●</td>
 <td class="combo-no"></td>
 <td>7</td>
-<td>15.9%</td>
+<td>17.1%</td>
 </tr>
 <tr>
 <td class="combo-yes-nc">●</td>
@@ -102,7 +102,7 @@
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td>2</td>
-<td>4.5%</td>
+<td>4.9%</td>
 </tr>
 <tr>
 <td class="combo-yes-nc">●</td>
@@ -111,7 +111,7 @@
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td>2</td>
-<td>4.5%</td>
+<td>4.9%</td>
 </tr>
 <tr>
 <td class="combo-no"></td>
@@ -120,7 +120,7 @@
 <td class="combo-no"></td>
 <td class="combo-yes-nc">●</td>
 <td>1</td>
-<td>2.3%</td>
+<td>2.4%</td>
 </tr>
 <tr>
 <td class="combo-no"></td>
@@ -129,11 +129,11 @@
 <td class="combo-no"></td>
 <td class="combo-yes-nc">●</td>
 <td>1</td>
-<td>2.3%</td>
+<td>2.4%</td>
 </tr>
 </tbody></table>
 
-<h2 class="combo-tier-header">3× Champs (11)</h2>
+<h2 class="combo-tier-header">3× Champs (10)</h2>
 <table class="eligibility-combo-table eligibility-combo-nc ">
 <thead><tr>
 <th>Fr</th>
@@ -150,8 +150,8 @@
 <td class="combo-yes-nc">●</td>
 <td class="combo-yes-nc">●</td>
 <td class="combo-no"></td>
-<td>7</td>
-<td>63.6%</td>
+<td>6</td>
+<td>60.0%</td>
 </tr>
 <tr>
 <td class="combo-yes-nc">●</td>
@@ -160,7 +160,7 @@
 <td class="combo-yes-nc">●</td>
 <td class="combo-no"></td>
 <td>3</td>
-<td>27.3%</td>
+<td>30.0%</td>
 </tr>
 <tr>
 <td class="combo-yes-nc">●</td>
@@ -169,11 +169,10 @@
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td>1</td>
-<td>9.1%</td>
+<td>10.0%</td>
 </tr>
 </tbody></table>
-<p class="combo-names">Cael Sanderson*, Greg Jones, Jake Rosholt, Ed Ruth, Alex Dieringer, J'den Cox, Zain Retherford, Kyle Snyder, Jason Nolf, Bo Nickal, Spencer Lee</p>
-<p class="combo-names combo-footnote">*Cael Sanderson's 1999 title was not included in dataset.</p>
+<p class="combo-names">Greg Jones, Jake Rosholt, Ed Ruth, Alex Dieringer, J'den Cox, Zain Retherford, Kyle Snyder, Jason Nolf, Bo Nickal, Spencer Lee</p>
 
 <h2 class="combo-tier-header">4× Champs (4)</h2>
 <table class="eligibility-combo-table eligibility-combo-nc ">

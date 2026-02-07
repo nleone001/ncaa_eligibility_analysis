@@ -34,7 +34,9 @@ We **exclude**:
 
 We do *not* exclude wrestlers who last competed as Sr (e.g. in 2024–2025) based on a possible return as SSr; we count their career as complete through their senior year.
 
-This ensures we're counting complete careers. For example, a wrestler who AA'd as a junior in 2025 might return and become a 4× All-American, but we can't know that yet. By filtering to observable complete careers, our tier counts (1×, 2×, 3×, 4×, 5× AA) represent wrestlers' final career totals.
+**Full career in window.** We also require that a wrestler's *entire* career falls within the dataset window (2000–2025). For each AA (each row), the year must be in the allowed range for that eligibility class: Fr AA year in 2000–2021 (Fr year − 1 ≥ 1999, Fr year + 4 ≤ 2025), So in 2001–2022, Jr in 2002–2023, Sr in 2003–2024, SSr in 2004–2025. If any appearance falls outside these bounds, we exclude the wrestler—e.g. a So in 2000 implies Fr was 1999, before the window, so that wrestler is excluded.
+
+This ensures we're counting complete careers that are fully observable. Our tier counts (1×, 2×, 3×, 4×, 5× AA) represent wrestlers' final career totals.
 
 **Result: {{ site.data.report_02_stats.n_complete_careers }} wrestlers with complete, observable careers.**
 
