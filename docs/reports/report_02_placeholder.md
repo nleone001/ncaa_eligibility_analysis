@@ -62,14 +62,14 @@ Roughly half of all wrestlers who ever AA'd did it more than once; while around 
 
 ## When All-American was earned (by eligibility)
 
-For each tier (1×, 2×, 3×, 4×, 5× AA), the tables below show the **combinations of eligibility years** in which wrestlers earned their All-American finishes. Only combinations that appear in the data are listed; each table is sorted from most common to least. ● = AA in that eligibility year.
+For each tier (1×, 2×, 3×, 4×, 5× AA), the tables below show the **combinations of eligibility years** in which wrestlers earned their All-American finishes. Only combinations that appear in the data are listed; each table is sorted from most common to least. ● = AA in that eligibility year. Hover to view wrestlers list for each row. Click on row to view wrestlers list for that row. 
 
 {% capture report_02_combos %}{% include report_02_eligibility_combos.md %}{% endcapture %}
 {{ report_02_combos | markdownify }}
 
 ## When National Championships were won (by eligibility)
 
-Same idea for **national champions** (place = 1): for each tier (1× NC, 2× NC, etc.), the tables show the combinations of eligibility years in which wrestlers won titles. Sorted by most common to least. ● = NC in that eligibility year.
+Same idea for **national champions** (place = 1): for each tier (1× NC, 2× NC, etc.), the tables show the combinations of eligibility years in which wrestlers won titles. Sorted by most common to least. ● = NC in that eligibility year. Hover to view wrestlers list for each row. Click on row to view wrestlers list for that row. 
 
 {% capture report_02_nc_combos %}{% include report_02_nc_eligibility_combos.md %}{% endcapture %}
 {{ report_02_nc_combos | markdownify }}
