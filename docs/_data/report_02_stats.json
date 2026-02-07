@@ -40,8 +40,10 @@
     "down_same": 2,
     "pct_up_improved": 56.9,
     "pct_up_worse": 23.4,
+    "pct_up_same": 19.7,
     "pct_down_improved": 73.3,
-    "pct_down_worse": 13.3
+    "pct_down_worse": 13.3,
+    "pct_down_same": 13.3
   },
   "wrestlers_4_weights": [
     "Kyle Dake"

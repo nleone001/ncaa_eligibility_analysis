@@ -693,8 +693,10 @@ if len(transitions_df) > 0:
     print(f"  Moving DOWN: {len(down_df)} — improved: {weight_move_stats['down_improved']} ({pct_down_improved:.1f}%), worse: {weight_move_stats['down_worse']} ({pct_down_worse:.1f}%), same: {weight_move_stats['down_same']}")
     weight_move_stats["pct_up_improved"] = round(pct_up_improved, 1)
     weight_move_stats["pct_up_worse"] = round(pct_up_worse, 1)
+    weight_move_stats["pct_up_same"] = round(100 * weight_move_stats["up_same"] / len(up_df), 1) if len(up_df) > 0 else 0
     weight_move_stats["pct_down_improved"] = round(pct_down_improved, 1)
     weight_move_stats["pct_down_worse"] = round(pct_down_worse, 1)
+    weight_move_stats["pct_down_same"] = round(100 * weight_move_stats["down_same"] / len(down_df), 1) if len(down_df) > 0 else 0
 else:
     weight_move_stats = {}
 
@@ -705,6 +707,7 @@ FLOW_RED = "#ef4444"
 FLOW_GREY = "#94a3b8"
 FLOW_UP = "#3b82f6"
 FLOW_DOWN = "#8b5cf6"
+FLOW_LEFT = "#64748b"
 
 if len(transitions_df) > 0:
     fig, ax = plt.subplots(figsize=(12, 7))
@@ -713,38 +716,70 @@ if len(transitions_df) > 0:
     ax.set_aspect("equal")
     ax.axis("off")
 
-    def draw_box(x, y, w, h, label, color="#e2e8f0", text_color="black"):
-        rect = mpatches.FancyBboxPatch((x - w/2, y - h/2), w, h, boxstyle="round,pad=0.02", 
-                                        facecolor=color, edgecolor="#64748b", linewidth=1.5)
+    def draw_box(x, y, w, h, label, color="#e2e8f0", text_color="black", borderless=False):
+        rect = mpatches.FancyBboxPatch((x - w/2, y - h/2), w, h, boxstyle="round,pad=0.02",
+                                        facecolor=color, edgecolor="none" if borderless else "#64748b",
+                                        linewidth=0 if borderless else 1.5)
         ax.add_patch(rect)
         ax.text(x, y, label, ha="center", va="center", fontsize=11, fontweight="medium", color=text_color)
 
-    # Column 1 (left): Multi-weight AA transitions
-    draw_box(1.5, 5, 2.2, 1.2, f"Multi-weight AA\ntransitions\n(n={weight_move_stats['n_transitions']})", "#1e293b", "white")
+    # Title and subtitle (outside chart)
+    fig.suptitle("Weight-change transitions and placement outcomes", fontsize=14, fontweight="bold", y=0.98)
+    fig.text(0.5, 0.93, "152 transitions from 137 multi-weight All-Americans", ha="center", fontsize=10, color="#64748b")
 
-    # Column 2: Moving up / Moving down
-    draw_box(4.5, 6.5, 2, 1, f"Moving up\n({weight_move_stats['moves_up']})", FLOW_UP, "white")
-    draw_box(4.5, 3.5, 2, 1, f"Moving down\n({weight_move_stats['moves_down']})", FLOW_DOWN, "white")
+    # Column 1 (left): Multi-weight AA transitions — width 1.8
+    left_w, left_h = 1.8, 1.2
+    draw_box(1.5, 5, left_w, left_h, f"Multi-weight AA\ntransitions\n{weight_move_stats['n_transitions']}", FLOW_LEFT, "white")
 
-    # Column 3: Improved / Worse / Same (under Moving up)
-    draw_box(7.5, 7.5, 1.8, 0.9, f"Improved\n({weight_move_stats['up_improved']})", FLOW_GREEN, "white")
-    draw_box(7.5, 6.5, 1.8, 0.9, f"Worse\n({weight_move_stats['up_worse']})", FLOW_RED, "white")
-    draw_box(7.5, 5.5, 1.8, 0.9, f"Same\n({weight_move_stats['up_same']})", FLOW_GREY, "white")
+    # Column 2: Moving up / Moving down — labels 11pt bold, counts 13–14pt bold
+    mid_w, mid_h = 2, 1
+    for cx, cy, label, count, color in [
+        (4.5, 6.5, "Moving up", weight_move_stats["moves_up"], FLOW_UP),
+        (4.5, 3.5, "Moving down", weight_move_stats["moves_down"], FLOW_DOWN),
+    ]:
+        rect = mpatches.FancyBboxPatch((cx - mid_w/2, cy - mid_h/2), mid_w, mid_h, boxstyle="round,pad=0.02",
+                                        facecolor=color, edgecolor="#64748b", linewidth=1.5)
+        ax.add_patch(rect)
+        ax.text(cx, cy + 0.12, label, ha="center", va="center", fontsize=11, fontweight="bold", color="white")
+        ax.text(cx, cy - 0.12, f"({count})", ha="center", va="center", fontsize=14, fontweight="bold", color="white")
 
-    # Column 3: Improved / Worse / Same (under Moving down)
-    draw_box(7.5, 4.5, 1.8, 0.9, f"Improved\n({weight_move_stats['down_improved']})", FLOW_GREEN, "white")
-    draw_box(7.5, 3.5, 1.8, 0.9, f"Worse\n({weight_move_stats['down_worse']})", FLOW_RED, "white")
-    draw_box(7.5, 2.5, 1.8, 0.9, f"Same\n({weight_move_stats['down_same']})", FLOW_GREY, "white")
+    # Column 3: Outcome boxes — height 0.7, borderless, with percentages
+    # Moving up outcomes: 8.0, 7.0, 6.0
+    # Moving down outcomes: 4.5, 3.5, 2.5
+    out_w, out_h = 1.8, 0.7
+    outcome_specs = [
+        (7.5, 8.0, f"Improved\n{weight_move_stats['up_improved']} ({weight_move_stats['pct_up_improved']}%)", FLOW_GREEN),
+        (7.5, 7.0, f"Worse\n{weight_move_stats['up_worse']} ({weight_move_stats['pct_up_worse']}%)", FLOW_RED),
+        (7.5, 6.0, f"Same\n{weight_move_stats['up_same']} ({weight_move_stats['pct_up_same']}%)", FLOW_GREY),
+        (7.5, 4.5, f"Improved\n{weight_move_stats['down_improved']} ({weight_move_stats['pct_down_improved']}%)", FLOW_GREEN),
+        (7.5, 3.5, f"Worse\n{weight_move_stats['down_worse']} ({weight_move_stats['pct_down_worse']}%)", FLOW_RED),
+        (7.5, 2.5, f"Same\n{weight_move_stats['down_same']} ({weight_move_stats['pct_down_same']}%)", FLOW_GREY),
+    ]
+    for x, y, label, color in outcome_specs:
+        draw_box(x, y, out_w, out_h, label, color, "white", borderless=True)
 
-    # Connectors: left (right edge 2.6) -> middle (left edge 3.5)
-    ax.plot([2.6, 3.5], [5, 6.5], color="#94a3b8", lw=2)
-    ax.plot([2.6, 3.5], [5, 3.5], color="#94a3b8", lw=2)
-    # Connectors: middle (right edge 5.5) -> right boxes (left edge 6.6)
-    for mid_y, outcomes_y in [(6.5, [7.5, 6.5, 5.5]), (3.5, [4.5, 3.5, 2.5])]:
-        for oy in outcomes_y:
-            ax.plot([5.5, 6.6], [mid_y, oy], color="#94a3b8", lw=2)
+    # Line widths: max(2, count/max_count * 8)
+    n_total = weight_move_stats["n_transitions"]
+    n_up = weight_move_stats["moves_up"]
+    n_down = weight_move_stats["moves_down"]
+    left_right = 1.5 + left_w / 2  # left box right edge
+    mid_left = 4.5 - mid_w / 2
+    mid_right = 4.5 + mid_w / 2
+    right_left = 7.5 - out_w / 2
 
-    ax.set_title("Weight-change transitions: direction and placement impact\n(ordered by ascending year and eligibility)", fontsize=13, fontweight="bold")
+    # Connectors: left -> middle (color by destination)
+    lw_up = max(2, n_up / n_total * 8)
+    lw_down = max(2, n_down / n_total * 8)
+    ax.plot([left_right, mid_left], [5, 6.5], color=FLOW_UP, lw=lw_up)
+    ax.plot([left_right, mid_left], [5, 3.5], color=FLOW_DOWN, lw=lw_down)
+
+    # Connectors: middle -> right (color by destination, lw by count)
+    up_outcomes = [(8.0, weight_move_stats["up_improved"], FLOW_GREEN), (7.0, weight_move_stats["up_worse"], FLOW_RED), (6.0, weight_move_stats["up_same"], FLOW_GREY)]
+    down_outcomes = [(4.5, weight_move_stats["down_improved"], FLOW_GREEN), (3.5, weight_move_stats["down_worse"], FLOW_RED), (2.5, weight_move_stats["down_same"], FLOW_GREY)]
+    for mid_y, outcomes in [(6.5, up_outcomes), (3.5, down_outcomes)]:
+        for oy, count, dest_color in outcomes:
+            lw = max(2, count / (n_up if mid_y == 6.5 else n_down) * 8)
+            ax.plot([mid_right, right_left], [mid_y, oy], color=dest_color, lw=lw)
     plt.tight_layout()
     flow_path = CHARTS_DIR / "weight_change_flow.png"
     flow_site_path = SITE_CHARTS_DIR / "weight_change_flow.png"

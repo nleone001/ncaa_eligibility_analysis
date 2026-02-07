@@ -85,7 +85,7 @@ Of **{{ site.data.report_02_stats.n_unique_wrestlers }}** unique wrestlers with 
 Most multi-weight All-Americans competed at exactly two weight classes. The rare feat of placing at four different weights was accomplished by only one wrestler in the dataset: **Kyle Dake**, who famously won national titles at 141, 149, 157, and 165 (2009–2013).
 
 | Unique weight classes | Wrestlers |
-|:----------------------|----------:|
+|:---------------------:|:---------:|
 | 2 | {{ site.data.report_02_stats.multi_weight_by_n.2 }} |
 | 3 | {{ site.data.report_02_stats.multi_weight_by_n.3 }} |
 | 4 | {{ site.data.report_02_stats.multi_weight_by_n.4 }} |
