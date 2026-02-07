@@ -631,6 +631,69 @@ multi_weight_mask = weights_per_wrestler >= 2
 n_multi_weight_aa = multi_weight_mask.sum()
 print(f"\nMulti-weight AAs (placed 1–8 in more than one weight class): {n_multi_weight_aa:,} wrestlers out of {n_unique_wrestlers:,}")
 
+# Count of AAs at exactly 2, 3, 4 unique weight classes (e.g. Kyle Dake = 4 weight classes)
+n_weight_2 = (weights_per_wrestler == 2).sum()
+n_weight_3 = (weights_per_wrestler == 3).sum()
+n_weight_4 = (weights_per_wrestler == 4).sum()
+multi_weight_by_n = {"2": int(n_weight_2), "3": int(n_weight_3), "4": int(n_weight_4)}
+wrestlers_4_weights = weights_per_wrestler[weights_per_wrestler == 4].index.tolist()
+print(f"  Exactly 2 weight classes: {n_weight_2:,}")
+print(f"  Exactly 3 weight classes: {n_weight_3:,}")
+print(f"  Exactly 4 weight classes: {n_weight_4:,} (e.g. Kyle Dake)")
+
+# For wrestlers who AAd at 2+ weights: did they move up or down? Did place improve?
+# Build transitions: each consecutive AA pair when weight changed
+multi_weight_wrestlers = weights_per_wrestler[multi_weight_mask].index.tolist()
+transitions = []
+for wrestler in multi_weight_wrestlers:
+    w_df = df_filtered[df_filtered["Wrestler"] == wrestler].sort_values("Year")
+    rows = w_df[["Year", "Weight", "Place", "Eligibility Year"]].values.tolist()
+    for i in range(len(rows) - 1):
+        year1, w1, place1, elig1 = rows[i]
+        year2, w2, place2, elig2 = rows[i + 1]
+        if w1 != w2:  # weight changed
+            direction = "up" if w2 > w1 else "down"
+            place_change = "improved" if place2 < place1 else ("worse" if place2 > place1 else "same")
+            transitions.append({
+                "wrestler": wrestler,
+                "from_weight": int(w1),
+                "to_weight": int(w2),
+                "from_place": int(place1),
+                "to_place": int(place2),
+                "direction": direction,
+                "place_change": place_change,
+            })
+transitions_df = pd.DataFrame(transitions)
+
+# Aggregate: move up vs down, and place improvement by direction
+if len(transitions_df) > 0:
+    up_df = transitions_df[transitions_df["direction"] == "up"]
+    down_df = transitions_df[transitions_df["direction"] == "down"]
+    weight_move_stats = {
+        "n_transitions": len(transitions_df),
+        "moves_up": int(len(up_df)),
+        "moves_down": int(len(down_df)),
+        "up_improved": int((up_df["place_change"] == "improved").sum()),
+        "up_worse": int((up_df["place_change"] == "worse").sum()),
+        "up_same": int((up_df["place_change"] == "same").sum()),
+        "down_improved": int((down_df["place_change"] == "improved").sum()),
+        "down_worse": int((down_df["place_change"] == "worse").sum()),
+        "down_same": int((down_df["place_change"] == "same").sum()),
+    }
+    pct_up_improved = 100 * weight_move_stats["up_improved"] / len(up_df) if len(up_df) > 0 else 0
+    pct_up_worse = 100 * weight_move_stats["up_worse"] / len(up_df) if len(up_df) > 0 else 0
+    pct_down_improved = 100 * weight_move_stats["down_improved"] / len(down_df) if len(down_df) > 0 else 0
+    pct_down_worse = 100 * weight_move_stats["down_worse"] / len(down_df) if len(down_df) > 0 else 0
+    print(f"\nWeight-change transitions: {len(transitions_df)} transitions (when wrestler changed weight)")
+    print(f"  Moving UP: {len(up_df)} — improved: {weight_move_stats['up_improved']} ({pct_up_improved:.1f}%), worse: {weight_move_stats['up_worse']} ({pct_up_worse:.1f}%), same: {weight_move_stats['up_same']}")
+    print(f"  Moving DOWN: {len(down_df)} — improved: {weight_move_stats['down_improved']} ({pct_down_improved:.1f}%), worse: {weight_move_stats['down_worse']} ({pct_down_worse:.1f}%), same: {weight_move_stats['down_same']}")
+    weight_move_stats["pct_up_improved"] = round(pct_up_improved, 1)
+    weight_move_stats["pct_up_worse"] = round(pct_up_worse, 1)
+    weight_move_stats["pct_down_improved"] = round(pct_down_improved, 1)
+    weight_move_stats["pct_down_worse"] = round(pct_down_worse, 1)
+else:
+    weight_move_stats = {}
+
 # Eligibility-year combinations by N×AA tier (when AA was earned, by eligibility)
 # For each wrestler: (n_aa, sorted tuple of eligibility years in which they AA'd)
 elig_order = ELIGIBILITY_ORDER  # ["Fr", "So", "Jr", "Sr", "SSr"]
@@ -724,6 +787,11 @@ for n in [1, 2, 3, 4, 5]:
     combo_md_lines.append(combo_table[cols].to_markdown(index=False) + "\n")
     combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{n}× AAs ({total_n:,})</h2>\n")
     combo_html_lines.append(combo_df_to_html(combo_table, cols, "eligibility-combo-aa") + "\n")
+    if n == 5:
+        five_x_sub = tiers_df[(tiers_df["n_aa"] == 5) & (tiers_df["elig_combo"].apply(len) == 5)]
+        five_x_names = sorted(five_x_sub["wrestler"].tolist())
+        five_x_list_text = ", ".join(five_x_names)
+        combo_html_lines.append(f'<p class="five-x-aa-list"><strong>Likely to never be repeated 5xAAs:</strong> {five_x_list_text}</p>\n')
     print(f"  {n}× AA: {len(combo_table)} combinations (total wrestlers {total_n:,})")
 # Funnel and tables both use exact counts (1×, 2×, 3×, 4×, 5×)
 n_exactly_4 = (aa_counts_per_wrestler == 4).sum()
@@ -937,6 +1005,10 @@ report_02_stats = {
         "n_4plus": int(n_4x),
         "n_5plus": int(n_5x),
     },
+    "five_x_aa_wrestlers": sorted(aa_counts_per_wrestler[aa_counts_per_wrestler >= 5].index.tolist()),
+    "multi_weight_by_n": multi_weight_by_n,
+    "weight_move_stats": weight_move_stats,
+    "wrestlers_4_weights": wrestlers_4_weights,
 }
 report_02_path = REPORT_DATA_DIR / "report_02_stats.json"
 with open(report_02_path, "w") as f:

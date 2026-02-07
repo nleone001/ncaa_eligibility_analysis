@@ -80,7 +80,30 @@ Wrestlers who have earned an All-American finish (place 1–8) in **more than on
 
 Of **{{ site.data.report_02_stats.n_unique_wrestlers }}** unique wrestlers with complete careers who have placed at the NCAA tournament (2000–2025), **{{ site.data.report_02_stats.n_multi_weight_aa }}** have All-Americaned in at least two different weight classes.
 
-*Additional sections (aesthetic progressions, defending champions, last-chance seniors, Super Senior performance) will be added as the analysis is completed.*
+### Count of AAs at n unique weight classes
+
+Most multi-weight All-Americans competed at exactly two weight classes. The rare feat of placing at four different weights was accomplished by only one wrestler in the dataset: **Kyle Dake**, who famously won national titles at 141, 149, 157, and 165 (2009–2013).
+
+| Unique weight classes | Wrestlers |
+|:----------------------|----------:|
+| 2 | {{ site.data.report_02_stats.multi_weight_by_n.2 }} |
+| 3 | {{ site.data.report_02_stats.multi_weight_by_n.3 }} |
+| 4 | {{ site.data.report_02_stats.multi_weight_by_n.4 }} |
+
+### Weight-change direction and placement impact
+
+For wrestlers who AAd at two or more weights, we examine each *transition*—a consecutive pair of AA finishes in different years where the wrestler changed weight. There are **{{ site.data.report_02_stats.weight_move_stats.n_transitions }}** such transitions in the data.
+
+| Direction | Transitions | Place improved | Place worse | Same place |
+|:----------|------------:|---------------:|------------:|-----------:|
+| **Moving up** | {{ site.data.report_02_stats.weight_move_stats.moves_up }} | {{ site.data.report_02_stats.weight_move_stats.up_improved }} ({{ site.data.report_02_stats.weight_move_stats.pct_up_improved }}%) | {{ site.data.report_02_stats.weight_move_stats.up_worse }} ({{ site.data.report_02_stats.weight_move_stats.pct_up_worse }}%) | {{ site.data.report_02_stats.weight_move_stats.up_same }} |
+| **Moving down** | {{ site.data.report_02_stats.weight_move_stats.moves_down }} | {{ site.data.report_02_stats.weight_move_stats.down_improved }} ({{ site.data.report_02_stats.weight_move_stats.pct_down_improved }}%) | {{ site.data.report_02_stats.weight_move_stats.down_worse }} ({{ site.data.report_02_stats.weight_move_stats.pct_down_worse }}%) | {{ site.data.report_02_stats.weight_move_stats.down_same }} |
+
+**Findings:**
+
+- **Weight changes are almost always upward.** The vast majority of transitions ({{ site.data.report_02_stats.weight_move_stats.moves_up }} out of {{ site.data.report_02_stats.weight_move_stats.n_transitions }}) involve moving to a higher weight class, reflecting natural growth over a career.
+- **Moving up: more improvement than regression.** Among wrestlers who moved up, about 57% improved their placement, ~23% placed worse, and ~20% placed the same. So moving up tends to be associated with improvement, not decline.
+- **Moving down: small sample, but high improvement rate.** Only 15 transitions involve moving down in weight. Of those, 11 improved and 2 placed worse. The small sample makes it hard to draw a strong trend, but there is no evidence that moving down leads to worse outcomes—if anything, the improvement rate is higher. Wrestlers who move down may be finding a better fit at a lower weight.
 
 [← Back to table of contents]({{ site.baseurl }}/)
 

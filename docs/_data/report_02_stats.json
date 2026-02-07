@@ -13,5 +13,37 @@
     "n_3plus": 145,
     "n_4plus": 95,
     "n_5plus": 7
-  }
+  },
+  "five_x_aa_wrestlers": [
+    "Carter Starocci",
+    "Cohlton Schultz",
+    "Daton Fix",
+    "Greg Kerkvliet",
+    "Keegan O\u2019Toole",
+    "Myles Amine",
+    "Parker Keckeisen"
+  ],
+  "multi_weight_by_n": {
+    "2": 128,
+    "3": 8,
+    "4": 1
+  },
+  "weight_move_stats": {
+    "n_transitions": 152,
+    "moves_up": 137,
+    "moves_down": 15,
+    "up_improved": 78,
+    "up_worse": 32,
+    "up_same": 27,
+    "down_improved": 11,
+    "down_worse": 2,
+    "down_same": 2,
+    "pct_up_improved": 56.9,
+    "pct_up_worse": 23.4,
+    "pct_down_improved": 73.3,
+    "pct_down_worse": 13.3
+  },
+  "wrestlers_4_weights": [
+    "Kyle Dake"
+  ]
 }
