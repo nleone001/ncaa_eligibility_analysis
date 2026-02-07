@@ -467,9 +467,9 @@ print("REPORT 2: Multi-AA and aesthetic progressions")
 print("="*60)
 
 # Filter: Include only wrestlers with complete observable career window.
-# We can't assume future results, so exclude wrestlers still eligible to compete.
-# Exclude: Fr in 2025 (could AA as So/Jr/Sr/SSr later); So in 2024-2025; Jr in 2023-2025; Sr in 2024-2025.
-# Include: SSr at any time; anyone whose career is observably complete by end of dataset.
+# We can't assume future results, so exclude wrestlers who could still AA in a non-SSr year.
+# Exclude: Fr in 2024-2025; So in 2023-2025; Jr in 2023-2025. Do not exclude Sr (possible SSr return).
+# Include: SSr at any time; Sr at any time; Jr ≤2022; So ≤2021; Fr ≤2020.
 wrestler_latest = (
     df.loc[df.groupby("Wrestler")["Year"].idxmax()][["Wrestler", "Eligibility Year", "Year"]]
     .rename(columns={"Eligibility Year": "Latest_Eligibility", "Year": "Latest_Year"})
@@ -477,13 +477,13 @@ wrestler_latest = (
 
 
 def career_is_complete(row):
-    """True if wrestler's career is observably complete (no future AAs possible in dataset)."""
+    """True if wrestler's career is observably complete. We do not exclude based on possible SSr return."""
     elig = row["Latest_Eligibility"]
     year = row["Latest_Year"]
     if elig == "SSr":
         return True
-    if elig == "Sr" and year <= 2023:
-        return True
+    if elig == "Sr":
+        return True  # Include all Sr; do not exclude for possible SSr return
     if elig == "Jr" and year <= 2022:
         return True
     if elig == "So" and year <= 2021:

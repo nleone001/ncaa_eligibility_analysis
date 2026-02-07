@@ -22,7 +22,7 @@ This analysis includes only wrestlers whose careers are **observably complete**�
 We **include**:
 
 - All wrestlers who competed as Super Seniors (final year of eligibility)
-- Wrestlers whose most recent appearance was Sr in 2023 or earlier (had opportunity to use SSr eligibility but didn't)
+- Wrestlers whose most recent appearance was Sr (any year); we do not exclude based on a possible SSr return
 - Wrestlers whose most recent appearance was Jr in 2022 or earlier (had opportunity for Sr/SSr but didn't return)
 - And so on for earlier eligibility years
 
@@ -31,7 +31,8 @@ We **exclude**:
 - Wrestlers who last competed as Fr in 2024–2025 (could still AA as So/Jr/Sr/SSr)
 - Wrestlers who last competed as So in 2023–2025 (could still AA as Jr/Sr/SSr)
 - Wrestlers who last competed as Jr in 2023–2025 (could still AA as Sr/SSr)
-- Wrestlers who last competed as Sr in 2024–2025 (could still AA as SSr)
+
+We do *not* exclude wrestlers who last competed as Sr (e.g. in 2024–2025) based on a possible return as SSr; we count their career as complete through their senior year.
 
 This ensures we're counting complete careers. For example, a wrestler who AA'd as a junior in 2025 might return and become a 4× All-American, but we can't know that yet. By filtering to observable complete careers, our tier counts (1×, 2×, 3×, 4×, 5× AA) represent wrestlers' final career totals.
 
