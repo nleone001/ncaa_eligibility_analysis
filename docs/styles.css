@@ -348,6 +348,67 @@ tr:hover {
     }
 }
 
+/* Last Chance table: hover and click on whole row for tooltip/expand */
+.last-chance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+.last-chance-table th,
+.last-chance-table td {
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    border: 1px solid var(--color-border);
+}
+.last-chance-table th {
+    background: #f1f5f9;
+    font-weight: 600;
+}
+.last-chance-table tbody tr[data-wrestlers]:hover {
+    background-color: #f8fafc;
+}
+.last-chance-table tbody tr[data-wrestlers].lc-row-selected {
+    background-color: #dbeafe;
+}
+.last-chance-table tbody tr[data-wrestlers].lc-row-selected td:first-child {
+    border-left: 4px solid var(--color-accent);
+    padding-left: calc(0.75rem - 4px);
+}
+.last-chance-expand-container {
+    display: none;
+    margin: 0 0 1.5rem 0;
+    padding: 1rem 1.25rem;
+    background: #f7fafc;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+.last-chance-expand-container.is-visible {
+    display: block;
+}
+.last-chance-expand-container .lc-expand-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+.last-chance-expand-container .lc-expand-list {
+    margin: 0;
+    padding-left: 1.25em;
+    list-style: disc;
+    column-count: 3;
+    -webkit-column-count: 3;
+    column-gap: 1.5rem;
+}
+.last-chance-expand-container .lc-expand-list li {
+    break-inside: avoid;
+    padding: 0.15rem 0;
+}
+@media (max-width: 700px) {
+    .last-chance-expand-container .lc-expand-list {
+        column-count: 2;
+    }
+}
+
 /* Metadata */
 .meta {
     font-size: 0.9rem;

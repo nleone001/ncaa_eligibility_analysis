@@ -1170,6 +1170,7 @@ archetype_counts = {
 # Wrestler names per archetype per bucket (for tooltip and expand in report)
 ARCHETYPE_NAMES = ["Continued Progression", "Plateau Breaker", "Regression Survivor", "Consistent Elite", "Early Peak", "Finish on a Win"]
 archetype_wrestlers = {name: {b: [] for b in AA_BUCKETS} for name in ARCHETYPE_NAMES}
+last_chance_wrestlers = {"Senior Last Chance": [], "COVID Last Chance": [], "Championship Last Chance": []}
 
 for wrestler in df_filtered["Wrestler"].unique():
     w_df = df_filtered[df_filtered["Wrestler"] == wrestler].copy()
@@ -1187,17 +1188,20 @@ for wrestler in df_filtered["Wrestler"].unique():
             archetype_counts[name]["by_aa"][n_aa_key] += 1
             archetype_wrestlers[name][n_aa_key].append(wrestler)
 
-    # 7. Last Chance (1× AA only)
+    # 7. Last Chance (1× AA only) — collect wrestler names for tooltip/expand
     if n_aa == 1:
         elig = eligs[0]
         year = int(years[0])
         place = int(places[0])
         if elig in ("Sr", "SSr"):
             archetype_counts["Last Chance"]["Senior Last Chance"]["by_aa"]["1"] += 1
+            last_chance_wrestlers["Senior Last Chance"].append(wrestler)
         if elig == "SSr" and year >= 2021:
             archetype_counts["Last Chance"]["COVID Last Chance"]["by_aa"]["1"] += 1
+            last_chance_wrestlers["COVID Last Chance"].append(wrestler)
         if place == 1 and elig in ("Sr", "SSr"):
             archetype_counts["Last Chance"]["Championship Last Chance"]["by_aa"]["1"] += 1
+            last_chance_wrestlers["Championship Last Chance"].append(wrestler)
 
 # Add totals and ensure JSON-serializable (int)
 for name in ["Continued Progression", "Plateau Breaker", "Regression Survivor", "Consistent Elite", "Early Peak", "Finish on a Win"]:
@@ -1219,6 +1223,29 @@ print(f"    Senior Last Chance: {archetype_counts['Last Chance']['Senior Last Ch
 print(f"    COVID Last Chance: {archetype_counts['Last Chance']['COVID Last Chance']['total']:,}")
 print(f"    Championship Last Chance: {archetype_counts['Last Chance']['Championship Last Chance']['total']:,}")
 
+# Build placement-by-eligibility string for each wrestler: "Name (Fr-So-Jr-Sr)" or "Name (Fr-So-Jr-Sr-SSr)"
+# Use DNP for years with no AA; include SSr only if wrestler has SSr in data.
+def wrestler_placement_string(wrestler, w_df):
+    w_df = w_df.sort_values(["_order", "Year", "Eligibility Year"])
+    elig_to_place = {}
+    for _, row in w_df.iterrows():
+        elig_to_place[row["Eligibility Year"]] = int(row["Place"])
+    order = ["Fr", "So", "Jr", "Sr"]
+    if "SSr" in elig_to_place:
+        order.append("SSr")
+    parts = [str(elig_to_place.get(e, "DNP")) for e in order]
+    return f"{wrestler} ({'-'.join(parts)})"
+
+# Precompute placement strings for all wrestlers in df_filtered (need _order on each w_df)
+wrestler_placement_str = {}
+for wrestler in df_filtered["Wrestler"].unique():
+    w_df = df_filtered[df_filtered["Wrestler"] == wrestler].copy()
+    w_df["_order"] = w_df["Year"] * 10 + w_df["Eligibility Year"].map(elig_sort_key)
+    wrestler_placement_str[wrestler] = wrestler_placement_string(wrestler, w_df)
+
+# Delimiter for list of "Name (a-b-c-d)" in data attribute (split in JS)
+ARCHETYPE_LIST_DELIM = " | "
+
 # Archetypes table HTML for Report 02: tooltip on count cells, click row to expand 3×/4×/5× lists
 ARCHETYPE_DESCRIPTIONS = {
     "Continued Progression": "3+ AA; each consecutive AA shows improvement (place[i+1] &lt; place[i])",
@@ -1237,16 +1264,19 @@ for name in ARCHETYPE_NAMES:
     total = archetype_counts[name]["total"]
     by_aa = archetype_counts[name]["by_aa"]
     desc = ARCHETYPE_DESCRIPTIONS[name]
-    # Each 3×/4×/5× cell: data-wrestlers (escaped), data-count; row has data-wrestlers-3/4/5 for expand
+    # Each 3×/4×/5× cell: data-wrestlers (names), data-wrestlers-places (Name (Fr-So-Jr-Sr)), data-count
     w3 = archetype_wrestlers[name]["3"]
     w4 = archetype_wrestlers[name]["4"]
     w5 = archetype_wrestlers[name]["5"]
-    attr3 = f' data-wrestlers="{html_module.escape(", ".join(sorted(w3)))}" data-count="{by_aa["3"]}"' if w3 else ""
-    attr4 = f' data-wrestlers="{html_module.escape(", ".join(sorted(w4)))}" data-count="{by_aa["4"]}"' if w4 else ""
-    attr5 = f' data-wrestlers="{html_module.escape(", ".join(sorted(w5)))}" data-count="{by_aa["5"]}"' if w5 else ""
-    row_attrs = f' data-wrestlers-3="{html_module.escape(", ".join(sorted(w3)))}" data-count-3="{by_aa["3"]}"'
-    row_attrs += f' data-wrestlers-4="{html_module.escape(", ".join(sorted(w4)))}" data-count-4="{by_aa["4"]}"'
-    row_attrs += f' data-wrestlers-5="{html_module.escape(", ".join(sorted(w5)))}" data-count-5="{by_aa["5"]}"'
+    places3 = ARCHETYPE_LIST_DELIM.join([wrestler_placement_str[w] for w in sorted(w3)]) if w3 else ""
+    places4 = ARCHETYPE_LIST_DELIM.join([wrestler_placement_str[w] for w in sorted(w4)]) if w4 else ""
+    places5 = ARCHETYPE_LIST_DELIM.join([wrestler_placement_str[w] for w in sorted(w5)]) if w5 else ""
+    attr3 = f' data-wrestlers="{html_module.escape(", ".join(sorted(w3)))}" data-wrestlers-places="{html_module.escape(places3)}" data-count="{by_aa["3"]}"' if w3 else ""
+    attr4 = f' data-wrestlers="{html_module.escape(", ".join(sorted(w4)))}" data-wrestlers-places="{html_module.escape(places4)}" data-count="{by_aa["4"]}"' if w4 else ""
+    attr5 = f' data-wrestlers="{html_module.escape(", ".join(sorted(w5)))}" data-wrestlers-places="{html_module.escape(places5)}" data-count="{by_aa["5"]}"' if w5 else ""
+    row_attrs = f' data-wrestlers-3="{html_module.escape(", ".join(sorted(w3)))}" data-wrestlers-places-3="{html_module.escape(places3)}" data-count-3="{by_aa["3"]}"'
+    row_attrs += f' data-wrestlers-4="{html_module.escape(", ".join(sorted(w4)))}" data-wrestlers-places-4="{html_module.escape(places4)}" data-count-4="{by_aa["4"]}"'
+    row_attrs += f' data-wrestlers-5="{html_module.escape(", ".join(sorted(w5)))}" data-wrestlers-places-5="{html_module.escape(places5)}" data-count-5="{by_aa["5"]}"'
     archetype_table_lines.append(f"<tr{row_attrs}>")
     archetype_table_lines.append(f"<td><strong>{html_module.escape(name)}</strong></td>")
     archetype_table_lines.append(f"<td>{desc}</td>")
@@ -1271,15 +1301,22 @@ archetype_script = """
     style.textContent = '.wrestler-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:12px;font-size:0.85rem;line-height:1.5;max-height:400px;max-width:500px;overflow-y:auto;overflow-x:hidden;z-index:1000;pointer-events:none;border:1px solid #e2e8f0;white-space:normal}.wrestler-tooltip .wrestler-tooltip-title{font-weight:600;margin-bottom:6px;color:#1a1a1a}.wrestler-tooltip .wrestler-tooltip-list{margin:0;padding-left:1.2em}';
     document.head.appendChild(style);
   }
+  var PLACES_DELIM = ' | ';
+  function getDisplayList(el, attrPlaces, attrNames) {
+    var places = el.getAttribute(attrPlaces);
+    if (places) return places.split(PLACES_DELIM);
+    var names = el.getAttribute(attrNames);
+    return names ? names.split(/,\\s*/) : [];
+  }
   function showTip(el, x, y) {
-    var w = el.getAttribute('data-wrestlers');
+    var listStr = el.getAttribute('data-wrestlers-places') || el.getAttribute('data-wrestlers');
     var n = el.getAttribute('data-count');
-    if (!w || !tip) return;
+    if (!listStr || !tip) return;
     var title = tip.querySelector('.wrestler-tooltip-title');
     var list = tip.querySelector('.wrestler-tooltip-list');
     title.textContent = n + ' Wrestlers';
-    var names = w.split(/,\\s*/);
-    list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
+    var items = listStr.indexOf(PLACES_DELIM) !== -1 ? listStr.split(PLACES_DELIM) : listStr.split(/,\\s*/);
+    list.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
     tip.style.left = (x + 16) + 'px';
     tip.style.top = (y - 10) + 'px';
     tip.style.display = 'block';
@@ -1287,21 +1324,18 @@ archetype_script = """
   function hideTip() { if (tip) tip.style.display = 'none'; }
 
   function showExpand(tr) {
-    var w3 = tr.getAttribute('data-wrestlers-3');
-    var w4 = tr.getAttribute('data-wrestlers-4');
-    var w5 = tr.getAttribute('data-wrestlers-5');
+    var list3 = getDisplayList(tr, 'data-wrestlers-places-3', 'data-wrestlers-3');
+    var list4 = getDisplayList(tr, 'data-wrestlers-places-4', 'data-wrestlers-4');
+    var list5 = getDisplayList(tr, 'data-wrestlers-places-5', 'data-wrestlers-5');
     var n3 = tr.getAttribute('data-count-3') || '0';
     var n4 = tr.getAttribute('data-count-4') || '0';
     var n5 = tr.getAttribute('data-count-5') || '0';
     if (!expandContainer) return;
     document.querySelectorAll('.archetype-table tbody tr').forEach(function(r) { r.classList.remove('archetype-row-selected'); });
     tr.classList.add('archetype-row-selected');
-    var names3 = w3 ? w3.split(/,\\s*/) : [];
-    var names4 = w4 ? w4.split(/,\\s*/) : [];
-    var names5 = w5 ? w5.split(/,\\s*/) : [];
-    var html = '<div class="archetype-expand-section"><strong>3× AA (' + n3 + ')</strong><ul class="archetype-expand-list">' + names3.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul></div>';
-    html += '<div class="archetype-expand-section"><strong>4× AA (' + n4 + ')</strong><ul class="archetype-expand-list">' + names4.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul></div>';
-    html += '<div class="archetype-expand-section"><strong>5× AA (' + n5 + ')</strong><ul class="archetype-expand-list">' + names5.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul></div>';
+    var html = '<div class="archetype-expand-section"><strong>3× AA (' + n3 + ')</strong><ul class="archetype-expand-list">' + list3.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul></div>';
+    html += '<div class="archetype-expand-section"><strong>4× AA (' + n4 + ')</strong><ul class="archetype-expand-list">' + list4.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul></div>';
+    html += '<div class="archetype-expand-section"><strong>5× AA (' + n5 + ')</strong><ul class="archetype-expand-list">' + list5.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul></div>';
     expandContainer.querySelector('.archetype-expand-body').innerHTML = html;
     var table = tr.closest('table');
     if (table.nextSibling !== expandContainer) {
@@ -1353,6 +1387,114 @@ archetype_include_path = includes_dir / "report_02_archetypes_table.md"
 with open(archetype_include_path, "w") as f:
     f.write("\n".join(archetype_table_lines) + "\n" + archetype_script)
 print(f"Saved: {archetype_include_path}")
+
+# Last Chance table: hover and click on whole row for tooltip/expand (same placement format)
+LAST_CHANCE_CRITERIA = {
+    "Senior Last Chance": "1× AA; AA earned as Sr or SSr",
+    "COVID Last Chance": "1× AA; earned as SSr in 2021 or later (COVID extension)",
+    "Championship Last Chance": "1× NC (place = 1); NC earned as Sr or SSr",
+}
+last_chance_table_lines = [
+    '<table class="last-chance-table">',
+    "<thead><tr><th>Sub-type</th><th>Criteria</th><th>Count</th></tr></thead>",
+    "<tbody>",
+]
+for sub in ["Senior Last Chance", "COVID Last Chance", "Championship Last Chance"]:
+    wrestlers = last_chance_wrestlers[sub]
+    total = len(wrestlers)
+    places_str = ARCHETYPE_LIST_DELIM.join([wrestler_placement_str[w] for w in sorted(wrestlers)]) if wrestlers else ""
+    names_str = ", ".join(sorted(wrestlers)) if wrestlers else ""
+    row_attrs = ""
+    if wrestlers:
+        row_attrs = f' data-wrestlers="{html_module.escape(names_str)}" data-wrestlers-places="{html_module.escape(places_str)}" data-count="{total}"'
+    last_chance_table_lines.append(f"<tr{row_attrs}>")
+    last_chance_table_lines.append(f"<td><strong>{html_module.escape(sub)}</strong></td>")
+    last_chance_table_lines.append(f"<td>{LAST_CHANCE_CRITERIA[sub]}</td>")
+    last_chance_table_lines.append(f"<td>{total}</td>")
+    last_chance_table_lines.append("</tr>")
+last_chance_table_lines.append("</tbody></table>")
+
+last_chance_script = """
+<script>
+(function() {
+  var PLACES_DELIM = ' | ';
+  var tip = document.querySelector('.wrestler-tooltip');
+  var lcExpandContainer = null;
+
+  function ensureTip() {
+    if (tip) return;
+    var style = document.getElementById('wrestler-tooltip-styles');
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'wrestler-tooltip-styles';
+      style.textContent = '.wrestler-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:12px;font-size:0.85rem;line-height:1.5;max-height:400px;max-width:500px;overflow-y:auto;overflow-x:hidden;z-index:1000;pointer-events:none;border:1px solid #e2e8f0;white-space:normal}.wrestler-tooltip .wrestler-tooltip-title{font-weight:600;margin-bottom:6px;color:#1a1a1a}.wrestler-tooltip .wrestler-tooltip-list{margin:0;padding-left:1.2em}';
+      document.head.appendChild(style);
+    }
+    tip = document.createElement('div');
+    tip.className = 'wrestler-tooltip';
+    tip.innerHTML = '<div class="wrestler-tooltip-title"></div><ul class="wrestler-tooltip-list"></ul>';
+    tip.style.display = 'none';
+    document.body.appendChild(tip);
+  }
+  function showTip(tr, x, y) {
+    var listStr = tr.getAttribute('data-wrestlers-places') || tr.getAttribute('data-wrestlers');
+    var n = tr.getAttribute('data-count');
+    if (!listStr || !tip) return;
+    var title = tip.querySelector('.wrestler-tooltip-title');
+    var list = tip.querySelector('.wrestler-tooltip-list');
+    title.textContent = n + ' Wrestlers';
+    var items = listStr.indexOf(PLACES_DELIM) !== -1 ? listStr.split(PLACES_DELIM) : listStr.split(/,\\s*/);
+    list.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
+    tip.style.left = (x + 16) + 'px';
+    tip.style.top = (y - 10) + 'px';
+    tip.style.display = 'block';
+  }
+  function hideTip() { if (tip) tip.style.display = 'none'; }
+  function showLcExpand(tr) {
+    var listStr = tr.getAttribute('data-wrestlers-places') || tr.getAttribute('data-wrestlers');
+    var n = tr.getAttribute('data-count');
+    if (!lcExpandContainer) return;
+    document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers]').forEach(function(r) { r.classList.remove('lc-row-selected'); });
+    tr.classList.add('lc-row-selected');
+    var items = listStr && listStr.indexOf(PLACES_DELIM) !== -1 ? listStr.split(PLACES_DELIM) : (listStr ? listStr.split(/,\\s*/) : []);
+    lcExpandContainer.querySelector('.lc-expand-title').textContent = n + ' Wrestlers';
+    lcExpandContainer.querySelector('.lc-expand-list').innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
+    var table = tr.closest('table');
+    if (table.nextSibling !== lcExpandContainer) {
+      if (lcExpandContainer.parentNode) lcExpandContainer.parentNode.removeChild(lcExpandContainer);
+      table.parentNode.insertBefore(lcExpandContainer, table.nextSibling);
+    }
+    lcExpandContainer.classList.add('is-visible');
+  }
+  function hideLcExpand() {
+    if (lcExpandContainer) lcExpandContainer.classList.remove('is-visible');
+    document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers]').forEach(function(r) { r.classList.remove('lc-row-selected'); });
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    ensureTip();
+    lcExpandContainer = document.createElement('div');
+    lcExpandContainer.className = 'last-chance-expand-container';
+    lcExpandContainer.innerHTML = '<div class="lc-expand-title"></div><ul class="lc-expand-list"></ul>';
+    var rows = document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers]');
+    rows.forEach(function(tr) {
+      tr.style.cursor = 'pointer';
+      tr.addEventListener('mouseenter', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mousemove', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mouseleave', hideTip);
+      tr.addEventListener('click', function() {
+        if (tr.classList.contains('lc-row-selected')) hideLcExpand();
+        else showLcExpand(tr);
+      });
+    });
+  });
+})();
+</script>
+"""
+
+last_chance_include_path = includes_dir / "report_02_last_chance_table.md"
+with open(last_chance_include_path, "w") as f:
+    f.write("\n".join(last_chance_table_lines) + "\n" + last_chance_script)
+print(f"Saved: {last_chance_include_path}")
 
 # ==============================================================================
 # EXPORT TABLES

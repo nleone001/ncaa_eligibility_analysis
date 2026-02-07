@@ -113,13 +113,10 @@ We classify wrestlers with **complete, observable careers** (same eligibility ex
 
 ### Last Chance (1× AA only)
 
-Wrestlers who All-Americaned exactly once, in a “last chance” eligibility context (all counts are 1× AA):
+Wrestlers who All-Americaned exactly once, in a “last chance” eligibility context (all counts are 1× AA). **Hover** on a row to see the list of wrestlers with placements; **click** a row to expand the list below the table.
 
-| Sub-type | Criteria | Count |
-|----------|----------|------:|
-| **Senior Last Chance** | 1× AA; AA earned as Sr or SSr | {{ site.data.report_02_stats.archetypes["Last Chance"]["Senior Last Chance"].total }} |
-| **COVID Last Chance** | 1× AA; earned as SSr in 2021 or later (COVID extension) | {{ site.data.report_02_stats.archetypes["Last Chance"]["COVID Last Chance"].total }} |
-| **Championship Last Chance** | 1× NC (place = 1); NC earned as Sr or SSr | {{ site.data.report_02_stats.archetypes["Last Chance"]["Championship Last Chance"].total }} |
+{% capture report_02_last_chance %}{% include report_02_last_chance_table.md %}{% endcapture %}
+{{ report_02_last_chance }}
 
 [← Back to table of contents]({{ site.baseurl }}/)
 
