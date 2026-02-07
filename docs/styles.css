@@ -147,6 +147,12 @@ tr:hover {
 .eligibility-combo-table thead th {
     background-color: #9ca3af;
     color: #fff;
+    text-align: center;
+}
+/* Center Count and % columns in all combo tables */
+.eligibility-combo-table td:nth-child(6),
+.eligibility-combo-table td:nth-child(7) {
+    text-align: center;
 }
 .eligibility-combo-table th,
 .eligibility-combo-table td {
