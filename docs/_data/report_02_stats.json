@@ -1,15 +1,17 @@
 {
-  "n_unique_wrestlers": 1076,
-  "n_multi_aa": 548,
-  "n_improved_every_year": 185,
-  "pct_improved_of_multi_aa": 33.8,
-  "pct_improved_of_all": 17.2,
+  "n_complete_careers": 954,
+  "n_unique_wrestlers": 954,
+  "n_multi_aa": 496,
+  "n_multi_weight_aa": 134,
+  "n_improved_every_year": 171,
+  "pct_improved_of_multi_aa": 34.5,
+  "pct_improved_of_all": 17.9,
   "funnel": {
-    "all": 1076,
-    "n_1plus": 528,
-    "n_2plus": 282,
-    "n_3plus": 163,
-    "n_4plus": 96,
+    "all": 954,
+    "n_1plus": 458,
+    "n_2plus": 255,
+    "n_3plus": 145,
+    "n_4plus": 89,
     "n_5plus": 7
   }
 }

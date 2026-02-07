@@ -466,12 +466,46 @@ print("\n" + "="*60)
 print("REPORT 2: Multi-AA and aesthetic progressions")
 print("="*60)
 
+# Filter: Include only wrestlers with complete observable career window.
+# We can't assume future results, so exclude wrestlers still eligible to compete.
+# Exclude: Fr in 2025 (could AA as So/Jr/Sr/SSr later); So in 2024-2025; Jr in 2023-2025; Sr in 2024-2025.
+# Include: SSr at any time; anyone whose career is observably complete by end of dataset.
+wrestler_latest = (
+    df.loc[df.groupby("Wrestler")["Year"].idxmax()][["Wrestler", "Eligibility Year", "Year"]]
+    .rename(columns={"Eligibility Year": "Latest_Eligibility", "Year": "Latest_Year"})
+)
+
+
+def career_is_complete(row):
+    """True if wrestler's career is observably complete (no future AAs possible in dataset)."""
+    elig = row["Latest_Eligibility"]
+    year = row["Latest_Year"]
+    if elig == "SSr":
+        return True
+    if elig == "Sr" and year <= 2023:
+        return True
+    if elig == "Jr" and year <= 2022:
+        return True
+    if elig == "So" and year <= 2021:
+        return True
+    if elig == "Fr" and year <= 2020:
+        return True
+    return False
+
+
+wrestler_latest["Career_Complete"] = wrestler_latest.apply(career_is_complete, axis=1)
+valid_wrestlers = wrestler_latest[wrestler_latest["Career_Complete"]]["Wrestler"].tolist()
+df_filtered = df[df["Wrestler"].isin(valid_wrestlers)].copy()
+n_complete_careers = len(valid_wrestlers)
+print(f"\nWrestlers with complete observable careers: {n_complete_careers:,} (excluded {df['Wrestler'].nunique() - n_complete_careers:,} still-eligible)")
+
+# Use df_filtered for all multi-AA analysis (funnel, tiers, multi-weight, progression).
 # Unique wrestlers (each row = one AA finish; Wrestler may appear multiple times)
-n_unique_wrestlers = df["Wrestler"].nunique()
-print(f"\nUnique wrestlers (all AAs): {n_unique_wrestlers:,}")
+n_unique_wrestlers = df_filtered["Wrestler"].nunique()
+print(f"Unique wrestlers (complete careers only): {n_unique_wrestlers:,}")
 
 # Multi-AA: wrestlers who appear more than once (AAd more than once)
-aa_counts_per_wrestler = df.groupby("Wrestler").size()
+aa_counts_per_wrestler = df_filtered.groupby("Wrestler").size()
 multi_aa_mask = aa_counts_per_wrestler > 1
 multi_aa_wrestlers = aa_counts_per_wrestler[multi_aa_mask]
 n_multi_aa = len(multi_aa_wrestlers)
@@ -515,12 +549,18 @@ plt.close()
 print(f"Saved: {funnel_path}")
 print(f"Saved: {funnel_site_path}")
 
+# Multi-weight AAs: wrestlers who placed (AA) in more than one weight class
+weights_per_wrestler = df_filtered.groupby("Wrestler")["Weight"].nunique()
+multi_weight_mask = weights_per_wrestler >= 2
+n_multi_weight_aa = multi_weight_mask.sum()
+print(f"\nMulti-weight AAs (placed 1–8 in more than one weight class): {n_multi_weight_aa:,} wrestlers out of {n_unique_wrestlers:,}")
+
 # Eligibility-year combinations by N×AA tier (when AA was earned, by eligibility)
 # For each wrestler: (n_aa, sorted tuple of eligibility years in which they AA'd)
 elig_order = ELIGIBILITY_ORDER  # ["Fr", "So", "Jr", "Sr", "SSr"]
 wrestler_tiers = []
-for wrestler in df["Wrestler"].unique():
-    w_df = df[df["Wrestler"] == wrestler]
+for wrestler in df_filtered["Wrestler"].unique():
+    w_df = df_filtered[df_filtered["Wrestler"] == wrestler]
     n_aa = len(w_df)
     eligs = w_df["Eligibility Year"].unique().tolist()
     elig_combo = tuple(sorted(eligs, key=lambda e: elig_order.index(e)))
@@ -622,7 +662,7 @@ with open(combo_include_path, "w") as f:
 print(f"Saved: {combo_include_path}")
 
 # National Champions (place == 1): same eligibility-combo tables (1× NC, 2× NC, etc.)
-champions_df = df[df["Place"] == 1]
+champions_df = df_filtered[df_filtered["Place"] == 1]
 nc_tiers = []
 for wrestler in champions_df["Wrestler"].unique():
     w_df = champions_df[champions_df["Wrestler"] == wrestler]
@@ -664,8 +704,12 @@ for n in [1, 2, 3, 4, 5]:
     if n >= 3:
         sub_nc = nc_tiers_df[(nc_tiers_df["n_nc"] == n) & (nc_tiers_df["elig_combo"].apply(len) == n)]
         names = sub_nc["wrestler"].tolist()
+        if n == 3 and "Cael Sanderson" in names:
+            names = [name + "*" if name == "Cael Sanderson" else name for name in names]
         names_str = ", ".join(names)
         nc_combo_html_lines.append(f'<p class="combo-names">{names_str}</p>\n')
+        if n == 3 and "Cael Sanderson" in sub_nc["wrestler"].tolist():
+            nc_combo_html_lines.append('<p class="combo-names combo-footnote">*Cael Sanderson\'s 1999 title was not included in dataset.</p>\n')
     print(f"  {n}× NC: {len(nc_table)} combinations (total wrestlers {total_n:,})")
 
 nc_combo_table_path = TABLES_DIR / "nc_eligibility_combos_by_tier.md"
@@ -689,7 +733,7 @@ progression_rows = []
 improved_wrestlers = []
 
 for wrestler in multi_aa_wrestlers.index:
-    w_df = df[df["Wrestler"] == wrestler].sort_values("Year")
+    w_df = df_filtered[df_filtered["Wrestler"] == wrestler].sort_values("Year")
     places = w_df["Place"].tolist()
     years = w_df["Year"].tolist()
     eligs = w_df["Eligibility Year"].tolist()
@@ -760,8 +804,10 @@ print(f"\nSaved: {table_path}")
 
 # Report 2: Multi-AA and aesthetic progression table + stats (incl. funnel tiers)
 report_02_stats = {
+    "n_complete_careers": n_complete_careers,
     "n_unique_wrestlers": n_unique_wrestlers,
     "n_multi_aa": n_multi_aa,
+    "n_multi_weight_aa": int(n_multi_weight_aa),
     "n_improved_every_year": n_improved,
     "pct_improved_of_multi_aa": round(pct_improved_of_multi, 1),
     "pct_improved_of_all": round(pct_improved_of_all, 1),

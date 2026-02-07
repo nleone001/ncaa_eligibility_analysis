@@ -5,21 +5,45 @@ title: Report 02 — The Journey (Career Arc)
 
 <div class="container" markdown="1">
 
-# Report 02: The Journey
+# The Journey: Progression of the NCAA Elite
 
 ## Development and career arc
 
 *What does the path from freshman All-American to senior champion actually look like?*
 
-This report explores multi-time All-Americans, aesthetic progressions (improvement every year), and related career-arc analyses. We start with the funnel: how many of the 1,076 unique wrestlers who have ever AA'd went on to do it again—and again?
+This report explores multi-time All-Americans, aesthetic progressions (improvement every year), and related career-arc analyses.
+
+## Analysis scope and assumptions
+
+### Observable complete careers
+
+This analysis includes only wrestlers whose careers are **observably complete**—meaning they've exhausted their eligibility or enough time has passed that we can be confident they won't return to competition.
+
+We **include**:
+
+- All wrestlers who competed as Super Seniors (final year of eligibility)
+- Wrestlers whose most recent appearance was Sr in 2023 or earlier (had opportunity to use SSr eligibility but didn't)
+- Wrestlers whose most recent appearance was Jr in 2022 or earlier (had opportunity for Sr/SSr but didn't return)
+- And so on for earlier eligibility years
+
+We **exclude**:
+
+- Wrestlers who last competed as Fr in 2024–2025 (could still AA as So/Jr/Sr/SSr)
+- Wrestlers who last competed as So in 2023–2025 (could still AA as Jr/Sr/SSr)
+- Wrestlers who last competed as Jr in 2023–2025 (could still AA as Sr/SSr)
+- Wrestlers who last competed as Sr in 2024–2025 (could still AA as SSr)
+
+This ensures we're counting complete careers. For example, a wrestler who AA'd as a junior in 2025 might return and become a 4× All-American, but we can't know that yet. By filtering to observable complete careers, our tier counts (1×, 2×, 3×, 4×, 5× AA) represent wrestlers' final career totals.
+
+**Result: {{ site.data.report_02_stats.n_complete_careers }} wrestlers with complete, observable careers.**
 
 ## Multi-AA funnel
 
-Of **{{ site.data.report_02_stats.n_unique_wrestlers }}** unique wrestlers who have placed at the NCAA tournament (2000–2025), **{{ site.data.report_02_stats.n_multi_aa }}** have All-Americaned more than once. The funnel below shows how many wrestlers have **exactly** 1×, 2×, 3×, 4×, or 5× AAs (same counts as the tables below).
+Of **{{ site.data.report_02_stats.n_unique_wrestlers }}** unique wrestlers with complete careers who have placed at the NCAA tournament (2000–2025), **{{ site.data.report_02_stats.n_multi_aa }}** have All-Americaned more than once. The funnel below shows how many wrestlers have **exactly** 1×, 2×, 3×, 4×, or 5× AAs (same counts as the tables below).
 
 ![Funnel: unique wrestlers by multi-AA tier (1× through 5× AA)]({{ site.baseurl }}/charts/multi_aa_funnel.png)
 
-*Exactly 1× (528), 2× (282), 3× (161), 4× (96), 5× (7). Total {{ site.data.report_02_stats.n_unique_wrestlers }} unique wrestlers.*
+*Exactly 1×, 2×, 3×, 4×, 5× AA. Total {{ site.data.report_02_stats.n_unique_wrestlers }} unique wrestlers (complete careers only).*
 
 - **1× AA:** {{ site.data.report_02_stats.funnel.n_1plus }} wrestlers
 - **2× AA:** {{ site.data.report_02_stats.funnel.n_2plus }} wrestlers
@@ -43,7 +67,13 @@ Same idea for **national champions** (place = 1): for each tier (1× NC, 2× NC,
 {% capture report_02_nc_combos %}{% include report_02_nc_eligibility_combos.md %}{% endcapture %}
 {{ report_02_nc_combos | markdownify }}
 
-*Additional sections (aesthetic progressions, multi-weight success, defending champions, last-chance seniors, Super Senior performance) will be added as the analysis is completed.*
+## Multi-weight All-Americans
+
+Wrestlers who have earned an All-American finish (place 1–8) in **more than one weight class** are a distinct subset of the elite: they moved weights at some point and still placed at NCAAs.
+
+Of **{{ site.data.report_02_stats.n_unique_wrestlers }}** unique wrestlers with complete careers who have placed at the NCAA tournament (2000–2025), **{{ site.data.report_02_stats.n_multi_weight_aa }}** have All-Americaned in at least two different weight classes.
+
+*Additional sections (aesthetic progressions, defending champions, last-chance seniors, Super Senior performance) will be added as the analysis is completed.*
 
 [← Back to table of contents]({{ site.baseurl }}/)
 
