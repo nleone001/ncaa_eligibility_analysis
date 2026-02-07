@@ -131,6 +131,39 @@ tr:hover {
     background-color: #f7fafc;
 }
 
+/* Eligibility combo tables (Report 02: when AA/NC was earned by year) */
+.eligibility-combo-table {
+    --combo-border: #cbd5e0;
+}
+.eligibility-combo-table th,
+.eligibility-combo-table td {
+    border-left: 1px solid var(--combo-border);
+    vertical-align: middle;
+}
+.eligibility-combo-table th:first-child,
+.eligibility-combo-table td:first-child {
+    border-left: none;
+}
+.eligibility-combo-table .combo-yes,
+.eligibility-combo-table .combo-no {
+    text-align: center;
+}
+.eligibility-combo-table .combo-yes {
+    background-color: #dbeafe;
+    border-radius: 6px;
+    font-size: 1.2em;
+}
+.eligibility-combo-table .combo-yes-nc {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.2em;
+}
+.eligibility-combo-table .combo-no {
+    color: var(--color-text-muted);
+}
+
 /* Metadata */
 .meta {
     font-size: 0.9rem;

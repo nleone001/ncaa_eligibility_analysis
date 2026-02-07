@@ -547,16 +547,60 @@ def build_combo_table(n_aa_val):
         rows.append(row)
     return pd.DataFrame(rows), total
 
-# Write combined markdown: one section per tier (1×, 2×, 3×, 4× AA)
+
+def combo_df_to_html(combo_table, cols, table_class_extra=""):
+    """Render combo DataFrame as HTML table with classed cells for styling (vertical borders, shaded cells)."""
+    lines = [f'<table class="eligibility-combo-table {table_class_extra}">', "<thead><tr>"]
+    for c in cols:
+        lines.append(f"<th>{c}</th>")
+    lines.append("</tr></thead><tbody>")
+    for _, row in combo_table[cols].iterrows():
+        lines.append("<tr>")
+        for c in cols:
+            val = row[c]
+            if c in ELIG_COLS:
+                cell_class = "combo-yes" if val == MARKER else "combo-no"
+                lines.append(f'<td class="{cell_class}">{val}</td>')
+            else:
+                lines.append(f"<td>{val}</td>")
+        lines.append("</tr>")
+    lines.append("</tbody></table>")
+    return "\n".join(lines)
+
+
+def combo_df_to_html_nc(combo_table, cols, table_class_extra=""):
+    """Same as combo_df_to_html but NC tables use combo-yes-nc for gold shaded cells."""
+    lines = [f'<table class="eligibility-combo-table eligibility-combo-nc {table_class_extra}">', "<thead><tr>"]
+    for c in cols:
+        lines.append(f"<th>{c}</th>")
+    lines.append("</tr></thead><tbody>")
+    for _, row in combo_table[cols].iterrows():
+        lines.append("<tr>")
+        for c in cols:
+            val = row[c]
+            if c in ELIG_COLS:
+                cell_class = "combo-yes-nc" if val == MARKER else "combo-no"
+                lines.append(f'<td class="{cell_class}">{val}</td>')
+            else:
+                lines.append(f"<td>{val}</td>")
+        lines.append("</tr>")
+    lines.append("</tbody></table>")
+    return "\n".join(lines)
+
+
+cols = ELIG_COLS + ["Count", "%"]
+
+# Write combined markdown (for tables/ repo reference) and HTML (for docs/_includes)
 combo_md_lines = ["# When AA was earned: combinations by eligibility year\n", "*Sorted by most common to least. ● = AA in that eligibility year.*\n"]
+combo_html_lines = ["<h1>When AA was earned: combinations by eligibility year</h1>", "<p><em>Sorted by most common to least. Shaded cells = AA in that eligibility year.</em></p>"]
 for n in [1, 2, 3, 4]:
     combo_table, total_n = build_combo_table(n)
     if combo_table is None or len(combo_table) == 0:
         continue
     combo_md_lines.append(f"\n## {n}× AA (n = {total_n:,})\n\n")
-    # Reorder columns: Fr, So, Jr, Sr, SSr, Count, %
-    cols = ELIG_COLS + ["Count", "%"]
     combo_md_lines.append(combo_table[cols].to_markdown(index=False) + "\n")
+    combo_html_lines.append(f"\n<h2>{n}× AA (n = {total_n:,})</h2>\n")
+    combo_html_lines.append(combo_df_to_html(combo_table, cols, "eligibility-combo-aa") + "\n")
     print(f"  {n}× AA: {len(combo_table)} combinations (total wrestlers {total_n:,})")
 
 combo_table_path = TABLES_DIR / "eligibility_combos_by_tier.md"
@@ -564,12 +608,12 @@ with open(combo_table_path, "w") as f:
     f.write("".join(combo_md_lines))
 print(f"Saved: {combo_table_path}")
 
-# Also write to docs/_includes for Jekyll report (Report 02)
+# Also write to docs/_includes for Jekyll report (Report 02) — HTML for styling
 includes_dir = ROOT_DIR / "docs" / "_includes"
 includes_dir.mkdir(exist_ok=True)
 combo_include_path = includes_dir / "report_02_eligibility_combos.md"
 with open(combo_include_path, "w") as f:
-    f.write("".join(combo_md_lines))
+    f.write("".join(combo_html_lines))
 print(f"Saved: {combo_include_path}")
 
 # National Champions (place == 1): same eligibility-combo tables (1× NC, 2× NC, etc.)
@@ -600,14 +644,17 @@ def build_nc_combo_table(n_nc_val):
         rows.append(row)
     return pd.DataFrame(rows), total
 
+nc_cols = ELIG_COLS + ["Count", "%"]
 nc_combo_md_lines = ["# When NC was won: combinations by eligibility year\n", "*National champions only (place = 1). Sorted by most common to least. ● = NC in that eligibility year.*\n"]
+nc_combo_html_lines = ["<h1>When NC was won: combinations by eligibility year</h1>", "<p><em>National champions only (place = 1). Sorted by most common to least. Gold shaded cells = NC in that eligibility year.</em></p>"]
 for n in [1, 2, 3, 4, 5]:
     nc_table, total_n = build_nc_combo_table(n)
     if nc_table is None or len(nc_table) == 0:
         continue
     nc_combo_md_lines.append(f"\n## {n}× NC (n = {total_n:,})\n\n")
-    cols = ELIG_COLS + ["Count", "%"]
-    nc_combo_md_lines.append(nc_table[cols].to_markdown(index=False) + "\n")
+    nc_combo_md_lines.append(nc_table[nc_cols].to_markdown(index=False) + "\n")
+    nc_combo_html_lines.append(f"\n<h2>{n}× NC (n = {total_n:,})</h2>\n")
+    nc_combo_html_lines.append(combo_df_to_html_nc(nc_table, nc_cols) + "\n")
     print(f"  {n}× NC: {len(nc_table)} combinations (total wrestlers {total_n:,})")
 
 nc_combo_table_path = TABLES_DIR / "nc_eligibility_combos_by_tier.md"
@@ -617,7 +664,7 @@ print(f"Saved: {nc_combo_table_path}")
 
 nc_combo_include_path = includes_dir / "report_02_nc_eligibility_combos.md"
 with open(nc_combo_include_path, "w") as f:
-    f.write("".join(nc_combo_md_lines))
+    f.write("".join(nc_combo_html_lines))
 print(f"Saved: {nc_combo_include_path}")
 
 # For each multi-AA wrestler: sort by Year, get Place sequence; "improved every year" = strictly better placement each time (lower place number = better)
