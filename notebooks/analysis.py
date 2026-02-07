@@ -496,16 +496,16 @@ bar_widths = [(w / max_w) * 2 * bar_half_scale for w in funnel_counts]
 colors = ["#1a365d", "#2c5282", "#3182ce", "#4299e1", "#63b3ed"]  # dark to light blue
 bars = ax.barh(y_pos, bar_widths, left=lefts, height=0.72, color=colors, edgecolor="white", linewidth=2)
 ax.set_yticks(y_pos)
-ax.set_yticklabels(["1× AA", "2× AA", "3× AA", "4× AA", "5× AA"], fontsize=12)
+ax.set_yticklabels(["1× AA", "2× AA", "3× AA", "4× AA", "5× AA"], fontsize=14)
 ax.set_xlim(0, 1)
 ax.set_xticks([])
 for spine in ["top", "right", "bottom", "left"]:
     ax.spines[spine].set_visible(False)
-ax.set_title("Unique wrestlers by multi-AA tier (2000–2025)", fontsize=14, fontweight="bold")
+ax.set_title("Unique wrestlers by multi-AA tier (2000–2025)", fontsize=16, fontweight="bold")
 for i, yi in enumerate(y_pos):
     # 5× AA bar is tiny; use black text so the count is readable
     text_color = "black" if i == len(y_pos) - 1 else "white"
-    ax.text(x_center, yi, f"  {funnel_counts[i]:,}  ", ha="center", va="center", fontsize=11, fontweight="bold", color=text_color)
+    ax.text(x_center, yi, f"  {funnel_counts[i]:,}  ", ha="center", va="center", fontsize=13, fontweight="bold", color=text_color)
 plt.tight_layout()
 funnel_path = CHARTS_DIR / "multi_aa_funnel.png"
 funnel_site_path = SITE_CHARTS_DIR / "multi_aa_funnel.png"
