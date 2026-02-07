@@ -6,9 +6,10 @@
   "pct_improved_of_all": 17.2,
   "funnel": {
     "all": 1076,
-    "n_2plus": 548,
-    "n_3plus": 266,
-    "n_4plus": 103,
+    "n_1plus": 528,
+    "n_2plus": 282,
+    "n_3plus": 163,
+    "n_4plus": 96,
     "n_5plus": 7
   }
 }

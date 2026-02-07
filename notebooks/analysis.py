@@ -477,12 +477,13 @@ multi_aa_wrestlers = aa_counts_per_wrestler[multi_aa_mask]
 n_multi_aa = len(multi_aa_wrestlers)
 print(f"Multi-AA wrestlers (AAd more than once): {n_multi_aa:,} out of {n_unique_wrestlers:,}")
 
-# Funnel: wrestlers with 2+, 3+, 4+, 5+ AAs (cumulative)
-n_2plus = (aa_counts_per_wrestler >= 2).sum()
-n_3plus = (aa_counts_per_wrestler >= 3).sum()
-n_4plus = (aa_counts_per_wrestler >= 4).sum()
-n_5plus = (aa_counts_per_wrestler >= 5).sum()
-funnel_counts = [n_unique_wrestlers, n_2plus, n_3plus, n_4plus, n_5plus]
+# Funnel: wrestlers with exactly 1×, 2×, 3×, 4×, 5× AAs (matches table counts)
+n_1x = (aa_counts_per_wrestler == 1).sum()
+n_2x = (aa_counts_per_wrestler == 2).sum()
+n_3x = (aa_counts_per_wrestler == 3).sum()
+n_4x = (aa_counts_per_wrestler == 4).sum()
+n_5x = (aa_counts_per_wrestler >= 5).sum()
+funnel_counts = [n_1x, n_2x, n_3x, n_4x, n_5x]
 
 # Funnel diagram: horizontal bars (width ∝ count), stacked top to bottom
 fig, ax = plt.subplots(figsize=(9, 6))
@@ -603,9 +604,9 @@ for n in [1, 2, 3, 4]:
     combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{n}× AAs ({total_n:,})</h2>\n")
     combo_html_lines.append(combo_df_to_html(combo_table, cols, "eligibility-combo-aa") + "\n")
     print(f"  {n}× AA: {len(combo_table)} combinations (total wrestlers {total_n:,})")
-# Verify 4× AA: table = exactly 4 AAs (96); funnel "4+ AAs" = 103 = 96 + 7 (5×)
+# Funnel and tables both use exact counts (1×, 2×, 3×, 4×, 5×)
 n_exactly_4 = (aa_counts_per_wrestler == 4).sum()
-print(f"  (4× AA table count = {n_exactly_4:,} exactly 4 AAs; funnel 4+ = {n_4plus:,} = 4× + 5×)")
+print(f"  (4× AA = {n_exactly_4:,}; funnel matches table)")
 
 combo_table_path = TABLES_DIR / "eligibility_combos_by_tier.md"
 with open(combo_table_path, "w") as f:
@@ -766,10 +767,11 @@ report_02_stats = {
     "pct_improved_of_all": round(pct_improved_of_all, 1),
     "funnel": {
         "all": n_unique_wrestlers,
-        "n_2plus": int(n_2plus),
-        "n_3plus": int(n_3plus),
-        "n_4plus": int(n_4plus),
-        "n_5plus": int(n_5plus),
+        "n_1plus": int(n_1x),
+        "n_2plus": int(n_2x),
+        "n_3plus": int(n_3x),
+        "n_4plus": int(n_4x),
+        "n_5plus": int(n_5x),
     },
 }
 report_02_path = REPORT_DATA_DIR / "report_02_stats.json"
