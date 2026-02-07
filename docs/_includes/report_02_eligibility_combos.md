@@ -275,3 +275,25 @@
 <td>1.1%</td>
 </tr>
 </tbody></table>
+
+<h2 class="combo-tier-header">5× AAs (7)</h2>
+<table class="eligibility-combo-table eligibility-combo-aa">
+<thead><tr>
+<th>Fr</th>
+<th>So</th>
+<th>Jr</th>
+<th>Sr</th>
+<th>SSr</th>
+<th>Count</th>
+<th>%</th>
+</tr></thead><tbody>
+<tr>
+<td class="combo-yes">●</td>
+<td class="combo-yes">●</td>
+<td class="combo-yes">●</td>
+<td class="combo-yes">●</td>
+<td class="combo-yes">●</td>
+<td>7</td>
+<td>100.0%</td>
+</tr>
+</tbody></table>

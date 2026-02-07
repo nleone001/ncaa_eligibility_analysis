@@ -710,7 +710,7 @@ cols = ELIG_COLS + ["Count", "%"]
 # Write combined markdown (for tables/ repo reference) and HTML (for docs/_includes)
 combo_md_lines = ["# When AA was earned: combinations by eligibility year\n", "*Sorted by most common to least. ● = AA in that eligibility year.*\n"]
 combo_html_lines = ["<h1>When AA was earned: combinations by eligibility year</h1>", "<p><em>Sorted by most common to least. Shaded cells = AA in that eligibility year.</em></p>"]
-for n in [1, 2, 3, 4]:
+for n in [1, 2, 3, 4, 5]:
     combo_table, total_n = build_combo_table(n)
     if combo_table is None or len(combo_table) == 0:
         continue
