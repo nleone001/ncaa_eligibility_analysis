@@ -237,7 +237,7 @@
     if (!w || !tip) return;
     var title = tip.querySelector('.wrestler-tooltip-title');
     var list = tip.querySelector('.wrestler-tooltip-list');
-    title.textContent = 'Wrestlers (n=' + n + '):';
+    title.textContent = n + ' Wrestlers';
     var names = w.split(/,\s*/);
     list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
     tip.style.left = (x + 16) + 'px';

@@ -743,17 +743,17 @@ if len(transitions_df) > 0:
         ax.text(cx, cy + 0.12, label, ha="center", va="center", fontsize=11, fontweight="bold", color="white")
         ax.text(cx, cy - 0.12, f"({count})", ha="center", va="center", fontsize=14, fontweight="bold", color="white")
 
-    # Column 3: Outcome boxes — height 0.7, borderless, with percentages
-    # Moving up outcomes: 8.0, 7.0, 6.0
-    # Moving down outcomes: 4.5, 3.5, 2.5
+    # Column 3: Outcome boxes — Worse centered with previous (Moving up/down) box; Improved and Same equally spaced above/below
     out_w, out_h = 1.8, 0.7
+    spacing = 0.75  # vertical gap between outcome boxes
+    up_center, down_center = 6.5, 3.5  # match middle column box centers
     outcome_specs = [
-        (7.5, 8.0, f"Improved\n{weight_move_stats['up_improved']} ({weight_move_stats['pct_up_improved']}%)", FLOW_GREEN),
-        (7.5, 7.0, f"Worse\n{weight_move_stats['up_worse']} ({weight_move_stats['pct_up_worse']}%)", FLOW_RED),
-        (7.5, 6.0, f"Same\n{weight_move_stats['up_same']} ({weight_move_stats['pct_up_same']}%)", FLOW_GREY),
-        (7.5, 4.5, f"Improved\n{weight_move_stats['down_improved']} ({weight_move_stats['pct_down_improved']}%)", FLOW_GREEN),
-        (7.5, 3.5, f"Worse\n{weight_move_stats['down_worse']} ({weight_move_stats['pct_down_worse']}%)", FLOW_RED),
-        (7.5, 2.5, f"Same\n{weight_move_stats['down_same']} ({weight_move_stats['pct_down_same']}%)", FLOW_GREY),
+        (7.5, up_center + spacing, f"Improved\n{weight_move_stats['up_improved']} ({weight_move_stats['pct_up_improved']}%)", FLOW_GREEN),
+        (7.5, up_center, f"Worse\n{weight_move_stats['up_worse']} ({weight_move_stats['pct_up_worse']}%)", FLOW_RED),
+        (7.5, up_center - spacing, f"Same\n{weight_move_stats['up_same']} ({weight_move_stats['pct_up_same']}%)", FLOW_GREY),
+        (7.5, down_center + spacing, f"Improved\n{weight_move_stats['down_improved']} ({weight_move_stats['pct_down_improved']}%)", FLOW_GREEN),
+        (7.5, down_center, f"Worse\n{weight_move_stats['down_worse']} ({weight_move_stats['pct_down_worse']}%)", FLOW_RED),
+        (7.5, down_center - spacing, f"Same\n{weight_move_stats['down_same']} ({weight_move_stats['pct_down_same']}%)", FLOW_GREY),
     ]
     for x, y, label, color in outcome_specs:
         draw_box(x, y, out_w, out_h, label, color, "white", borderless=True)
@@ -770,9 +770,9 @@ if len(transitions_df) > 0:
     ax.plot([left_right, mid_left], [5, 6.5], color=connector_color, lw=connector_lw)
     ax.plot([left_right, mid_left], [5, 3.5], color=connector_color, lw=connector_lw)
 
-    # Connectors: middle -> right
-    up_outcomes = [(8.0, weight_move_stats["up_improved"]), (7.0, weight_move_stats["up_worse"]), (6.0, weight_move_stats["up_same"])]
-    down_outcomes = [(4.5, weight_move_stats["down_improved"]), (3.5, weight_move_stats["down_worse"]), (2.5, weight_move_stats["down_same"])]
+    # Connectors: middle -> right (Worse at center; Improved above, Same below)
+    up_outcomes = [(up_center + spacing, weight_move_stats["up_improved"]), (up_center, weight_move_stats["up_worse"]), (up_center - spacing, weight_move_stats["up_same"])]
+    down_outcomes = [(down_center + spacing, weight_move_stats["down_improved"]), (down_center, weight_move_stats["down_worse"]), (down_center - spacing, weight_move_stats["down_same"])]
     for mid_y, outcomes in [(6.5, up_outcomes), (3.5, down_outcomes)]:
         for oy, count in outcomes:
             ax.plot([mid_right, right_left], [mid_y, oy], color=connector_color, lw=connector_lw)
@@ -983,7 +983,7 @@ nc_combo_html_lines.append("""
     if (!w || !tip) return;
     var title = tip.querySelector('.wrestler-tooltip-title');
     var list = tip.querySelector('.wrestler-tooltip-list');
-    title.textContent = 'Wrestlers (n=' + n + '):';
+    title.textContent = n + ' Wrestlers';
     var names = w.split(/,\\s*/);
     list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
     tip.style.left = (x + 16) + 'px';
