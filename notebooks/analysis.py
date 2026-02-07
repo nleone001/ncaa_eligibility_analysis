@@ -8,6 +8,7 @@ import json
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 from pathlib import Path
 
 # ==============================================================================
@@ -525,6 +526,53 @@ valid_wrestlers = [w for w in valid_wrestlers if career_fully_in_window(df[df["W
 df_filtered = df[df["Wrestler"].isin(valid_wrestlers)].copy()
 n_complete_careers = len(valid_wrestlers)
 print(f"\nWrestlers with complete observable careers (full career in window): {n_complete_careers:,}")
+
+# Career window timeline: allowed AA year ranges by eligibility class (for report); SSr excluded
+timeline_elig = [e for e in ELIGIBILITY_ORDER if e != "SSr"]
+n_timeline_rows = len(timeline_elig)
+row_spacing = 0.4  # tighter vertical spacing between bars
+y_positions = np.arange(n_timeline_rows) * row_spacing
+row_height = 0.72 * row_spacing
+fig, ax = plt.subplots(figsize=(12, 5))
+x_min, x_max = 1998, 2027
+ax.set_xlim(x_min, x_max)
+ax.set_ylim(-0.35, (n_timeline_rows - 1) * row_spacing + 0.35)
+bar_color = "#475569"
+bar_text_color = "#f8fafc"
+for i, elig in enumerate(timeline_elig):
+    y = y_positions[i]
+    lo, hi = ELIG_YEAR_BOUNDS[elig]
+    rect = mpatches.Rectangle(
+        (lo, y - row_height / 2), hi - lo, row_height,
+        facecolor=bar_color, edgecolor=bar_color, linewidth=1.2, alpha=0.85
+    )
+    ax.add_patch(rect)
+    ax.text(lo, y, f"  {lo}", ha="left", va="center", fontsize=12, fontweight="bold", color=bar_text_color)
+    ax.text(hi, y, f"{hi}  ", ha="right", va="center", fontsize=12, fontweight="bold", color=bar_text_color)
+ax.set_yticks(y_positions)
+ax.set_yticklabels(timeline_elig, fontsize=12)
+ax.set_xticks([2000, 2005, 2010, 2015, 2020, 2025])
+ax.set_xticklabels(["2000", "2005", "2010", "2015", "2020", "2025"])
+ax.axvspan(1998, 2000, alpha=0.12, color="gray", zorder=0)
+ax.axvspan(2025, 2027, alpha=0.12, color="gray", zorder=0)
+mid_y = (n_timeline_rows - 1) * row_spacing / 2
+ax.text(1999, mid_y, "before dataset", fontsize=14, fontweight="bold", color="#475569", ha="center", va="center", rotation=90)
+ax.text(2026, mid_y, "future data", fontsize=14, fontweight="bold", color="#475569", ha="center", va="center", rotation=90)
+ax.set_xlabel("Year", fontsize=11)
+ax.grid(True, axis="y", color="#f1f5f9", linewidth=0.5)
+ax.set_axisbelow(True)
+for spine in ["top", "right"]:
+    ax.spines[spine].set_visible(False)
+ax.set_title("Eligible AA year ranges by class (complete career window)", fontsize=14, fontweight="bold")
+fig.text(0.5, -0.02, "Wrestlers must have all AA appearances within these windows to be included in analysis.", ha="center", fontsize=10, color="#64748b", style="italic")
+plt.tight_layout(rect=[0, 0.04, 1, 1])
+career_timeline_path = CHARTS_DIR / "career_window_timeline.png"
+career_timeline_site_path = SITE_CHARTS_DIR / "career_window_timeline.png"
+plt.savefig(career_timeline_path, dpi=150)
+plt.savefig(career_timeline_site_path, dpi=150)
+plt.close()
+print(f"Saved: {career_timeline_path}")
+print(f"Saved: {career_timeline_site_path}")
 
 # Use df_filtered for all multi-AA analysis (funnel, tiers, multi-weight, progression).
 # Unique wrestlers (each row = one AA finish; Wrestler may appear multiple times)
