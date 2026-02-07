@@ -495,14 +495,16 @@ bar_widths = [(w / max_w) * 2 * bar_half_scale for w in funnel_counts]
 colors = ["#1a365d", "#2c5282", "#3182ce", "#4299e1", "#63b3ed"]  # dark to light blue
 bars = ax.barh(y_pos, bar_widths, left=lefts, height=0.72, color=colors, edgecolor="white", linewidth=2)
 ax.set_yticks(y_pos)
-ax.set_yticklabels(["All wrestlers", "2× AA", "3× AA", "4× AA", "5× AA"], fontsize=12)
+ax.set_yticklabels(["1× AA", "2× AA", "3× AA", "4× AA", "5× AA"], fontsize=12)
 ax.set_xlim(0, 1)
 ax.set_xticks([])
 for spine in ["top", "right", "bottom", "left"]:
     ax.spines[spine].set_visible(False)
 ax.set_title("Unique wrestlers by multi-AA tier (2000–2025)", fontsize=14, fontweight="bold")
 for i, yi in enumerate(y_pos):
-    ax.text(x_center, yi, f"  {funnel_counts[i]:,}  ", ha="center", va="center", fontsize=11, fontweight="bold", color="white")
+    # 5× AA bar is tiny; use black text so the count is readable
+    text_color = "black" if i == len(y_pos) - 1 else "white"
+    ax.text(x_center, yi, f"  {funnel_counts[i]:,}  ", ha="center", va="center", fontsize=11, fontweight="bold", color=text_color)
 plt.tight_layout()
 funnel_path = CHARTS_DIR / "multi_aa_funnel.png"
 funnel_site_path = SITE_CHARTS_DIR / "multi_aa_funnel.png"
@@ -511,6 +513,64 @@ plt.savefig(funnel_site_path, dpi=150)
 plt.close()
 print(f"Saved: {funnel_path}")
 print(f"Saved: {funnel_site_path}")
+
+# Eligibility-year combinations by N×AA tier (when AA was earned, by eligibility)
+# For each wrestler: (n_aa, sorted tuple of eligibility years in which they AA'd)
+elig_order = ELIGIBILITY_ORDER  # ["Fr", "So", "Jr", "Sr", "SSr"]
+wrestler_tiers = []
+for wrestler in df["Wrestler"].unique():
+    w_df = df[df["Wrestler"] == wrestler]
+    n_aa = len(w_df)
+    eligs = w_df["Eligibility Year"].unique().tolist()
+    elig_combo = tuple(sorted(eligs, key=lambda e: elig_order.index(e)))
+    wrestler_tiers.append({"wrestler": wrestler, "n_aa": n_aa, "elig_combo": elig_combo})
+
+tiers_df = pd.DataFrame(wrestler_tiers)
+
+# Marker for "AA earned in this eligibility year"
+MARKER = "●"
+ELIG_COLS = ["Fr", "So", "Jr", "Sr", "SSr"]
+
+def build_combo_table(n_aa_val):
+    """Build table rows for one N×AA tier: combinations that exist, sorted by count descending."""
+    sub = tiers_df[tiers_df["n_aa"] == n_aa_val]
+    if len(sub) == 0:
+        return None, 0
+    total = len(sub)
+    combo_counts = sub.groupby("elig_combo").size().sort_values(ascending=False)
+    rows = []
+    for elig_combo, count in combo_counts.items():
+        pct = count / total * 100
+        row = {e: MARKER if e in elig_combo else "" for e in ELIG_COLS}
+        row["Count"] = count
+        row["%"] = f"{pct:.1f}%"
+        rows.append(row)
+    return pd.DataFrame(rows), total
+
+# Write combined markdown: one section per tier (1×, 2×, 3×, 4× AA)
+combo_md_lines = ["# When AA was earned: combinations by eligibility year\n", "*Sorted by most common to least. ● = AA in that eligibility year.*\n"]
+for n in [1, 2, 3, 4]:
+    combo_table, total_n = build_combo_table(n)
+    if combo_table is None or len(combo_table) == 0:
+        continue
+    combo_md_lines.append(f"\n## {n}× AA (n = {total_n:,})\n\n")
+    # Reorder columns: Fr, So, Jr, Sr, SSr, Count, %
+    cols = ELIG_COLS + ["Count", "%"]
+    combo_md_lines.append(combo_table[cols].to_markdown(index=False) + "\n")
+    print(f"  {n}× AA: {len(combo_table)} combinations (total wrestlers {total_n:,})")
+
+combo_table_path = TABLES_DIR / "eligibility_combos_by_tier.md"
+with open(combo_table_path, "w") as f:
+    f.write("".join(combo_md_lines))
+print(f"Saved: {combo_table_path}")
+
+# Also write to docs/_includes for Jekyll report (Report 02)
+includes_dir = ROOT_DIR / "docs" / "_includes"
+includes_dir.mkdir(exist_ok=True)
+combo_include_path = includes_dir / "report_02_eligibility_combos.md"
+with open(combo_include_path, "w") as f:
+    f.write("".join(combo_md_lines))
+print(f"Saved: {combo_include_path}")
 
 # For each multi-AA wrestler: sort by Year, get Place sequence; "improved every year" = strictly better placement each time (lower place number = better)
 def improved_every_year(places):

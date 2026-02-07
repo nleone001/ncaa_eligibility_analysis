@@ -29,6 +29,13 @@ Of **{{ site.data.report_02_stats.n_unique_wrestlers }}** unique wrestlers who h
 
 Roughly half of all wrestlers who ever AA'd did it more than once; only a small group (7) reached five or more All-American finishes.
 
+## When AA was earned (by eligibility)
+
+For each tier (1×, 2×, 3×, 4× AA), the tables below show the **combinations of eligibility years** in which wrestlers earned their All-American finishes. Only combinations that appear in the data are listed; each table is sorted from most common to least. ● = AA in that eligibility year.
+
+{% capture report_02_combos %}{% include report_02_eligibility_combos.md %}{% endcapture %}
+{{ report_02_combos | markdownify }}
+
 *Additional sections (aesthetic progressions, multi-weight success, defending champions, last-chance seniors, Super Senior performance) will be added as the analysis is completed.*
 
 [← Back to table of contents]({{ site.baseurl }}/)
