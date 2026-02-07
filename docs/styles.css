@@ -138,7 +138,7 @@ tr:hover {
     margin-bottom: 0.5rem;
 }
 .eligibility-combo-table {
-    --combo-border: #cbd5e0;
+    --combo-border: #94a3b8;
     margin-bottom: 2.5rem;
 }
 .eligibility-combo-table:last-child {
@@ -157,12 +157,17 @@ tr:hover {
 .eligibility-combo-table td:first-child {
     border-left: none;
 }
+/* Subtle borders between eligibility columns (Fr–SSr) so they show on shaded cells */
+.eligibility-combo-table th:nth-child(-n+5),
+.eligibility-combo-table td:nth-child(-n+5) {
+    border-right: 1px solid var(--combo-border);
+}
 .eligibility-combo-table .combo-yes,
 .eligibility-combo-table .combo-no {
     text-align: center;
 }
 .eligibility-combo-table .combo-yes {
-    background-color: #dbeafe;
+    background-color: #93c5fd;
     border-radius: 6px;
     font-size: 1.2em;
 }
@@ -175,6 +180,12 @@ tr:hover {
 }
 .eligibility-combo-table .combo-no {
     color: var(--color-text-muted);
+}
+.combo-names {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
 }
 
 /* Metadata */

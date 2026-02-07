@@ -532,8 +532,9 @@ MARKER = "●"
 ELIG_COLS = ["Fr", "So", "Jr", "Sr", "SSr"]
 
 def build_combo_table(n_aa_val):
-    """Build table rows for one N×AA tier: combinations that exist, sorted by count descending."""
-    sub = tiers_df[tiers_df["n_aa"] == n_aa_val]
+    """Build table rows for one N×AA tier: combinations that exist, sorted by count descending.
+    Only include wrestlers whose number of distinct eligibility years equals n_aa (excludes data quirks)."""
+    sub = tiers_df[(tiers_df["n_aa"] == n_aa_val) & (tiers_df["elig_combo"].apply(len) == n_aa_val)]
     if len(sub) == 0:
         return None, 0
     total = len(sub)
@@ -599,9 +600,12 @@ for n in [1, 2, 3, 4]:
         continue
     combo_md_lines.append(f"\n## {n}× AA (n = {total_n:,})\n\n")
     combo_md_lines.append(combo_table[cols].to_markdown(index=False) + "\n")
-    combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{total_n:,} {n}× AAs</h2>\n")
+    combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{n}× AAs ({total_n:,})</h2>\n")
     combo_html_lines.append(combo_df_to_html(combo_table, cols, "eligibility-combo-aa") + "\n")
     print(f"  {n}× AA: {len(combo_table)} combinations (total wrestlers {total_n:,})")
+# Verify 4× AA: table = exactly 4 AAs (96); funnel "4+ AAs" = 103 = 96 + 7 (5×)
+n_exactly_4 = (aa_counts_per_wrestler == 4).sum()
+print(f"  (4× AA table count = {n_exactly_4:,} exactly 4 AAs; funnel 4+ = {n_4plus:,} = 4× + 5×)")
 
 combo_table_path = TABLES_DIR / "eligibility_combos_by_tier.md"
 with open(combo_table_path, "w") as f:
@@ -629,8 +633,9 @@ for wrestler in champions_df["Wrestler"].unique():
 nc_tiers_df = pd.DataFrame(nc_tiers)
 
 def build_nc_combo_table(n_nc_val):
-    """Build table rows for one N×NC tier: combinations that exist, sorted by count descending."""
-    sub = nc_tiers_df[nc_tiers_df["n_nc"] == n_nc_val]
+    """Build table rows for one N×NC tier: combinations that exist, sorted by count descending.
+    Only include wrestlers whose number of distinct eligibility years equals n_nc."""
+    sub = nc_tiers_df[(nc_tiers_df["n_nc"] == n_nc_val) & (nc_tiers_df["elig_combo"].apply(len) == n_nc_val)]
     if len(sub) == 0:
         return None, 0
     total = len(sub)
@@ -653,8 +658,13 @@ for n in [1, 2, 3, 4, 5]:
         continue
     nc_combo_md_lines.append(f"\n## {n}× NC (n = {total_n:,})\n\n")
     nc_combo_md_lines.append(nc_table[nc_cols].to_markdown(index=False) + "\n")
-    nc_combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{total_n:,} {n}× Champs</h2>\n")
+    nc_combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{n}× Champs ({total_n:,})</h2>\n")
     nc_combo_html_lines.append(combo_df_to_html_nc(nc_table, nc_cols) + "\n")
+    if n >= 3:
+        sub_nc = nc_tiers_df[(nc_tiers_df["n_nc"] == n) & (nc_tiers_df["elig_combo"].apply(len) == n)]
+        names = sub_nc["wrestler"].tolist()
+        names_str = ", ".join(names)
+        nc_combo_html_lines.append(f'<p class="combo-names">{names_str}</p>\n')
     print(f"  {n}× NC: {len(nc_table)} combinations (total wrestlers {total_n:,})")
 
 nc_combo_table_path = TABLES_DIR / "nc_eligibility_combos_by_tier.md"

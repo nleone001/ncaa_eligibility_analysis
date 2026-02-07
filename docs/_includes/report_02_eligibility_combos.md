@@ -1,5 +1,5 @@
 <h1>When AA was earned: combinations by eligibility year</h1><p><em>Sorted by most common to least. Shaded cells = AA in that eligibility year.</em></p>
-<h2 class="combo-tier-header">528 1× AAs</h2>
+<h2 class="combo-tier-header">1× AAs (528)</h2>
 <table class="eligibility-combo-table eligibility-combo-aa">
 <thead><tr>
 <th>Fr</th>
@@ -57,7 +57,7 @@
 </tr>
 </tbody></table>
 
-<h2 class="combo-tier-header">282 2× AAs</h2>
+<h2 class="combo-tier-header">2× AAs (282)</h2>
 <table class="eligibility-combo-table eligibility-combo-aa">
 <thead><tr>
 <th>Fr</th>
@@ -142,7 +142,7 @@
 </tr>
 </tbody></table>
 
-<h2 class="combo-tier-header">163 3× AAs</h2>
+<h2 class="combo-tier-header">3× AAs (161)</h2>
 <table class="eligibility-combo-table eligibility-combo-aa">
 <thead><tr>
 <th>Fr</th>
@@ -160,7 +160,7 @@
 <td class="combo-yes">●</td>
 <td class="combo-no"></td>
 <td>104</td>
-<td>63.8%</td>
+<td>64.6%</td>
 </tr>
 <tr>
 <td class="combo-yes">●</td>
@@ -169,7 +169,7 @@
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td>23</td>
-<td>14.1%</td>
+<td>14.3%</td>
 </tr>
 <tr>
 <td class="combo-yes">●</td>
@@ -178,7 +178,7 @@
 <td class="combo-yes">●</td>
 <td class="combo-no"></td>
 <td>16</td>
-<td>9.8%</td>
+<td>9.9%</td>
 </tr>
 <tr>
 <td class="combo-yes">●</td>
@@ -187,7 +187,7 @@
 <td class="combo-yes">●</td>
 <td class="combo-no"></td>
 <td>14</td>
-<td>8.6%</td>
+<td>8.7%</td>
 </tr>
 <tr>
 <td class="combo-no"></td>
@@ -200,28 +200,10 @@
 </tr>
 <tr>
 <td class="combo-yes">●</td>
-<td class="combo-yes">●</td>
-<td class="combo-no"></td>
-<td class="combo-no"></td>
-<td class="combo-no"></td>
-<td>1</td>
-<td>0.6%</td>
-</tr>
-<tr>
-<td class="combo-yes">●</td>
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td class="combo-yes">●</td>
 <td class="combo-yes">●</td>
-<td>1</td>
-<td>0.6%</td>
-</tr>
-<tr>
-<td class="combo-no"></td>
-<td class="combo-yes">●</td>
-<td class="combo-yes">●</td>
-<td class="combo-no"></td>
-<td class="combo-no"></td>
 <td>1</td>
 <td>0.6%</td>
 </tr>
@@ -236,7 +218,7 @@
 </tr>
 </tbody></table>
 
-<h2 class="combo-tier-header">96 4× AAs</h2>
+<h2 class="combo-tier-header">4× AAs (96)</h2>
 <table class="eligibility-combo-table eligibility-combo-aa">
 <thead><tr>
 <th>Fr</th>
