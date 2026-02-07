@@ -194,6 +194,31 @@ tr:hover {
     margin-bottom: 1rem;
 }
 
+/* NC combo table row tooltip (wrestler names on hover) */
+.nc-row-tooltip {
+    position: fixed;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    max-width: 340px;
+    z-index: 1000;
+    pointer-events: none;
+    border: 1px solid var(--color-border);
+    white-space: normal;
+}
+.nc-row-tooltip .nc-tooltip-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--color-text);
+}
+.nc-row-tooltip .nc-tooltip-list {
+    margin: 0;
+    padding-left: 1.2em;
+}
+
 /* Metadata */
 .meta {
     font-size: 0.9rem;

@@ -4,6 +4,7 @@ NCAA Wrestling All-Americans Eligibility Analysis
 Analyzes eligibility year patterns among NCAA D1 Wrestling All-Americans (2000-2024)
 """
 
+import html as html_module
 import json
 import pandas as pd
 import numpy as np
@@ -685,14 +686,19 @@ def combo_df_to_html(combo_table, cols, table_class_extra=""):
     return "\n".join(lines)
 
 
-def combo_df_to_html_nc(combo_table, cols, table_class_extra=""):
-    """Same as combo_df_to_html but NC tables use combo-yes-nc for gold shaded cells."""
+def combo_df_to_html_nc(combo_table, cols, table_class_extra="", wrestlers_col="Wrestlers"):
+    """Same as combo_df_to_html but NC tables use combo-yes-nc for gold shaded cells.
+    If combo_table has a wrestlers_col, each <tr> gets data-wrestlers and data-count for tooltips."""
     lines = [f'<table class="eligibility-combo-table eligibility-combo-nc {table_class_extra}">', "<thead><tr>"]
     for c in cols:
         lines.append(f"<th>{c}</th>")
     lines.append("</tr></thead><tbody>")
-    for _, row in combo_table[cols].iterrows():
-        lines.append("<tr>")
+    has_wrestlers = wrestlers_col in combo_table.columns
+    for idx, row in combo_table.iterrows():
+        tr_attrs = ""
+        if has_wrestlers and row[wrestlers_col]:
+            tr_attrs = f' data-wrestlers="{row[wrestlers_col]}" data-count="{row["Count"]}"'
+        lines.append(f"<tr{tr_attrs}>")
         for c in cols:
             val = row[c]
             if c in ELIG_COLS:
@@ -750,7 +756,8 @@ nc_tiers_df = pd.DataFrame(nc_tiers)
 
 def build_nc_combo_table(n_nc_val):
     """Build table rows for one N×NC tier: combinations that exist, sorted by count descending.
-    Only include wrestlers whose number of distinct eligibility years equals n_nc."""
+    Only include wrestlers whose number of distinct eligibility years equals n_nc.
+    Each row includes a 'Wrestlers' column (comma-separated names, HTML-escaped) for tooltips."""
     sub = nc_tiers_df[(nc_tiers_df["n_nc"] == n_nc_val) & (nc_tiers_df["elig_combo"].apply(len) == n_nc_val)]
     if len(sub) == 0:
         return None, 0
@@ -759,9 +766,12 @@ def build_nc_combo_table(n_nc_val):
     rows = []
     for elig_combo, count in combo_counts.items():
         pct = count / total * 100
+        names = sub[sub["elig_combo"] == elig_combo]["wrestler"].tolist()
+        wrestlers_attr = html_module.escape(", ".join(names))
         row = {e: MARKER if e in elig_combo else "" for e in ELIG_COLS}
         row["Count"] = count
         row["%"] = f"{pct:.1f}%"
+        row["Wrestlers"] = wrestlers_attr
         rows.append(row)
     return pd.DataFrame(rows), total
 
@@ -775,17 +785,55 @@ for n in [1, 2, 3, 4, 5]:
     nc_combo_md_lines.append(f"\n## {n}× NC (n = {total_n:,})\n\n")
     nc_combo_md_lines.append(nc_table[nc_cols].to_markdown(index=False) + "\n")
     nc_combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{n}× Champs ({total_n:,})</h2>\n")
-    nc_combo_html_lines.append(combo_df_to_html_nc(nc_table, nc_cols) + "\n")
-    if n >= 3:
-        sub_nc = nc_tiers_df[(nc_tiers_df["n_nc"] == n) & (nc_tiers_df["elig_combo"].apply(len) == n)]
-        names_str = ", ".join(sub_nc["wrestler"].tolist())
-        nc_combo_html_lines.append(f'<p class="combo-names">{names_str}</p>\n')
+    nc_combo_html_lines.append(combo_df_to_html_nc(nc_table, nc_cols, wrestlers_col="Wrestlers") + "\n")
     print(f"  {n}× NC: {len(nc_table)} combinations (total wrestlers {total_n:,})")
 
 nc_combo_table_path = TABLES_DIR / "nc_eligibility_combos_by_tier.md"
 with open(nc_combo_table_path, "w") as f:
     f.write("".join(nc_combo_md_lines))
 print(f"Saved: {nc_combo_table_path}")
+
+# Tooltip script for NC combo tables: show wrestler names on row hover
+nc_combo_html_lines.append("""
+<script>
+(function() {
+  var style = document.createElement('style');
+  style.textContent = '.nc-row-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:10px 14px;font-size:0.85rem;line-height:1.5;max-width:340px;z-index:1000;pointer-events:none;border:1px solid #e2e8f0;white-space:normal;}.nc-row-tooltip .nc-tooltip-title{font-weight:600;margin-bottom:6px;color:#1a1a1a;}.nc-row-tooltip .nc-tooltip-list{margin:0;padding-left:1.2em;}';
+  document.head.appendChild(style);
+  var tip = null;
+  function showTip(el, x, y) {
+    var w = el.getAttribute('data-wrestlers');
+    var n = el.getAttribute('data-count');
+    if (!w || !tip) return;
+    var title = tip.querySelector('.nc-tooltip-title');
+    var list = tip.querySelector('.nc-tooltip-list');
+    title.textContent = 'Wrestlers (n=' + n + '):';
+    var names = w.split(/,\\s*/);
+    list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
+    tip.style.left = (x + 16) + 'px';
+    tip.style.top = (y - 10) + 'px';
+    tip.style.display = 'block';
+  }
+  function hideTip() { if (tip) tip.style.display = 'none'; }
+  document.addEventListener('DOMContentLoaded', function() {
+    tip = document.createElement('div');
+    tip.className = 'nc-row-tooltip';
+    tip.innerHTML = '<div class="nc-tooltip-title"></div><ul class="nc-tooltip-list"></ul>';
+    tip.style.display = 'none';
+    document.body.appendChild(tip);
+    var tables = document.querySelectorAll('.eligibility-combo-nc');
+    tables.forEach(function(table) {
+      var rows = table.querySelectorAll('tbody tr[data-wrestlers]');
+      rows.forEach(function(tr) {
+        tr.addEventListener('mouseenter', function(e) { showTip(tr, e.clientX, e.clientY); });
+        tr.addEventListener('mousemove', function(e) { showTip(tr, e.clientX, e.clientY); });
+        tr.addEventListener('mouseleave', hideTip);
+      });
+    });
+  });
+})();
+</script>
+""")
 
 nc_combo_include_path = includes_dir / "report_02_nc_eligibility_combos.md"
 with open(nc_combo_include_path, "w") as f:
