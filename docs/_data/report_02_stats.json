@@ -49,16 +49,79 @@
     "Kyle Dake"
   ],
   "archetypes": {
-    "Continued Progression": 34,
-    "Plateau Breaker": 28,
-    "Regression Survivor": 62,
-    "Consistent Elite": 30,
-    "Early Peak": 21,
-    "Finish on a Win": 88,
+    "Continued Progression": {
+      "by_aa": {
+        "2": 0,
+        "3": 31,
+        "4": 3,
+        "5": 0
+      },
+      "total": 34
+    },
+    "Plateau Breaker": {
+      "by_aa": {
+        "2": 0,
+        "3": 10,
+        "4": 16,
+        "5": 2
+      },
+      "total": 28
+    },
+    "Regression Survivor": {
+      "by_aa": {
+        "2": 0,
+        "3": 27,
+        "4": 34,
+        "5": 1
+      },
+      "total": 62
+    },
+    "Consistent Elite": {
+      "by_aa": {
+        "2": 0,
+        "3": 25,
+        "4": 3,
+        "5": 2
+      },
+      "total": 30
+    },
+    "Early Peak": {
+      "by_aa": {
+        "2": 0,
+        "3": 9,
+        "4": 12,
+        "5": 0
+      },
+      "total": 21
+    },
+    "Finish on a Win": {
+      "by_aa": {
+        "2": 46,
+        "3": 27,
+        "4": 14,
+        "5": 1
+      },
+      "total": 88
+    },
     "Last Chance": {
-      "Senior Last Chance": 212,
-      "COVID Last Chance": 16,
-      "Championship Last Chance": 5
+      "Senior Last Chance": {
+        "by_aa": {
+          "1": 212
+        },
+        "total": 212
+      },
+      "COVID Last Chance": {
+        "by_aa": {
+          "1": 16
+        },
+        "total": 16
+      },
+      "Championship Last Chance": {
+        "by_aa": {
+          "1": 5
+        },
+        "total": 5
+      }
     }
   }
 }

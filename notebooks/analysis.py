@@ -1147,18 +1147,24 @@ def classify_archetype(places):
 
 
 # Build per-wrestler place sequences (chronological: Year then eligibility order)
+# Store counts by number of AAs (2×, 3×, 4×, 5×) where criteria allow; 5+ AAs grouped as 5×.
 elig_sort_key = {e: i for i, e in enumerate(ELIGIBILITY_ORDER)}
+AA_BUCKETS = ("2", "3", "4", "5")  # 5+ AAs counted as 5
+
+def make_by_aa():
+    return {b: 0 for b in AA_BUCKETS}
+
 archetype_counts = {
-    "Continued Progression": 0,
-    "Plateau Breaker": 0,
-    "Regression Survivor": 0,
-    "Consistent Elite": 0,
-    "Early Peak": 0,
-    "Finish on a Win": 0,
+    "Continued Progression": {"by_aa": make_by_aa()},   # 3+ AA only → 3,4,5
+    "Plateau Breaker": {"by_aa": make_by_aa()},
+    "Regression Survivor": {"by_aa": make_by_aa()},
+    "Consistent Elite": {"by_aa": make_by_aa()},
+    "Early Peak": {"by_aa": make_by_aa()},
+    "Finish on a Win": {"by_aa": make_by_aa()},       # 2+ AA → 2,3,4,5
     "Last Chance": {
-        "Senior Last Chance": 0,   # 1× AA, AA as Sr or SSr
-        "COVID Last Chance": 0,    # 1× AA, SSr in 2021+
-        "Championship Last Chance": 0,  # 1× NC, NC as Sr or SSr
+        "Senior Last Chance": {"by_aa": {"1": 0}},
+        "COVID Last Chance": {"by_aa": {"1": 0}},
+        "Championship Last Chance": {"by_aa": {"1": 0}},
     },
 }
 
@@ -1170,33 +1176,44 @@ for wrestler in df_filtered["Wrestler"].unique():
     eligs = w_df["Eligibility Year"].tolist()
     years = w_df["Year"].tolist()
     n_aa = len(places)
+    n_aa_key = str(min(n_aa, 5))  # 5+ → "5"
 
     # Archetypes 1-6 (from place sequence)
     for name in classify_archetype(places):
-        archetype_counts[name] += 1
+        if n_aa_key in archetype_counts[name]["by_aa"]:
+            archetype_counts[name]["by_aa"][n_aa_key] += 1
 
     # 7. Last Chance (1× AA only)
     if n_aa == 1:
         elig = eligs[0]
         year = int(years[0])
         place = int(places[0])
-        # 7a: Senior Last Chance — 1× AA as Sr or SSr
         if elig in ("Sr", "SSr"):
-            archetype_counts["Last Chance"]["Senior Last Chance"] += 1
-        # 7b: COVID Last Chance — 1× AA as SSr in 2021 or later
+            archetype_counts["Last Chance"]["Senior Last Chance"]["by_aa"]["1"] += 1
         if elig == "SSr" and year >= 2021:
-            archetype_counts["Last Chance"]["COVID Last Chance"] += 1
-        # 7c: Championship Last Chance — 1× NC (place=1) as Sr or SSr
+            archetype_counts["Last Chance"]["COVID Last Chance"]["by_aa"]["1"] += 1
         if place == 1 and elig in ("Sr", "SSr"):
-            archetype_counts["Last Chance"]["Championship Last Chance"] += 1
+            archetype_counts["Last Chance"]["Championship Last Chance"]["by_aa"]["1"] += 1
 
-print("\nProgression archetype counts (complete careers only):")
+# Add totals and ensure JSON-serializable (int)
 for name in ["Continued Progression", "Plateau Breaker", "Regression Survivor", "Consistent Elite", "Early Peak", "Finish on a Win"]:
-    print(f"  {name}: {archetype_counts[name]:,}")
-print("  Last Chance:")
-print(f"    Senior Last Chance: {archetype_counts['Last Chance']['Senior Last Chance']:,}")
-print(f"    COVID Last Chance: {archetype_counts['Last Chance']['COVID Last Chance']:,}")
-print(f"    Championship Last Chance: {archetype_counts['Last Chance']['Championship Last Chance']:,}")
+    by_aa = archetype_counts[name]["by_aa"]
+    archetype_counts[name]["total"] = sum(by_aa.values())
+    archetype_counts[name]["by_aa"] = {k: int(v) for k, v in by_aa.items()}
+for sub in ["Senior Last Chance", "COVID Last Chance", "Championship Last Chance"]:
+    by_aa = archetype_counts["Last Chance"][sub]["by_aa"]
+    archetype_counts["Last Chance"][sub]["total"] = sum(by_aa.values())
+    archetype_counts["Last Chance"][sub]["by_aa"] = {k: int(v) for k, v in by_aa.items()}
+
+print("\nProgression archetype counts (complete careers only), by # of AAs:")
+for name in ["Continued Progression", "Plateau Breaker", "Regression Survivor", "Consistent Elite", "Early Peak", "Finish on a Win"]:
+    total = archetype_counts[name]["total"]
+    by_aa = archetype_counts[name]["by_aa"]
+    print(f"  {name}: {total:,} total — 2×: {by_aa['2']}, 3×: {by_aa['3']}, 4×: {by_aa['4']}, 5×: {by_aa['5']}")
+print("  Last Chance (1× only):")
+print(f"    Senior Last Chance: {archetype_counts['Last Chance']['Senior Last Chance']['total']:,}")
+print(f"    COVID Last Chance: {archetype_counts['Last Chance']['COVID Last Chance']['total']:,}")
+print(f"    Championship Last Chance: {archetype_counts['Last Chance']['Championship Last Chance']['total']:,}")
 
 # ==============================================================================
 # EXPORT TABLES

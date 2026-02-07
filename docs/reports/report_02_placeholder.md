@@ -106,26 +106,26 @@ For wrestlers who AAd at two or more weights, we examine each *transition*—a c
 
 ## Progression Archetypes
 
-We classify wrestlers with **complete, observable careers** (same eligibility exclusion as above) into progression archetypes based on their AA placement sequences. A wrestler can match more than one archetype. Counts below are *wrestlers who satisfy each criterion*.
+We classify wrestlers with **complete, observable careers** (same eligibility exclusion as above) into progression archetypes based on their AA placement sequences. A wrestler can match more than one archetype. Counts below are *wrestlers who satisfy each criterion*, broken out by how many times they All-Americaned (2×, 3×, 4×, 5×). Archetypes 1–5 require 3+ AA (so only 3×, 4×, 5× apply); **Finish on a Win** requires 2+ AA (so 2×–5× apply).
 
-| Archetype | Description | Count |
-|-----------|-------------|------:|
-| **Continued Progression** | 3+ AA; each consecutive AA shows improvement (place[i+1] &lt; place[i]) | {{ site.data.report_02_stats.archetypes["Continued Progression"] }} |
-| **Plateau Breaker** | 3+ AA; 2+ consecutive years same placement, then improvement | {{ site.data.report_02_stats.archetypes["Plateau Breaker"] }} |
-| **Regression Survivor** | 3+ AA; at least one regression (worse placement) followed by recovery | {{ site.data.report_02_stats.archetypes["Regression Survivor"] }} |
-| **Consistent Elite** | 3+ AA; never won (no 1st); all placements 2–4 | {{ site.data.report_02_stats.archetypes["Consistent Elite"] }} |
-| **Early Peak** | 3+ AA; best placement in first half of career; final placement ≥ best + 2 | {{ site.data.report_02_stats.archetypes["Early Peak"] }} |
-| **Finish on a Win** | 2+ AA; all placements odd (1, 3, 5, 7)—won final match every year | {{ site.data.report_02_stats.archetypes["Finish on a Win"] }} |
+| Archetype | Description | Total | 2× AA | 3× AA | 4× AA | 5× AA |
+|-----------|-------------|------:|------:|------:|------:|------:|
+| **Continued Progression** | 3+ AA; each consecutive AA shows improvement (place[i+1] &lt; place[i]) | {{ site.data.report_02_stats.archetypes["Continued Progression"].total }} | — | {{ site.data.report_02_stats.archetypes["Continued Progression"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Continued Progression"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Continued Progression"].by_aa["5"] }} |
+| **Plateau Breaker** | 3+ AA; 2+ consecutive years same placement, then improvement | {{ site.data.report_02_stats.archetypes["Plateau Breaker"].total }} | — | {{ site.data.report_02_stats.archetypes["Plateau Breaker"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Plateau Breaker"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Plateau Breaker"].by_aa["5"] }} |
+| **Regression Survivor** | 3+ AA; at least one regression (worse placement) followed by recovery | {{ site.data.report_02_stats.archetypes["Regression Survivor"].total }} | — | {{ site.data.report_02_stats.archetypes["Regression Survivor"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Regression Survivor"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Regression Survivor"].by_aa["5"] }} |
+| **Consistent Elite** | 3+ AA; never won (no 1st); all placements 2–4 | {{ site.data.report_02_stats.archetypes["Consistent Elite"].total }} | — | {{ site.data.report_02_stats.archetypes["Consistent Elite"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Consistent Elite"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Consistent Elite"].by_aa["5"] }} |
+| **Early Peak** | 3+ AA; best placement in first half of career; final placement ≥ best + 2 | {{ site.data.report_02_stats.archetypes["Early Peak"].total }} | — | {{ site.data.report_02_stats.archetypes["Early Peak"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Early Peak"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Early Peak"].by_aa["5"] }} |
+| **Finish on a Win** | 2+ AA; all placements odd (1, 3, 5, 7)—won final match every year | {{ site.data.report_02_stats.archetypes["Finish on a Win"].total }} | {{ site.data.report_02_stats.archetypes["Finish on a Win"].by_aa["2"] }} | {{ site.data.report_02_stats.archetypes["Finish on a Win"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Finish on a Win"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Finish on a Win"].by_aa["5"] }} |
 
 ### Last Chance (1× AA only)
 
-Wrestlers who All-Americaned exactly once, in a “last chance” eligibility context:
+Wrestlers who All-Americaned exactly once, in a “last chance” eligibility context (all counts are 1× AA):
 
 | Sub-type | Criteria | Count |
 |----------|----------|------:|
-| **Senior Last Chance** | 1× AA; AA earned as Sr or SSr | {{ site.data.report_02_stats.archetypes["Last Chance"]["Senior Last Chance"] }} |
-| **COVID Last Chance** | 1× AA; earned as SSr in 2021 or later (COVID extension) | {{ site.data.report_02_stats.archetypes["Last Chance"]["COVID Last Chance"] }} |
-| **Championship Last Chance** | 1× NC (place = 1); NC earned as Sr or SSr | {{ site.data.report_02_stats.archetypes["Last Chance"]["Championship Last Chance"] }} |
+| **Senior Last Chance** | 1× AA; AA earned as Sr or SSr | {{ site.data.report_02_stats.archetypes["Last Chance"]["Senior Last Chance"].total }} |
+| **COVID Last Chance** | 1× AA; earned as SSr in 2021 or later (COVID extension) | {{ site.data.report_02_stats.archetypes["Last Chance"]["COVID Last Chance"].total }} |
+| **Championship Last Chance** | 1× NC (place = 1); NC earned as Sr or SSr | {{ site.data.report_02_stats.archetypes["Last Chance"]["Championship Last Chance"].total }} |
 
 [← Back to table of contents]({{ site.baseurl }}/)
 
