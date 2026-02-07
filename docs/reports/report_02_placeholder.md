@@ -104,6 +104,29 @@ For wrestlers who AAd at two or more weights, we examine each *transition*—a c
 - **Moving up: more improvement than regression.** Among wrestlers who moved up, about 57% improved their placement, ~23% placed worse, and ~20% placed the same. So moving up tends to be associated with improvement, not decline.
 - **Moving down: small sample, but high improvement rate.** Only 15 transitions involve moving down in weight. Of those, 11 improved and 2 placed worse. The small sample makes it hard to draw a strong trend, but there is no evidence that moving down leads to worse outcomes—if anything, the improvement rate is higher. Wrestlers who move down may be finding a better fit at a lower weight.
 
+## Progression Archetypes
+
+We classify wrestlers with **complete, observable careers** (same eligibility exclusion as above) into progression archetypes based on their AA placement sequences. A wrestler can match more than one archetype. Counts below are *wrestlers who satisfy each criterion*.
+
+| Archetype | Description | Count |
+|-----------|-------------|------:|
+| **Continued Progression** | 3+ AA; each consecutive AA shows improvement (place[i+1] &lt; place[i]) | {{ site.data.report_02_stats.archetypes["Continued Progression"] }} |
+| **Plateau Breaker** | 3+ AA; 2+ consecutive years same placement, then improvement | {{ site.data.report_02_stats.archetypes["Plateau Breaker"] }} |
+| **Regression Survivor** | 3+ AA; at least one regression (worse placement) followed by recovery | {{ site.data.report_02_stats.archetypes["Regression Survivor"] }} |
+| **Consistent Elite** | 3+ AA; never won (no 1st); all placements 2–4 | {{ site.data.report_02_stats.archetypes["Consistent Elite"] }} |
+| **Early Peak** | 3+ AA; best placement in first half of career; final placement ≥ best + 2 | {{ site.data.report_02_stats.archetypes["Early Peak"] }} |
+| **Finish on a Win** | 2+ AA; all placements odd (1, 3, 5, 7)—won final match every year | {{ site.data.report_02_stats.archetypes["Finish on a Win"] }} |
+
+### Last Chance (1× AA only)
+
+Wrestlers who All-Americaned exactly once, in a “last chance” eligibility context:
+
+| Sub-type | Criteria | Count |
+|----------|----------|------:|
+| **Senior Last Chance** | 1× AA; AA earned as Sr or SSr | {{ site.data.report_02_stats.archetypes["Last Chance"]["Senior Last Chance"] }} |
+| **COVID Last Chance** | 1× AA; earned as SSr in 2021 or later (COVID extension) | {{ site.data.report_02_stats.archetypes["Last Chance"]["COVID Last Chance"] }} |
+| **Championship Last Chance** | 1× NC (place = 1); NC earned as Sr or SSr | {{ site.data.report_02_stats.archetypes["Last Chance"]["Championship Last Chance"] }} |
+
 [← Back to table of contents]({{ site.baseurl }}/)
 
 </div>

@@ -1097,6 +1097,108 @@ else:
     print("\nNo wrestlers with strictly improving placement every year.")
 
 # ==============================================================================
+# PROGRESSION ARCHETYPES (counts for Report 02)
+# ==============================================================================
+# Classify each wrestler with complete career into progression archetypes.
+# Wrestlers can match multiple archetypes. Uses same eligibility exclusion: df_filtered only.
+
+def classify_archetype(places):
+    """
+    places: list of int, ordered chronologically (e.g., [4, 3, 2, 1])
+    Returns: list of archetype names that apply (1-6 only; Last Chance handled separately).
+    """
+    archetypes = []
+
+    # 1. Continued Progression: 3+ AA, strictly improving each year
+    if len(places) >= 3 and all(places[i] > places[i + 1] for i in range(len(places) - 1)):
+        archetypes.append("Continued Progression")
+
+    # 2. Plateau Breaker: 3+ AA, 2+ consecutive same placement then improvement
+    if len(places) >= 3:
+        for i in range(len(places) - 2):
+            if places[i] == places[i + 1] and places[i + 2] < places[i]:
+                archetypes.append("Plateau Breaker")
+                break
+
+    # 3. Regression Survivor: 3+ AA, at least one regression then recovery
+    if len(places) >= 3:
+        for i in range(len(places) - 2):
+            if places[i] < places[i + 1] and places[i + 2] <= places[i]:
+                archetypes.append("Regression Survivor")
+                break
+
+    # 4. Consistent Elite: 3+ AA, never won (all > 1), all placements 2-4
+    if len(places) >= 3 and all(p > 1 for p in places) and all(p <= 4 for p in places):
+        archetypes.append("Consistent Elite")
+
+    # 5. Early Peak: 3+ AA, best placement in first half, final >= best+2
+    if len(places) >= 3:
+        best_place = min(places)
+        best_index = places.index(best_place)
+        midpoint = len(places) // 2
+        if best_index < midpoint and places[-1] >= best_place + 2:
+            archetypes.append("Early Peak")
+
+    # 6. Finish on a Win: 2+ AA, all odd placements (1,3,5,7)
+    if len(places) >= 2 and all(p % 2 == 1 for p in places):
+        archetypes.append("Finish on a Win")
+
+    return archetypes
+
+
+# Build per-wrestler place sequences (chronological: Year then eligibility order)
+elig_sort_key = {e: i for i, e in enumerate(ELIGIBILITY_ORDER)}
+archetype_counts = {
+    "Continued Progression": 0,
+    "Plateau Breaker": 0,
+    "Regression Survivor": 0,
+    "Consistent Elite": 0,
+    "Early Peak": 0,
+    "Finish on a Win": 0,
+    "Last Chance": {
+        "Senior Last Chance": 0,   # 1× AA, AA as Sr or SSr
+        "COVID Last Chance": 0,    # 1× AA, SSr in 2021+
+        "Championship Last Chance": 0,  # 1× NC, NC as Sr or SSr
+    },
+}
+
+for wrestler in df_filtered["Wrestler"].unique():
+    w_df = df_filtered[df_filtered["Wrestler"] == wrestler].copy()
+    w_df["_order"] = w_df["Year"] * 10 + w_df["Eligibility Year"].map(elig_sort_key)
+    w_df = w_df.sort_values(["_order", "Year", "Eligibility Year"])
+    places = w_df["Place"].tolist()
+    eligs = w_df["Eligibility Year"].tolist()
+    years = w_df["Year"].tolist()
+    n_aa = len(places)
+
+    # Archetypes 1-6 (from place sequence)
+    for name in classify_archetype(places):
+        archetype_counts[name] += 1
+
+    # 7. Last Chance (1× AA only)
+    if n_aa == 1:
+        elig = eligs[0]
+        year = int(years[0])
+        place = int(places[0])
+        # 7a: Senior Last Chance — 1× AA as Sr or SSr
+        if elig in ("Sr", "SSr"):
+            archetype_counts["Last Chance"]["Senior Last Chance"] += 1
+        # 7b: COVID Last Chance — 1× AA as SSr in 2021 or later
+        if elig == "SSr" and year >= 2021:
+            archetype_counts["Last Chance"]["COVID Last Chance"] += 1
+        # 7c: Championship Last Chance — 1× NC (place=1) as Sr or SSr
+        if place == 1 and elig in ("Sr", "SSr"):
+            archetype_counts["Last Chance"]["Championship Last Chance"] += 1
+
+print("\nProgression archetype counts (complete careers only):")
+for name in ["Continued Progression", "Plateau Breaker", "Regression Survivor", "Consistent Elite", "Early Peak", "Finish on a Win"]:
+    print(f"  {name}: {archetype_counts[name]:,}")
+print("  Last Chance:")
+print(f"    Senior Last Chance: {archetype_counts['Last Chance']['Senior Last Chance']:,}")
+print(f"    COVID Last Chance: {archetype_counts['Last Chance']['COVID Last Chance']:,}")
+print(f"    Championship Last Chance: {archetype_counts['Last Chance']['Championship Last Chance']:,}")
+
+# ==============================================================================
 # EXPORT TABLES
 # ==============================================================================
 
@@ -1152,6 +1254,7 @@ report_02_stats = {
     "multi_weight_by_n": multi_weight_by_n,
     "weight_move_stats": weight_move_stats,
     "wrestlers_4_weights": wrestlers_4_weights,
+    "archetypes": archetype_counts,
 }
 report_02_path = REPORT_DATA_DIR / "report_02_stats.json"
 with open(report_02_path, "w") as f:

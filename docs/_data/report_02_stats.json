@@ -47,5 +47,18 @@
   },
   "wrestlers_4_weights": [
     "Kyle Dake"
-  ]
+  ],
+  "archetypes": {
+    "Continued Progression": 34,
+    "Plateau Breaker": 28,
+    "Regression Survivor": 62,
+    "Consistent Elite": 30,
+    "Early Peak": 21,
+    "Finish on a Win": 88,
+    "Last Chance": {
+      "Senior Last Chance": 212,
+      "COVID Last Chance": 16,
+      "Championship Last Chance": 5
+    }
+  }
 }
