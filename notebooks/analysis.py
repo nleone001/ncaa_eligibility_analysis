@@ -716,36 +716,33 @@ if len(transitions_df) > 0:
     ax.set_aspect("equal")
     ax.axis("off")
 
-    def draw_box(x, y, w, h, label, color="#e2e8f0", text_color="black", borderless=False):
-        rect = mpatches.FancyBboxPatch((x - w/2, y - h/2), w, h, boxstyle="round,pad=0.02",
-                                        facecolor=color, edgecolor="none" if borderless else "#64748b",
-                                        linewidth=0 if borderless else 1.5)
-        ax.add_patch(rect)
-        ax.text(x, y, label, ha="center", va="center", fontsize=11, fontweight="medium", color=text_color)
-
     # Title and subtitle (outside chart)
     fig.suptitle("Weight-change transitions and placement outcomes", fontsize=14, fontweight="bold", y=0.98)
     fig.text(0.5, 0.93, "152 transitions from 137 multi-weight All-Americans", ha="center", fontsize=10, color="#64748b")
 
-    # Column 1 (left): Multi-weight AA transitions — width 1.8
+    # Column 1 (left): Multi-weight AA transitions
     left_w, left_h = 1.8, 1.2
-    draw_box(1.5, 5, left_w, left_h, f"Multi-weight AA\ntransitions\n{weight_move_stats['n_transitions']}", FLOW_LEFT, "white")
+    rect = mpatches.FancyBboxPatch((1.5 - left_w/2, 5 - left_h/2), left_w, left_h, boxstyle="round,pad=0.02",
+                                    facecolor=FLOW_LEFT, edgecolor="#64748b", linewidth=1.5)
+    ax.add_patch(rect)
+    ax.text(1.5, 5, f"Multi-weight AA\ntransitions\n{weight_move_stats['n_transitions']}", ha="center", va="center", fontsize=11, color="white")
 
-    # Column 2: Moving up / Moving down — labels 11pt bold, counts 13–14pt bold
+    # Column 2: Moving up / Moving down (with % like outcome boxes)
+    n_trans = weight_move_stats["n_transitions"]
     mid_w, mid_h = 2, 1
     for cx, cy, label, count, color in [
         (4.5, 6.5, "Moving up", weight_move_stats["moves_up"], FLOW_UP),
         (4.5, 3.5, "Moving down", weight_move_stats["moves_down"], FLOW_DOWN),
     ]:
+        pct = round(100 * count / n_trans, 1) if n_trans else 0
         rect = mpatches.FancyBboxPatch((cx - mid_w/2, cy - mid_h/2), mid_w, mid_h, boxstyle="round,pad=0.02",
                                         facecolor=color, edgecolor="#64748b", linewidth=1.5)
         ax.add_patch(rect)
-        ax.text(cx, cy + 0.12, label, ha="center", va="center", fontsize=11, fontweight="bold", color="white")
-        ax.text(cx, cy - 0.12, f"({count})", ha="center", va="center", fontsize=14, fontweight="bold", color="white")
+        ax.text(cx, cy, f"{label}\n{count} ({pct}%)", ha="center", va="center", fontsize=11, color="white")
 
-    # Column 3: Outcome boxes — Worse centered with previous (Moving up/down) box; Improved and Same equally spaced above/below
-    out_w, out_h = 1.8, 0.7
-    spacing = 0.75  # vertical gap between outcome boxes
+    # Column 3: Outcome boxes — Worse centered on source; Improved/Same with spacing (reduced so up/down sets don't touch)
+    out_w, out_h = 1.8, 0.75
+    spacing = 0.9  # vertical gap between outcome boxes (middle stays centered on source)
     up_center, down_center = 6.5, 3.5  # match middle column box centers
     outcome_specs = [
         (7.5, up_center + spacing, f"Improved\n{weight_move_stats['up_improved']} ({weight_move_stats['pct_up_improved']}%)", FLOW_GREEN),
@@ -756,7 +753,10 @@ if len(transitions_df) > 0:
         (7.5, down_center - spacing, f"Same\n{weight_move_stats['down_same']} ({weight_move_stats['pct_down_same']}%)", FLOW_GREY),
     ]
     for x, y, label, color in outcome_specs:
-        draw_box(x, y, out_w, out_h, label, color, "white", borderless=True)
+        rect = mpatches.FancyBboxPatch((x - out_w/2, y - out_h/2), out_w, out_h, boxstyle="round,pad=0.02",
+                                        facecolor=color, edgecolor="none", linewidth=0)
+        ax.add_patch(rect)
+        ax.text(x, y, label, ha="center", va="center", fontsize=11, color="white")
 
     # Uniform thin connectors (single color)
     left_right = 1.5 + left_w / 2  # left box right edge
