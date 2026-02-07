@@ -92,12 +92,11 @@ Most multi-weight All-Americans competed at exactly two weight classes. The rare
 
 ### Weight-change direction and placement impact
 
-For wrestlers who AAd at two or more weights, we examine each *transition*—a consecutive pair of AA finishes in different years where the wrestler changed weight. There are **{{ site.data.report_02_stats.weight_move_stats.n_transitions }}** such transitions in the data.
+For wrestlers who AAd at two or more weights, we examine each *transition*—a consecutive pair of AA finishes (ordered by ascending year and eligibility: Fr → So → Jr → Sr → SSr) where the wrestler changed weight. For example, Fr at 125 lbs → So at 133 lbs counts as one transition. There are **{{ site.data.report_02_stats.weight_move_stats.n_transitions }}** such transitions in the data.
 
-| Direction | Transitions | Place improved | Place worse | Same place |
-|:----------|------------:|---------------:|------------:|-----------:|
-| **Moving up** | {{ site.data.report_02_stats.weight_move_stats.moves_up }} | {{ site.data.report_02_stats.weight_move_stats.up_improved }} ({{ site.data.report_02_stats.weight_move_stats.pct_up_improved }}%) | {{ site.data.report_02_stats.weight_move_stats.up_worse }} ({{ site.data.report_02_stats.weight_move_stats.pct_up_worse }}%) | {{ site.data.report_02_stats.weight_move_stats.up_same }} |
-| **Moving down** | {{ site.data.report_02_stats.weight_move_stats.moves_down }} | {{ site.data.report_02_stats.weight_move_stats.down_improved }} ({{ site.data.report_02_stats.weight_move_stats.pct_down_improved }}%) | {{ site.data.report_02_stats.weight_move_stats.down_worse }} ({{ site.data.report_02_stats.weight_move_stats.pct_down_worse }}%) | {{ site.data.report_02_stats.weight_move_stats.down_same }} |
+![Weight-change flow: Multi-weight AA transitions → Moving up/down → Improved (green) / Worse (red) / Same (grey)]({{ site.baseurl }}/charts/weight_change_flow.png)
+
+*Flow diagram: all weight-change transitions on the left; branches to moving up or down (with counts); then to improved (green), worse (red), or same placement (grey).*
 
 **Findings:**
 

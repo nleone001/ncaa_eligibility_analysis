@@ -642,11 +642,15 @@ print(f"  Exactly 3 weight classes: {n_weight_3:,}")
 print(f"  Exactly 4 weight classes: {n_weight_4:,} (e.g. Kyle Dake)")
 
 # For wrestlers who AAd at 2+ weights: did they move up or down? Did place improve?
-# Build transitions: each consecutive AA pair when weight changed
+# Build transitions: each consecutive AA pair when weight changed.
+# Order by ascending Year and ascending eligibility (Fr -> So -> Jr -> Sr -> SSr) so we follow career progression.
+elig_sort_key = {e: i for i, e in enumerate(ELIGIBILITY_ORDER)}
 multi_weight_wrestlers = weights_per_wrestler[multi_weight_mask].index.tolist()
 transitions = []
 for wrestler in multi_weight_wrestlers:
-    w_df = df_filtered[df_filtered["Wrestler"] == wrestler].sort_values("Year")
+    w_df = df_filtered[df_filtered["Wrestler"] == wrestler].copy()
+    w_df["_order"] = w_df["Year"] * 10 + w_df["Eligibility Year"].map(elig_sort_key)
+    w_df = w_df.sort_values(["_order", "Year", "Eligibility Year"])
     rows = w_df[["Year", "Weight", "Place", "Eligibility Year"]].values.tolist()
     for i in range(len(rows) - 1):
         year1, w1, place1, elig1 = rows[i]
@@ -693,6 +697,62 @@ if len(transitions_df) > 0:
     weight_move_stats["pct_down_worse"] = round(pct_down_worse, 1)
 else:
     weight_move_stats = {}
+
+# Flow diagram: Multi-weight AAs -> Moving up/down -> Improved/Worse/Same
+# Colors: green (improved), grey (same), red (worse)
+FLOW_GREEN = "#22c55e"
+FLOW_RED = "#ef4444"
+FLOW_GREY = "#94a3b8"
+FLOW_UP = "#3b82f6"
+FLOW_DOWN = "#8b5cf6"
+
+if len(transitions_df) > 0:
+    fig, ax = plt.subplots(figsize=(12, 7))
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 10)
+    ax.set_aspect("equal")
+    ax.axis("off")
+
+    def draw_box(x, y, w, h, label, color="#e2e8f0", text_color="black"):
+        rect = mpatches.FancyBboxPatch((x - w/2, y - h/2), w, h, boxstyle="round,pad=0.02", 
+                                        facecolor=color, edgecolor="#64748b", linewidth=1.5)
+        ax.add_patch(rect)
+        ax.text(x, y, label, ha="center", va="center", fontsize=11, fontweight="medium", color=text_color)
+
+    # Column 1 (left): Multi-weight AA transitions
+    draw_box(1.5, 5, 2.2, 1.2, f"Multi-weight AA\ntransitions\n(n={weight_move_stats['n_transitions']})", "#1e293b", "white")
+
+    # Column 2: Moving up / Moving down
+    draw_box(4.5, 6.5, 2, 1, f"Moving up\n({weight_move_stats['moves_up']})", FLOW_UP, "white")
+    draw_box(4.5, 3.5, 2, 1, f"Moving down\n({weight_move_stats['moves_down']})", FLOW_DOWN, "white")
+
+    # Column 3: Improved / Worse / Same (under Moving up)
+    draw_box(7.5, 7.5, 1.8, 0.9, f"Improved\n({weight_move_stats['up_improved']})", FLOW_GREEN, "white")
+    draw_box(7.5, 6.5, 1.8, 0.9, f"Worse\n({weight_move_stats['up_worse']})", FLOW_RED, "white")
+    draw_box(7.5, 5.5, 1.8, 0.9, f"Same\n({weight_move_stats['up_same']})", FLOW_GREY, "white")
+
+    # Column 3: Improved / Worse / Same (under Moving down)
+    draw_box(7.5, 4.5, 1.8, 0.9, f"Improved\n({weight_move_stats['down_improved']})", FLOW_GREEN, "white")
+    draw_box(7.5, 3.5, 1.8, 0.9, f"Worse\n({weight_move_stats['down_worse']})", FLOW_RED, "white")
+    draw_box(7.5, 2.5, 1.8, 0.9, f"Same\n({weight_move_stats['down_same']})", FLOW_GREY, "white")
+
+    # Connectors: left (right edge 2.6) -> middle (left edge 3.5)
+    ax.plot([2.6, 3.5], [5, 6.5], color="#94a3b8", lw=2)
+    ax.plot([2.6, 3.5], [5, 3.5], color="#94a3b8", lw=2)
+    # Connectors: middle (right edge 5.5) -> right boxes (left edge 6.6)
+    for mid_y, outcomes_y in [(6.5, [7.5, 6.5, 5.5]), (3.5, [4.5, 3.5, 2.5])]:
+        for oy in outcomes_y:
+            ax.plot([5.5, 6.6], [mid_y, oy], color="#94a3b8", lw=2)
+
+    ax.set_title("Weight-change transitions: direction and placement impact\n(ordered by ascending year and eligibility)", fontsize=13, fontweight="bold")
+    plt.tight_layout()
+    flow_path = CHARTS_DIR / "weight_change_flow.png"
+    flow_site_path = SITE_CHARTS_DIR / "weight_change_flow.png"
+    plt.savefig(flow_path, dpi=150)
+    plt.savefig(flow_site_path, dpi=150)
+    plt.close()
+    print(f"Saved: {flow_path}")
+    print(f"Saved: {flow_site_path}")
 
 # Eligibility-year combinations by N×AA tier (when AA was earned, by eligibility)
 # For each wrestler: (n_aa, sorted tuple of eligibility years in which they AA'd)
