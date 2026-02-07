@@ -291,7 +291,7 @@ tr:hover {
     font-weight: 600;
 }
 .archetype-table .archetype-cell[data-wrestlers] {
-    cursor: help;
+    cursor: pointer;
     text-align: right;
 }
 .archetype-table .archetype-cell[data-wrestlers]:hover {

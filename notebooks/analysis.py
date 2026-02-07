@@ -1120,11 +1120,18 @@ def classify_archetype(places):
                 archetypes.append("Plateau Breaker")
                 break
 
-    # 3. Regression Survivor: 3+ AA, at least one regression then recovery
+    # 3. Regression Survivor: 3+ AA, drops 3+ places then returns to within 1 of previous best
     if len(places) >= 3:
         for i in range(len(places) - 2):
-            if places[i] < places[i + 1] and places[i + 2] <= places[i]:
-                archetypes.append("Regression Survivor")
+            drop = places[i + 1] - places[i]
+            if drop >= 3:  # dropped 3+ places
+                best_before = min(places[: i + 1])
+                for j in range(i + 2, len(places)):
+                    if places[j] <= best_before + 1:
+                        archetypes.append("Regression Survivor")
+                        break
+                else:
+                    continue
                 break
 
     # 4. Consistent Elite: 3+ AA, never won (all > 1), all placements 2-4
@@ -1250,7 +1257,7 @@ ARCHETYPE_LIST_DELIM = " | "
 ARCHETYPE_DESCRIPTIONS = {
     "Continued Progression": "3+ AA; each consecutive AA shows improvement (place[i+1] &lt; place[i])",
     "Plateau Breaker": "3+ AA; 2+ consecutive years same placement, then improvement",
-    "Regression Survivor": "3+ AA; at least one regression (worse placement) followed by recovery",
+    "Regression Survivor": "3+ AA; drops 3+ places then returns to within 1 of previous best",
     "Consistent Elite": "3+ AA; never won (no 1st); all placements 2–4",
     "Early Peak": "3+ AA; best placement in first half of career; final placement ≥ best + 2",
     "Finish on a Win": "3+ AA; all placements odd (1, 3, 5, 7)—won final match every year",
