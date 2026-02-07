@@ -1,0 +1,14 @@
+{
+  "n_unique_wrestlers": 1076,
+  "n_multi_aa": 548,
+  "n_improved_every_year": 185,
+  "pct_improved_of_multi_aa": 33.8,
+  "pct_improved_of_all": 17.2,
+  "funnel": {
+    "all": 1076,
+    "n_2plus": 548,
+    "n_3plus": 266,
+    "n_4plus": 103,
+    "n_5plus": 7
+  }
+}

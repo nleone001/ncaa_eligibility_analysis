@@ -14,7 +14,7 @@ A data-driven analysis of NCAA Division I Wrestling All-Americans from 2000–20
 | Report | Description |
 |--------|-------------|
 | [**Report 01: Experience vs Youth — All-Americans by Eligibility**](reports/report_01_overview.html) | Who makes the podium? How does experience impact national titles and All-American honors? 25 years of trends. |
-| [**Report 02: Summary Tables by Eligibility**](reports/report_02_placeholder.html) | Totals and percentage shares by eligibility class (placeholder). |
+| [**Report 02: The Journey (Career Arc)**](reports/report_02_placeholder.html) | Multi-AA funnel, aesthetic progressions, career-arc analyses. |
 
 ## Additional Analyses
 
