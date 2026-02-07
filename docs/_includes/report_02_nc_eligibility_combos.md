@@ -223,6 +223,14 @@
   var expandContainer = null;
   var allRows = null;
 
+  function ensureTooltipStyles() {
+    if (document.getElementById('wrestler-tooltip-styles')) return;
+    var style = document.createElement('style');
+    style.id = 'wrestler-tooltip-styles';
+    style.textContent = '.wrestler-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:12px;font-size:0.85rem;line-height:1.5;max-height:400px;max-width:500px;overflow-y:auto;overflow-x:hidden;z-index:1000;pointer-events:none;border:1px solid #e2e8f0;white-space:normal}.wrestler-tooltip .wrestler-tooltip-title{font-weight:600;margin-bottom:6px;color:#1a1a1a}.wrestler-tooltip .wrestler-tooltip-list{margin:0;padding-left:1.2em}';
+    document.head.appendChild(style);
+  }
+
   function showTip(el, x, y) {
     var w = el.getAttribute('data-wrestlers');
     var n = el.getAttribute('data-count');
@@ -246,7 +254,7 @@
     tr.classList.add('combo-row-selected');
     var title = expandContainer.querySelector('.combo-expand-title');
     var list = expandContainer.querySelector('.combo-expand-list');
-    title.textContent = 'Wrestlers (n=' + n + ')';
+    title.textContent = n + ' Wrestlers';
     var names = w.split(/,\s*/);
     list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
     var table = tr.closest('table');
@@ -262,6 +270,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function() {
+    ensureTooltipStyles();
     tip = document.createElement('div');
     tip.className = 'wrestler-tooltip';
     tip.innerHTML = '<div class="wrestler-tooltip-title"></div><ul class="wrestler-tooltip-list"></ul>';

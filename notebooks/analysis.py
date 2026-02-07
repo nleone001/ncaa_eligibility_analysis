@@ -758,28 +758,24 @@ if len(transitions_df) > 0:
     for x, y, label, color in outcome_specs:
         draw_box(x, y, out_w, out_h, label, color, "white", borderless=True)
 
-    # Line widths: max(2, count/max_count * 8)
-    n_total = weight_move_stats["n_transitions"]
-    n_up = weight_move_stats["moves_up"]
-    n_down = weight_move_stats["moves_down"]
+    # Uniform thin connectors (single color)
     left_right = 1.5 + left_w / 2  # left box right edge
     mid_left = 4.5 - mid_w / 2
     mid_right = 4.5 + mid_w / 2
     right_left = 7.5 - out_w / 2
+    connector_color = FLOW_LEFT
+    connector_lw = 1.2
 
-    # Connectors: left -> middle (color by destination)
-    lw_up = max(2, n_up / n_total * 8)
-    lw_down = max(2, n_down / n_total * 8)
-    ax.plot([left_right, mid_left], [5, 6.5], color=FLOW_UP, lw=lw_up)
-    ax.plot([left_right, mid_left], [5, 3.5], color=FLOW_DOWN, lw=lw_down)
+    # Connectors: left -> middle
+    ax.plot([left_right, mid_left], [5, 6.5], color=connector_color, lw=connector_lw)
+    ax.plot([left_right, mid_left], [5, 3.5], color=connector_color, lw=connector_lw)
 
-    # Connectors: middle -> right (color by destination, lw by count)
-    up_outcomes = [(8.0, weight_move_stats["up_improved"], FLOW_GREEN), (7.0, weight_move_stats["up_worse"], FLOW_RED), (6.0, weight_move_stats["up_same"], FLOW_GREY)]
-    down_outcomes = [(4.5, weight_move_stats["down_improved"], FLOW_GREEN), (3.5, weight_move_stats["down_worse"], FLOW_RED), (2.5, weight_move_stats["down_same"], FLOW_GREY)]
+    # Connectors: middle -> right
+    up_outcomes = [(8.0, weight_move_stats["up_improved"]), (7.0, weight_move_stats["up_worse"]), (6.0, weight_move_stats["up_same"])]
+    down_outcomes = [(4.5, weight_move_stats["down_improved"]), (3.5, weight_move_stats["down_worse"]), (2.5, weight_move_stats["down_same"])]
     for mid_y, outcomes in [(6.5, up_outcomes), (3.5, down_outcomes)]:
-        for oy, count, dest_color in outcomes:
-            lw = max(2, count / (n_up if mid_y == 6.5 else n_down) * 8)
-            ax.plot([mid_right, right_left], [mid_y, oy], color=dest_color, lw=lw)
+        for oy, count in outcomes:
+            ax.plot([mid_right, right_left], [mid_y, oy], color=connector_color, lw=connector_lw)
     plt.tight_layout()
     flow_path = CHARTS_DIR / "weight_change_flow.png"
     flow_site_path = SITE_CHARTS_DIR / "weight_change_flow.png"
@@ -973,6 +969,14 @@ nc_combo_html_lines.append("""
   var expandContainer = null;
   var allRows = null;
 
+  function ensureTooltipStyles() {
+    if (document.getElementById('wrestler-tooltip-styles')) return;
+    var style = document.createElement('style');
+    style.id = 'wrestler-tooltip-styles';
+    style.textContent = '.wrestler-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:12px;font-size:0.85rem;line-height:1.5;max-height:400px;max-width:500px;overflow-y:auto;overflow-x:hidden;z-index:1000;pointer-events:none;border:1px solid #e2e8f0;white-space:normal}.wrestler-tooltip .wrestler-tooltip-title{font-weight:600;margin-bottom:6px;color:#1a1a1a}.wrestler-tooltip .wrestler-tooltip-list{margin:0;padding-left:1.2em}';
+    document.head.appendChild(style);
+  }
+
   function showTip(el, x, y) {
     var w = el.getAttribute('data-wrestlers');
     var n = el.getAttribute('data-count');
@@ -996,7 +1000,7 @@ nc_combo_html_lines.append("""
     tr.classList.add('combo-row-selected');
     var title = expandContainer.querySelector('.combo-expand-title');
     var list = expandContainer.querySelector('.combo-expand-list');
-    title.textContent = 'Wrestlers (n=' + n + ')';
+    title.textContent = n + ' Wrestlers';
     var names = w.split(/,\\s*/);
     list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
     var table = tr.closest('table');
@@ -1012,6 +1016,7 @@ nc_combo_html_lines.append("""
   }
 
   document.addEventListener('DOMContentLoaded', function() {
+    ensureTooltipStyles();
     tip = document.createElement('div');
     tip.className = 'wrestler-tooltip';
     tip.innerHTML = '<div class="wrestler-tooltip-title"></div><ul class="wrestler-tooltip-list"></ul>';
