@@ -219,16 +219,16 @@
 
 <script>
 (function() {
-  var style = document.createElement('style');
-  style.textContent = '.nc-row-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:10px 14px;font-size:0.85rem;line-height:1.5;max-width:340px;z-index:1000;pointer-events:none;border:1px solid #e2e8f0;white-space:normal;}.nc-row-tooltip .nc-tooltip-title{font-weight:600;margin-bottom:6px;color:#1a1a1a;}.nc-row-tooltip .nc-tooltip-list{margin:0;padding-left:1.2em;}';
-  document.head.appendChild(style);
   var tip = null;
+  var expandContainer = null;
+  var allRows = null;
+
   function showTip(el, x, y) {
     var w = el.getAttribute('data-wrestlers');
     var n = el.getAttribute('data-count');
     if (!w || !tip) return;
-    var title = tip.querySelector('.nc-tooltip-title');
-    var list = tip.querySelector('.nc-tooltip-list');
+    var title = tip.querySelector('.wrestler-tooltip-title');
+    var list = tip.querySelector('.wrestler-tooltip-list');
     title.textContent = 'Wrestlers (n=' + n + '):';
     var names = w.split(/,\s*/);
     list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
@@ -237,19 +237,53 @@
     tip.style.display = 'block';
   }
   function hideTip() { if (tip) tip.style.display = 'none'; }
+
+  function showExpand(tr) {
+    var w = tr.getAttribute('data-wrestlers');
+    var n = tr.getAttribute('data-count');
+    if (!w || !expandContainer) return;
+    allRows.forEach(function(r) { r.classList.remove('combo-row-selected'); });
+    tr.classList.add('combo-row-selected');
+    var title = expandContainer.querySelector('.combo-expand-title');
+    var list = expandContainer.querySelector('.combo-expand-list');
+    title.textContent = 'Wrestlers (n=' + n + ')';
+    var names = w.split(/,\s*/);
+    list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
+    var table = tr.closest('table');
+    if (table.nextSibling !== expandContainer) {
+      if (expandContainer.parentNode) expandContainer.parentNode.removeChild(expandContainer);
+      table.parentNode.insertBefore(expandContainer, table.nextSibling);
+    }
+    expandContainer.classList.add('is-visible');
+  }
+  function hideExpand() {
+    if (expandContainer) expandContainer.classList.remove('is-visible');
+    if (allRows) allRows.forEach(function(r) { r.classList.remove('combo-row-selected'); });
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
     tip = document.createElement('div');
-    tip.className = 'nc-row-tooltip';
-    tip.innerHTML = '<div class="nc-tooltip-title"></div><ul class="nc-tooltip-list"></ul>';
+    tip.className = 'wrestler-tooltip';
+    tip.innerHTML = '<div class="wrestler-tooltip-title"></div><ul class="wrestler-tooltip-list"></ul>';
     tip.style.display = 'none';
     document.body.appendChild(tip);
-    var tables = document.querySelectorAll('.eligibility-combo-nc');
-    tables.forEach(function(table) {
-      var rows = table.querySelectorAll('tbody tr[data-wrestlers]');
-      rows.forEach(function(tr) {
-        tr.addEventListener('mouseenter', function(e) { showTip(tr, e.clientX, e.clientY); });
-        tr.addEventListener('mousemove', function(e) { showTip(tr, e.clientX, e.clientY); });
-        tr.addEventListener('mouseleave', hideTip);
+
+    expandContainer = document.createElement('div');
+    expandContainer.id = 'combo-expand-container';
+    expandContainer.className = 'combo-expand-container';
+    expandContainer.innerHTML = '<div class="combo-expand-title"></div><ul class="combo-expand-list"></ul>';
+
+    allRows = document.querySelectorAll('.eligibility-combo-table tbody tr[data-wrestlers]');
+    allRows.forEach(function(tr) {
+      tr.addEventListener('mouseenter', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mousemove', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mouseleave', hideTip);
+      tr.addEventListener('click', function() {
+        if (tr.classList.contains('combo-row-selected')) {
+          hideExpand();
+        } else {
+          showExpand(tr);
+        }
       });
     });
   });

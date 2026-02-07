@@ -808,7 +808,8 @@ ELIG_COLS = ["Fr", "So", "Jr", "Sr", "SSr"]
 
 def build_combo_table(n_aa_val):
     """Build table rows for one N×AA tier: combinations that exist, sorted by count descending.
-    Only include wrestlers whose number of distinct eligibility years equals n_aa (excludes data quirks)."""
+    Only include wrestlers whose number of distinct eligibility years equals n_aa (excludes data quirks).
+    Each row includes a 'Wrestlers' column (comma-separated names, HTML-escaped) for tooltips/expand."""
     sub = tiers_df[(tiers_df["n_aa"] == n_aa_val) & (tiers_df["elig_combo"].apply(len) == n_aa_val)]
     if len(sub) == 0:
         return None, 0
@@ -817,21 +818,29 @@ def build_combo_table(n_aa_val):
     rows = []
     for elig_combo, count in combo_counts.items():
         pct = count / total * 100
+        names = sub[sub["elig_combo"] == elig_combo]["wrestler"].tolist()
+        wrestlers_attr = html_module.escape(", ".join(sorted(names)))
         row = {e: MARKER if e in elig_combo else "" for e in ELIG_COLS}
         row["Count"] = count
         row["%"] = f"{pct:.1f}%"
+        row["Wrestlers"] = wrestlers_attr
         rows.append(row)
     return pd.DataFrame(rows), total
 
 
-def combo_df_to_html(combo_table, cols, table_class_extra=""):
-    """Render combo DataFrame as HTML table with classed cells for styling (vertical borders, shaded cells)."""
+def combo_df_to_html(combo_table, cols, table_class_extra="", wrestlers_col=None):
+    """Render combo DataFrame as HTML table with classed cells for styling (vertical borders, shaded cells).
+    If wrestlers_col is set and combo_table has that column, each <tr> gets data-wrestlers and data-count."""
     lines = [f'<table class="eligibility-combo-table {table_class_extra}">', "<thead><tr>"]
     for c in cols:
         lines.append(f"<th>{c}</th>")
     lines.append("</tr></thead><tbody>")
-    for _, row in combo_table[cols].iterrows():
-        lines.append("<tr>")
+    has_wrestlers = wrestlers_col and wrestlers_col in combo_table.columns
+    for idx, row in combo_table.iterrows():
+        tr_attrs = ""
+        if has_wrestlers and row.get(wrestlers_col):
+            tr_attrs = f' data-wrestlers="{row[wrestlers_col]}" data-count="{row["Count"]}"'
+        lines.append(f"<tr{tr_attrs}>")
         for c in cols:
             val = row[c]
             if c in ELIG_COLS:
@@ -881,7 +890,7 @@ for n in [1, 2, 3, 4, 5]:
     combo_md_lines.append(f"\n## {n}× AA (n = {total_n:,})\n\n")
     combo_md_lines.append(combo_table[cols].to_markdown(index=False) + "\n")
     combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{n}× AAs ({total_n:,})</h2>\n")
-    combo_html_lines.append(combo_df_to_html(combo_table, cols, "eligibility-combo-aa") + "\n")
+    combo_html_lines.append(combo_df_to_html(combo_table, cols, "eligibility-combo-aa", wrestlers_col="Wrestlers") + "\n")
     if n == 5:
         five_x_sub = tiers_df[(tiers_df["n_aa"] == 5) & (tiers_df["elig_combo"].apply(len) == 5)]
         five_x_names = sorted(five_x_sub["wrestler"].tolist())
@@ -956,20 +965,20 @@ with open(nc_combo_table_path, "w") as f:
     f.write("".join(nc_combo_md_lines))
 print(f"Saved: {nc_combo_table_path}")
 
-# Tooltip script for NC combo tables: show wrestler names on row hover
+# Tooltip + click-to-expand for ALL combo tables (NC and AA)
 nc_combo_html_lines.append("""
 <script>
 (function() {
-  var style = document.createElement('style');
-  style.textContent = '.nc-row-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:10px 14px;font-size:0.85rem;line-height:1.5;max-width:340px;z-index:1000;pointer-events:none;border:1px solid #e2e8f0;white-space:normal;}.nc-row-tooltip .nc-tooltip-title{font-weight:600;margin-bottom:6px;color:#1a1a1a;}.nc-row-tooltip .nc-tooltip-list{margin:0;padding-left:1.2em;}';
-  document.head.appendChild(style);
   var tip = null;
+  var expandContainer = null;
+  var allRows = null;
+
   function showTip(el, x, y) {
     var w = el.getAttribute('data-wrestlers');
     var n = el.getAttribute('data-count');
     if (!w || !tip) return;
-    var title = tip.querySelector('.nc-tooltip-title');
-    var list = tip.querySelector('.nc-tooltip-list');
+    var title = tip.querySelector('.wrestler-tooltip-title');
+    var list = tip.querySelector('.wrestler-tooltip-list');
     title.textContent = 'Wrestlers (n=' + n + '):';
     var names = w.split(/,\\s*/);
     list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
@@ -978,19 +987,53 @@ nc_combo_html_lines.append("""
     tip.style.display = 'block';
   }
   function hideTip() { if (tip) tip.style.display = 'none'; }
+
+  function showExpand(tr) {
+    var w = tr.getAttribute('data-wrestlers');
+    var n = tr.getAttribute('data-count');
+    if (!w || !expandContainer) return;
+    allRows.forEach(function(r) { r.classList.remove('combo-row-selected'); });
+    tr.classList.add('combo-row-selected');
+    var title = expandContainer.querySelector('.combo-expand-title');
+    var list = expandContainer.querySelector('.combo-expand-list');
+    title.textContent = 'Wrestlers (n=' + n + ')';
+    var names = w.split(/,\\s*/);
+    list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
+    var table = tr.closest('table');
+    if (table.nextSibling !== expandContainer) {
+      if (expandContainer.parentNode) expandContainer.parentNode.removeChild(expandContainer);
+      table.parentNode.insertBefore(expandContainer, table.nextSibling);
+    }
+    expandContainer.classList.add('is-visible');
+  }
+  function hideExpand() {
+    if (expandContainer) expandContainer.classList.remove('is-visible');
+    if (allRows) allRows.forEach(function(r) { r.classList.remove('combo-row-selected'); });
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
     tip = document.createElement('div');
-    tip.className = 'nc-row-tooltip';
-    tip.innerHTML = '<div class="nc-tooltip-title"></div><ul class="nc-tooltip-list"></ul>';
+    tip.className = 'wrestler-tooltip';
+    tip.innerHTML = '<div class="wrestler-tooltip-title"></div><ul class="wrestler-tooltip-list"></ul>';
     tip.style.display = 'none';
     document.body.appendChild(tip);
-    var tables = document.querySelectorAll('.eligibility-combo-nc');
-    tables.forEach(function(table) {
-      var rows = table.querySelectorAll('tbody tr[data-wrestlers]');
-      rows.forEach(function(tr) {
-        tr.addEventListener('mouseenter', function(e) { showTip(tr, e.clientX, e.clientY); });
-        tr.addEventListener('mousemove', function(e) { showTip(tr, e.clientX, e.clientY); });
-        tr.addEventListener('mouseleave', hideTip);
+
+    expandContainer = document.createElement('div');
+    expandContainer.id = 'combo-expand-container';
+    expandContainer.className = 'combo-expand-container';
+    expandContainer.innerHTML = '<div class="combo-expand-title"></div><ul class="combo-expand-list"></ul>';
+
+    allRows = document.querySelectorAll('.eligibility-combo-table tbody tr[data-wrestlers]');
+    allRows.forEach(function(tr) {
+      tr.addEventListener('mouseenter', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mousemove', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mouseleave', hideTip);
+      tr.addEventListener('click', function() {
+        if (tr.classList.contains('combo-row-selected')) {
+          hideExpand();
+        } else {
+          showExpand(tr);
+        }
       });
     });
   });

@@ -194,29 +194,82 @@ tr:hover {
     margin-bottom: 1rem;
 }
 
-/* NC combo table row tooltip (wrestler names on hover) */
-.nc-row-tooltip {
+/* Combo table rows with wrestler list: clickable, pointer cursor */
+.eligibility-combo-table tbody tr[data-wrestlers] {
+    cursor: pointer;
+}
+.eligibility-combo-table tbody tr[data-wrestlers]:hover {
+    background-color: #eef2f7;
+}
+.eligibility-combo-table tbody tr[data-wrestlers].combo-row-selected {
+    background-color: #dbeafe;
+}
+.eligibility-combo-table tbody tr[data-wrestlers].combo-row-selected td:first-child {
+    border-left: 4px solid var(--color-accent);
+    padding-left: calc(1rem - 4px);
+}
+
+/* Wrestler tooltip (all combo tables: NC and AA) — scrollable for long lists */
+.wrestler-tooltip {
     position: fixed;
     background: #fff;
     border-radius: 6px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-    padding: 10px 14px;
+    padding: 12px;
     font-size: 0.85rem;
     line-height: 1.5;
-    max-width: 340px;
+    max-height: 400px;
+    max-width: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
     z-index: 1000;
     pointer-events: none;
     border: 1px solid var(--color-border);
     white-space: normal;
 }
-.nc-row-tooltip .nc-tooltip-title {
+.wrestler-tooltip .wrestler-tooltip-title {
     font-weight: 600;
     margin-bottom: 6px;
     color: var(--color-text);
 }
-.nc-row-tooltip .nc-tooltip-list {
+.wrestler-tooltip .wrestler-tooltip-list {
     margin: 0;
     padding-left: 1.2em;
+}
+
+/* Click-to-expand: shared container below table, multi-column list */
+.combo-expand-container {
+    display: none;
+    margin: 0 0 2rem 0;
+    padding: 1rem 1.25rem;
+    background: #f7fafc;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+.combo-expand-container.is-visible {
+    display: block;
+}
+.combo-expand-container .combo-expand-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+.combo-expand-container .combo-expand-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    column-count: 3;
+    column-gap: 1.5rem;
+}
+.combo-expand-container .combo-expand-list li {
+    break-inside: avoid;
+    padding: 0.15rem 0;
+}
+@media (max-width: 600px) {
+    .combo-expand-container .combo-expand-list {
+        column-count: 2;
+    }
 }
 
 /* Metadata */
