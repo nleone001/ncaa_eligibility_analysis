@@ -1,5 +1,5 @@
 <h1>When NC was won: combinations by eligibility year</h1><p><em>National champions only (place = 1). Sorted by most common to least. Gold shaded cells = NC in that eligibility year.</em></p>
-<h2>1× NC (n = 106)</h2>
+<h2 class="combo-tier-header">106 1× Champs</h2>
 <table class="eligibility-combo-table eligibility-combo-nc ">
 <thead><tr>
 <th>Fr</th>
@@ -57,7 +57,7 @@
 </tr>
 </tbody></table>
 
-<h2>2× NC (n = 45)</h2>
+<h2 class="combo-tier-header">45 2× Champs</h2>
 <table class="eligibility-combo-table eligibility-combo-nc ">
 <thead><tr>
 <th>Fr</th>
@@ -133,7 +133,7 @@
 </tr>
 </tbody></table>
 
-<h2>3× NC (n = 11)</h2>
+<h2 class="combo-tier-header">11 3× Champs</h2>
 <table class="eligibility-combo-table eligibility-combo-nc ">
 <thead><tr>
 <th>Fr</th>
@@ -173,7 +173,7 @@
 </tr>
 </tbody></table>
 
-<h2>4× NC (n = 4)</h2>
+<h2 class="combo-tier-header">4 4× Champs</h2>
 <table class="eligibility-combo-table eligibility-combo-nc ">
 <thead><tr>
 <th>Fr</th>
@@ -195,7 +195,7 @@
 </tr>
 </tbody></table>
 
-<h2>5× NC (n = 1)</h2>
+<h2 class="combo-tier-header">1 5× Champs</h2>
 <table class="eligibility-combo-table eligibility-combo-nc ">
 <thead><tr>
 <th>Fr</th>

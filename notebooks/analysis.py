@@ -599,7 +599,7 @@ for n in [1, 2, 3, 4]:
         continue
     combo_md_lines.append(f"\n## {n}× AA (n = {total_n:,})\n\n")
     combo_md_lines.append(combo_table[cols].to_markdown(index=False) + "\n")
-    combo_html_lines.append(f"\n<h2>{n}× AA (n = {total_n:,})</h2>\n")
+    combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{total_n:,} {n}× AAs</h2>\n")
     combo_html_lines.append(combo_df_to_html(combo_table, cols, "eligibility-combo-aa") + "\n")
     print(f"  {n}× AA: {len(combo_table)} combinations (total wrestlers {total_n:,})")
 
@@ -653,7 +653,7 @@ for n in [1, 2, 3, 4, 5]:
         continue
     nc_combo_md_lines.append(f"\n## {n}× NC (n = {total_n:,})\n\n")
     nc_combo_md_lines.append(nc_table[nc_cols].to_markdown(index=False) + "\n")
-    nc_combo_html_lines.append(f"\n<h2>{n}× NC (n = {total_n:,})</h2>\n")
+    nc_combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{total_n:,} {n}× Champs</h2>\n")
     nc_combo_html_lines.append(combo_df_to_html_nc(nc_table, nc_cols) + "\n")
     print(f"  {n}× NC: {len(nc_table)} combinations (total wrestlers {total_n:,})")
 

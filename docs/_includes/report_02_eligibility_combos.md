@@ -1,5 +1,5 @@
 <h1>When AA was earned: combinations by eligibility year</h1><p><em>Sorted by most common to least. Shaded cells = AA in that eligibility year.</em></p>
-<h2>1× AA (n = 528)</h2>
+<h2 class="combo-tier-header">528 1× AAs</h2>
 <table class="eligibility-combo-table eligibility-combo-aa">
 <thead><tr>
 <th>Fr</th>
@@ -57,7 +57,7 @@
 </tr>
 </tbody></table>
 
-<h2>2× AA (n = 282)</h2>
+<h2 class="combo-tier-header">282 2× AAs</h2>
 <table class="eligibility-combo-table eligibility-combo-aa">
 <thead><tr>
 <th>Fr</th>
@@ -142,7 +142,7 @@
 </tr>
 </tbody></table>
 
-<h2>3× AA (n = 163)</h2>
+<h2 class="combo-tier-header">163 3× AAs</h2>
 <table class="eligibility-combo-table eligibility-combo-aa">
 <thead><tr>
 <th>Fr</th>
@@ -236,7 +236,7 @@
 </tr>
 </tbody></table>
 
-<h2>4× AA (n = 96)</h2>
+<h2 class="combo-tier-header">96 4× AAs</h2>
 <table class="eligibility-combo-table eligibility-combo-aa">
 <thead><tr>
 <th>Fr</th>

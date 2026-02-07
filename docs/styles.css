@@ -132,8 +132,21 @@ tr:hover {
 }
 
 /* Eligibility combo tables (Report 02: when AA/NC was earned by year) */
+.combo-tier-header {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
 .eligibility-combo-table {
     --combo-border: #cbd5e0;
+    margin-bottom: 2.5rem;
+}
+.eligibility-combo-table:last-child {
+    margin-bottom: 1rem;
+}
+.eligibility-combo-table thead th {
+    background-color: #9ca3af;
+    color: #fff;
 }
 .eligibility-combo-table th,
 .eligibility-combo-table td {
