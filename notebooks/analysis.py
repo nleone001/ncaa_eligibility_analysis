@@ -572,6 +572,54 @@ with open(combo_include_path, "w") as f:
     f.write("".join(combo_md_lines))
 print(f"Saved: {combo_include_path}")
 
+# National Champions (place == 1): same eligibility-combo tables (1× NC, 2× NC, etc.)
+champions_df = df[df["Place"] == 1]
+nc_tiers = []
+for wrestler in champions_df["Wrestler"].unique():
+    w_df = champions_df[champions_df["Wrestler"] == wrestler]
+    n_nc = len(w_df)
+    eligs = w_df["Eligibility Year"].unique().tolist()
+    elig_combo = tuple(sorted(eligs, key=lambda e: elig_order.index(e)))
+    nc_tiers.append({"wrestler": wrestler, "n_nc": n_nc, "elig_combo": elig_combo})
+
+nc_tiers_df = pd.DataFrame(nc_tiers)
+
+def build_nc_combo_table(n_nc_val):
+    """Build table rows for one N×NC tier: combinations that exist, sorted by count descending."""
+    sub = nc_tiers_df[nc_tiers_df["n_nc"] == n_nc_val]
+    if len(sub) == 0:
+        return None, 0
+    total = len(sub)
+    combo_counts = sub.groupby("elig_combo").size().sort_values(ascending=False)
+    rows = []
+    for elig_combo, count in combo_counts.items():
+        pct = count / total * 100
+        row = {e: MARKER if e in elig_combo else "" for e in ELIG_COLS}
+        row["Count"] = count
+        row["%"] = f"{pct:.1f}%"
+        rows.append(row)
+    return pd.DataFrame(rows), total
+
+nc_combo_md_lines = ["# When NC was won: combinations by eligibility year\n", "*National champions only (place = 1). Sorted by most common to least. ● = NC in that eligibility year.*\n"]
+for n in [1, 2, 3, 4, 5]:
+    nc_table, total_n = build_nc_combo_table(n)
+    if nc_table is None or len(nc_table) == 0:
+        continue
+    nc_combo_md_lines.append(f"\n## {n}× NC (n = {total_n:,})\n\n")
+    cols = ELIG_COLS + ["Count", "%"]
+    nc_combo_md_lines.append(nc_table[cols].to_markdown(index=False) + "\n")
+    print(f"  {n}× NC: {len(nc_table)} combinations (total wrestlers {total_n:,})")
+
+nc_combo_table_path = TABLES_DIR / "nc_eligibility_combos_by_tier.md"
+with open(nc_combo_table_path, "w") as f:
+    f.write("".join(nc_combo_md_lines))
+print(f"Saved: {nc_combo_table_path}")
+
+nc_combo_include_path = includes_dir / "report_02_nc_eligibility_combos.md"
+with open(nc_combo_include_path, "w") as f:
+    f.write("".join(nc_combo_md_lines))
+print(f"Saved: {nc_combo_include_path}")
+
 # For each multi-AA wrestler: sort by Year, get Place sequence; "improved every year" = strictly better placement each time (lower place number = better)
 def improved_every_year(places):
     """True if placement strictly improved each consecutive year (place values strictly decreasing)."""

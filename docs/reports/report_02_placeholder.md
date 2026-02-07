@@ -27,7 +27,7 @@ Of **{{ site.data.report_02_stats.n_unique_wrestlers }}** unique wrestlers who h
 - **4× AA:** {{ site.data.report_02_stats.funnel.n_4plus }} wrestlers
 - **5× AA:** {{ site.data.report_02_stats.funnel.n_5plus }} wrestlers
 
-Roughly half of all wrestlers who ever AA'd did it more than once; only a small group (7) reached five or more All-American finishes.
+Roughly half of all wrestlers who ever AA'd did it more than once; while around 10% achieved the elite goal of four All-American finishes. Only a small group of 7 wrestlers achieved an accomplishment likely never to be repeated of earning a fifth All-American finish thanks to the COVID 2020 eligibility extension.
 
 ## When AA was earned (by eligibility)
 
@@ -35,6 +35,13 @@ For each tier (1×, 2×, 3×, 4× AA), the tables below show the **combinations 
 
 {% capture report_02_combos %}{% include report_02_eligibility_combos.md %}{% endcapture %}
 {{ report_02_combos | markdownify }}
+
+## When NC was won (by eligibility)
+
+Same idea for **national champions** (place = 1): for each tier (1× NC, 2× NC, etc.), the tables show the combinations of eligibility years in which wrestlers won titles. Sorted by most common to least. ● = NC in that eligibility year.
+
+{% capture report_02_nc_combos %}{% include report_02_nc_eligibility_combos.md %}{% endcapture %}
+{{ report_02_nc_combos | markdownify }}
 
 *Additional sections (aesthetic progressions, multi-weight success, defending champions, last-chance seniors, Super Senior performance) will be added as the analysis is completed.*
 

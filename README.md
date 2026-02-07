@@ -84,21 +84,7 @@ Source: NCAA Division I Wrestling Championships records, 2000-2025
 | School | Institution |
 | Eligibility Year | Fr, So, Jr, Sr, SSr |
 
-## Testing the report stats
-
-The report (`docs/report.md`) pulls NC/AA counts and percentages from `docs/_data/report_stats.json`, which is written when you run the analysis. To confirm everything lines up (no broken Liquid, data present):
-
-```bash
-# 1. Regenerate data (if you changed raw_data.csv)
-python notebooks/analysis.py
-
-# 2. Check that report placeholders resolve and key numbers appear
-python scripts/test_report_render.py
-```
-
-You should see: `OK: All report_stats placeholders resolve; rendered report contains expected values.`
-
-To see the report with numbers rendered in the browser, build the Jekyll site from `docs/` (e.g. `jekyll build` or GitHub Pages); the test script does not require Jekyll.
+The report pages pull stats from `docs/_data/report_stats.json` and `docs/_data/report_02_stats.json`, written when you run the analysis. To see reports with numbers rendered, use the live site or build the Jekyll site from `docs/` (e.g. `jekyll build` or GitHub Pages).
 
 ## View the Report
 
