@@ -34,7 +34,7 @@ We **exclude**:
 
 We do *not* exclude wrestlers who last competed as Sr (e.g. in 2024–2025) based on a possible return as SSr; we count their career as complete through their senior year.
 
-**Full career in window.** We also require that a wrestler's *entire* career falls within the dataset window (2000–2025). For each AA (each row), the year must be in the allowed range for that eligibility class: Fr AA year in 2000–2021 (Fr year − 1 ≥ 1999, Fr year + 4 ≤ 2025), So in 2001–2022, Jr in 2002–2023, Sr in 2003–2024, SSr in 2004–2025. If any appearance falls outside these bounds, we exclude the wrestler—e.g. a So in 2000 implies Fr was 1999, before the window, so that wrestler is excluded.
+**Full career in window.** We also require that a wrestler's *entire* career falls within the dataset window (2000–2025). For each AA (each row), the year must be in the allowed range for that eligibility class: Fr AA year in 2000–2022, So in 2001–2023, Jr in 2002–2024, Sr in 2003–2025, SSr in 2004–2025. If any appearance falls outside these bounds, we exclude the wrestler—e.g. a So in 2000 implies Fr was 1999, before the window, so that wrestler is excluded.
 
 ![Eligible AA year ranges by class (complete career window)]({{ site.baseurl }}/charts/career_window_timeline.png)
 

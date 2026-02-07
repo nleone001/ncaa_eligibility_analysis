@@ -1,5 +1,5 @@
 <h1>When NC was won: combinations by eligibility year</h1><p><em>National champions only (place = 1). Sorted by most common to least. Gold shaded cells = NC in that eligibility year.</em></p>
-<h2 class="combo-tier-header">1× Champs (80)</h2>
+<h2 class="combo-tier-header">1× Champs (84)</h2>
 <table class="eligibility-combo-table eligibility-combo-nc ">
 <thead><tr>
 <th>Fr</th>
@@ -10,14 +10,14 @@
 <th>Count</th>
 <th>%</th>
 </tr></thead><tbody>
-<tr data-wrestlers="Eric Larkin, Matt Lackey, Robbie Waller, Jason Powell, Zach Roberson, Cliff Moore, Jesse Jantzen, Nate Gallick, Ben Cherrington, Shane Webster, Derek Moore, Trent Paulson, Coleman Scott, Keith Gavin, Phil Davis, Dustin Fox, Steve Luke, Jayson Ness, J.P. O&#x27;Connor, Jay Borschel, Max Askren, David Zabriskie, Anthony Robles, Bubba Jenkins, Jonathan Reader, Frank Molinaro, Cam Simaz, Tony Ramos, Drake Houdashelt, Matt Brown, Kyven Gadson, Nico Megaludis, Nahshon Garrett, Cory Clark, Michael Macchiavello, Anthony Ashnault, Drew Foster, Anthony Cassar, Ryan Deakin, Pat Glory, Andrew Alirez, Nino Bonaccorsi, Mason Parris, Parker Keckeisen, Greg Kerkvliet" data-count="45">
+<tr data-wrestlers="Eric Larkin, Matt Lackey, Robbie Waller, Jason Powell, Zach Roberson, Cliff Moore, Jesse Jantzen, Nate Gallick, Ben Cherrington, Shane Webster, Derek Moore, Trent Paulson, Coleman Scott, Keith Gavin, Phil Davis, Dustin Fox, Steve Luke, Jayson Ness, J.P. O&#x27;Connor, Jay Borschel, Max Askren, David Zabriskie, Anthony Robles, Bubba Jenkins, Jonathan Reader, Frank Molinaro, Cam Simaz, Tony Ramos, Drake Houdashelt, Matt Brown, Kyven Gadson, Nico Megaludis, Nahshon Garrett, Cory Clark, Michael Macchiavello, Anthony Ashnault, Drew Foster, Anthony Cassar, Ryan Deakin, Pat Glory, Andrew Alirez, Nino Bonaccorsi, Mason Parris, Parker Keckeisen, Greg Kerkvliet, Lucas Byrd, Ridge Lovett, Dean Hamiti, Stephen Buchanan" data-count="49">
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td class="combo-yes-nc">●</td>
 <td class="combo-no"></td>
-<td>45</td>
-<td>56.2%</td>
+<td>49</td>
+<td>58.3%</td>
 </tr>
 <tr data-wrestlers="Aaron Holker, Jared Lawrence, Luke Becker, Matt Gentry, Troy Letters, Zack Esposito, Josh Glenn, Jordan Leen, Troy Nickerson, Frank Gomez, Darrion Caldwell, Jarrod King, Mark Ellis, Dustin Kilgore, Zachery Rey, Steve Bosak, Kendric Maple, Derek St. John, Cody Brewer, Darian Cruz, Seth Gross, Max Dean" data-count="22">
 <td class="combo-no"></td>
@@ -26,7 +26,7 @@
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td>22</td>
-<td>27.5%</td>
+<td>26.2%</td>
 </tr>
 <tr data-wrestlers="Dustin Schlatter, Jason Tsirtsis, Nathan Tomasello, Myles Martin, Mark Hall, Mekhi Lewis, Shane Griffith" data-count="7">
 <td class="combo-yes-nc">●</td>
@@ -35,7 +35,7 @@
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td>7</td>
-<td>8.8%</td>
+<td>8.3%</td>
 </tr>
 <tr data-wrestlers="Paul Donahoe, Gregor Gillespie, Angel Escobedo, Mike Pucillo, Andrew Howe" data-count="5">
 <td class="combo-no"></td>
@@ -44,7 +44,7 @@
 <td class="combo-no"></td>
 <td class="combo-no"></td>
 <td>5</td>
-<td>6.2%</td>
+<td>6.0%</td>
 </tr>
 <tr data-wrestlers="Wyatt Hendrickson" data-count="1">
 <td class="combo-no"></td>

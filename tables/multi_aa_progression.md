@@ -1,6 +1,6 @@
 # Multi-AA wrestlers who improved every year
 
-*153 wrestlers out of 467 multi-AA wrestlers (32.8%) had a strictly better placement each consecutive year.*
+*153 wrestlers out of 476 multi-AA wrestlers (32.1%) had a strictly better placement each consecutive year.*
 
 | Wrestler            | Progression   | Years               | Eligibility sequence   |   AA count |
 |:--------------------|:--------------|:--------------------|:-----------------------|-----------:|

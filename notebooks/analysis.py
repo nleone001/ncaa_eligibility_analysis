@@ -471,17 +471,17 @@ print("="*60)
 # Filter: Include only wrestlers whose full career falls in the dataset window (2000-2025).
 # (1) Career complete: exclude those who could still AA in a non-SSr year; include SSr, Sr (any), Jr ≤2022, So ≤2021, Fr ≤2020.
 # (2) Career in window: each AA (Eligibility Year, Year) must satisfy year bounds so the whole career is observable:
-#     Fr:  year-1>=1999 and year+4<=2025  -> 2000<=year<=2021
-#     So:  year-2>=1999 and year+3<=2025  -> 2001<=year<=2022
-#     Jr:  year-3>=1999 and year+2<=2025  -> 2002<=year<=2023
-#     Sr:  year-4>=1999 and year+1<=2025  -> 2003<=year<=2024
-#     SSr: year-5>=1999 and year+0<=2025  -> 2004<=year<=2025
+#     Fr:  year-1>=1999 and year+3<=2025  -> 2000<=year<=2022
+#     So:  year-2>=1999 and year+2<=2025  -> 2001<=year<=2023
+#     Jr:  year-3>=1999 and year+1<=2025  -> 2002<=year<=2024
+#     Sr:  year-4>=1999 and year+0<=2025  -> 2003<=year<=2025
+#     SSr: year-5>=1999 and year+0<=2025  -> 2004<=year<=2025 (not used in timeline viz)
 CAREER_WINDOW = (1999, 2025)
 ELIG_YEAR_BOUNDS = {
-    "Fr":  (CAREER_WINDOW[0] + 1, CAREER_WINDOW[1] - 4),   # 2000..2021
-    "So":  (CAREER_WINDOW[0] + 2, CAREER_WINDOW[1] - 3),   # 2001..2022
-    "Jr":  (CAREER_WINDOW[0] + 3, CAREER_WINDOW[1] - 2),   # 2002..2023
-    "Sr":  (CAREER_WINDOW[0] + 4, CAREER_WINDOW[1] - 1),   # 2003..2024
+    "Fr":  (CAREER_WINDOW[0] + 1, CAREER_WINDOW[1] - 3),   # 2000..2022
+    "So":  (CAREER_WINDOW[0] + 2, CAREER_WINDOW[1] - 2),   # 2001..2023
+    "Jr":  (CAREER_WINDOW[0] + 3, CAREER_WINDOW[1] - 1),   # 2002..2024
+    "Sr":  (CAREER_WINDOW[0] + 4, CAREER_WINDOW[1]),       # 2003..2025
     "SSr": (CAREER_WINDOW[0] + 5, CAREER_WINDOW[1]),       # 2004..2025
 }
 
@@ -548,24 +548,24 @@ for i, elig in enumerate(timeline_elig):
         facecolor=bar_color, edgecolor=bar_color, linewidth=1.2, alpha=0.85
     )
     ax.add_patch(rect)
-    ax.text(lo, y, f"  {lo}", ha="left", va="center", fontsize=14, fontweight="bold", color=bar_text_color)
-    ax.text(hi, y, f"{hi}  ", ha="right", va="center", fontsize=14, fontweight="bold", color=bar_text_color)
+    ax.text(lo, y, f"  {lo}", ha="left", va="center", fontsize=16, fontweight="bold", color=bar_text_color)
+    ax.text(hi, y, f"{hi}  ", ha="right", va="center", fontsize=16, fontweight="bold", color=bar_text_color)
 ax.set_yticks(y_positions)
-ax.set_yticklabels(timeline_elig, fontsize=14)
+ax.set_yticklabels(timeline_elig, fontsize=16)
 ax.set_xticks([2000, 2005, 2010, 2015, 2020, 2025])
-ax.set_xticklabels(["2000", "2005", "2010", "2015", "2020", "2025"], fontsize=13)
+ax.set_xticklabels(["2000", "2005", "2010", "2015", "2020", "2025"], fontsize=15)
 ax.axvspan(1998, 2000, alpha=0.12, color="gray", zorder=0)
 ax.axvspan(2025, 2027, alpha=0.12, color="gray", zorder=0)
 mid_y = (n_timeline_rows - 1) * row_spacing / 2
-ax.text(1999, mid_y, "before dataset", fontsize=16, fontweight="bold", color="#475569", ha="center", va="center", rotation=90)
-ax.text(2026, mid_y, "future data", fontsize=16, fontweight="bold", color="#475569", ha="center", va="center", rotation=90)
-ax.set_xlabel("Year", fontsize=13)
+ax.text(1999, mid_y, "before dataset", fontsize=18, fontweight="bold", color="#475569", ha="center", va="center", rotation=90)
+ax.text(2026, mid_y, "future data", fontsize=18, fontweight="bold", color="#475569", ha="center", va="center", rotation=90)
+ax.set_xlabel("Year", fontsize=15)
 ax.grid(True, axis="y", color="#f1f5f9", linewidth=0.5)
 ax.set_axisbelow(True)
 for spine in ["top", "right"]:
     ax.spines[spine].set_visible(False)
-ax.set_title("Eligible AA year ranges by class (complete career window)", fontsize=17, fontweight="bold")
-fig.text(0.5, -0.02, "Wrestlers must have all AA appearances within these windows to be included in analysis.", ha="center", fontsize=12, color="#64748b", style="italic")
+ax.set_title("Eligible AA year ranges by class (complete career window)", fontsize=19, fontweight="bold")
+fig.text(0.5, -0.02, "Wrestlers must have all AA appearances within these windows to be included in analysis.", ha="center", fontsize=14, color="#64748b", style="italic")
 plt.tight_layout(rect=[0, 0.04, 1, 1])
 career_timeline_path = CHARTS_DIR / "career_window_timeline.png"
 career_timeline_site_path = SITE_CHARTS_DIR / "career_window_timeline.png"
