@@ -106,16 +106,10 @@ For wrestlers who AAd at two or more weights, we examine each *transition*—a c
 
 ## Progression Archetypes
 
-We classify wrestlers with **complete, observable careers** (same eligibility exclusion as above) into progression archetypes based on their AA placement sequences. A wrestler can match more than one archetype. All six placement archetypes require **3+ AA**. Counts below are broken out by 3×, 4×, and 5× AA.
+We classify wrestlers with **complete, observable careers** (same eligibility exclusion as above) into progression archetypes based on their AA placement sequences. A wrestler can match more than one archetype. All six placement archetypes require **3+ AA**. Counts below are broken out by 3×, 4×, and 5× AA. **Hover** on a 3×, 4×, or 5× count cell to see the list of wrestlers; **click** a row to expand and show all three lists (3×, 4×, 5×) below the table.
 
-| Archetype | Description | Total | 3× AA | 4× AA | 5× AA |
-|-----------|-------------|------:|------:|------:|------:|
-| **Continued Progression** | 3+ AA; each consecutive AA shows improvement (place[i+1] &lt; place[i]) | {{ site.data.report_02_stats.archetypes["Continued Progression"].total }} | {{ site.data.report_02_stats.archetypes["Continued Progression"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Continued Progression"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Continued Progression"].by_aa["5"] }} |
-| **Plateau Breaker** | 3+ AA; 2+ consecutive years same placement, then improvement | {{ site.data.report_02_stats.archetypes["Plateau Breaker"].total }} | {{ site.data.report_02_stats.archetypes["Plateau Breaker"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Plateau Breaker"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Plateau Breaker"].by_aa["5"] }} |
-| **Regression Survivor** | 3+ AA; at least one regression (worse placement) followed by recovery | {{ site.data.report_02_stats.archetypes["Regression Survivor"].total }} | {{ site.data.report_02_stats.archetypes["Regression Survivor"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Regression Survivor"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Regression Survivor"].by_aa["5"] }} |
-| **Consistent Elite** | 3+ AA; never won (no 1st); all placements 2–4 | {{ site.data.report_02_stats.archetypes["Consistent Elite"].total }} | {{ site.data.report_02_stats.archetypes["Consistent Elite"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Consistent Elite"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Consistent Elite"].by_aa["5"] }} |
-| **Early Peak** | 3+ AA; best placement in first half of career; final placement ≥ best + 2 | {{ site.data.report_02_stats.archetypes["Early Peak"].total }} | {{ site.data.report_02_stats.archetypes["Early Peak"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Early Peak"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Early Peak"].by_aa["5"] }} |
-| **Finish on a Win** | 3+ AA; all placements odd (1, 3, 5, 7)—won final match every year | {{ site.data.report_02_stats.archetypes["Finish on a Win"].total }} | {{ site.data.report_02_stats.archetypes["Finish on a Win"].by_aa["3"] }} | {{ site.data.report_02_stats.archetypes["Finish on a Win"].by_aa["4"] }} | {{ site.data.report_02_stats.archetypes["Finish on a Win"].by_aa["5"] }} |
+{% capture report_02_archetypes %}{% include report_02_archetypes_table.md %}{% endcapture %}
+{{ report_02_archetypes }}
 
 ### Last Chance (1× AA only)
 

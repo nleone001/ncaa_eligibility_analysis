@@ -1167,6 +1167,9 @@ archetype_counts = {
         "Championship Last Chance": {"by_aa": {"1": 0}},
     },
 }
+# Wrestler names per archetype per bucket (for tooltip and expand in report)
+ARCHETYPE_NAMES = ["Continued Progression", "Plateau Breaker", "Regression Survivor", "Consistent Elite", "Early Peak", "Finish on a Win"]
+archetype_wrestlers = {name: {b: [] for b in AA_BUCKETS} for name in ARCHETYPE_NAMES}
 
 for wrestler in df_filtered["Wrestler"].unique():
     w_df = df_filtered[df_filtered["Wrestler"] == wrestler].copy()
@@ -1182,6 +1185,7 @@ for wrestler in df_filtered["Wrestler"].unique():
     for name in classify_archetype(places):
         if n_aa_key in archetype_counts[name]["by_aa"]:
             archetype_counts[name]["by_aa"][n_aa_key] += 1
+            archetype_wrestlers[name][n_aa_key].append(wrestler)
 
     # 7. Last Chance (1× AA only)
     if n_aa == 1:
@@ -1214,6 +1218,141 @@ print("  Last Chance (1× only):")
 print(f"    Senior Last Chance: {archetype_counts['Last Chance']['Senior Last Chance']['total']:,}")
 print(f"    COVID Last Chance: {archetype_counts['Last Chance']['COVID Last Chance']['total']:,}")
 print(f"    Championship Last Chance: {archetype_counts['Last Chance']['Championship Last Chance']['total']:,}")
+
+# Archetypes table HTML for Report 02: tooltip on count cells, click row to expand 3×/4×/5× lists
+ARCHETYPE_DESCRIPTIONS = {
+    "Continued Progression": "3+ AA; each consecutive AA shows improvement (place[i+1] &lt; place[i])",
+    "Plateau Breaker": "3+ AA; 2+ consecutive years same placement, then improvement",
+    "Regression Survivor": "3+ AA; at least one regression (worse placement) followed by recovery",
+    "Consistent Elite": "3+ AA; never won (no 1st); all placements 2–4",
+    "Early Peak": "3+ AA; best placement in first half of career; final placement ≥ best + 2",
+    "Finish on a Win": "3+ AA; all placements odd (1, 3, 5, 7)—won final match every year",
+}
+archetype_table_lines = [
+    '<table class="archetype-table">',
+    "<thead><tr><th>Archetype</th><th>Description</th><th>Total</th><th>3× AA</th><th>4× AA</th><th>5× AA</th></tr></thead>",
+    "<tbody>",
+]
+for name in ARCHETYPE_NAMES:
+    total = archetype_counts[name]["total"]
+    by_aa = archetype_counts[name]["by_aa"]
+    desc = ARCHETYPE_DESCRIPTIONS[name]
+    # Each 3×/4×/5× cell: data-wrestlers (escaped), data-count; row has data-wrestlers-3/4/5 for expand
+    w3 = archetype_wrestlers[name]["3"]
+    w4 = archetype_wrestlers[name]["4"]
+    w5 = archetype_wrestlers[name]["5"]
+    attr3 = f' data-wrestlers="{html_module.escape(", ".join(sorted(w3)))}" data-count="{by_aa["3"]}"' if w3 else ""
+    attr4 = f' data-wrestlers="{html_module.escape(", ".join(sorted(w4)))}" data-count="{by_aa["4"]}"' if w4 else ""
+    attr5 = f' data-wrestlers="{html_module.escape(", ".join(sorted(w5)))}" data-count="{by_aa["5"]}"' if w5 else ""
+    row_attrs = f' data-wrestlers-3="{html_module.escape(", ".join(sorted(w3)))}" data-count-3="{by_aa["3"]}"'
+    row_attrs += f' data-wrestlers-4="{html_module.escape(", ".join(sorted(w4)))}" data-count-4="{by_aa["4"]}"'
+    row_attrs += f' data-wrestlers-5="{html_module.escape(", ".join(sorted(w5)))}" data-count-5="{by_aa["5"]}"'
+    archetype_table_lines.append(f"<tr{row_attrs}>")
+    archetype_table_lines.append(f"<td><strong>{html_module.escape(name)}</strong></td>")
+    archetype_table_lines.append(f"<td>{desc}</td>")
+    archetype_table_lines.append(f"<td>{total}</td>")
+    archetype_table_lines.append(f'<td class="archetype-cell"{attr3}>{by_aa["3"]}</td>')
+    archetype_table_lines.append(f'<td class="archetype-cell"{attr4}>{by_aa["4"]}</td>')
+    archetype_table_lines.append(f'<td class="archetype-cell"{attr5}>{by_aa["5"]}</td>')
+    archetype_table_lines.append("</tr>")
+archetype_table_lines.append("</tbody></table>")
+
+archetype_script = """
+<script>
+(function() {
+  var tip = null;
+  var expandContainer = null;
+  var expandedRow = null;
+
+  function ensureTooltipStyles() {
+    if (document.getElementById('wrestler-tooltip-styles')) return;
+    var style = document.createElement('style');
+    style.id = 'wrestler-tooltip-styles';
+    style.textContent = '.wrestler-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:12px;font-size:0.85rem;line-height:1.5;max-height:400px;max-width:500px;overflow-y:auto;overflow-x:hidden;z-index:1000;pointer-events:none;border:1px solid #e2e8f0;white-space:normal}.wrestler-tooltip .wrestler-tooltip-title{font-weight:600;margin-bottom:6px;color:#1a1a1a}.wrestler-tooltip .wrestler-tooltip-list{margin:0;padding-left:1.2em}';
+    document.head.appendChild(style);
+  }
+  function showTip(el, x, y) {
+    var w = el.getAttribute('data-wrestlers');
+    var n = el.getAttribute('data-count');
+    if (!w || !tip) return;
+    var title = tip.querySelector('.wrestler-tooltip-title');
+    var list = tip.querySelector('.wrestler-tooltip-list');
+    title.textContent = n + ' Wrestlers';
+    var names = w.split(/,\\s*/);
+    list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
+    tip.style.left = (x + 16) + 'px';
+    tip.style.top = (y - 10) + 'px';
+    tip.style.display = 'block';
+  }
+  function hideTip() { if (tip) tip.style.display = 'none'; }
+
+  function showExpand(tr) {
+    var w3 = tr.getAttribute('data-wrestlers-3');
+    var w4 = tr.getAttribute('data-wrestlers-4');
+    var w5 = tr.getAttribute('data-wrestlers-5');
+    var n3 = tr.getAttribute('data-count-3') || '0';
+    var n4 = tr.getAttribute('data-count-4') || '0';
+    var n5 = tr.getAttribute('data-count-5') || '0';
+    if (!expandContainer) return;
+    document.querySelectorAll('.archetype-table tbody tr').forEach(function(r) { r.classList.remove('archetype-row-selected'); });
+    tr.classList.add('archetype-row-selected');
+    var names3 = w3 ? w3.split(/,\\s*/) : [];
+    var names4 = w4 ? w4.split(/,\\s*/) : [];
+    var names5 = w5 ? w5.split(/,\\s*/) : [];
+    var html = '<div class="archetype-expand-section"><strong>3× AA (' + n3 + ')</strong><ul class="archetype-expand-list">' + names3.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul></div>';
+    html += '<div class="archetype-expand-section"><strong>4× AA (' + n4 + ')</strong><ul class="archetype-expand-list">' + names4.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul></div>';
+    html += '<div class="archetype-expand-section"><strong>5× AA (' + n5 + ')</strong><ul class="archetype-expand-list">' + names5.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul></div>';
+    expandContainer.querySelector('.archetype-expand-body').innerHTML = html;
+    var table = tr.closest('table');
+    if (table.nextSibling !== expandContainer) {
+      if (expandContainer.parentNode) expandContainer.parentNode.removeChild(expandContainer);
+      table.parentNode.insertBefore(expandContainer, table.nextSibling);
+    }
+    expandContainer.classList.add('is-visible');
+    expandedRow = tr;
+  }
+  function hideExpand() {
+    if (expandContainer) expandContainer.classList.remove('is-visible');
+    document.querySelectorAll('.archetype-table tbody tr').forEach(function(r) { r.classList.remove('archetype-row-selected'); });
+    expandedRow = null;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    ensureTooltipStyles();
+    tip = document.createElement('div');
+    tip.className = 'wrestler-tooltip';
+    tip.innerHTML = '<div class="wrestler-tooltip-title"></div><ul class="wrestler-tooltip-list"></ul>';
+    tip.style.display = 'none';
+    document.body.appendChild(tip);
+
+    expandContainer = document.createElement('div');
+    expandContainer.id = 'archetype-expand-container';
+    expandContainer.className = 'archetype-expand-container';
+    expandContainer.innerHTML = '<div class="archetype-expand-body"></div>';
+
+    var cells = document.querySelectorAll('.archetype-table .archetype-cell[data-wrestlers]');
+    cells.forEach(function(td) {
+      td.addEventListener('mouseenter', function(e) { showTip(td, e.clientX, e.clientY); });
+      td.addEventListener('mousemove', function(e) { showTip(td, e.clientX, e.clientY); });
+      td.addEventListener('mouseleave', hideTip);
+    });
+    var rows = document.querySelectorAll('.archetype-table tbody tr');
+    rows.forEach(function(tr) {
+      tr.style.cursor = 'pointer';
+      tr.addEventListener('click', function() {
+        if (tr.classList.contains('archetype-row-selected')) hideExpand();
+        else showExpand(tr);
+      });
+    });
+  });
+})();
+</script>
+"""
+
+archetype_include_path = includes_dir / "report_02_archetypes_table.md"
+with open(archetype_include_path, "w") as f:
+    f.write("\n".join(archetype_table_lines) + "\n" + archetype_script)
+print(f"Saved: {archetype_include_path}")
 
 # ==============================================================================
 # EXPORT TABLES
