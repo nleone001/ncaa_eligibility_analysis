@@ -6,47 +6,28 @@ title: Report 02 — The Journey (Career Arc)
 <div class="container" markdown="1">
 
 # The Journey: Progression of the NCAA Elite
+## The Elite Few
 
-## Development and career arc
+Coleman Scott (Oklahoma State, 2005-2008): 8-5-2-1
+Frank Molinaro (Penn State, 2009-2012): 8-5-2-1
 
-*What does the path from freshman All-American to senior champion actually look like?*
+Two wrestlers, years apart, identical progressions. Four years, four steps up the podium, each finishing their career on top. This is the path wrestling culture celebrates: the blue-collar grind, the steady improvement, the earned reward.
 
-This report explores multi-time All-Americans, aesthetic progressions (improvement every year), and related career-arc analyses.
+But how common is this path, really?
 
-## Analysis scope and assumptions
+Before we can talk about the journey from freshman All-American to senior champion, we need to acknowledge how rare it is to have any journey at all.
 
-### Observable complete careers
+## The path to Multiple All-American Honors
 
-This analysis includes only wrestlers whose careers are **observably complete**—meaning they've exhausted their eligibility or enough time has passed that we can be confident they won't return to competition.
-
-We **include**:
-
-- All wrestlers who competed as Super Seniors (final year of eligibility)
-- Wrestlers whose most recent appearance was Sr (any year); we do not exclude based on a possible SSr return
-- Wrestlers whose most recent appearance was Jr in 2022 or earlier (had opportunity for Sr/SSr but didn't return)
-- And so on for earlier eligibility years
-
-We **exclude**:
-
-- Wrestlers who last competed as Fr in 2024–2025 (could still AA as So/Jr/Sr/SSr)
-- Wrestlers who last competed as So in 2023–2025 (could still AA as Jr/Sr/SSr)
-- Wrestlers who last competed as Jr in 2023–2025 (could still AA as Sr/SSr)
-
-We do *not* exclude wrestlers who last competed as Sr (e.g. in 2024–2025) based on a possible return as SSr; we count their career as complete through their senior year.
-
-**Full career in window.** We also require that a wrestler's *entire* career falls within the dataset window (2000–2025). For each AA (each row), the year must be in the allowed range for that eligibility class: Fr AA year in 2000–2022, So in 2001–2023, Jr in 2002–2024, Sr in 2003–2025, SSr in 2004–2025. If any appearance falls outside these bounds, we exclude the wrestler—e.g. a So in 2000 implies Fr was 1999, before the window, so that wrestler is excluded.
+In the 2000-2025 dataset of 2000 All-Americans, we wee 1,076 unique wrestlers earning All-American honors. For some of these wrestlers, though, we do not have the full picture of their career. This AA career analysis will only include wrestlers whose careers are complete and fall entirely within the 2000-2025 window. See appendix for detailed criteria. 
 
 ![Eligible AA year ranges by class (complete career window)]({{ site.baseurl }}/charts/career_window_timeline.png)
 
 *Wrestlers must have all AA appearances within these windows to be included in analysis.*
 
-This ensures we're counting complete careers that are fully observable. Our tier counts (1×, 2×, 3×, 4×, 5× AA) represent wrestlers' final career totals.
-
-**Result: {{ site.data.report_02_stats.n_complete_careers }} wrestlers with complete, observable careers.**
-
 ## Multi-AA funnel
 
-Of **{{ site.data.report_02_stats.n_unique_wrestlers }}** unique wrestlers with complete careers who have placed at the NCAA tournament (2000–2025), **{{ site.data.report_02_stats.n_multi_aa }}** have All-Americaned more than once. The funnel below shows how many wrestlers have **exactly** 1×, 2×, 3×, 4×, or 5× AAs (same counts as the tables below).
+Of **{{ site.data.report_02_stats.n_complete_careers }}**  unique wrestlers with complete careers who placed at the NCAA tournament (2000–2025), only **{{ site.data.report_02_stats.n_multi_aa }}** have All-Americaned more than once. Their stories are what we are examining here. 
 
 ![Funnel: unique wrestlers by multi-AA tier (1× through 5× AA)]({{ site.baseurl }}/charts/multi_aa_funnel.png)
 
@@ -58,21 +39,50 @@ Of **{{ site.data.report_02_stats.n_unique_wrestlers }}** unique wrestlers with 
 - **4× AA:** {{ site.data.report_02_stats.funnel.n_4plus }} wrestlers
 - **5× AA:** {{ site.data.report_02_stats.funnel.n_5plus }} wrestlers
 
-Roughly half of all wrestlers who ever AA'd did it more than once; while around 10% achieved the elite goal of four All-American finishes. Only a small group of 7 wrestlers achieved an accomplishment likely never to be repeated of earning a fifth All-American finish thanks to the COVID 2020 eligibility extension.
+Roughly half of all wrestlers who ever AA'd did it more than once. Only about 11% achieved the elite goal of four All-American finishes. And just seven wrestlers achieved what may never be repeated:a fifth All-American finish, made possible only by the COVID eligibility extension.
 
-## When All-American was earned (by eligibility)
+## When All-American was earned
 
-For each tier (1×, 2×, 3×, 4×, 5× AA), the tables below show the **combinations of eligibility years** in which wrestlers earned their All-American finishes. Only combinations that appear in the data are listed; each table is sorted from most common to least. ● = AA in that eligibility year. Hover to view wrestlers list for each row. Click on row to view wrestlers list for that row. 
+When do wrestlers actually earn their All-American finishes? The tables below show the **combinations of eligibility years** for each tier (1×, 2×, 3×, 4×, 5× AA). Each table is sorted from most common to least common pattern. ● = AA in that eligibility year.
+
 
 {% capture report_02_combos %}{% include report_02_eligibility_combos.md %}{% endcapture %}
 {{ report_02_combos | markdownify }}
 
-## When National Championships were won (by eligibility)
+**Key patterns:**
+- **1× AA:** Nearly half (50%) earn their lone All-American finish as seniors—the "last chance" breakthrough
+- **2× AA:** Junior-Senior dominates (53%), but there's significant variety in when wrestlers earn their first AA
+- **3x AA:**: Sophomore-Junior-Senior represents the majority, again showing that many careers require a freshman year of experience and development to break through and sustain AA finishes
 
-Same idea for **national champions** (place = 1): for each tier (1× NC, 2× NC, etc.), the tables show the combinations of eligibility years in which wrestlers won titles. Sorted by most common to least. ● = NC in that eligibility year. Hover to view wrestlers list for each row. Click on row to view wrestlers list for that row. 
+## When Championships Were Won
 
+The same analysis for **national champions** reveals even more concentration at the top.
+
+
+Hover to view wrestlers list for each row. Click on row to view wrestlers list for that row. 
 {% capture report_02_nc_combos %}{% include report_02_nc_eligibility_combos.md %}{% endcapture %}
 {{ report_02_nc_combos | markdownify }}
+
+**Key patterns:**
+- **1× Champion:** Most single-time champions win as seniors (58%) or juniors (26%)
+- **2x Champion:** Less than 10% of two-time champions won as a Freshman, again reinforcing that sustained success at the top usually comes later in a wrestler's career
+- **3x Champion:** Most three-time champions win after their freshman year. Spencer Lee is the only three-time champion who failed to repeat in his senior year.
+- **4x Champion:** Seven wrestlers have achieved a perfect career, winning four titles: Pat Smith (outside of dataset, 1990-1994), Cael Sanderson, outside of datset (1999-2001), Logan Stieber, Kyle Dake, Yianni Diakomihalis, Aaron Brooks, and Carter Starocci(who also won a fifth).
+- **5x Champion:** Only Carter Starocci has achieved this historic feat, thanks to the COVID eligibilty extension. This will never be repeated with the current college eligibility rules.  
+
+## Progression Archetypes
+
+We classify wrestlers with **complete, observable careers** (same eligibility exclusion as above) into progression archetypes based on their AA placement sequences. A wrestler can match more than one archetype. All six placement archetypes require **3+ AA**. Counts below are broken out by 3×, 4×, and 5× AA. **Hover** on a 3×, 4×, or 5× count cell to see the list of wrestlers; **click** a row to expand and show all three lists (3×, 4×, 5×) below the table.
+
+{% capture report_02_archetypes %}{% include report_02_archetypes_table.md %}{% endcapture %}
+{{ report_02_archetypes }}
+
+### Last Chance (1× AA only)
+
+Wrestlers who All-Americaned exactly once, in a “last chance” eligibility context (all counts are 1× AA). **Hover** on a row to see the list of wrestlers with placements; **click** a row to expand the list below the table.
+
+{% capture report_02_last_chance %}{% include report_02_last_chance_table.md %}{% endcapture %}
+{{ report_02_last_chance }}
 
 ## Multi-weight All-Americans
 
@@ -104,19 +114,54 @@ For wrestlers who AAd at two or more weights, we examine each *transition*—a c
 - **Moving up: more improvement than regression.** Among wrestlers who moved up, about 57% improved their placement, ~23% placed worse, and ~20% placed the same. So moving up tends to be associated with improvement, not decline.
 - **Moving down: small sample, but high improvement rate.** Only 15 transitions involve moving down in weight. Of those, 11 improved and 2 placed worse. The small sample makes it hard to draw a strong trend, but there is no evidence that moving down leads to worse outcomes—if anything, the improvement rate is higher. Wrestlers who move down may be finding a better fit at a lower weight.
 
-## Progression Archetypes
+---
 
-We classify wrestlers with **complete, observable careers** (same eligibility exclusion as above) into progression archetypes based on their AA placement sequences. A wrestler can match more than one archetype. All six placement archetypes require **3+ AA**. Counts below are broken out by 3×, 4×, and 5× AA. **Hover** on a 3×, 4×, or 5× count cell to see the list of wrestlers; **click** a row to expand and show all three lists (3×, 4×, 5×) below the table.
+## Appendix: Methodology and Analysis Scope
 
-{% capture report_02_archetypes %}{% include report_02_archetypes_table.md %}{% endcapture %}
-{{ report_02_archetypes }}
+### Complete Career Criteria
 
-### Last Chance (1× AA only)
+This analysis includes only wrestlers whose careers are **observably complete**—meaning they've exhausted their eligibility or enough time has passed that we can be confident they won't return to competition.
 
-Wrestlers who All-Americaned exactly once, in a “last chance” eligibility context (all counts are 1× AA). **Hover** on a row to see the list of wrestlers with placements; **click** a row to expand the list below the table.
+#### We include:
 
-{% capture report_02_last_chance %}{% include report_02_last_chance_table.md %}{% endcapture %}
-{{ report_02_last_chance }}
+- All wrestlers who competed as Super Seniors (final year of eligibility)
+- Wrestlers whose most recent appearance was Sr (any year); we do not exclude based on a possible SSr return
+- Wrestlers whose most recent appearance was Jr in 2022 or earlier (had opportunity for Sr/SSr but didn't return)
+- And so on for earlier eligibility years
+
+#### We exclude:
+
+- Wrestlers who last competed as Fr in 2024–2025 (could still AA as So/Jr/Sr/SSr)
+- Wrestlers who last competed as So in 2023–2025 (could still AA as Jr/Sr/SSr)
+- Wrestlers who last competed as Jr in 2023–2025 (could still AA as Sr/SSr)
+
+We do not exclude wrestlers who last competed as Sr (e.g., in 2024–2025) based on a possible return as SSr, as many wrestlers are opting to not take their final year and move on to post-collegiate endeavors. We count their career as complete through their senior year. 
+
+### Full Career in Dataset Window
+
+We also require that a wrestler's entire career falls within the dataset window (2000–2025). For each AA finish (each row in our data), the year must be in the allowed range for that eligibility class:
+
+- Fr AA year in 2000–2022
+- So in 2001–2023
+- Jr in 2002–2024
+- Sr in 2003–2025
+- SSr in 2004–2025
+
+If any appearance falls outside these bounds, we exclude the wrestler. For example, a So in 2000 implies Fr was 1999, before the window, so that wrestler is excluded.
+
+Wrestlers must have all AA appearances within these windows to be included in analysis.
+
+### What This Approach Captures (and Doesn't)
+
+This methodology ensures we're counting complete careers that are fully observable. Our tier counts (1×, 2×, 3×, 4×, 5× AA) represent wrestlers' final career totals.
+
+**What we can see:** The progression patterns of wrestlers who reached the NCAA podium multiple times—how they improved, plateaued, or regressed across their All-American finishes.
+
+**What we cannot see:** The journey to the first All-American finish. For most wrestlers, this is the hardest climb—the years spent as a non-starter, backup, national qualifier, or Round of 12 competitor before finally breaking through to the podium. These pre-AA years, while often the most dramatic part of a wrestler's development arc, are not captured in our dataset.
+
+For example, Robbie Waller (Oklahoma, 2000-2003) came one win short of All-American honors as both a freshman and sophomore before finally placing 6th as a junior and winning the championship as a senior. Mike Macchiavello (NC State, 2014-2018) had a losing record as a freshman and sophomore, took a redshirt year, then came one win short as a junior before winning the title as a senior. These inspiring progressions are not present in our data - we only see their AA finishes, not the years of grinding that preceded them.
+
+This analysis therefore tells the story of the elite few who made it to the podium enough times to show a progression, not the full journey of every wrestler who eventually earned All-American honors.
 
 [← Back to table of contents]({{ site.baseurl }}/)
 
