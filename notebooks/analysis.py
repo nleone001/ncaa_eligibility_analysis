@@ -798,6 +798,26 @@ for wrestler in df_filtered["Wrestler"].unique():
 
 tiers_df = pd.DataFrame(wrestler_tiers)
 
+# Placement-by-eligibility strings for combo table tooltips/expand: "Name (Fr-So-Jr-Sr)" with place or DNP
+def wrestler_placement_string_combo(wrestler, w_df):
+    w_df = w_df.sort_values(["_order", "Year", "Eligibility Year"])
+    elig_to_place = {}
+    for _, row in w_df.iterrows():
+        elig_to_place[row["Eligibility Year"]] = int(row["Place"])
+    order = ["Fr", "So", "Jr", "Sr"]
+    if "SSr" in elig_to_place:
+        order.append("SSr")
+    parts = [str(elig_to_place.get(e, "DNP")) for e in order]
+    return f"{wrestler} ({'-'.join(parts)})"
+
+wrestler_placement_str_combo = {}
+for wrestler in df_filtered["Wrestler"].unique():
+    w_df = df_filtered[df_filtered["Wrestler"] == wrestler].copy()
+    w_df["_order"] = w_df["Year"] * 10 + w_df["Eligibility Year"].map(elig_sort_key)
+    wrestler_placement_str_combo[wrestler] = wrestler_placement_string_combo(wrestler, w_df)
+
+COMBO_LIST_DELIM = " | "
+
 # Marker for "AA earned in this eligibility year"
 MARKER = "●"
 ELIG_COLS = ["Fr", "So", "Jr", "Sr", "SSr"]
@@ -824,9 +844,10 @@ def build_combo_table(n_aa_val):
     return pd.DataFrame(rows), total
 
 
-def combo_df_to_html(combo_table, cols, table_class_extra="", wrestlers_col=None):
+def combo_df_to_html(combo_table, cols, table_class_extra="", wrestlers_col=None, placement_lookup=None):
     """Render combo DataFrame as HTML table with classed cells for styling (vertical borders, shaded cells).
-    If wrestlers_col is set and combo_table has that column, each <tr> gets data-wrestlers and data-count."""
+    If wrestlers_col is set and combo_table has that column, each <tr> gets data-wrestlers and data-count.
+    If placement_lookup is provided, each <tr> also gets data-wrestlers-places (Name (Fr-So-Jr-Sr))."""
     lines = [f'<table class="eligibility-combo-table {table_class_extra}">', "<thead><tr>"]
     for c in cols:
         lines.append(f"<th>{c}</th>")
@@ -836,6 +857,10 @@ def combo_df_to_html(combo_table, cols, table_class_extra="", wrestlers_col=None
         tr_attrs = ""
         if has_wrestlers and row.get(wrestlers_col):
             tr_attrs = f' data-wrestlers="{row[wrestlers_col]}" data-count="{row["Count"]}"'
+            if placement_lookup:
+                names = [s.strip() for s in html_module.unescape(row[wrestlers_col]).split(",")]
+                places_str = COMBO_LIST_DELIM.join(placement_lookup.get(n, n) for n in names)
+                tr_attrs += f' data-wrestlers-places="{html_module.escape(places_str)}"'
         lines.append(f"<tr{tr_attrs}>")
         for c in cols:
             val = row[c]
@@ -849,9 +874,10 @@ def combo_df_to_html(combo_table, cols, table_class_extra="", wrestlers_col=None
     return "\n".join(lines)
 
 
-def combo_df_to_html_nc(combo_table, cols, table_class_extra="", wrestlers_col="Wrestlers"):
+def combo_df_to_html_nc(combo_table, cols, table_class_extra="", wrestlers_col="Wrestlers", placement_lookup=None):
     """Same as combo_df_to_html but NC tables use combo-yes-nc for gold shaded cells.
-    If combo_table has a wrestlers_col, each <tr> gets data-wrestlers and data-count for tooltips."""
+    If combo_table has a wrestlers_col, each <tr> gets data-wrestlers and data-count for tooltips.
+    If placement_lookup is provided, each <tr> also gets data-wrestlers-places (Name (Fr-So-Jr-Sr))."""
     lines = [f'<table class="eligibility-combo-table eligibility-combo-nc {table_class_extra}">', "<thead><tr>"]
     for c in cols:
         lines.append(f"<th>{c}</th>")
@@ -861,6 +887,10 @@ def combo_df_to_html_nc(combo_table, cols, table_class_extra="", wrestlers_col="
         tr_attrs = ""
         if has_wrestlers and row[wrestlers_col]:
             tr_attrs = f' data-wrestlers="{row[wrestlers_col]}" data-count="{row["Count"]}"'
+            if placement_lookup:
+                names = [s.strip() for s in html_module.unescape(row[wrestlers_col]).split(",")]
+                places_str = COMBO_LIST_DELIM.join(placement_lookup.get(n, n) for n in names)
+                tr_attrs += f' data-wrestlers-places="{html_module.escape(places_str)}"'
         lines.append(f"<tr{tr_attrs}>")
         for c in cols:
             val = row[c]
@@ -886,7 +916,7 @@ for n in [1, 2, 3, 4, 5]:
     combo_md_lines.append(f"\n## {n}× AA (n = {total_n:,})\n\n")
     combo_md_lines.append(combo_table[cols].to_markdown(index=False) + "\n")
     combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{n}× AAs ({total_n:,})</h2>\n")
-    combo_html_lines.append(combo_df_to_html(combo_table, cols, "eligibility-combo-aa", wrestlers_col="Wrestlers") + "\n")
+    combo_html_lines.append(combo_df_to_html(combo_table, cols, "eligibility-combo-aa", wrestlers_col="Wrestlers", placement_lookup=wrestler_placement_str_combo) + "\n")
     if n == 5:
         five_x_sub = tiers_df[(tiers_df["n_aa"] == 5) & (tiers_df["elig_combo"].apply(len) == 5)]
         five_x_names = sorted(five_x_sub["wrestler"].tolist())
@@ -953,7 +983,7 @@ for n in [1, 2, 3, 4, 5]:
     nc_combo_md_lines.append(f"\n## {n}× NC (n = {total_n:,})\n\n")
     nc_combo_md_lines.append(nc_table[nc_cols].to_markdown(index=False) + "\n")
     nc_combo_html_lines.append(f"\n<h2 class=\"combo-tier-header\">{n}× Champs ({total_n:,})</h2>\n")
-    nc_combo_html_lines.append(combo_df_to_html_nc(nc_table, nc_cols, wrestlers_col="Wrestlers") + "\n")
+    nc_combo_html_lines.append(combo_df_to_html_nc(nc_table, nc_cols, wrestlers_col="Wrestlers", placement_lookup=wrestler_placement_str_combo) + "\n")
     print(f"  {n}× NC: {len(nc_table)} combinations (total wrestlers {total_n:,})")
 
 nc_combo_table_path = TABLES_DIR / "nc_eligibility_combos_by_tier.md"
@@ -977,15 +1007,16 @@ nc_combo_html_lines.append("""
     document.head.appendChild(style);
   }
 
+  var COMBO_DELIM = ' | ';
   function showTip(el, x, y) {
-    var w = el.getAttribute('data-wrestlers');
+    var listStr = el.getAttribute('data-wrestlers-places') || el.getAttribute('data-wrestlers');
     var n = el.getAttribute('data-count');
-    if (!w || !tip) return;
+    if (!listStr || !tip) return;
     var title = tip.querySelector('.wrestler-tooltip-title');
     var list = tip.querySelector('.wrestler-tooltip-list');
     title.textContent = n + ' Wrestlers';
-    var names = w.split(/,\\s*/);
-    list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
+    var items = listStr.indexOf(COMBO_DELIM) !== -1 ? listStr.split(COMBO_DELIM) : listStr.split(/,\\s*/);
+    list.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
     tip.style.left = (x + 16) + 'px';
     tip.style.top = (y - 10) + 'px';
     tip.style.display = 'block';
@@ -993,16 +1024,16 @@ nc_combo_html_lines.append("""
   function hideTip() { if (tip) tip.style.display = 'none'; }
 
   function showExpand(tr) {
-    var w = tr.getAttribute('data-wrestlers');
+    var listStr = tr.getAttribute('data-wrestlers-places') || tr.getAttribute('data-wrestlers');
     var n = tr.getAttribute('data-count');
-    if (!w || !expandContainer) return;
+    if (!listStr || !expandContainer) return;
     allRows.forEach(function(r) { r.classList.remove('combo-row-selected'); });
     tr.classList.add('combo-row-selected');
     var title = expandContainer.querySelector('.combo-expand-title');
     var list = expandContainer.querySelector('.combo-expand-list');
     title.textContent = n + ' Wrestlers';
-    var names = w.split(/,\\s*/);
-    list.innerHTML = names.map(function(name){ return '<li>' + name + '</li>'; }).join('');
+    var items = listStr.indexOf(COMBO_DELIM) !== -1 ? listStr.split(COMBO_DELIM) : listStr.split(/,\\s*/);
+    list.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
     var table = tr.closest('table');
     if (table.nextSibling !== expandContainer) {
       if (expandContainer.parentNode) expandContainer.parentNode.removeChild(expandContainer);
