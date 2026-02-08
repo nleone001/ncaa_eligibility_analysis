@@ -1,4 +1,5 @@
-<h1>When AA was earned: combinations by eligibility year</h1><p><em>Sorted by most common to least. Shaded cells = AA in that eligibility year.</em></p>
+<h1>When All-American was earned:</h1>
+<p>When do wrestlers actually earn their All-American finishes? The tables below show the combinations of eligibility years for each tier (1×, 2×, 3×, 4×, 5× AA). Each table is sorted from most common to least common pattern. ● = AA in that eligibility year. Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.</p>
 <h2 class="combo-tier-header">1× AAs (392)</h2>
 <table class="eligibility-combo-table eligibility-combo-aa">
 <thead><tr>

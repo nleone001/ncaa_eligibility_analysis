@@ -908,7 +908,10 @@ cols = ELIG_COLS + ["Count", "%"]
 
 # Write combined markdown (for tables/ repo reference) and HTML (for docs/_includes)
 combo_md_lines = ["# When AA was earned: combinations by eligibility year\n", "*Sorted by most common to least. ● = AA in that eligibility year.*\n"]
-combo_html_lines = ["<h1>When AA was earned: combinations by eligibility year</h1>", "<p><em>Sorted by most common to least. Shaded cells = AA in that eligibility year.</em></p>"]
+combo_html_lines = [
+    "<h1>When All-American was earned:</h1>",
+    "<p>When do wrestlers actually earn their All-American finishes? The tables below show the combinations of eligibility years for each tier (1×, 2×, 3×, 4×, 5× AA). Each table is sorted from most common to least common pattern. ● = AA in that eligibility year. Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.</p>",
+]
 for n in [1, 2, 3, 4, 5]:
     combo_table, total_n = build_combo_table(n)
     if combo_table is None or len(combo_table) == 0:

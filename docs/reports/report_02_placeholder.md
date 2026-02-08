@@ -19,7 +19,7 @@ Before we can talk about the journey from freshman All-American to senior champi
 
 ## The path to Multiple All-American Honors
 
-In the 2000-2025 dataset of 2000 All-Americans, we wee 1,076 unique wrestlers earning All-American honors. For some of these wrestlers, though, we do not have the full picture of their career. This AA career analysis will only include wrestlers whose careers are complete and fall entirely within the 2000-2025 window. See appendix for detailed criteria. 
+In the 2000-2025 dataset of 2000 All-Americans, we see 1,076 unique wrestlers earning All-American honors. For some of these wrestlers, though, we do not have the full picture of their career. This AA career analysis will only include wrestlers whose careers are complete and fall entirely within the 2000-2025 window. See appendix for detailed criteria. 
 
 ![Eligible AA year ranges by class (complete career window)]({{ site.baseurl }}/charts/career_window_timeline.png)
 
@@ -27,7 +27,7 @@ In the 2000-2025 dataset of 2000 All-Americans, we wee 1,076 unique wrestlers ea
 
 ## Multi-AA funnel
 
-Of **{{ site.data.report_02_stats.n_complete_careers }}**  unique wrestlers with complete careers who placed at the NCAA tournament (2000–2025), only **{{ site.data.report_02_stats.n_multi_aa }}** have All-Americaned more than once. Their stories are what we are examining here. 
+Of **{{ site.data.report_02_stats.n_complete_careers }}**  unique wrestlers with complete careers who placed at the NCAA tournament (2000–2025), only **{{ site.data.report_02_stats.n_multi_aa }}** have All-Americaned more than once - these are the wrestlers whose journeys we can truly examine.
 
 ![Funnel: unique wrestlers by multi-AA tier (1× through 5× AA)]({{ site.baseurl }}/charts/multi_aa_funnel.png)
 
@@ -39,11 +39,7 @@ Of **{{ site.data.report_02_stats.n_complete_careers }}**  unique wrestlers with
 - **4× AA:** {{ site.data.report_02_stats.funnel.n_4plus }} wrestlers
 - **5× AA:** {{ site.data.report_02_stats.funnel.n_5plus }} wrestlers
 
-Roughly half of all wrestlers who ever AA'd did it more than once. Only about 11% achieved the elite goal of four All-American finishes. And just seven wrestlers achieved what may never be repeated:a fifth All-American finish, made possible only by the COVID eligibility extension.
-
-## When All-American was earned
-
-When do wrestlers actually earn their All-American finishes? The tables below show the **combinations of eligibility years** for each tier (1×, 2×, 3×, 4×, 5× AA). Each table is sorted from most common to least common pattern. ● = AA in that eligibility year.
+Roughly half of all wrestlers who ever AA'd did it more than once. Only about 11% achieved the elite goal of four All-American finishes. And just seven wrestlers achieved what may never be repeated: a fifth All-American finish, made possible only by the COVID eligibility extension.
 
 
 {% capture report_02_combos %}{% include report_02_eligibility_combos.md %}{% endcapture %}
@@ -54,12 +50,7 @@ When do wrestlers actually earn their All-American finishes? The tables below sh
 - **2× AA:** Junior-Senior dominates (53%), but there's significant variety in when wrestlers earn their first AA
 - **3x AA:**: Sophomore-Junior-Senior represents the majority, again showing that many careers require a freshman year of experience and development to break through and sustain AA finishes
 
-## When Championships Were Won
 
-The same analysis for **national champions** reveals even more concentration at the top.
-
-
-Hover to view wrestlers list for each row. Click on row to view wrestlers list for that row. 
 {% capture report_02_nc_combos %}{% include report_02_nc_eligibility_combos.md %}{% endcapture %}
 {{ report_02_nc_combos | markdownify }}
 
@@ -67,8 +58,8 @@ Hover to view wrestlers list for each row. Click on row to view wrestlers list f
 - **1× Champion:** Most single-time champions win as seniors (58%) or juniors (26%)
 - **2x Champion:** Less than 10% of two-time champions won as a Freshman, again reinforcing that sustained success at the top usually comes later in a wrestler's career
 - **3x Champion:** Most three-time champions win after their freshman year. Spencer Lee is the only three-time champion who failed to repeat in his senior year.
-- **4x Champion:** Seven wrestlers have achieved a perfect career, winning four titles: Pat Smith (outside of dataset, 1990-1994), Cael Sanderson, outside of datset (1999-2001), Logan Stieber, Kyle Dake, Yianni Diakomihalis, Aaron Brooks, and Carter Starocci(who also won a fifth).
-- **5x Champion:** Only Carter Starocci has achieved this historic feat, thanks to the COVID eligibilty extension. This will never be repeated with the current college eligibility rules.  
+- **4× Champion:** Seven wrestlers have achieved four titles. Within our dataset: Kyle Dake, Logan Stieber, Yianni Diakomihalis, Aaron Brooks, and Carter Starocci (who also won a fifth). Pat Smith (1990-1994) and Cael Sanderson (1999-2002) accomplished this feat outside our analysis window.
+- **5x Champion:** Only Carter Starocci has achieved this historic feat, thanks to the COVID eligibility extension. This will never be repeated with the current college eligibility rules.  
 
 ## Progression Archetypes
 
