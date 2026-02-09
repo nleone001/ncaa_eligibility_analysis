@@ -1902,7 +1902,7 @@ print(f"\nSample data:")
 print(yearly_differential_sum.head(10))
 
 # Create bar chart
-fig, ax = plt.subplots(figsize=(14, 7))
+fig, ax = plt.subplots(figsize=(16, 10))
 
 # Create bars
 bars = ax.bar(
@@ -1918,22 +1918,23 @@ bars = ax.bar(
 ax.axhline(y=0, color="#666", linestyle="--", linewidth=0.8, alpha=0.5)
 
 # Formatting
-ax.set_xlabel("Year", fontsize=12, weight="light")
-ax.set_ylabel("Sum of Seed-Placement Differentials", fontsize=12, weight="light")
-ax.set_title("Seed-Placement Differential by Year", fontsize=14, weight="medium", pad=15)
+ax.set_xlabel("Year", fontsize=16, weight="light")
+ax.set_ylabel("Sum of Seed-Placement Differentials", fontsize=16, weight="light")
+ax.set_title("Seed-Placement Differential by Year", fontsize=18, weight="medium", pad=15)
 ax.set_xlim(1999.5, 2025.5)
 ax.grid(axis="y", alpha=0.2, linestyle="--", linewidth=0.5)
 ax.set_axisbelow(True)
+ax.tick_params(axis='both', labelsize=14)
 
 # Set x-axis ticks to show every year (may be crowded, but user requested all years)
 ax.set_xticks(range(2000, 2026))
-ax.set_xticklabels(range(2000, 2026), rotation=45, ha="right", fontsize=9)
+ax.set_xticklabels(range(2000, 2026), rotation=45, ha="right", fontsize=12)
 
 # Add value labels on bars (optional, but helpful for reading exact values)
 for i, (year, value) in enumerate(zip(yearly_differential_sum["Year"], yearly_differential_sum["Sum_Differential"])):
     if abs(value) > 5:  # Only label bars with significant values to avoid clutter
         ax.text(year, value, f"{int(value)}", ha="center", va="bottom" if value >= 0 else "top", 
-                fontsize=7, weight="light")
+                fontsize=10, weight="light")
 
 plt.tight_layout()
 
@@ -2253,15 +2254,16 @@ print("\nCreating histograms...")
 # Histogram 1: Sum of Differentials
 fig, ax = plt.subplots(figsize=(12, 7))
 ax.hist(bracket_chalk_analysis['Sum_Differential'], bins=30, color='#2196F3', alpha=0.7, edgecolor='#1976D2', linewidth=0.5)
-ax.set_xlabel('Sum of Seed-Placement Differentials', fontsize=12, weight='light')
-ax.set_ylabel('Count of Brackets (Year×Weight)', fontsize=12, weight='light')
-ax.set_title('Distribution of Seed-Placement Differential Sums\n(Sum = 0 means all 8 seeds placed in top 8)', fontsize=14, weight='medium', pad=15)
+ax.set_xlabel('Sum of Seed-Placement Differentials', fontsize=16, weight='light')
+ax.set_ylabel('Count of Brackets (Year×Weight)', fontsize=16, weight='light')
+ax.set_title('Distribution of Seed-Placement Differential Sums\n(Sum = 0 means all 8 seeds placed in top 8)', fontsize=18, weight='medium', pad=15)
 ax.grid(axis='y', alpha=0.2, linestyle='--', linewidth=0.5)
 ax.set_axisbelow(True)
+ax.tick_params(axis='both', labelsize=14)
 
 # Add vertical line at 0 for reference
 ax.axvline(x=0, color='#666', linestyle='--', linewidth=1, alpha=0.5, label='Sum = 0 (all seeds placed)')
-ax.legend(loc='upper right', fontsize=9)
+ax.legend(loc='upper right', fontsize=14)
 
 plt.tight_layout()
 chart_path_1 = CHARTS_DIR / "chalk_sum_differential_histogram.png"
@@ -2276,13 +2278,14 @@ fig, ax = plt.subplots(figsize=(12, 7))
 # Use integer bins from 0 to 8
 bins = range(0, 10)  # 0-8 inclusive
 ax.hist(bracket_chalk_analysis['Exact_Matches'], bins=bins, color='#4CAF50', alpha=0.7, edgecolor='#388E3C', linewidth=0.5, align='left')
-ax.set_xlabel('Exact Seed-Place Matches (N/8)', fontsize=12, weight='light')
-ax.set_ylabel('Count of Brackets (Year×Weight)', fontsize=12, weight='light')
-ax.set_title('Distribution of Exact Seed-Place Matches\n(How many wrestlers finished exactly where seeded)', fontsize=14, weight='medium', pad=15)
+ax.set_xlabel('Exact Seed-Place Matches (N/8)', fontsize=16, weight='light')
+ax.set_ylabel('Count of Brackets (Year×Weight)', fontsize=16, weight='light')
+ax.set_title('Distribution of Exact Seed-Place Matches\n(How many wrestlers finished exactly where seeded)', fontsize=18, weight='medium', pad=15)
 ax.set_xticks(range(0, 9))
-ax.set_xticklabels([f'{i}/8' for i in range(0, 9)])
+ax.set_xticklabels([f'{i}/8' for i in range(0, 9)], fontsize=14)
 ax.grid(axis='y', alpha=0.2, linestyle='--', linewidth=0.5)
 ax.set_axisbelow(True)
+ax.tick_params(axis='y', labelsize=14)
 
 plt.tight_layout()
 chart_path_2 = CHARTS_DIR / "chalk_exact_matches_histogram.png"
@@ -2543,7 +2546,7 @@ df_seed_placement = df.copy()
 df_seed_placement['Seed_Int'] = df_seed_placement['Seed'].apply(convert_seed_to_int)
 
 # Create histograms for each place (1-8)
-fig, axes = plt.subplots(4, 2, figsize=(12, 10))
+fig, axes = plt.subplots(4, 2, figsize=(14, 16))
 axes = axes.flatten()
 
 for place in range(1, 9):
@@ -2580,14 +2583,14 @@ for place in range(1, 9):
                 alpha=0.8, label=f'Median: {median_seed:.0f}')
     
     # Formatting
-    ax.set_xlabel('Seed', fontsize=10, weight='light')
-    ax.set_ylabel('Count', fontsize=10, weight='light')
+    ax.set_xlabel('Seed', fontsize=14, weight='light')
+    ax.set_ylabel('Count', fontsize=14, weight='light')
     # Set title: "Champion" for 1st, "2nd" through "8th" for others
     if place == 1:
         title = 'Champion'
     else:
         title = f'{place}{"th" if place >= 4 else ("rd" if place == 3 else "nd")}'
-    ax.set_title(title, fontsize=12, weight='medium')
+    ax.set_title(title, fontsize=16, weight='medium')
     
     # Only show x-axis ticks for seeds that have count > 0
     if len(seed_counts) > 0:
@@ -2595,16 +2598,17 @@ for place in range(1, 9):
     else:
         ax.set_xticks(range(1, max(max_seed + 2, 14)))
     
+    ax.tick_params(axis='both', labelsize=12)
     ax.grid(axis='y', alpha=0.2, linestyle='--', linewidth=0.5)
     ax.set_axisbelow(True)
-    ax.legend(loc='upper right', fontsize=8)
+    ax.legend(loc='upper right', fontsize=12)
     
     # Print statistics
     unseeded_count = len(place_data[place_data['Seed_Int'].isna()])
     print(f"  Place {place}: Mean seed = {mean_seed:.2f}, Median = {median_seed:.0f}, "
           f"Seeded = {len(seeded_data)}, Unseeded = {unseeded_count}")
 
-plt.suptitle('Seed Distribution by Placement Position', fontsize=14, weight='medium', y=0.995)
+plt.suptitle('Seed Distribution by Placement Position', fontsize=18, weight='medium', y=0.995)
 plt.tight_layout()
 
 # Save chart
