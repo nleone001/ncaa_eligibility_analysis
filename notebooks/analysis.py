@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import plotly.graph_objects as go
 from pathlib import Path
 
 # ==============================================================================
@@ -3081,6 +3082,52 @@ plt.savefig(chart_nc_cum_path, dpi=150)
 plt.savefig(chart_nc_cum_site, dpi=150)
 plt.close()
 print(f"Saved: {chart_nc_cum_path}")
+
+# Interactive Plotly charts for cumulative AA and NC (hover, legend click to toggle lines)
+def make_cumulative_plotly(cum_df, schools_list, y_label, title, filename_stem):
+    fig = go.Figure()
+    for school in schools_list:
+        sub = cum_df[cum_df["School"] == school].sort_values("Year")
+        color = get_school_color(school)
+        fig.add_trace(go.Scatter(
+            x=sub["Year"],
+            y=sub["Cumulative"],
+            mode="lines",
+            name=school,
+            line=dict(color=color, width=3),
+            hovertemplate="<b>%{fullData.name}</b><br>Year: %{x}<br>Cumulative: %{y}<extra></extra>",
+        ))
+    fig.update_layout(
+        title=dict(text=title, font=dict(size=16)),
+        xaxis_title="Year",
+        yaxis_title=y_label,
+        yaxis=dict(rangemode="tozero"),
+        hovermode="x unified",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        margin=dict(t=60, b=50, l=60, r=40),
+        height=500,
+        template="plotly_white",
+        font=dict(size=12),
+    )
+    fig.update_traces(showlegend=True)
+    out_path = SITE_CHARTS_DIR / f"{filename_stem}.html"
+    fig.write_html(str(out_path), config=dict(displayModeBar=True, responsive=True))
+    print(f"Saved (interactive): {out_path}")
+
+make_cumulative_plotly(
+    cum_aa,
+    top10_aa_schools,
+    "Cumulative All-Americans",
+    "Cumulative All-Americans by Year — Top 10 Schools (2000–2025)",
+    "report_04_cumulative_aa_by_year",
+)
+make_cumulative_plotly(
+    cum_nc,
+    top10_nc_schools,
+    "Cumulative National Championships",
+    "Cumulative National Championships by Year — Top 10 Schools (2000–2025)",
+    "report_04_cumulative_nc_by_year",
+)
 
 # Chart: Tall horizontal bar — schools (y) vs seed-performance differential (x), zero-centered
 # school_for_diff is already sorted descending by Seed_Diff_Sum

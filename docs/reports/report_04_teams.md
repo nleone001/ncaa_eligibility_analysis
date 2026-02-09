@@ -28,15 +28,15 @@ The chart below shows every school with at least 15 All-Americans, ordered by di
 
 ## Top 10 Schools: Cumulative All-Americans and National Titles
 
-The following charts show how the **top 10** schools by total All-Americans and the **top 10** by total national titles have accumulated those totals over time. Lines use each school’s primary color and are semi-transparent where they overlap.
+The following **interactive** charts show how the **top 10** schools by total All-Americans and the **top 10** by total national titles have accumulated those totals over time. Lines use each school’s primary color. **Hover** over a point to see school, year, and cumulative value; **click a school in the legend** to show or hide that line (double-click to isolate one school).
 
 ### Cumulative All-Americans by Year (Top 10 schools)
 
-![Cumulative All-Americans by year — top 10 schools]({{ site.baseurl }}/charts/report_04_cumulative_aa_by_year.png)
+<iframe src="{{ site.baseurl }}/charts/report_04_cumulative_aa_by_year.html" title="Cumulative All-Americans by year — top 10 schools" width="100%" height="540" style="border: 1px solid #e2e8f0; border-radius: 6px; margin: 1rem 0;"></iframe>
 
 ### Cumulative National Championships by Year (Top 10 schools)
 
-![Cumulative National Championships by year — top 10 schools]({{ site.baseurl }}/charts/report_04_cumulative_nc_by_year.png)
+<iframe src="{{ site.baseurl }}/charts/report_04_cumulative_nc_by_year.html" title="Cumulative National Championships by year — top 10 schools" width="100%" height="540" style="border: 1px solid #e2e8f0; border-radius: 6px; margin: 1rem 0;"></iframe>
 
 ### Top 10 schools by All-Americans and National Titles (tables)
 
