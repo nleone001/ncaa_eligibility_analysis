@@ -100,7 +100,7 @@ For wrestlers who AAd at two or more weights, we examine each transition - a con
 ![Weight-change flow: Multi-weight AA transitions → Moving up/down → Improved (green) / Worse (red) / Same (grey)]({{ site.baseurl }}/charts/weight_change_flow.png)
 *Flow diagram: all weight-change transitions on the left; branches to moving up or down (with counts); then to improved (green), worse (red), or same placement (grey).*
 
-##List of all Weight-Change AAs
+## List of all Weight-Change AAs
 
 {% capture report_02_weight_outcomes %}{% include report_02_weight_change_outcomes_table.md %}{% endcapture %}
 {{ report_02_weight_outcomes }}
