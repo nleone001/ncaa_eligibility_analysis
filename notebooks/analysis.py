@@ -637,6 +637,17 @@ n_weight_3 = (weights_per_wrestler == 3).sum()
 n_weight_4 = (weights_per_wrestler == 4).sum()
 multi_weight_by_n = {"2": int(n_weight_2), "3": int(n_weight_3), "4": int(n_weight_4)}
 wrestlers_4_weights = weights_per_wrestler[weights_per_wrestler == 4].index.tolist()
+
+# Wrestler lists and display strings for multi-weight-by-n table (Name (w1, w2, ...))
+def multi_weight_display_str(wrestler):
+    weights = sorted(df_filtered[df_filtered["Wrestler"] == wrestler]["Weight"].unique().tolist())
+    return f"{wrestler} ({', '.join(str(w) for w in weights)})"
+
+multi_weight_by_n_wrestlers = {}
+for n_val in [2, 3, 4]:
+    wrestlers = weights_per_wrestler[weights_per_wrestler == n_val].index.tolist()
+    multi_weight_by_n_wrestlers[str(n_val)] = sorted(wrestlers)
+
 print(f"  Exactly 2 weight classes: {n_weight_2:,}")
 print(f"  Exactly 3 weight classes: {n_weight_3:,}")
 print(f"  Exactly 4 weight classes: {n_weight_4:,} (e.g. Kyle Dake)")
@@ -1668,6 +1679,38 @@ last_chance_include_path = includes_dir / "report_02_last_chance_table.md"
 with open(last_chance_include_path, "w") as f:
     f.write("\n".join(last_chance_table_lines) + "\n" + last_chance_script)
 print(f"Saved: {last_chance_include_path}")
+
+# Multi-weight-by-n table: same format as Last Chance (Sub-type | Criteria | Count), hover/click for wrestler list
+MULTI_WEIGHT_CRITERIA = {
+    "2": "AA at exactly 2 different weight classes",
+    "3": "AA at exactly 3 different weight classes",
+    "4": "AA at exactly 4 different weight classes (Kyle Dake)",
+}
+multi_weight_table_lines = [
+    '<table class="last-chance-table">',
+    "<thead><tr><th>Sub-type</th><th>Criteria</th><th>Count</th></tr></thead>",
+    "<tbody>",
+]
+for n_key in ["2", "3", "4"]:
+    wrestlers = multi_weight_by_n_wrestlers.get(n_key, [])
+    total = len(wrestlers)
+    places_str = ARCHETYPE_LIST_DELIM.join([multi_weight_display_str(w) for w in wrestlers]) if wrestlers else ""
+    names_str = ", ".join(wrestlers) if wrestlers else ""
+    row_attrs = ""
+    if wrestlers:
+        row_attrs = f' data-wrestlers="{html_module.escape(names_str)}" data-wrestlers-places="{html_module.escape(places_str)}" data-count="{total}"'
+    sub_type = f"{n_key} weight classes"
+    multi_weight_table_lines.append(f"<tr{row_attrs}>")
+    multi_weight_table_lines.append(f"<td><strong>{html_module.escape(sub_type)}</strong></td>")
+    multi_weight_table_lines.append(f"<td>{MULTI_WEIGHT_CRITERIA[n_key]}</td>")
+    multi_weight_table_lines.append(f"<td>{total}</td>")
+    multi_weight_table_lines.append("</tr>")
+multi_weight_table_lines.append("</tbody></table>")
+
+multi_weight_include_path = includes_dir / "report_02_multi_weight_table.md"
+with open(multi_weight_include_path, "w") as f:
+    f.write("\n".join(multi_weight_table_lines))
+print(f"Saved: {multi_weight_include_path}")
 
 # ==============================================================================
 # EXPORT TABLES

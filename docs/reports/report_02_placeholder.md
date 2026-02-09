@@ -88,13 +88,10 @@ Of **{{ site.data.report_02_stats.n_unique_wrestlers }}** unique wrestlers with 
 
 ### Count of AAs at n unique weight classes
 
-Most multi-weight All-Americans competed at exactly two weight classes. The rare feat of placing at four different weights was accomplished by only one wrestler in the dataset: **Kyle Dake, Mr. 444**, who famously won national titles at 141, 149, 157, and 165 (2009–2013).
+Most multi-weight All-Americans competed at exactly two weight classes. The rare feat of placing at four different weights was accomplished by only one wrestler in the dataset: **Kyle Dake, Mr. 444**, who famously won national titles at 141, 149, 157, and 165 (2009–2013). Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.
 
-| Unique weight classes | Wrestlers |
-|:---------------------:|:---------:|
-| 2 | {{ site.data.report_02_stats.multi_weight_by_n.2 }} |
-| 3 | {{ site.data.report_02_stats.multi_weight_by_n.3 }} |
-| 4 | {{ site.data.report_02_stats.multi_weight_by_n.4 }} |
+{% capture report_02_multi_weight %}{% include report_02_multi_weight_table.md %}{% endcapture %}
+{{ report_02_multi_weight }}
 
 ### Weight-change direction and placement impact
 
