@@ -19,6 +19,7 @@ from pathlib import Path
 # Paths
 ROOT_DIR = Path(__file__).parent.parent
 DATA_PATH = ROOT_DIR / "data" / "raw_data.csv"
+SCHOOLS_JSON_PATH = ROOT_DIR / "data" / "schools.json"
 CHARTS_DIR = ROOT_DIR / "charts"
 TABLES_DIR = ROOT_DIR / "tables"
 SITE_CHARTS_DIR = ROOT_DIR / "docs" / "charts"  # For GitHub Pages
@@ -2990,20 +2991,34 @@ school_for_diff = school_for_diff.sort_values("Seed_Diff_Sum", ascending=False)
 top5_overperform = school_for_diff.head(5)
 top5_underperform = school_for_diff.tail(5).sort_values("Seed_Diff_Sum", ascending=True)
 
-top4_aa = school_stats.nlargest(4, "AA_Count")
-top4_nc = school_stats.nlargest(4, "NC_Count")
-top4_aa_schools = top4_aa["School"].tolist()
-top4_nc_schools = top4_nc["School"].tolist()
 top10_aa = school_stats.nlargest(10, "AA_Count")
 top10_nc = school_stats.nlargest(10, "NC_Count")
+top10_aa_schools = top10_aa["School"].tolist()
+top10_nc_schools = top10_nc["School"].tolist()
 
 print(f"Schools with >= {MIN_AAS_FOR_SEED_DIFF} AAs (for seed diff): {len(school_for_diff)}")
 print("Top 5 overperformers (by seed diff sum):", top5_overperform[["School", "Seed_Diff_Sum", "AA_Count"]].values.tolist())
 print("Top 5 underperformers:", top5_underperform[["School", "Seed_Diff_Sum", "AA_Count"]].values.tolist())
-print("Top 4 by AAs (for charts):", top4_aa[["School", "AA_Count"]].values.tolist())
-print("Top 4 by NCs (for charts):", top4_nc[["School", "NC_Count"]].values.tolist())
+print("Top 10 by AAs (for charts):", top10_aa[["School", "AA_Count"]].values.tolist())
+print("Top 10 by NCs (for charts):", top10_nc[["School", "NC_Count"]].values.tolist())
 
-# Cumulative AAs and NCs by year for top-4 schools (for line charts)
+# Load school primary colors from data/schools.json (for cumulative line charts)
+school_primary_colors = {}
+if SCHOOLS_JSON_PATH.exists():
+    with open(SCHOOLS_JSON_PATH, "r") as f:
+        schools_data = json.load(f)
+    for entry in schools_data:
+        name = entry.get("school")
+        if name and entry.get("primary_color_1"):
+            school_primary_colors[name] = entry["primary_color_1"]
+DEFAULT_LINE_COLOR = "#555555"
+LINE_ALPHA = 0.78
+LINE_WIDTH = 3.5
+
+def get_school_color(school):
+    return school_primary_colors.get(school, DEFAULT_LINE_COLOR)
+
+# Cumulative AAs and NCs by year for top-10 schools (for line charts)
 all_years_sorted = sorted(df["Year"].unique())
 aa_by_school_year = df.groupby(["School", "Year"]).size().reset_index(name="AA_Count")
 nc_by_school_year = df[df["Place"] == 1].groupby(["School", "Year"]).size().reset_index(name="NC_Count")
@@ -3020,21 +3035,19 @@ def cumulative_by_year(schools, count_df, count_col):
             out.append({"School": school, "Year": year, "Cumulative": int(cum.loc[year])})
     return pd.DataFrame(out)
 
-cum_aa = cumulative_by_year(top4_aa_schools, aa_by_school_year, "AA_Count")
-cum_nc = cumulative_by_year(top4_nc_schools, nc_by_school_year, "NC_Count")
+cum_aa = cumulative_by_year(top10_aa_schools, aa_by_school_year, "AA_Count")
+cum_nc = cumulative_by_year(top10_nc_schools, nc_by_school_year, "NC_Count")
 
-# Colors for top-4 school lines (distinct)
-TOP4_COLORS = ["#1a1a1a", "#c41e3a", "#ff6600", "#003366"]  # dark, red, orange, blue
-
-# Chart: Cumulative All-Americans by year (top 4 schools)
+# Chart: Cumulative All-Americans by year (top 10 schools) — primary colors, thicker, semi-transparent
 fig, ax = plt.subplots(figsize=(10, 6))
-for idx, school in enumerate(top4_aa_schools):
+for school in top10_aa_schools:
     sub = cum_aa[cum_aa["School"] == school].sort_values("Year")
-    ax.plot(sub["Year"], sub["Cumulative"], color=TOP4_COLORS[idx], linewidth=2.5, label=school)
+    color = get_school_color(school)
+    ax.plot(sub["Year"], sub["Cumulative"], color=color, alpha=LINE_ALPHA, linewidth=LINE_WIDTH, label=school)
 ax.set_xlabel("Year", fontsize=12)
 ax.set_ylabel("Cumulative All-Americans", fontsize=12)
-ax.set_title("Cumulative All-Americans by Year — Top 4 Schools (2000–2025)", fontsize=14, fontweight="medium", pad=12)
-ax.legend(loc="upper left", fontsize=11)
+ax.set_title("Cumulative All-Americans by Year — Top 10 Schools (2000–2025)", fontsize=14, fontweight="medium", pad=12)
+ax.legend(loc="upper left", fontsize=9, ncol=2)
 ax.set_ylim(0, None)
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
@@ -3047,15 +3060,16 @@ plt.savefig(chart_aa_cum_site, dpi=150)
 plt.close()
 print(f"Saved: {chart_aa_cum_path}")
 
-# Chart: Cumulative National Championships by year (top 4 schools)
+# Chart: Cumulative National Championships by year (top 10 schools) — primary colors, thicker, semi-transparent
 fig, ax = plt.subplots(figsize=(10, 6))
-for idx, school in enumerate(top4_nc_schools):
+for school in top10_nc_schools:
     sub = cum_nc[cum_nc["School"] == school].sort_values("Year")
-    ax.plot(sub["Year"], sub["Cumulative"], color=TOP4_COLORS[idx], linewidth=2.5, label=school)
+    color = get_school_color(school)
+    ax.plot(sub["Year"], sub["Cumulative"], color=color, alpha=LINE_ALPHA, linewidth=LINE_WIDTH, label=school)
 ax.set_xlabel("Year", fontsize=12)
 ax.set_ylabel("Cumulative National Championships", fontsize=12)
-ax.set_title("Cumulative National Championships by Year — Top 4 Schools (2000–2025)", fontsize=14, fontweight="medium", pad=12)
-ax.legend(loc="upper left", fontsize=11)
+ax.set_title("Cumulative National Championships by Year — Top 10 Schools (2000–2025)", fontsize=14, fontweight="medium", pad=12)
+ax.legend(loc="upper left", fontsize=9, ncol=2)
 ax.set_ylim(0, None)
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
