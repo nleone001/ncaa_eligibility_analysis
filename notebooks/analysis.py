@@ -2060,7 +2060,8 @@ for match_type in ['Final', '3rd', '5th', '7th']:
     count = len(chalk_results[match_type])
     print(f"  {match_type} place match: {count} year/weight combos")
 
-# Build interactive HTML table
+# Build interactive HTML table (total brackets = 25 years × 10 weights = 250)
+TOTAL_BRACKETS = 250
 chalk_table_lines = [
     '<table class="chalk-table eligibility-combo-table">',
     '<thead><tr><th style="text-align:center">Match</th><th style="text-align:center">Count</th></tr></thead>',
@@ -2074,6 +2075,7 @@ def format_chalk_entry(entry):
 for match_type in ['Final', '3rd', '5th', '7th']:
     entries = chalk_results[match_type]
     count = len(entries)
+    pct = (count / TOTAL_BRACKETS * 100) if TOTAL_BRACKETS else 0
     
     # Create display strings for tooltip and expand
     display_strings = [format_chalk_entry(e) for e in entries]
@@ -2083,7 +2085,7 @@ for match_type in ['Final', '3rd', '5th', '7th']:
         f'<tr data-wrestlers="{html_module.escape(display_str)}" data-count="{count}">'
     )
     chalk_table_lines.append(f'<td style="text-align:center"><strong>{match_type}</strong></td>')
-    chalk_table_lines.append(f'<td style="text-align:center">{count}</td>')
+    chalk_table_lines.append(f'<td style="text-align:center">{count} ({pct:.1f}%)</td>')
     chalk_table_lines.append('</tr>')
 
 chalk_table_lines.append('</tbody></table>')
