@@ -100,6 +100,8 @@ For wrestlers who AAd at two or more weights, we examine each transition - a con
 ![Weight-change flow: Multi-weight AA transitions → Moving up/down → Improved (green) / Worse (red) / Same (grey)]({{ site.baseurl }}/charts/weight_change_flow.png)
 *Flow diagram: all weight-change transitions on the left; branches to moving up or down (with counts); then to improved (green), worse (red), or same placement (grey).*
 
+##List of all Weight-Change AAs
+
 {% capture report_02_weight_outcomes %}{% include report_02_weight_change_outcomes_table.md %}{% endcapture %}
 {{ report_02_weight_outcomes }}
 
@@ -121,6 +123,8 @@ For wrestlers who AAd at two or more weights, we examine each transition - a con
 
 ## Appendix: Methodology and Analysis Scope
 
+This appendix provides the technical details behind our dataset construction and explains what our analysis can and cannot reveal about wrestler progression.
+
 ### Complete Career Criteria
 
 This analysis includes only wrestlers whose careers are **observably complete**—meaning they've exhausted their eligibility or enough time has passed that we can be confident they won't return to competition.
@@ -138,7 +142,7 @@ This analysis includes only wrestlers whose careers are **observably complete**�
 - Wrestlers who last competed as So in 2023–2025 (could still AA as Jr/Sr/SSr)
 - Wrestlers who last competed as Jr in 2023–2025 (could still AA as Sr/SSr)
 
-We do not exclude wrestlers who last competed as Sr (e.g., in 2024–2025) based on a possible return as SSr, as many wrestlers are opting to not take their final year and move on to post-collegiate endeavors. We count their career as complete through their senior year. 
+We do not exclude wrestlers who last competed as Sr (e.g., in 2024–2025) based on a possible return as SSr, as many wrestlers opt not to take their super senior year and instead pursue post-collegiate opportunities. We count their career as complete through their senior year. 
 
 ### Full Career in Dataset Window
 
@@ -162,7 +166,7 @@ This methodology ensures we're counting complete careers that are fully observab
 
 **What we cannot see:** The journey to the first All-American finish. For most wrestlers, this is the hardest climb—the years spent as a non-starter, backup, national qualifier, or Round of 12 competitor before finally breaking through to the podium. These pre-AA years, while often the most dramatic part of a wrestler's development arc, are not captured in our dataset.
 
-For example, Robbie Waller (Oklahoma, 2000-2003) came one win short of All-American honors as both a freshman and sophomore before finally placing 6th as a junior and winning the championship as a senior. Mike Macchiavello (NC State, 2014-2018) had a losing record as a freshman and sophomore, took a redshirt year, then came one win short as a junior before winning the title as a senior. These inspiring progressions are largely invisible in our data - we only see their AA finishes, not the years of grinding that preceded them.
+For example, Robbie Waller (Oklahoma, 2000-2003) came one win short of All-American honors as both a freshman and sophomore before finally placing 6th as a junior and winning the championship as a senior. Mike Macchiavello (NC State, 2014-2018) had a losing record as a freshman and sophomore, took a redshirt year, then came one win short as a junior before winning the title as a senior. These inspiring progressions are largely invisible in our data: we only see their AA finishes, not the years of grinding that preceded them.
 
 This analysis therefore tells the story of the elite few who made it to the podium enough times to show a progression, not the full journey of every wrestler who eventually earned All-American honors.
 

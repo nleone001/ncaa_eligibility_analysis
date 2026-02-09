@@ -379,6 +379,11 @@ tr:hover {
 .last-chance-table td:nth-child(2) {
     text-align: left;
 }
+/* Weight-outcome table: center all columns */
+.weight-outcome-table th,
+.weight-outcome-table td {
+    text-align: center;
+}
 .last-chance-table th {
     background: #f1f5f9;
     font-weight: 600;

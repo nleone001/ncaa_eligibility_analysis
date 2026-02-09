@@ -948,7 +948,7 @@ if len(transitions_df) > 0:
         ("↓ Down", "Same", "down_same", wf["down_same"]),
     ]
     weight_outcome_table_lines = [
-        '<table class="last-chance-table">',
+        '<table class="last-chance-table weight-outcome-table">',
         "<thead><tr><th>Direction</th><th>Outcome</th><th>Count</th></tr></thead>",
         "<tbody>",
     ]
