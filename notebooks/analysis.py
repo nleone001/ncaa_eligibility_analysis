@@ -3130,6 +3130,32 @@ make_cumulative_plotly(
     "report_04_cumulative_nc_by_year",
 )
 
+# Underclassmen (Fr + So) only: top 10 schools by underclassmen AA count, then cumulative AA and NC charts
+df_under = df[df["Eligibility Year"].isin(["Fr", "So"])]
+school_under_aa_count = df_under.groupby("School").size().reset_index(name="Under_AA_Count")
+top10_under_aa = school_under_aa_count.nlargest(10, "Under_AA_Count")
+top10_under_aa_schools = top10_under_aa["School"].tolist()
+aa_by_school_year_under = df_under.groupby(["School", "Year"]).size().reset_index(name="AA_Count")
+nc_by_school_year_under = df_under[df_under["Place"] == 1].groupby(["School", "Year"]).size().reset_index(name="NC_Count")
+cum_aa_under = cumulative_by_year(top10_under_aa_schools, aa_by_school_year_under, "AA_Count")
+cum_nc_under = cumulative_by_year(top10_under_aa_schools, nc_by_school_year_under, "NC_Count")
+print("Top 10 by underclassmen (Fr+So) AAs:", top10_under_aa[["School", "Under_AA_Count"]].values.tolist())
+
+make_cumulative_plotly(
+    cum_aa_under,
+    top10_under_aa_schools,
+    "Cumulative Fr/So All-Americans",
+    "Cumulative Underclassmen (Fr + So) All-Americans by Year — Top 10 Schools (2000–2025)",
+    "report_04_cumulative_aa_underclassmen_by_year",
+)
+make_cumulative_plotly(
+    cum_nc_under,
+    top10_under_aa_schools,
+    "Cumulative Fr/So National Championships",
+    "Cumulative Underclassmen (Fr + So) National Championships by Year — Top 10 Schools (2000–2025)",
+    "report_04_cumulative_nc_underclassmen_by_year",
+)
+
 # Chart: Tall horizontal bar — schools (y) vs seed-performance differential (x), zero-centered
 # school_for_diff is already sorted descending by Seed_Diff_Sum
 schools_diff = school_for_diff["School"].tolist()

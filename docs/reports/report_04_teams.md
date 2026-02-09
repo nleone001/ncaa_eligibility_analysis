@@ -38,6 +38,18 @@ The following **interactive** charts show how the **top 10** schools by total Al
 
 <iframe src="{{ site.baseurl }}/charts/report_04_cumulative_nc_by_year.html" title="Cumulative National Championships by year — top 10 schools" width="100%" height="620" style="border: 1px solid #e2e8f0; border-radius: 6px; margin: 1rem 0;"></iframe>
 
+## Top 10 Schools: Underclassmen (Fr + So) Only
+
+The next two charts use the same idea but count only **underclassmen**—freshmen and sophomores (Fr and So eligibility). Schools are ranked by total underclassmen All-Americans over 2000–2025; the **top 10** by that measure are shown. The charts show how those schools have accumulated **underclassmen AAs** and **underclassmen national titles** over time.
+
+### Cumulative Underclassmen (Fr + So) All-Americans by Year (Top 10 schools)
+
+<iframe src="{{ site.baseurl }}/charts/report_04_cumulative_aa_underclassmen_by_year.html" title="Cumulative underclassmen All-Americans by year — top 10 schools" width="100%" height="620" style="border: 1px solid #e2e8f0; border-radius: 6px; margin: 1rem 0;"></iframe>
+
+### Cumulative Underclassmen (Fr + So) National Championships by Year (Top 10 schools)
+
+<iframe src="{{ site.baseurl }}/charts/report_04_cumulative_nc_underclassmen_by_year.html" title="Cumulative underclassmen National Championships by year — top 10 schools" width="100%" height="620" style="border: 1px solid #e2e8f0; border-radius: 6px; margin: 1rem 0;"></iframe>
+
 ### Top 10 schools by All-Americans and National Titles (tables)
 
 ---
