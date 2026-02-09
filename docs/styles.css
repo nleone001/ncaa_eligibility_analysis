@@ -457,6 +457,82 @@ code {
     border-radius: 3px;
 }
 
+/* Weight flow diagram: interactive flow with hover to show wrestlers */
+.weight-flow-diagram {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+.weight-flow-title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.25rem;
+}
+.weight-flow-subtitle {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+.weight-flow-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.weight-flow-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+.weight-flow-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.1);
+    min-width: 100px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: white;
+}
+.weight-flow-box.weight-flow-all { background: #64748b; }
+.weight-flow-box.weight-flow-up { background: #3b82f6; }
+.weight-flow-box.weight-flow-down { background: #8b5cf6; }
+.weight-flow-box.weight-flow-up-improved,
+.weight-flow-box.weight-flow-down-improved { background: #22c55e; }
+.weight-flow-box.weight-flow-up-worse,
+.weight-flow-box.weight-flow-down-worse { background: #ef4444; }
+.weight-flow-box.weight-flow-up-same,
+.weight-flow-box.weight-flow-down-same { background: #94a3b8; }
+.weight-flow-box.weight-flow-hoverable {
+    cursor: pointer;
+}
+.weight-flow-box.weight-flow-hoverable:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.weight-flow-label { display: block; font-size: 0.75rem; opacity: 0.95; }
+.weight-flow-count { display: block; font-size: 0.7rem; opacity: 0.9; }
+.weight-flow-num { font-weight: 600; }
+.weight-flow-connectors {
+    width: 20px;
+    min-width: 20px;
+    border-bottom: 2px solid #94a3b8;
+    align-self: center;
+}
+@media (min-width: 700px) {
+    .weight-flow-body { flex-wrap: nowrap; }
+}
+
 /* Footer */
 footer {
     margin-top: 4rem;

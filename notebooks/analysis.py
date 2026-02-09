@@ -785,6 +785,135 @@ if len(transitions_df) > 0:
     print(f"Saved: {flow_path}")
     print(f"Saved: {flow_site_path}")
 
+    # Build wrestler/transition strings for interactive flow diagram
+    def trans_str(row):
+        return f"{row['wrestler']} ({row['from_weight']}→{row['to_weight']}: {row['from_place']}→{row['to_place']})"
+
+    weight_flow_data = {}
+    for _, row in transitions_df.iterrows():
+        s = trans_str(row)
+        weight_flow_data.setdefault("all", []).append(s)
+        if row["direction"] == "up":
+            weight_flow_data.setdefault("up", []).append(s)
+            weight_flow_data.setdefault(f"up_{row['place_change']}", []).append(s)
+        else:
+            weight_flow_data.setdefault("down", []).append(s)
+            weight_flow_data.setdefault(f"down_{row['place_change']}", []).append(s)
+
+    wf_delim = " | "
+    weight_flow_transitions = {k: wf_delim.join(v) for k, v in weight_flow_data.items()}
+
+    # Generate interactive HTML flow diagram
+    wf = weight_move_stats
+    wft = weight_flow_transitions
+
+    def wf_attrs(key, count):
+        places = wft.get(key, "")
+        return f' data-wrestlers-places="{html_module.escape(places)}" data-count="{count}"' if places else ""
+
+    n_trans = wf["n_transitions"]
+    pct_up = round(100 * wf["moves_up"] / n_trans, 1) if n_trans else 0
+    pct_down = round(100 * wf["moves_down"] / n_trans, 1) if n_trans else 0
+
+    weight_flow_html = [
+        '<div class="weight-flow-diagram">',
+        '  <div class="weight-flow-title">Weight-change transitions and placement outcomes</div>',
+        f'  <div class="weight-flow-subtitle">{wf["n_transitions"]} transitions from multi-weight All-Americans</div>',
+        '  <div class="weight-flow-body">',
+        '    <div class="weight-flow-column weight-flow-left">',
+        f'      <div class="weight-flow-box weight-flow-all"{wf_attrs("all", wf["n_transitions"])}>',
+        f'        <span class="weight-flow-label">Multi-weight AA</span>',
+        f'        <span class="weight-flow-count">transitions</span>',
+        f'        <span class="weight-flow-num">{wf["n_transitions"]}</span>',
+        "      </div>",
+        "    </div>",
+        '    <div class="weight-flow-connectors weight-flow-conn-1"></div>',
+        '    <div class="weight-flow-column weight-flow-middle">',
+        f'      <div class="weight-flow-box weight-flow-up"{wf_attrs("up", wf["moves_up"])}>',
+        f'        <span class="weight-flow-label">Moving up</span>',
+        f'        <span class="weight-flow-num">{wf["moves_up"]} ({pct_up}%)</span>',
+        "      </div>",
+        f'      <div class="weight-flow-box weight-flow-down"{wf_attrs("down", wf["moves_down"])}>',
+        f'        <span class="weight-flow-label">Moving down</span>',
+        f'        <span class="weight-flow-num">{wf["moves_down"]} ({pct_down}%)</span>',
+        "      </div>",
+        "    </div>",
+        '    <div class="weight-flow-connectors weight-flow-conn-2"></div>',
+        '    <div class="weight-flow-column weight-flow-right">',
+        f'      <div class="weight-flow-box weight-flow-outcome weight-flow-up-improved"{wf_attrs("up_improved", wf["up_improved"])}>',
+        f'        <span class="weight-flow-label">Improved</span>',
+        f'        <span class="weight-flow-num">{wf["up_improved"]} ({wf["pct_up_improved"]}%)</span>',
+        "      </div>",
+        f'      <div class="weight-flow-box weight-flow-outcome weight-flow-up-worse"{wf_attrs("up_worse", wf["up_worse"])}>',
+        f'        <span class="weight-flow-label">Worse</span>',
+        f'        <span class="weight-flow-num">{wf["up_worse"]} ({wf["pct_up_worse"]}%)</span>',
+        "      </div>",
+        f'      <div class="weight-flow-box weight-flow-outcome weight-flow-up-same"{wf_attrs("up_same", wf["up_same"])}>',
+        f'        <span class="weight-flow-label">Same</span>',
+        f'        <span class="weight-flow-num">{wf["up_same"]} ({wf["pct_up_same"]}%)</span>',
+        "      </div>",
+        f'      <div class="weight-flow-box weight-flow-outcome weight-flow-down-improved"{wf_attrs("down_improved", wf["down_improved"])}>',
+        f'        <span class="weight-flow-label">Improved</span>',
+        f'        <span class="weight-flow-num">{wf["down_improved"]} ({wf["pct_down_improved"]}%)</span>',
+        "      </div>",
+        f'      <div class="weight-flow-box weight-flow-outcome weight-flow-down-worse"{wf_attrs("down_worse", wf["down_worse"])}>',
+        f'        <span class="weight-flow-label">Worse</span>',
+        f'        <span class="weight-flow-num">{wf["down_worse"]} ({wf["pct_down_worse"]}%)</span>',
+        "      </div>",
+        f'      <div class="weight-flow-box weight-flow-outcome weight-flow-down-same"{wf_attrs("down_same", wf["down_same"])}>',
+        f'        <span class="weight-flow-label">Same</span>',
+        f'        <span class="weight-flow-num">{wf["down_same"]} ({wf["pct_down_same"]}%)</span>',
+        "      </div>",
+        "    </div>",
+        "  </div>",
+        "</div>",
+        "",
+        '<script>',
+        "(function(){",
+        "  var PLACES_DELIM=' | ';",
+        "  function showWeightFlowTip(el,x,y){",
+        "    var listStr=el.getAttribute('data-wrestlers-places');",
+        "    var n=el.getAttribute('data-count');",
+        "    if(!listStr)return;",
+        "    var tip=document.querySelector('.wrestler-tooltip');",
+        "    if(!tip){",
+        "      tip=document.createElement('div');tip.className='wrestler-tooltip';",
+        "      tip.innerHTML='<div class=\"wrestler-tooltip-title\"></div><ul class=\"wrestler-tooltip-list\"></ul>';",
+        "      document.body.appendChild(tip);",
+        "    }",
+        "    var title=tip.querySelector('.wrestler-tooltip-title');",
+        "    var list=tip.querySelector('.wrestler-tooltip-list');",
+        "    title.textContent=n+' Transitions';",
+        "    var items=listStr.split(PLACES_DELIM);",
+        "    list.innerHTML=items.map(function(i){return '<li>'+i+'</li>';}).join('');",
+        "    tip.style.left=(x+16)+'px';tip.style.top=(y-10)+'px';tip.style.display='block';",
+        "  }",
+        "  function hideWeightFlowTip(){",
+        "    var tip=document.querySelector('.wrestler-tooltip');",
+        "    if(tip)tip.style.display='none';",
+        "  }",
+        "  document.addEventListener('DOMContentLoaded',function(){",
+        "    var style=document.getElementById('wrestler-tooltip-styles');",
+        "    if(!style){style=document.createElement('style');style.id='wrestler-tooltip-styles';",
+        "    style.textContent='.wrestler-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:12px;font-size:0.85rem;line-height:1.5;max-height:400px;max-width:500px;overflow-y:auto;z-index:1000;pointer-events:none;border:1px solid #e2e8f0}';",
+        "    document.head.appendChild(style);}",
+        "    document.querySelectorAll('.weight-flow-box[data-wrestlers-places]').forEach(function(box){",
+        "      box.classList.add('weight-flow-hoverable');",
+        "      box.addEventListener('mouseenter',function(e){showWeightFlowTip(box,e.clientX,e.clientY);});",
+        "      box.addEventListener('mousemove',function(e){showWeightFlowTip(box,e.clientX,e.clientY);});",
+        "      box.addEventListener('mouseleave',hideWeightFlowTip);",
+        "    });",
+        "  });",
+        "})();",
+        "</script>",
+    ]
+
+    weight_flow_include_path = ROOT_DIR / "docs" / "_includes" / "report_02_weight_flow.html"
+    weight_flow_include_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(weight_flow_include_path, "w") as f:
+        f.write("\n".join(weight_flow_html))
+    print(f"Saved: {weight_flow_include_path}")
+
 # Eligibility-year combinations by N×AA tier (when AA was earned, by eligibility)
 # For each wrestler: (n_aa, sorted tuple of eligibility years in which they AA'd)
 elig_order = ELIGIBILITY_ORDER  # ["Fr", "So", "Jr", "Sr", "SSr"]
