@@ -283,8 +283,24 @@ tr:hover {
 .archetype-table th,
 .archetype-table td {
     padding: 0.6rem 0.75rem;
-    text-align: left;
     border: 1px solid var(--color-border);
+}
+/* Center all columns except Description (2nd) */
+.archetype-table th:nth-child(1),
+.archetype-table td:nth-child(1),
+.archetype-table th:nth-child(3),
+.archetype-table td:nth-child(3),
+.archetype-table th:nth-child(4),
+.archetype-table td:nth-child(4),
+.archetype-table th:nth-child(5),
+.archetype-table td:nth-child(5),
+.archetype-table th:nth-child(6),
+.archetype-table td:nth-child(6) {
+    text-align: center;
+}
+.archetype-table th:nth-child(2),
+.archetype-table td:nth-child(2) {
+    text-align: left;
 }
 .archetype-table th {
     background: #f1f5f9;
@@ -292,7 +308,6 @@ tr:hover {
 }
 .archetype-table .archetype-cell[data-wrestlers] {
     cursor: pointer;
-    text-align: right;
 }
 .archetype-table .archetype-cell[data-wrestlers]:hover {
     background-color: #eef2f7;
@@ -357,8 +372,12 @@ tr:hover {
 .last-chance-table th,
 .last-chance-table td {
     padding: 0.6rem 0.75rem;
-    text-align: left;
+    text-align: center;
     border: 1px solid var(--color-border);
+}
+.last-chance-table th:nth-child(2),
+.last-chance-table td:nth-child(2) {
+    text-align: left;
 }
 .last-chance-table th {
     background: #f1f5f9;

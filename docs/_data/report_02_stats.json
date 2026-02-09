@@ -1,14 +1,14 @@
 {
-  "n_complete_careers": 869,
-  "n_unique_wrestlers": 869,
+  "n_complete_careers": 868,
+  "n_unique_wrestlers": 868,
   "n_multi_aa": 476,
   "n_multi_weight_aa": 139,
   "n_improved_every_year": 153,
   "pct_improved_of_multi_aa": 32.1,
   "pct_improved_of_all": 17.6,
   "funnel": {
-    "all": 869,
-    "n_1plus": 393,
+    "all": 868,
+    "n_1plus": 392,
     "n_2plus": 223,
     "n_3plus": 150,
     "n_4plus": 96,
@@ -100,9 +100,9 @@
     "Last Chance": {
       "Senior Last Chance": {
         "by_aa": {
-          "1": 212
+          "1": 211
         },
-        "total": 212
+        "total": 211
       },
       "COVID Last Chance": {
         "by_aa": {
@@ -112,9 +112,9 @@
       },
       "Championship Last Chance": {
         "by_aa": {
-          "1": 5
+          "1": 4
         },
-        "total": 5
+        "total": 4
       }
     }
   }

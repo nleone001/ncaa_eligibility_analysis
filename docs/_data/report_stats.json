@@ -14,13 +14,13 @@
       "label": "Sophomores"
     },
     "Jr": {
-      "count": 78,
-      "pct": "31.2",
+      "count": 79,
+      "pct": "31.6",
       "label": "Juniors"
     },
     "Sr": {
-      "count": 101,
-      "pct": "40.4",
+      "count": 100,
+      "pct": "40.0",
       "label": "Seniors"
     },
     "SSr": {
@@ -41,13 +41,13 @@
       "label": "Sophomores"
     },
     "Jr": {
-      "count": 603,
-      "pct": "30.1",
+      "count": 604,
+      "pct": "30.2",
       "label": "Juniors"
     },
     "Sr": {
-      "count": 694,
-      "pct": "34.7",
+      "count": 693,
+      "pct": "34.6",
       "label": "Seniors"
     },
     "SSr": {

@@ -48,7 +48,7 @@ Roughly half of all wrestlers who ever AA'd did it more than once. Only about 11
 **Key patterns:**
 - **1× AA:** Nearly half (50%) earn their lone All-American finish as seniors—the "last chance" breakthrough
 - **2× AA:** Junior-Senior dominates (53%), but there's significant variety in when wrestlers earn their first AA
-- **3x AA:**: Sophomore-Junior-Senior represents the majority, again showing that many careers require a freshman year of experience and development to break through and sustain AA finishes
+- **3x AA:** Sophomore-Junior-Senior represents the majority, again showing that many careers require a freshman year of experience and development to break through and sustain AA finishes
 
 
 {% capture report_02_nc_combos %}{% include report_02_nc_eligibility_combos.md %}{% endcapture %}
@@ -63,14 +63,18 @@ Roughly half of all wrestlers who ever AA'd did it more than once. Only about 11
 
 ## Progression Archetypes
 
-We classify wrestlers with **complete, observable careers** (same eligibility exclusion as above) into progression archetypes based on their AA placement sequences. A wrestler can match more than one archetype. All six placement archetypes require **3+ AA**. Counts below are broken out by 3×, 4×, and 5× AA. **Hover** on a 3×, 4×, or 5× count cell to see the list of wrestlers; **click** a row to expand and show all three lists (3×, 4×, 5×) below the table.
+We classify wrestlers with **complete, observable careers** (same eligibility exclusion as above) into progression archetypes based on their AA placement sequences. A wrestler can match more than one archetype. All six placement archetypes require **3+ AA**. Counts below are broken out by 3×, 4×, and 5× AA. Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.
 
 {% capture report_02_archetypes %}{% include report_02_archetypes_table.md %}{% endcapture %}
 {{ report_02_archetypes }}
 
-### Last Chance (1× AA only)
+## Progression Archetypes
 
-Wrestlers who All-Americaned exactly once, in a “last chance” eligibility context (all counts are 1× AA). **Hover** on a row to see the list of wrestlers with placements; **click** a row to expand the list below the table.
+Now that we've seen when wrestlers earn their All-American finishes, let's examine how they progress—or don't—across those finishes. 
+
+We classify wrestlers with **complete, observable careers** into progression archetypes based on their AA placement sequences...
+
+Wrestlers who All-Americaned exactly once, in a “last chance” eligibility context (all counts are 1× AA). Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.
 
 {% capture report_02_last_chance %}{% include report_02_last_chance_table.md %}{% endcapture %}
 {{ report_02_last_chance }}
@@ -150,7 +154,7 @@ This methodology ensures we're counting complete careers that are fully observab
 
 **What we cannot see:** The journey to the first All-American finish. For most wrestlers, this is the hardest climb—the years spent as a non-starter, backup, national qualifier, or Round of 12 competitor before finally breaking through to the podium. These pre-AA years, while often the most dramatic part of a wrestler's development arc, are not captured in our dataset.
 
-For example, Robbie Waller (Oklahoma, 2000-2003) came one win short of All-American honors as both a freshman and sophomore before finally placing 6th as a junior and winning the championship as a senior. Mike Macchiavello (NC State, 2014-2018) had a losing record as a freshman and sophomore, took a redshirt year, then came one win short as a junior before winning the title as a senior. These inspiring progressions are not present in our data - we only see their AA finishes, not the years of grinding that preceded them.
+For example, Robbie Waller (Oklahoma, 2000-2003) came one win short of All-American honors as both a freshman and sophomore before finally placing 6th as a junior and winning the championship as a senior. Mike Macchiavello (NC State, 2014-2018) had a losing record as a freshman and sophomore, took a redshirt year, then came one win short as a junior before winning the title as a senior. These inspiring progressions are largely invisible in our data - we only see their AA finishes, not the years of grinding that preceded them.
 
 This analysis therefore tells the story of the elite few who made it to the podium enough times to show a progression, not the full journey of every wrestler who eventually earned All-American honors.
 

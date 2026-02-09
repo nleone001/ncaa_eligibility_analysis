@@ -1,13 +1,13 @@
 # When NC was won: combinations by eligibility year
 *National champions only (place = 1). Sorted by most common to least. ● = NC in that eligibility year.*
 
-## 1× NC (n = 84)
+## 1× NC (n = 83)
 
 | Fr   | So   | Jr   | Sr   | SSr   |   Count | %     |
 |:-----|:-----|:-----|:-----|:------|--------:|:------|
-|      |      |      | ●    |       |      49 | 58.3% |
-|      |      | ●    |      |       |      22 | 26.2% |
-| ●    |      |      |      |       |       7 | 8.3%  |
+|      |      |      | ●    |       |      48 | 57.8% |
+|      |      | ●    |      |       |      22 | 26.5% |
+| ●    |      |      |      |       |       7 | 8.4%  |
 |      | ●    |      |      |       |       5 | 6.0%  |
 |      |      |      |      | ●     |       1 | 1.2%  |
 

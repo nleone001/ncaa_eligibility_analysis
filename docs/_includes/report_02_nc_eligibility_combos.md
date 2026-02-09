@@ -1,5 +1,4 @@
-<h1>When Championships Were Won:</h1><p>The tables below show the combinations of eligibility years for each tier (1×, 2×, 3×, 4×, 5× NC).  Gold shaded cells with ● = NC in that eligibility year. Hover to view wrestlers list for each row. Click on the row to view wrestlers list for that row.</p>
-
+<h1>When NC was won: combinations by eligibility year</h1><p><em>National champions only (place = 1). Sorted by most common to least. Gold shaded cells = NC in that eligibility year.</em> Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.</p>
 <h2 class="combo-tier-header">1× Champs (83)</h2>
 <table class="eligibility-combo-table eligibility-combo-nc ">
 <thead><tr>

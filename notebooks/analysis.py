@@ -978,7 +978,10 @@ def build_nc_combo_table(n_nc_val):
 
 nc_cols = ELIG_COLS + ["Count", "%"]
 nc_combo_md_lines = ["# When NC was won: combinations by eligibility year\n", "*National champions only (place = 1). Sorted by most common to least. ● = NC in that eligibility year.*\n"]
-nc_combo_html_lines = ["<h1>When NC was won: combinations by eligibility year</h1>", "<p><em>National champions only (place = 1). Sorted by most common to least. Gold shaded cells = NC in that eligibility year.</em></p>"]
+nc_combo_html_lines = [
+    "<h1>When NC was won: combinations by eligibility year</h1>",
+    "<p><em>National champions only (place = 1). Sorted by most common to least. Gold shaded cells = NC in that eligibility year.</em> Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.</p>",
+]
 for n in [1, 2, 3, 4, 5]:
     nc_table, total_n = build_nc_combo_table(n)
     if nc_table is None or len(nc_table) == 0:

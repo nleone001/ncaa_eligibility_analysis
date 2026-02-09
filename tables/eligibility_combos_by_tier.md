@@ -1,11 +1,11 @@
 # When AA was earned: combinations by eligibility year
 *Sorted by most common to least. ● = AA in that eligibility year.*
 
-## 1× AA (n = 393)
+## 1× AA (n = 392)
 
 | Fr   | So   | Jr   | Sr   | SSr   |   Count | %     |
 |:-----|:-----|:-----|:-----|:------|--------:|:------|
-|      |      |      | ●    |       |     196 | 49.9% |
+|      |      |      | ●    |       |     195 | 49.7% |
 |      |      | ●    |      |       |     115 | 29.3% |
 |      | ●    |      |      |       |      49 | 12.5% |
 | ●    |      |      |      |       |      17 | 4.3%  |
