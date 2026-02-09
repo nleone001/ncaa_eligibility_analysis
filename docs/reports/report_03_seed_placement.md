@@ -11,8 +11,6 @@ title: Report 03 — Bracket/Year Seed/Placement Stats
 
 This report focuses on bracket and year-level statistics related to seeding and placement, examining how wrestlers perform relative to their seeds and identifying trends in bracket unpredictability over time.
 
-**→ [View on GitHub](https://github.com/nleone001/ncaa_eligibility_analysis)**
-
 ## Seed-Placement Differential by Year
 
 The seed-placement differential measures how wrestlers perform relative to their seeds. A positive differential means a wrestler outperformed their seed (e.g., seeded 4th, placed 1st = +3), while a negative differential means they underperformed (e.g., seeded 1st, placed 3rd = -2). For unseeded wrestlers, we assume the highest non-seed value for that year (13 until 2014, 17 until 2019, 33 from 2019 onward).
@@ -65,7 +63,7 @@ To identify the most predictable brackets across all 25 years, we analyze two me
 
 ### Chalk metrics: top results
 
-Tables below list brackets by seed-placement sum (0–10 and the 4 largest sums) and by exact seed-place matches (4/8 and 5/8). Hover for a preview; click a row to expand and see the full podium (1st–8th) with wrestler and seed for each bracket.
+Tables below show seed-placement sum (rows for Sum 0, 1, 2) and exact seed-place matches (rows for 4/8 and 5/8). Click a row to expand and see the full list of brackets and podium (1st–8th) with wrestler and seed for each.
 
 {% capture chalk_details %}{% include report_03_chalk_details_tables.md %}{% endcapture %}
 {{ chalk_details | markdownify }}
@@ -74,7 +72,7 @@ Tables below list brackets by seed-placement sum (0–10 and the 4 largest sums)
 
 Which brackets had the most All-Americans from each eligibility class? This analysis identifies the year/weight combinations that achieved the maximum count for Freshmen, Sophomores, Juniors, Seniors, and Super Seniors.
 
-Hover over a row to see a preview of the brackets. Click a row to expand and view the complete wrestler details for each bracket, showing placement, name, and eligibility class.
+Click a row to expand and view the complete wrestler details for each bracket, showing placement, name, and eligibility class.
 
 {% capture max_aa_table %}{% include report_03_max_aa_brackets_table.md %}{% endcapture %}
 {{ max_aa_table | markdownify }}

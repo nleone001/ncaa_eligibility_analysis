@@ -187,6 +187,32 @@ tr:hover {
 .eligibility-combo-table .combo-no {
     color: var(--color-text-muted);
 }
+
+/* Report 03: Chalk table – center Match and Count */
+.chalk-table th,
+.chalk-table td {
+    text-align: center;
+}
+
+/* Report 03: Max AA brackets – center Eligibility Class and Count only */
+.max-aa-brackets-table th:first-child,
+.max-aa-brackets-table td:first-child,
+.max-aa-brackets-table th:nth-child(2),
+.max-aa-brackets-table td:nth-child(2) {
+    text-align: center;
+}
+
+/* Report 03: Chalk details tables (Sum 0/1/2 and Exact 4/8, 5/8) – center all columns */
+.chalk-details-table th,
+.chalk-details-table td {
+    text-align: center;
+}
+
+/* Report 03: Max AA expand – single bracket kept in first column width */
+.combo-expand-container.max-aa-expand-single .combo-expand-list {
+    max-width: 380px;
+}
+
 .combo-names {
     font-size: 0.8rem;
     color: var(--color-text-muted);
