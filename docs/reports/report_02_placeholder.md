@@ -100,17 +100,7 @@ Most multi-weight All-Americans competed at exactly two weight classes. The rare
 
 For wrestlers who AAd at two or more weights, we examine each transition - a consecutive pair of AA finishes (ordered by ascending year and eligibility: Fr → So → Jr → Sr → SSr) where the wrestler changed weight. For example, Fr at 125 lbs → So at 133 lbs counts as one transition. There are **{{ site.data.report_02_stats.weight_move_stats.n_transitions }}** such transitions in the data.
 
-{% include report_02_weight_flow.html %}
-
-*Hover over any box to see wrestlers in that segment. Same layout as static diagram below.*
-
-<details>
-<summary>Static version (PNG)</summary>
-
 ![Weight-change flow: Multi-weight AA transitions → Moving up/down → Improved (green) / Worse (red) / Same (grey)]({{ site.baseurl }}/charts/weight_change_flow.png)
-
-</details>
-
 *Flow diagram: all weight-change transitions on the left; branches to moving up or down (with counts); then to improved (green), worse (red), or same placement (grey).*
 
 **Findings:**
