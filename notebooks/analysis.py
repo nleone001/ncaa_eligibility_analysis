@@ -1873,6 +1873,1000 @@ with open(report_stats_path, "w") as f:
 print(f"\nSaved: {report_stats_path}")
 
 # ==============================================================================
+# REPORT 03: BRACKET/YEAR SEED/PLACEMENT STATS
+# ==============================================================================
+
+print("\n" + "="*60)
+print("REPORT 03: BRACKET/YEAR SEED/PLACEMENT STATS")
+print("="*60)
+
+# Seed-Placement Differential by Year
+# Sum of all seed-placement differentials for each year
+# The "Placement-Seed Delta" column is already calculated as Seed - Place
+# For unseeded wrestlers, the delta should already account for the highest non-seed value
+
+print("\nCalculating seed-placement differential sums by year...")
+
+# Group by year and sum the differentials
+yearly_differential_sum = df.groupby("Year")["Placement-Seed Delta"].sum().reset_index()
+yearly_differential_sum.columns = ["Year", "Sum_Differential"]
+
+# Ensure we have all years from 2000-2025
+all_years = pd.DataFrame({"Year": range(2000, 2026)})
+yearly_differential_sum = all_years.merge(yearly_differential_sum, on="Year", how="left")
+yearly_differential_sum["Sum_Differential"] = yearly_differential_sum["Sum_Differential"].fillna(0)
+
+print(f"Year range: {yearly_differential_sum['Year'].min()}-{yearly_differential_sum['Year'].max()}")
+print(f"Total years: {len(yearly_differential_sum)}")
+print(f"\nSample data:")
+print(yearly_differential_sum.head(10))
+
+# Create bar chart
+fig, ax = plt.subplots(figsize=(14, 7))
+
+# Create bars
+bars = ax.bar(
+    yearly_differential_sum["Year"],
+    yearly_differential_sum["Sum_Differential"],
+    color="#2196F3",
+    alpha=0.7,
+    edgecolor="#1976D2",
+    linewidth=0.5,
+)
+
+# Add zero line for reference
+ax.axhline(y=0, color="#666", linestyle="--", linewidth=0.8, alpha=0.5)
+
+# Formatting
+ax.set_xlabel("Year", fontsize=12, weight="light")
+ax.set_ylabel("Sum of Seed-Placement Differentials", fontsize=12, weight="light")
+ax.set_title("Seed-Placement Differential by Year", fontsize=14, weight="medium", pad=15)
+ax.set_xlim(1999.5, 2025.5)
+ax.grid(axis="y", alpha=0.2, linestyle="--", linewidth=0.5)
+ax.set_axisbelow(True)
+
+# Set x-axis ticks to show every year (may be crowded, but user requested all years)
+ax.set_xticks(range(2000, 2026))
+ax.set_xticklabels(range(2000, 2026), rotation=45, ha="right", fontsize=9)
+
+# Add value labels on bars (optional, but helpful for reading exact values)
+for i, (year, value) in enumerate(zip(yearly_differential_sum["Year"], yearly_differential_sum["Sum_Differential"])):
+    if abs(value) > 5:  # Only label bars with significant values to avoid clutter
+        ax.text(year, value, f"{int(value)}", ha="center", va="bottom" if value >= 0 else "top", 
+                fontsize=7, weight="light")
+
+plt.tight_layout()
+
+# Save chart
+chart_path = CHARTS_DIR / "seed_placement_differential_by_year.png"
+chart_path_site = SITE_CHARTS_DIR / "seed_placement_differential_by_year.png"
+plt.savefig(chart_path, dpi=120, bbox_inches="tight")
+plt.savefig(chart_path_site, dpi=120, bbox_inches="tight")
+plt.close()
+print(f"\nSaved: {chart_path}")
+print(f"Saved: {chart_path_site}")
+
+# Print summary statistics
+print(f"\nSummary statistics:")
+print(f"  Mean sum per year: {yearly_differential_sum['Sum_Differential'].mean():.1f}")
+print(f"  Median sum per year: {yearly_differential_sum['Sum_Differential'].median():.1f}")
+print(f"  Highest sum: {yearly_differential_sum['Sum_Differential'].max():.0f} ({yearly_differential_sum.loc[yearly_differential_sum['Sum_Differential'].idxmax(), 'Year']})")
+print(f"  Lowest sum: {yearly_differential_sum['Sum_Differential'].min():.0f} ({yearly_differential_sum.loc[yearly_differential_sum['Sum_Differential'].idxmin(), 'Year']})")
+
+# Chalk Placement Analysis
+# Count year/weight combos where seeds match placements exactly for each match type
+print("\nAnalyzing chalk placements (seeds matching placements exactly)...")
+
+def convert_seed_to_int(seed_str):
+    """Convert seed string to integer. 'US' returns None (not chalk)."""
+    if pd.isna(seed_str) or str(seed_str).strip().upper() == 'US':
+        return None
+    try:
+        return int(seed_str)
+    except (ValueError, TypeError):
+        return None
+
+# Create a copy with numeric seeds
+df_chalk = df.copy()
+df_chalk['Seed_Int'] = df_chalk['Seed'].apply(convert_seed_to_int)
+
+# Group by Year and Weight to analyze each bracket
+chalk_results = {
+    'Final': [],      # Place 1-2 match seeds 1-2
+    '3rd': [],        # Place 3-4 match seeds 3-4
+    '5th': [],       # Place 5-6 match seeds 5-6
+    '7th': []        # Place 7-8 match seeds 7-8
+}
+
+for (year, weight), group in df_chalk.groupby(['Year', 'Weight']):
+    group = group.sort_values('Place')
+    
+    # Check Final (Place 1-2, Seeds 1-2)
+    final_rows = group[group['Place'].isin([1, 2])].sort_values('Place')
+    if len(final_rows) == 2:
+        seeds = final_rows['Seed_Int'].tolist()
+        places = final_rows['Place'].tolist()
+        if seeds[0] == 1 and seeds[1] == 2 and places == [1, 2]:
+            wrestlers = final_rows['Wrestler'].tolist()
+            chalk_results['Final'].append({
+                'year': int(year),
+                'weight': int(weight),
+                'wrestler1': wrestlers[0],
+                'wrestler2': wrestlers[1],
+                'seed1': 1,
+                'seed2': 2,
+                'place1': 1,
+                'place2': 2
+            })
+    
+    # Check 3rd place match (Place 3-4, Seeds 3-4)
+    third_rows = group[group['Place'].isin([3, 4])].sort_values('Place')
+    if len(third_rows) == 2:
+        seeds = third_rows['Seed_Int'].tolist()
+        places = third_rows['Place'].tolist()
+        if seeds[0] == 3 and seeds[1] == 4 and places == [3, 4]:
+            wrestlers = third_rows['Wrestler'].tolist()
+            chalk_results['3rd'].append({
+                'year': int(year),
+                'weight': int(weight),
+                'wrestler1': wrestlers[0],
+                'wrestler2': wrestlers[1],
+                'seed1': 3,
+                'seed2': 4,
+                'place1': 3,
+                'place2': 4
+            })
+    
+    # Check 5th place match (Place 5-6, Seeds 5-6)
+    fifth_rows = group[group['Place'].isin([5, 6])].sort_values('Place')
+    if len(fifth_rows) == 2:
+        seeds = fifth_rows['Seed_Int'].tolist()
+        places = fifth_rows['Place'].tolist()
+        if seeds[0] == 5 and seeds[1] == 6 and places == [5, 6]:
+            wrestlers = fifth_rows['Wrestler'].tolist()
+            chalk_results['5th'].append({
+                'year': int(year),
+                'weight': int(weight),
+                'wrestler1': wrestlers[0],
+                'wrestler2': wrestlers[1],
+                'seed1': 5,
+                'seed2': 6,
+                'place1': 5,
+                'place2': 6
+            })
+    
+    # Check 7th place match (Place 7-8, Seeds 7-8)
+    seventh_rows = group[group['Place'].isin([7, 8])].sort_values('Place')
+    if len(seventh_rows) == 2:
+        seeds = seventh_rows['Seed_Int'].tolist()
+        places = seventh_rows['Place'].tolist()
+        if seeds[0] == 7 and seeds[1] == 8 and places == [7, 8]:
+            wrestlers = seventh_rows['Wrestler'].tolist()
+            chalk_results['7th'].append({
+                'year': int(year),
+                'weight': int(weight),
+                'wrestler1': wrestlers[0],
+                'wrestler2': wrestlers[1],
+                'seed1': 7,
+                'seed2': 8,
+                'place1': 7,
+                'place2': 8
+            })
+
+# Print summary
+print(f"\nChalk placement counts:")
+for match_type in ['Final', '3rd', '5th', '7th']:
+    count = len(chalk_results[match_type])
+    print(f"  {match_type} place match: {count} year/weight combos")
+
+# Build interactive HTML table
+chalk_table_lines = [
+    '<table class="chalk-table eligibility-combo-table">',
+    '<thead><tr><th>Match</th><th>Count</th></tr></thead>',
+    '<tbody>',
+]
+
+# Format entries for display: "Year Weight: Wrestler1 (Seed1→Place1), Wrestler2 (Seed2→Place2)"
+def format_chalk_entry(entry):
+    return f"{entry['year']} {entry['weight']}lbs: {entry['wrestler1']} ({entry['seed1']}→{entry['place1']}), {entry['wrestler2']} ({entry['seed2']}→{entry['place2']})"
+
+for match_type in ['Final', '3rd', '5th', '7th']:
+    entries = chalk_results[match_type]
+    count = len(entries)
+    
+    # Create display strings for tooltip and expand
+    display_strings = [format_chalk_entry(e) for e in entries]
+    display_str = " | ".join(display_strings) if display_strings else ""
+    
+    chalk_table_lines.append(
+        f'<tr data-wrestlers="{html_module.escape(display_str)}" data-count="{count}">'
+    )
+    chalk_table_lines.append(f'<td><strong>{match_type}</strong></td>')
+    chalk_table_lines.append(f'<td>{count}</td>')
+    chalk_table_lines.append('</tr>')
+
+chalk_table_lines.append('</tbody></table>')
+
+# Add JavaScript for tooltip and expand functionality
+chalk_table_lines.append("""
+<script>
+(function() {
+  var tip = null;
+  var expandContainer = null;
+  var allRows = null;
+
+  function ensureTooltipStyles() {
+    if (document.getElementById('wrestler-tooltip-styles')) return;
+    var style = document.createElement('style');
+    style.id = 'wrestler-tooltip-styles';
+    style.textContent = '.wrestler-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:12px;font-size:0.85rem;line-height:1.5;max-height:400px;max-width:500px;overflow-y:auto;overflow-x:hidden;z-index:1000;pointer-events:none;border:1px solid #e2e8f0;white-space:normal}.wrestler-tooltip .wrestler-tooltip-title{font-weight:600;margin-bottom:6px;color:#1a1a1a}.wrestler-tooltip .wrestler-tooltip-list{margin:0;padding-left:1.2em}';
+    document.head.appendChild(style);
+  }
+
+  var CHALK_DELIM = ' | ';
+  function showTip(el, x, y) {
+    var listStr = el.getAttribute('data-wrestlers');
+    var n = el.getAttribute('data-count');
+    if (!listStr || !tip) return;
+    var title = tip.querySelector('.wrestler-tooltip-title');
+    var list = tip.querySelector('.wrestler-tooltip-list');
+    title.textContent = n + ' Matches';
+    var items = listStr.indexOf(CHALK_DELIM) !== -1 ? listStr.split(CHALK_DELIM) : [listStr];
+    list.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
+    tip.style.left = (x + 16) + 'px';
+    tip.style.top = (y - 10) + 'px';
+    tip.style.display = 'block';
+  }
+  function hideTip() { if (tip) tip.style.display = 'none'; }
+
+  function showExpand(tr) {
+    var listStr = tr.getAttribute('data-wrestlers');
+    var n = tr.getAttribute('data-count');
+    if (!listStr || !expandContainer) return;
+    allRows.forEach(function(r) { r.classList.remove('combo-row-selected'); });
+    tr.classList.add('combo-row-selected');
+    var title = expandContainer.querySelector('.combo-expand-title');
+    var list = expandContainer.querySelector('.combo-expand-list');
+    title.textContent = n + ' Matches';
+    var items = listStr.indexOf(CHALK_DELIM) !== -1 ? listStr.split(CHALK_DELIM) : [listStr];
+    list.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
+    var table = tr.closest('table');
+    if (table.nextSibling !== expandContainer) {
+      if (expandContainer.parentNode) expandContainer.parentNode.removeChild(expandContainer);
+      table.parentNode.insertBefore(expandContainer, table.nextSibling);
+    }
+    expandContainer.classList.add('is-visible');
+  }
+  function hideExpand() {
+    if (expandContainer) expandContainer.classList.remove('is-visible');
+    if (allRows) allRows.forEach(function(r) { r.classList.remove('combo-row-selected'); });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    ensureTooltipStyles();
+    tip = document.createElement('div');
+    tip.className = 'wrestler-tooltip';
+    tip.innerHTML = '<div class="wrestler-tooltip-title"></div><ul class="wrestler-tooltip-list"></ul>';
+    tip.style.display = 'none';
+    document.body.appendChild(tip);
+
+    expandContainer = document.createElement('div');
+    expandContainer.id = 'chalk-expand-container';
+    expandContainer.className = 'combo-expand-container';
+    expandContainer.innerHTML = '<div class="combo-expand-title"></div><ul class="combo-expand-list"></ul>';
+
+    allRows = document.querySelectorAll('.chalk-table tbody tr[data-wrestlers]');
+    allRows.forEach(function(tr) {
+      tr.addEventListener('mouseenter', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mousemove', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mouseleave', hideTip);
+      tr.addEventListener('click', function() {
+        if (tr.classList.contains('combo-row-selected')) {
+          hideExpand();
+        } else {
+          showExpand(tr);
+        }
+      });
+    });
+  });
+})();
+</script>
+""")
+
+# Ensure includes_dir is available (defined earlier in Report 02 section)
+if 'includes_dir' not in locals():
+    includes_dir = ROOT_DIR / "docs" / "_includes"
+    includes_dir.mkdir(exist_ok=True)
+
+chalk_include_path = includes_dir / "report_03_chalk_table.md"
+with open(chalk_include_path, "w") as f:
+    f.write("".join(chalk_table_lines))
+print(f"\nSaved: {chalk_include_path}")
+
+# Most Chalk Brackets Analysis
+# Find year/weight combinations with lowest seed-placement differential sums
+print("\nAnalyzing most chalk brackets...")
+
+# Group by Year and Weight, sum the differentials
+bracket_differential_sum = df.groupby(['Year', 'Weight'])['Placement-Seed Delta'].sum().reset_index()
+bracket_differential_sum.columns = ['Year', 'Weight', 'Sum_Differential']
+
+# Also count exact seed-place matches (seed 1 → place 1, seed 2 → place 2, etc.)
+def count_exact_matches(group):
+    """Count how many wrestlers finished exactly where they were seeded."""
+    exact_matches = 0
+    for _, row in group.iterrows():
+        seed_str = str(row['Seed']).strip()
+        if seed_str != 'US' and not pd.isna(row['Seed']):
+            try:
+                seed_int = int(seed_str)
+                if seed_int == row['Place']:
+                    exact_matches += 1
+            except (ValueError, TypeError):
+                pass
+    return exact_matches
+
+exact_match_counts = df.groupby(['Year', 'Weight']).apply(count_exact_matches).reset_index()
+exact_match_counts.columns = ['Year', 'Weight', 'Exact_Matches']
+
+# Merge the two metrics
+bracket_chalk_analysis = bracket_differential_sum.merge(exact_match_counts, on=['Year', 'Weight'])
+
+# Sort by sum (ascending - lower is more chalk)
+bracket_chalk_analysis = bracket_chalk_analysis.sort_values('Sum_Differential', ascending=True)
+
+# Get top 10 most chalk brackets by sum
+top_10_chalk_by_sum = bracket_chalk_analysis.head(10).copy()
+
+print(f"\nTop 10 Most Chalk Brackets (lowest seed-placement differential sums):")
+print("=" * 80)
+for idx, row in top_10_chalk_by_sum.iterrows():
+    print(f"{int(row['Year'])} {int(row['Weight'])}lbs: Sum = {int(row['Sum_Differential'])}, Exact Matches = {int(row['Exact_Matches'])}/8")
+
+# Also sort by exact matches (descending - more matches is more chalk)
+bracket_chalk_analysis_by_matches = bracket_chalk_analysis.sort_values('Exact_Matches', ascending=False)
+
+# Get top 10 by exact matches
+top_10_chalk_by_matches = bracket_chalk_analysis_by_matches.head(10).copy()
+
+print(f"\nTop 10 Most Chalk Brackets (most exact seed-place matches):")
+print("=" * 80)
+for idx, row in top_10_chalk_by_matches.iterrows():
+    print(f"{int(row['Year'])} {int(row['Weight'])}lbs: Exact Matches = {int(row['Exact_Matches'])}/8, Sum = {int(row['Sum_Differential'])}")
+
+# Print statistics
+print(f"\nStatistics:")
+print(f"  Total brackets analyzed: {len(bracket_chalk_analysis)}")
+print(f"  Most chalk by sum: {int(top_10_chalk_by_sum.iloc[0]['Year'])} {int(top_10_chalk_by_sum.iloc[0]['Weight'])}lbs (Sum = {int(top_10_chalk_by_sum.iloc[0]['Sum_Differential'])}, Matches = {int(top_10_chalk_by_sum.iloc[0]['Exact_Matches'])}/8)")
+print(f"  Most chalk by matches: {int(top_10_chalk_by_matches.iloc[0]['Year'])} {int(top_10_chalk_by_matches.iloc[0]['Weight'])}lbs (Matches = {int(top_10_chalk_by_matches.iloc[0]['Exact_Matches'])}/8, Sum = {int(top_10_chalk_by_matches.iloc[0]['Sum_Differential'])})")
+print(f"  Mean sum per bracket: {bracket_chalk_analysis['Sum_Differential'].mean():.1f}")
+print(f"  Median sum per bracket: {bracket_chalk_analysis['Sum_Differential'].median():.1f}")
+print(f"  Mean exact matches per bracket: {bracket_chalk_analysis['Exact_Matches'].mean():.1f}/8")
+print(f"  Median exact matches per bracket: {bracket_chalk_analysis['Exact_Matches'].median():.0f}/8")
+print(f"  Brackets with 8/8 exact matches: {len(bracket_chalk_analysis[bracket_chalk_analysis['Exact_Matches'] == 8])}")
+print(f"  Brackets with 7/8 exact matches: {len(bracket_chalk_analysis[bracket_chalk_analysis['Exact_Matches'] == 7])}")
+print(f"  Brackets with 6/8 exact matches: {len(bracket_chalk_analysis[bracket_chalk_analysis['Exact_Matches'] == 6])}")
+
+# Create histograms for both metrics
+print("\nCreating histograms...")
+
+# Histogram 1: Sum of Differentials
+fig, ax = plt.subplots(figsize=(12, 7))
+ax.hist(bracket_chalk_analysis['Sum_Differential'], bins=30, color='#2196F3', alpha=0.7, edgecolor='#1976D2', linewidth=0.5)
+ax.set_xlabel('Sum of Seed-Placement Differentials', fontsize=12, weight='light')
+ax.set_ylabel('Count of Brackets (Year×Weight)', fontsize=12, weight='light')
+ax.set_title('Distribution of Seed-Placement Differential Sums\n(Sum = 0 means all 8 seeds placed in top 8)', fontsize=14, weight='medium', pad=15)
+ax.grid(axis='y', alpha=0.2, linestyle='--', linewidth=0.5)
+ax.set_axisbelow(True)
+
+# Add vertical line at 0 for reference
+ax.axvline(x=0, color='#666', linestyle='--', linewidth=1, alpha=0.5, label='Sum = 0 (all seeds placed)')
+ax.legend(loc='upper right', fontsize=9)
+
+plt.tight_layout()
+chart_path_1 = CHARTS_DIR / "chalk_sum_differential_histogram.png"
+chart_path_1_site = SITE_CHARTS_DIR / "chalk_sum_differential_histogram.png"
+plt.savefig(chart_path_1, dpi=120, bbox_inches='tight')
+plt.savefig(chart_path_1_site, dpi=120, bbox_inches='tight')
+plt.close()
+print(f"Saved: {chart_path_1}")
+
+# Histogram 2: Exact Seed-Place Matches
+fig, ax = plt.subplots(figsize=(12, 7))
+# Use integer bins from 0 to 8
+bins = range(0, 10)  # 0-8 inclusive
+ax.hist(bracket_chalk_analysis['Exact_Matches'], bins=bins, color='#4CAF50', alpha=0.7, edgecolor='#388E3C', linewidth=0.5, align='left')
+ax.set_xlabel('Exact Seed-Place Matches (N/8)', fontsize=12, weight='light')
+ax.set_ylabel('Count of Brackets (Year×Weight)', fontsize=12, weight='light')
+ax.set_title('Distribution of Exact Seed-Place Matches\n(How many wrestlers finished exactly where seeded)', fontsize=14, weight='medium', pad=15)
+ax.set_xticks(range(0, 9))
+ax.set_xticklabels([f'{i}/8' for i in range(0, 9)])
+ax.grid(axis='y', alpha=0.2, linestyle='--', linewidth=0.5)
+ax.set_axisbelow(True)
+
+plt.tight_layout()
+chart_path_2 = CHARTS_DIR / "chalk_exact_matches_histogram.png"
+chart_path_2_site = SITE_CHARTS_DIR / "chalk_exact_matches_histogram.png"
+plt.savefig(chart_path_2, dpi=120, bbox_inches='tight')
+plt.savefig(chart_path_2_site, dpi=120, bbox_inches='tight')
+plt.close()
+print(f"Saved: {chart_path_2}")
+
+# Brackets with Most All-Americans by Eligibility Class
+# Find year/weight combinations with highest count of AAs by class
+print("\nAnalyzing brackets with most All-Americans by eligibility class...")
+
+# Group by Year, Weight, and Eligibility Year, then count
+aa_by_bracket_class = df.groupby(['Year', 'Weight', 'Eligibility Year']).size().reset_index(name='Count')
+
+# Find brackets that achieved maximum for each class and collect wrestler details
+max_brackets_by_class = {}
+
+for elig_class in ELIGIBILITY_ORDER:
+    class_data = aa_by_bracket_class[aa_by_bracket_class['Eligibility Year'] == elig_class].copy()
+    max_count = class_data['Count'].max()
+    brackets_with_max = class_data[class_data['Count'] == max_count].copy()
+    brackets_with_max = brackets_with_max.sort_values(['Year', 'Weight'])
+    
+    # Collect wrestler details for each bracket
+    bracket_details = []
+    for _, row in brackets_with_max.iterrows():
+        year = int(row['Year'])
+        weight = int(row['Weight'])
+        
+        # Get all wrestlers for this bracket, sorted by place
+        bracket_wrestlers = df[(df['Year'] == year) & (df['Weight'] == weight)].sort_values('Place')
+        
+        # Format as "Place. Wrestler (Eligibility)"
+        wrestler_list = []
+        for _, w_row in bracket_wrestlers.iterrows():
+            place = int(w_row['Place'])
+            wrestler = w_row['Wrestler']
+            elig = w_row['Eligibility Year']
+            wrestler_list.append(f"{place}. {wrestler} ({elig})")
+        
+        bracket_details.append({
+            'year': year,
+            'weight': weight,
+            'wrestlers': wrestler_list
+        })
+    
+    max_brackets_by_class[elig_class] = {
+        'max_count': int(max_count),
+        'brackets': bracket_details
+    }
+
+# Print summary
+print("\nBrackets with Maximum All-Americans by Eligibility Class:")
+print("=" * 80)
+
+for elig_class in ELIGIBILITY_ORDER:
+    max_info = max_brackets_by_class[elig_class]
+    max_count = max_info['max_count']
+    brackets = max_info['brackets']
+    
+    print(f"\n{elig_class}: Maximum = {max_count} {elig_class} AAs")
+    print(f"  Achieved in {len(brackets)} bracket(s):")
+    for br in brackets:
+        print(f"    - {br['year']} {br['weight']}lbs")
+
+# Create interactive HTML table for the report
+max_brackets_html_lines = [
+    '<table class="max-aa-brackets-table eligibility-combo-table">',
+    '<thead><tr><th>Eligibility Class</th><th>Maximum Count</th><th>Brackets</th></tr></thead>',
+    '<tbody>',
+]
+
+for elig_class in ELIGIBILITY_ORDER:
+    max_info = max_brackets_by_class[elig_class]
+    max_count = max_info['max_count']
+    brackets = max_info['brackets']
+    
+    # Format brackets list for display
+    bracket_strs = [f"{br['year']} {br['weight']}lbs" for br in brackets]
+    brackets_display = ", ".join(bracket_strs)
+    
+    # Format wrestler details for tooltip/expand (one per bracket, separated by delimiter)
+    wrestler_details_list = []
+    for br in brackets:
+        wrestler_str = " | ".join(br['wrestlers'])
+        bracket_label = f"{br['year']} {br['weight']}lbs"
+        wrestler_details_list.append(f"{bracket_label}: {wrestler_str}")
+    
+    wrestler_details_str = " || ".join(wrestler_details_list)  # Double delimiter to separate brackets
+    
+    max_brackets_html_lines.append(
+        f'<tr data-wrestlers="{html_module.escape(brackets_display)}" '
+        f'data-wrestlers-places="{html_module.escape(wrestler_details_str)}" '
+        f'data-count="{len(brackets)}">'
+    )
+    max_brackets_html_lines.append(f'<td><strong>{elig_class}</strong></td>')
+    max_brackets_html_lines.append(f'<td>{max_count}</td>')
+    max_brackets_html_lines.append(f'<td>{brackets_display}</td>')
+    max_brackets_html_lines.append('</tr>')
+
+max_brackets_html_lines.append('</tbody></table>')
+
+# Add JavaScript for tooltip and expand functionality
+max_brackets_html_lines.append("""
+<script>
+(function() {
+  var tip = null;
+  var expandContainer = null;
+  var allRows = null;
+
+  function ensureTooltipStyles() {
+    if (document.getElementById('wrestler-tooltip-styles')) return;
+    var style = document.createElement('style');
+    style.id = 'wrestler-tooltip-styles';
+    style.textContent = '.wrestler-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:12px;font-size:0.85rem;line-height:1.5;max-height:400px;max-width:500px;overflow-y:auto;overflow-x:hidden;z-index:1000;pointer-events:none;border:1px solid #e2e8f0;white-space:normal}.wrestler-tooltip .wrestler-tooltip-title{font-weight:600;margin-bottom:6px;color:#1a1a1a}.wrestler-tooltip .wrestler-tooltip-list{margin:0;padding-left:1.2em}';
+    document.head.appendChild(style);
+  }
+
+  var BRACKET_DELIM = ' || ';
+  var WRESTLER_DELIM = ' | ';
+  
+  function showTip(el, x, y) {
+    var detailsStr = el.getAttribute('data-wrestlers-places');
+    var count = el.getAttribute('data-count');
+    if (!detailsStr || !tip) return;
+    
+    var title = tip.querySelector('.wrestler-tooltip-title');
+    var list = tip.querySelector('.wrestler-tooltip-list');
+    title.textContent = count + ' Bracket(s)';
+    
+    // Split by bracket delimiter, then format each bracket
+    var brackets = detailsStr.split(BRACKET_DELIM);
+    var items = brackets.slice(0, 3); // Show first 3 brackets in tooltip
+    if (brackets.length > 3) {
+      items.push('... and ' + (brackets.length - 3) + ' more');
+    }
+    
+    list.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
+    tip.style.left = (x + 16) + 'px';
+    tip.style.top = (y - 10) + 'px';
+    tip.style.display = 'block';
+  }
+  
+  function hideTip() { if (tip) tip.style.display = 'none'; }
+
+  function showExpand(tr) {
+    var detailsStr = tr.getAttribute('data-wrestlers-places');
+    var count = tr.getAttribute('data-count');
+    if (!detailsStr || !expandContainer) return;
+    
+    allRows.forEach(function(r) { r.classList.remove('combo-row-selected'); });
+    tr.classList.add('combo-row-selected');
+    
+    var title = expandContainer.querySelector('.combo-expand-title');
+    var list = expandContainer.querySelector('.combo-expand-list');
+    title.textContent = count + ' Bracket(s)';
+    
+    // Split by bracket delimiter and format each bracket as a section
+    var brackets = detailsStr.split(BRACKET_DELIM);
+    var html = brackets.map(function(bracket) {
+      var parts = bracket.split(': ');
+      var bracketLabel = parts[0];
+      var wrestlers = parts[1] ? parts[1].split(WRESTLER_DELIM) : [];
+      return '<div style="margin-bottom: 1rem;"><strong>' + bracketLabel + ':</strong><ul style="margin: 0.5rem 0 0 1.5rem; padding: 0;">' +
+             wrestlers.map(function(w){ return '<li>' + w + '</li>'; }).join('') + '</ul></div>';
+    }).join('');
+    
+    list.innerHTML = html;
+    
+    var table = tr.closest('table');
+    if (table.nextSibling !== expandContainer) {
+      if (expandContainer.parentNode) expandContainer.parentNode.removeChild(expandContainer);
+      table.parentNode.insertBefore(expandContainer, table.nextSibling);
+    }
+    expandContainer.classList.add('is-visible');
+  }
+  
+  function hideExpand() {
+    if (expandContainer) expandContainer.classList.remove('is-visible');
+    if (allRows) allRows.forEach(function(r) { r.classList.remove('combo-row-selected'); });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    ensureTooltipStyles();
+    tip = document.createElement('div');
+    tip.className = 'wrestler-tooltip';
+    tip.innerHTML = '<div class="wrestler-tooltip-title"></div><ul class="wrestler-tooltip-list"></ul>';
+    tip.style.display = 'none';
+    document.body.appendChild(tip);
+
+    expandContainer = document.createElement('div');
+    expandContainer.id = 'max-aa-expand-container';
+    expandContainer.className = 'combo-expand-container';
+    expandContainer.innerHTML = '<div class="combo-expand-title"></div><ul class="combo-expand-list" style="list-style: none; padding: 0;"></ul>';
+
+    allRows = document.querySelectorAll('.max-aa-brackets-table tbody tr[data-wrestlers-places]');
+    allRows.forEach(function(tr) {
+      tr.style.cursor = 'pointer';
+      tr.addEventListener('mouseenter', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mousemove', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mouseleave', hideTip);
+      tr.addEventListener('click', function() {
+        if (tr.classList.contains('combo-row-selected')) {
+          hideExpand();
+        } else {
+          showExpand(tr);
+        }
+      });
+    });
+  });
+})();
+</script>
+""")
+
+# Ensure includes_dir is available
+if 'includes_dir' not in locals():
+    includes_dir = ROOT_DIR / "docs" / "_includes"
+    includes_dir.mkdir(exist_ok=True)
+
+max_brackets_include_path = includes_dir / "report_03_max_aa_brackets_table.md"
+with open(max_brackets_include_path, "w") as f:
+    f.write("".join(max_brackets_html_lines))
+print(f"\nSaved: {max_brackets_include_path}")
+
+# Also save a simple markdown version to tables directory
+max_brackets_table_lines = [
+    "| Eligibility Class | Maximum Count | Brackets |",
+    "|-------------------|---------------|----------|"
+]
+
+for elig_class in ELIGIBILITY_ORDER:
+    max_info = max_brackets_by_class[elig_class]
+    max_count = max_info['max_count']
+    brackets = max_info['brackets']
+    
+    bracket_strs = [f"{br['year']} {br['weight']}lbs" for br in brackets]
+    brackets_display = ", ".join(bracket_strs)
+    
+    max_brackets_table_lines.append(f"| {elig_class} | {max_count} | {brackets_display} |")
+
+max_brackets_table = "\n".join(max_brackets_table_lines)
+
+max_brackets_table_path = TABLES_DIR / "max_aa_by_class_brackets.md"
+with open(max_brackets_table_path, "w") as f:
+    f.write("# Brackets with Maximum All-Americans by Eligibility Class\n\n")
+    f.write("Brackets (year×weight) that achieved the maximum count of All-Americans for each eligibility class.\n\n")
+    f.write(max_brackets_table)
+print(f"Saved: {max_brackets_table_path}")
+
+# Seed Distribution by Placement Position
+# Create histograms for each of the 8 podium positions showing seed distribution
+print("\nAnalyzing seed distribution by placement position...")
+
+# Create a copy with numeric seeds
+df_seed_placement = df.copy()
+df_seed_placement['Seed_Int'] = df_seed_placement['Seed'].apply(convert_seed_to_int)
+
+# Create histograms for each place (1-8)
+fig, axes = plt.subplots(4, 2, figsize=(12, 10))
+axes = axes.flatten()
+
+for place in range(1, 9):
+    ax = axes[place - 1]
+    
+    # Get data for this placement
+    place_data = df_seed_placement[df_seed_placement['Place'] == place].copy()
+    
+    # Filter out unseeded (None values) for mean/median calculation
+    seeded_data = place_data[place_data['Seed_Int'].notna()]
+    
+    if len(seeded_data) == 0:
+        ax.text(0.5, 0.5, 'No data', ha='center', va='center', transform=ax.transAxes)
+        ax.set_title(f'Place {place}', fontsize=12, weight='medium')
+        continue
+    
+    # Get seed counts
+    seed_counts = seeded_data['Seed_Int'].value_counts().sort_index()
+    
+    # Create histogram
+    max_seed = int(seed_counts.index.max()) if len(seed_counts) > 0 else 13
+    bins = range(1, max(max_seed + 2, 14))  # At least 1-13, extend if needed
+    ax.hist(seeded_data['Seed_Int'], bins=bins, color='#2196F3', alpha=0.7, 
+            edgecolor='#1976D2', linewidth=0.5, align='left')
+    
+    # Calculate mean and median
+    mean_seed = seeded_data['Seed_Int'].mean()
+    median_seed = seeded_data['Seed_Int'].median()
+    
+    # Add vertical lines for mean and median
+    ax.axvline(x=mean_seed, color='#F44336', linestyle='--', linewidth=1.5, 
+                alpha=0.8, label=f'Mean: {mean_seed:.1f}')
+    ax.axvline(x=median_seed, color='#4CAF50', linestyle='--', linewidth=1.5, 
+                alpha=0.8, label=f'Median: {median_seed:.0f}')
+    
+    # Formatting
+    ax.set_xlabel('Seed', fontsize=10, weight='light')
+    ax.set_ylabel('Count', fontsize=10, weight='light')
+    # Set title: "Champion" for 1st, "2nd" through "8th" for others
+    if place == 1:
+        title = 'Champion'
+    else:
+        title = f'{place}{"th" if place >= 4 else ("rd" if place == 3 else "nd")}'
+    ax.set_title(title, fontsize=12, weight='medium')
+    
+    # Only show x-axis ticks for seeds that have count > 0
+    if len(seed_counts) > 0:
+        ax.set_xticks(seed_counts.index.tolist())
+    else:
+        ax.set_xticks(range(1, max(max_seed + 2, 14)))
+    
+    ax.grid(axis='y', alpha=0.2, linestyle='--', linewidth=0.5)
+    ax.set_axisbelow(True)
+    ax.legend(loc='upper right', fontsize=8)
+    
+    # Print statistics
+    unseeded_count = len(place_data[place_data['Seed_Int'].isna()])
+    print(f"  Place {place}: Mean seed = {mean_seed:.2f}, Median = {median_seed:.0f}, "
+          f"Seeded = {len(seeded_data)}, Unseeded = {unseeded_count}")
+
+plt.suptitle('Seed Distribution by Placement Position', fontsize=14, weight='medium', y=0.995)
+plt.tight_layout()
+
+# Save chart
+chart_path = CHARTS_DIR / "seed_distribution_by_placement.png"
+chart_path_site = SITE_CHARTS_DIR / "seed_distribution_by_placement.png"
+plt.savefig(chart_path, dpi=120, bbox_inches='tight')
+plt.savefig(chart_path_site, dpi=120, bbox_inches='tight')
+plt.close()
+print(f"\nSaved: {chart_path}")
+print(f"Saved: {chart_path_site}")
+
+# Youngest and Oldest Brackets Analysis
+# Calculate average "age" (eligibility year) for each bracket
+print("\nAnalyzing youngest and oldest brackets by average eligibility age...")
+
+# Create age mapping: Fr=1, So=2, Jr=3, Sr=4, SSr=5
+age_mapping = {
+    'Fr': 1,
+    'So': 2,
+    'Jr': 3,
+    'Sr': 4,
+    'SSr': 5
+}
+
+# Add age column to dataframe
+df_age = df.copy()
+df_age['Age'] = df_age['Eligibility Year'].map(age_mapping)
+
+# Calculate average age for each bracket (year×weight)
+bracket_avg_age = df_age.groupby(['Year', 'Weight'])['Age'].mean().reset_index()
+bracket_avg_age.columns = ['Year', 'Weight', 'Avg_Age']
+
+# Sort to find youngest (lowest avg age) and oldest (highest avg age)
+bracket_avg_age_sorted = bracket_avg_age.sort_values('Avg_Age')
+
+# Get top 3 youngest and oldest
+top_3_youngest = bracket_avg_age_sorted.head(3).copy()
+top_3_oldest = bracket_avg_age_sorted.tail(3).copy().sort_values('Avg_Age', ascending=False)
+
+print("\nTop 3 Youngest Brackets (lowest average eligibility age):")
+print("=" * 80)
+for idx, row in top_3_youngest.iterrows():
+    year = int(row['Year'])
+    weight = int(row['Weight'])
+    avg_age = row['Avg_Age']
+    
+    # Get wrestler details for this bracket
+    bracket_data = df_age[(df_age['Year'] == year) & (df_age['Weight'] == weight)].sort_values('Place')
+    wrestler_list = []
+    for _, w_row in bracket_data.iterrows():
+        place = int(w_row['Place'])
+        wrestler = w_row['Wrestler']
+        elig = w_row['Eligibility Year']
+        wrestler_list.append(f"{place}. {wrestler} ({elig})")
+    
+    print(f"\n{year} {weight}lbs: Average Age = {avg_age:.2f}")
+    print("  Wrestlers:")
+    for w in wrestler_list:
+        print(f"    {w}")
+
+print("\n\nTop 3 Oldest Brackets (highest average eligibility age):")
+print("=" * 80)
+for idx, row in top_3_oldest.iterrows():
+    year = int(row['Year'])
+    weight = int(row['Weight'])
+    avg_age = row['Avg_Age']
+    
+    # Get wrestler details for this bracket
+    bracket_data = df_age[(df_age['Year'] == year) & (df_age['Weight'] == weight)].sort_values('Place')
+    wrestler_list = []
+    for _, w_row in bracket_data.iterrows():
+        place = int(w_row['Place'])
+        wrestler = w_row['Wrestler']
+        elig = w_row['Eligibility Year']
+        wrestler_list.append(f"{place}. {wrestler} ({elig})")
+    
+    print(f"\n{year} {weight}lbs: Average Age = {avg_age:.2f}")
+    print("  Wrestlers:")
+    for w in wrestler_list:
+        print(f"    {w}")
+
+# Print summary statistics
+print(f"\n\nSummary Statistics:")
+print(f"  Total brackets analyzed: {len(bracket_avg_age)}")
+print(f"  Youngest bracket: {int(top_3_youngest.iloc[0]['Year'])} {int(top_3_youngest.iloc[0]['Weight'])}lbs (Avg Age = {top_3_youngest.iloc[0]['Avg_Age']:.2f})")
+print(f"  Oldest bracket: {int(top_3_oldest.iloc[0]['Year'])} {int(top_3_oldest.iloc[0]['Weight'])}lbs (Avg Age = {top_3_oldest.iloc[0]['Avg_Age']:.2f})")
+print(f"  Mean average age across all brackets: {bracket_avg_age['Avg_Age'].mean():.2f}")
+print(f"  Median average age across all brackets: {bracket_avg_age['Avg_Age'].median():.2f}")
+
+# Create HTML table for youngest/oldest brackets
+youngest_oldest_html_lines = [
+    '<table class="youngest-oldest-brackets-table eligibility-combo-table">',
+    '<thead><tr><th>Rank</th><th>Bracket</th><th>Average Age</th><th>Wrestlers</th></tr></thead>',
+    '<tbody>',
+]
+
+# Add youngest brackets
+for rank, (idx, row) in enumerate(top_3_youngest.iterrows(), 1):
+    year = int(row['Year'])
+    weight = int(row['Weight'])
+    avg_age = row['Avg_Age']
+    
+    bracket_data = df_age[(df_age['Year'] == year) & (df_age['Weight'] == weight)].sort_values('Place')
+    wrestler_list = []
+    for _, w_row in bracket_data.iterrows():
+        place = int(w_row['Place'])
+        wrestler = w_row['Wrestler']
+        elig = w_row['Eligibility Year']
+        wrestler_list.append(f"{place}. {wrestler} ({elig})")
+    
+    wrestler_str = " | ".join(wrestler_list)
+    bracket_label = f"{year} {weight}lbs"
+    
+    youngest_oldest_html_lines.append(
+        f'<tr data-wrestlers="{html_module.escape(bracket_label)}" '
+        f'data-wrestlers-places="{html_module.escape(wrestler_str)}" '
+        f'data-count="1">'
+    )
+    youngest_oldest_html_lines.append(f'<td><strong>{rank}</strong></td>')
+    youngest_oldest_html_lines.append(f'<td>{bracket_label}</td>')
+    youngest_oldest_html_lines.append(f'<td>{avg_age:.2f}</td>')
+    youngest_oldest_html_lines.append(f'<td>Hover/Click for details</td>')
+    youngest_oldest_html_lines.append('</tr>')
+
+# Add separator row
+youngest_oldest_html_lines.append('<tr><td colspan="4" style="background-color: #f0f0f0; padding: 0.5rem; font-weight: 600; text-align: center;">Oldest Brackets</td></tr>')
+
+# Add oldest brackets
+for rank, (idx, row) in enumerate(top_3_oldest.iterrows(), 1):
+    year = int(row['Year'])
+    weight = int(row['Weight'])
+    avg_age = row['Avg_Age']
+    
+    bracket_data = df_age[(df_age['Year'] == year) & (df_age['Weight'] == weight)].sort_values('Place')
+    wrestler_list = []
+    for _, w_row in bracket_data.iterrows():
+        place = int(w_row['Place'])
+        wrestler = w_row['Wrestler']
+        elig = w_row['Eligibility Year']
+        wrestler_list.append(f"{place}. {wrestler} ({elig})")
+    
+    wrestler_str = " | ".join(wrestler_list)
+    bracket_label = f"{year} {weight}lbs"
+    
+    youngest_oldest_html_lines.append(
+        f'<tr data-wrestlers="{html_module.escape(bracket_label)}" '
+        f'data-wrestlers-places="{html_module.escape(wrestler_str)}" '
+        f'data-count="1">'
+    )
+    youngest_oldest_html_lines.append(f'<td><strong>{rank}</strong></td>')
+    youngest_oldest_html_lines.append(f'<td>{bracket_label}</td>')
+    youngest_oldest_html_lines.append(f'<td>{avg_age:.2f}</td>')
+    youngest_oldest_html_lines.append(f'<td>Hover/Click for details</td>')
+    youngest_oldest_html_lines.append('</tr>')
+
+youngest_oldest_html_lines.append('</tbody></table>')
+
+# Add JavaScript for tooltip and expand functionality (reuse same pattern)
+youngest_oldest_html_lines.append("""
+<script>
+(function() {
+  var tip = null;
+  var expandContainer = null;
+  var allRows = null;
+
+  function ensureTooltipStyles() {
+    if (document.getElementById('wrestler-tooltip-styles')) return;
+    var style = document.createElement('style');
+    style.id = 'wrestler-tooltip-styles';
+    style.textContent = '.wrestler-tooltip{position:fixed;background:#fff;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12);padding:12px;font-size:0.85rem;line-height:1.5;max-height:400px;max-width:500px;overflow-y:auto;overflow-x:hidden;z-index:1000;pointer-events:none;border:1px solid #e2e8f0;white-space:normal}.wrestler-tooltip .wrestler-tooltip-title{font-weight:600;margin-bottom:6px;color:#1a1a1a}.wrestler-tooltip .wrestler-tooltip-list{margin:0;padding-left:1.2em}';
+    document.head.appendChild(style);
+  }
+
+  var WRESTLER_DELIM = ' | ';
+  
+  function showTip(el, x, y) {
+    var detailsStr = el.getAttribute('data-wrestlers-places');
+    if (!detailsStr || !tip) return;
+    
+    var title = tip.querySelector('.wrestler-tooltip-title');
+    var list = tip.querySelector('.wrestler-tooltip-list');
+    title.textContent = el.getAttribute('data-wrestlers');
+    
+    var items = detailsStr.split(WRESTLER_DELIM);
+    list.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
+    tip.style.left = (x + 16) + 'px';
+    tip.style.top = (y - 10) + 'px';
+    tip.style.display = 'block';
+  }
+  
+  function hideTip() { if (tip) tip.style.display = 'none'; }
+
+  function showExpand(tr) {
+    var detailsStr = tr.getAttribute('data-wrestlers-places');
+    if (!detailsStr || !expandContainer) return;
+    
+    allRows.forEach(function(r) { r.classList.remove('combo-row-selected'); });
+    tr.classList.add('combo-row-selected');
+    
+    var title = expandContainer.querySelector('.combo-expand-title');
+    var list = expandContainer.querySelector('.combo-expand-list');
+    title.textContent = tr.getAttribute('data-wrestlers');
+    
+    var items = detailsStr.split(WRESTLER_DELIM);
+    list.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
+    
+    var table = tr.closest('table');
+    if (table.nextSibling !== expandContainer) {
+      if (expandContainer.parentNode) expandContainer.parentNode.removeChild(expandContainer);
+      table.parentNode.insertBefore(expandContainer, table.nextSibling);
+    }
+    expandContainer.classList.add('is-visible');
+  }
+  
+  function hideExpand() {
+    if (expandContainer) expandContainer.classList.remove('is-visible');
+    if (allRows) allRows.forEach(function(r) { r.classList.remove('combo-row-selected'); });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    ensureTooltipStyles();
+    tip = document.createElement('div');
+    tip.className = 'wrestler-tooltip';
+    tip.innerHTML = '<div class="wrestler-tooltip-title"></div><ul class="wrestler-tooltip-list"></ul>';
+    tip.style.display = 'none';
+    document.body.appendChild(tip);
+
+    expandContainer = document.createElement('div');
+    expandContainer.id = 'youngest-oldest-expand-container';
+    expandContainer.className = 'combo-expand-container';
+    expandContainer.innerHTML = '<div class="combo-expand-title"></div><ul class="combo-expand-list" style="list-style: none; padding: 0;"></ul>';
+
+    allRows = document.querySelectorAll('.youngest-oldest-brackets-table tbody tr[data-wrestlers-places]');
+    allRows.forEach(function(tr) {
+      tr.style.cursor = 'pointer';
+      tr.addEventListener('mouseenter', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mousemove', function(e) { showTip(tr, e.clientX, e.clientY); });
+      tr.addEventListener('mouseleave', hideTip);
+      tr.addEventListener('click', function() {
+        if (tr.classList.contains('combo-row-selected')) {
+          hideExpand();
+        } else {
+          showExpand(tr);
+        }
+      });
+    });
+  });
+})();
+</script>
+""")
+
+# Ensure includes_dir is available
+if 'includes_dir' not in locals():
+    includes_dir = ROOT_DIR / "docs" / "_includes"
+    includes_dir.mkdir(exist_ok=True)
+
+youngest_oldest_include_path = includes_dir / "report_03_youngest_oldest_brackets_table.md"
+with open(youngest_oldest_include_path, "w") as f:
+    f.write("".join(youngest_oldest_html_lines))
+print(f"\nSaved: {youngest_oldest_include_path}")
+
+# ==============================================================================
 # DONE
 # ==============================================================================
 
