@@ -42,8 +42,7 @@ The following charts show how the **top 4** schools by total All-Americans and t
 
 ---
 
-{% capture teams_tables %}{% include report_04_teams_tables.md %}{% endcapture %}
-{{ teams_tables | markdownify }}
+{% include report_04_teams_tables.html %}
 
 ---
 

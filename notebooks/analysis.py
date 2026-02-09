@@ -3100,41 +3100,44 @@ plt.savefig(chart_diff_site, dpi=150)
 plt.close()
 print(f"Saved: {chart_diff_path}")
 
-# Build Report 04 include: markdown tables
-report_04_lines = []
+# Build Report 04 include: HTML tables (so they render reliably; markdown tables were not converting)
+def esc(s):
+    return html_module.escape(str(s))
+
+report_04_html = []
 
 # 1. Seed-Performance differential (overperformers)
-report_04_lines.append("### Top 5 schools: overperform vs seed (seed-performance differential)\n")
-report_04_lines.append("Sum of (Placement − Seed) across all AAs; higher = more often placed better than seeded. Schools with at least {} AAs.\n".format(MIN_AAS_FOR_SEED_DIFF))
-report_04_lines.append("| Rank | School | Sum differential | AA count |\n")
-report_04_lines.append("|------|--------|-------------------|----------|\n")
+report_04_html.append('<h3>Top 5 schools: overperform vs seed (seed-performance differential)</h3>\n')
+report_04_html.append("<p>Sum of (Placement − Seed) across all AAs; higher = more often placed better than seeded. Schools with at least {} AAs.</p>\n".format(MIN_AAS_FOR_SEED_DIFF))
+report_04_html.append('<table class="report-04-teams-table"><thead><tr><th>Rank</th><th>School</th><th>Sum differential</th><th>AA count</th></tr></thead><tbody>\n')
 for i, (_, row) in enumerate(top5_overperform.iterrows(), 1):
-    report_04_lines.append("| {} | {} | {} | {} |\n".format(i, row["School"], int(row["Seed_Diff_Sum"]), int(row["AA_Count"])))
+    report_04_html.append("<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>\n".format(i, esc(row["School"]), int(row["Seed_Diff_Sum"]), int(row["AA_Count"])))
+report_04_html.append("</tbody></table>\n")
 
 # 2. Seed-Performance differential (underperformers)
-report_04_lines.append("\n### Top 5 schools: underperform vs seed\n")
-report_04_lines.append("| Rank | School | Sum differential | AA count |\n")
-report_04_lines.append("|------|--------|-------------------|----------|\n")
+report_04_html.append("\n<h3>Top 5 schools: underperform vs seed</h3>\n")
+report_04_html.append('<table class="report-04-teams-table"><thead><tr><th>Rank</th><th>School</th><th>Sum differential</th><th>AA count</th></tr></thead><tbody>\n')
 for i, (_, row) in enumerate(top5_underperform.iterrows(), 1):
-    report_04_lines.append("| {} | {} | {} | {} |\n".format(i, row["School"], int(row["Seed_Diff_Sum"]), int(row["AA_Count"])))
+    report_04_html.append("<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>\n".format(i, esc(row["School"]), int(row["Seed_Diff_Sum"]), int(row["AA_Count"])))
+report_04_html.append("</tbody></table>\n")
 
-# 3. Top 10 schools by All-Americans (table)
-report_04_lines.append("\n### Top 10 schools by All-Americans (total AAs 2000–2025)\n")
-report_04_lines.append("| Rank | School | All-Americans |\n")
-report_04_lines.append("|------|--------|---------------|\n")
+# 3. Top 10 schools by All-Americans
+report_04_html.append("\n<h3>Top 10 schools by All-Americans (total AAs 2000–2025)</h3>\n")
+report_04_html.append('<table class="report-04-teams-table"><thead><tr><th>Rank</th><th>School</th><th>All-Americans</th></tr></thead><tbody>\n')
 for i, (_, row) in enumerate(top10_aa.iterrows(), 1):
-    report_04_lines.append("| {} | {} | {} |\n".format(i, row["School"], int(row["AA_Count"])))
+    report_04_html.append("<tr><td>{}</td><td>{}</td><td>{}</td></tr>\n".format(i, esc(row["School"]), int(row["AA_Count"])))
+report_04_html.append("</tbody></table>\n")
 
-# 4. Top 10 schools by National Championships (table)
-report_04_lines.append("\n### Top 10 schools by National Championships (2000–2025)\n")
-report_04_lines.append("| Rank | School | National titles |\n")
-report_04_lines.append("|------|--------|----------------|\n")
+# 4. Top 10 schools by National Championships
+report_04_html.append("\n<h3>Top 10 schools by National Championships (2000–2025)</h3>\n")
+report_04_html.append('<table class="report-04-teams-table"><thead><tr><th>Rank</th><th>School</th><th>National titles</th></tr></thead><tbody>\n')
 for i, (_, row) in enumerate(top10_nc.iterrows(), 1):
-    report_04_lines.append("| {} | {} | {} |\n".format(i, row["School"], int(row["NC_Count"])))
+    report_04_html.append("<tr><td>{}</td><td>{}</td><td>{}</td></tr>\n".format(i, esc(row["School"]), int(row["NC_Count"])))
+report_04_html.append("</tbody></table>\n")
 
-report_04_include_path = includes_dir / "report_04_teams_tables.md"
+report_04_include_path = includes_dir / "report_04_teams_tables.html"
 with open(report_04_include_path, "w") as f:
-    f.write("".join(report_04_lines))
+    f.write("".join(report_04_html))
 print(f"Saved: {report_04_include_path}")
 
 # ==============================================================================

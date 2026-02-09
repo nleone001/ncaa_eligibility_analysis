@@ -131,6 +131,11 @@ tr:hover {
     background-color: #f7fafc;
 }
 
+/* Report 04: Team tables (seed differential, top 10 AA/NC) */
+.report-04-teams-table {
+    margin-bottom: 2rem;
+}
+
 /* Eligibility combo tables (Report 02: when AA/NC was earned by year) */
 .combo-tier-header {
     text-align: center;
