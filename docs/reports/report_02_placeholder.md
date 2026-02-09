@@ -63,18 +63,16 @@ Roughly half of all wrestlers who ever AA'd did it more than once. Only about 11
 
 ## Progression Archetypes
 
-We classify wrestlers with **complete, observable careers** (same eligibility exclusion as above) into progression archetypes based on their AA placement sequences. A wrestler can match more than one archetype. All six placement archetypes require **3+ AA**. Counts below are broken out by 3×, 4×, and 5× AA. Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.
+Now that we've seen when wrestlers earn their All-American finishes, let's examine how they progress—or don't—across those finishes. 
+
+We classify wrestlers with **complete, observable careers** into progression archetypes based on their AA placement sequences.We are only considering wrestlers with **3+ AAs** to get the full picture of their career. Counts below are broken out by 3×, 4×, and 5× AA. Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.
 
 {% capture report_02_archetypes %}{% include report_02_archetypes_table.md %}{% endcapture %}
 {{ report_02_archetypes }}
 
-## Progression Archetypes
+## Last Chance All-Americans
 
-Now that we've seen when wrestlers earn their All-American finishes, let's examine how they progress—or don't—across those finishes. 
-
-We classify wrestlers with **complete, observable careers** into progression archetypes based on their AA placement sequences...
-
-Wrestlers who All-Americaned exactly once, in a “last chance” eligibility context (all counts are 1× AA). Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.
+Wrestlers who All-Americaned exactly once, in their last year of eligibility. Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.
 
 {% capture report_02_last_chance %}{% include report_02_last_chance_table.md %}{% endcapture %}
 {{ report_02_last_chance }}
