@@ -2965,6 +2965,78 @@ with open(youngest_oldest_include_path, "w") as f:
 print(f"\nSaved: {youngest_oldest_include_path}")
 
 # ==============================================================================
+# REPORT 04: TEAMS (School-level analysis)
+# ==============================================================================
+# Seed-performance differential, top schools by AAs, top schools by NCs
+
+print("\n" + "="*60)
+print("REPORT 04: School/Team analysis")
+print("="*60)
+
+# By school: sum of Placement-Seed Delta, count of AAs, count of NCs
+school_aa_count = df.groupby("School").size().reset_index(name="AA_Count")
+school_nc_count = df[df["Place"] == 1].groupby("School").size().reset_index(name="NC_Count")
+school_seed_sum = df.groupby("School")["Placement-Seed Delta"].sum().reset_index(name="Seed_Diff_Sum")
+
+school_stats = school_aa_count.merge(school_nc_count, on="School", how="left")
+school_stats = school_stats.merge(school_seed_sum, on="School", how="left")
+school_stats["NC_Count"] = school_stats["NC_Count"].fillna(0).astype(int)
+
+# Seed-performance: require minimum AAs to avoid noise (e.g. 15)
+MIN_AAS_FOR_SEED_DIFF = 15
+school_for_diff = school_stats[school_stats["AA_Count"] >= MIN_AAS_FOR_SEED_DIFF].copy()
+school_for_diff = school_for_diff.sort_values("Seed_Diff_Sum", ascending=False)
+
+top5_overperform = school_for_diff.head(5)
+top5_underperform = school_for_diff.tail(5).sort_values("Seed_Diff_Sum", ascending=True)
+
+top10_aa = school_stats.nlargest(10, "AA_Count")
+top10_nc = school_stats.nlargest(10, "NC_Count")
+
+print(f"Schools with >= {MIN_AAS_FOR_SEED_DIFF} AAs (for seed diff): {len(school_for_diff)}")
+print("Top 5 overperformers (by seed diff sum):", top5_overperform[["School", "Seed_Diff_Sum", "AA_Count"]].values.tolist())
+print("Top 5 underperformers:", top5_underperform[["School", "Seed_Diff_Sum", "AA_Count"]].values.tolist())
+print("Top 5 by AAs:", top10_aa[["School", "AA_Count"]].values.tolist())
+print("Top 5 by NCs:", top10_nc[["School", "NC_Count"]].values.tolist())
+
+# Build Report 04 include: three markdown tables
+report_04_lines = []
+
+# 1. Seed-Performance differential (overperformers)
+report_04_lines.append("### Top 5 schools: overperform vs seed (seed-performance differential)\n")
+report_04_lines.append("Sum of (Placement − Seed) across all AAs; higher = more often placed better than seeded. Schools with at least {} AAs.\n".format(MIN_AAS_FOR_SEED_DIFF))
+report_04_lines.append("| Rank | School | Sum differential | AA count |\n")
+report_04_lines.append("|------|--------|-------------------|----------|\n")
+for i, (_, row) in enumerate(top5_overperform.iterrows(), 1):
+    report_04_lines.append("| {} | {} | {} | {} |\n".format(i, row["School"], int(row["Seed_Diff_Sum"]), int(row["AA_Count"])))
+
+# 2. Seed-Performance differential (underperformers)
+report_04_lines.append("\n### Top 5 schools: underperform vs seed\n")
+report_04_lines.append("| Rank | School | Sum differential | AA count |\n")
+report_04_lines.append("|------|--------|-------------------|----------|\n")
+for i, (_, row) in enumerate(top5_underperform.iterrows(), 1):
+    report_04_lines.append("| {} | {} | {} | {} |\n".format(i, row["School"], int(row["Seed_Diff_Sum"]), int(row["AA_Count"])))
+
+# 3. Top 10 schools by All-Americans
+report_04_lines.append("\n### Top 10 schools by All-Americans (total AAs 2000–2025)\n")
+report_04_lines.append("| Rank | School | All-Americans |\n")
+report_04_lines.append("|------|--------|---------------|\n")
+for i, (_, row) in enumerate(top10_aa.iterrows(), 1):
+    report_04_lines.append("| {} | {} | {} |\n".format(i, row["School"], int(row["AA_Count"])))
+
+# 4. Top 10 schools by National Championships
+report_04_lines.append("\n### Top 10 schools by National Championships (2000–2025)\n")
+report_04_lines.append("| Rank | School | National titles |\n")
+report_04_lines.append("|------|--------|----------------|\n")
+for i, (_, row) in enumerate(top10_nc.iterrows(), 1):
+    report_04_lines.append("| {} | {} | {} |\n".format(i, row["School"], int(row["NC_Count"])))
+
+report_04_include_path = includes_dir / "report_04_teams_tables.md"
+with open(report_04_include_path, "w") as f:
+    f.write("".join(report_04_lines))
+print(f"Saved: {report_04_include_path}")
+
+# ==============================================================================
 # DONE
 # ==============================================================================
 
