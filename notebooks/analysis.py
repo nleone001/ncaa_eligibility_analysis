@@ -1476,12 +1476,12 @@ ARCHETYPE_LIST_DELIM = " | "
 
 # Archetypes table HTML for Report 02: tooltip on count cells, click row to expand 3×/4×/5× lists
 ARCHETYPE_DESCRIPTIONS = {
-    "Continued Progression": "3+ AA; each consecutive AA shows improvement (place[i+1] &lt; place[i])",
-    "Plateau Breaker": "3+ AA; 2+ consecutive years same placement, then improvement",
-    "Regression Survivor": "3+ AA; drops 3+ places then returns to within 1 of previous best",
-    "Consistent Elite": "3+ AA; never won (no 1st); all placements 2–4",
-    "Early Peak": "3+ AA; best placement in first half of career; final placement ≥ best + 2",
-    "Finish on a Win": "3+ AA; all placements odd (1, 3, 5, 7)—won final match every year",
+    "Continued Progression": "The wrestling ideal: improving every single year",
+    "Plateau Breaker": "Stuck at the same placement for consecutive years, then finally breaking through",
+    "Regression Survivor": "Suffered a major setback (3+places) but clawed their way back",
+    "Consistent Elite": "Consistent elite: multiple top-4 finishes but no championship",
+    "Early Peak": "Best wrestling came early in their career, couldn't recapture the magic by the end",
+    "Finish on a Win": "Always finishing the season strong: winning their final placement match of the year",
 }
 archetype_table_lines = [
     '<table class="archetype-table">',
@@ -1618,9 +1618,9 @@ print(f"Saved: {archetype_include_path}")
 
 # Last Chance table: hover and click on whole row for tooltip/expand (same placement format)
 LAST_CHANCE_CRITERIA = {
-    "Senior Last Chance": "1× AA; AA earned as Sr or SSr",
-    "COVID Last Chance": "1× AA; earned as SSr in 2021 or later (COVID extension)",
-    "Championship Last Chance": "1× NC (place = 1); NC earned as Sr or SSr",
+    "Senior Last Chance": "First and only All-American finish came in their final year ",
+    "COVID Last Chance": "Pandemic extension granted one final chance at the podium and they made the most of it ",
+    "Championship Last Chance": "Senior year breakthrough: never placed before, went straight to the top of the podium",
 }
 last_chance_table_lines = [
     '<table class="last-chance-table">',
