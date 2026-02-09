@@ -2990,16 +2990,117 @@ school_for_diff = school_for_diff.sort_values("Seed_Diff_Sum", ascending=False)
 top5_overperform = school_for_diff.head(5)
 top5_underperform = school_for_diff.tail(5).sort_values("Seed_Diff_Sum", ascending=True)
 
+top4_aa = school_stats.nlargest(4, "AA_Count")
+top4_nc = school_stats.nlargest(4, "NC_Count")
+top4_aa_schools = top4_aa["School"].tolist()
+top4_nc_schools = top4_nc["School"].tolist()
 top10_aa = school_stats.nlargest(10, "AA_Count")
 top10_nc = school_stats.nlargest(10, "NC_Count")
 
 print(f"Schools with >= {MIN_AAS_FOR_SEED_DIFF} AAs (for seed diff): {len(school_for_diff)}")
 print("Top 5 overperformers (by seed diff sum):", top5_overperform[["School", "Seed_Diff_Sum", "AA_Count"]].values.tolist())
 print("Top 5 underperformers:", top5_underperform[["School", "Seed_Diff_Sum", "AA_Count"]].values.tolist())
-print("Top 5 by AAs:", top10_aa[["School", "AA_Count"]].values.tolist())
-print("Top 5 by NCs:", top10_nc[["School", "NC_Count"]].values.tolist())
+print("Top 4 by AAs (for charts):", top4_aa[["School", "AA_Count"]].values.tolist())
+print("Top 4 by NCs (for charts):", top4_nc[["School", "NC_Count"]].values.tolist())
 
-# Build Report 04 include: three markdown tables
+# Cumulative AAs and NCs by year for top-4 schools (for line charts)
+all_years_sorted = sorted(df["Year"].unique())
+aa_by_school_year = df.groupby(["School", "Year"]).size().reset_index(name="AA_Count")
+nc_by_school_year = df[df["Place"] == 1].groupby(["School", "Year"]).size().reset_index(name="NC_Count")
+
+def cumulative_by_year(schools, count_df, count_col):
+    """Build DataFrame: one row per (School, Year) with cumulative count up to that year."""
+    out = []
+    for school in schools:
+        sub = count_df[count_df["School"] == school][["Year", count_col]]
+        by_year = sub.set_index("Year").reindex(all_years_sorted).fillna(0)
+        by_year = by_year.sort_index()
+        cum = by_year[count_col].cumsum()
+        for year in all_years_sorted:
+            out.append({"School": school, "Year": year, "Cumulative": int(cum.loc[year])})
+    return pd.DataFrame(out)
+
+cum_aa = cumulative_by_year(top4_aa_schools, aa_by_school_year, "AA_Count")
+cum_nc = cumulative_by_year(top4_nc_schools, nc_by_school_year, "NC_Count")
+
+# Colors for top-4 school lines (distinct)
+TOP4_COLORS = ["#1a1a1a", "#c41e3a", "#ff6600", "#003366"]  # dark, red, orange, blue
+
+# Chart: Cumulative All-Americans by year (top 4 schools)
+fig, ax = plt.subplots(figsize=(10, 6))
+for idx, school in enumerate(top4_aa_schools):
+    sub = cum_aa[cum_aa["School"] == school].sort_values("Year")
+    ax.plot(sub["Year"], sub["Cumulative"], color=TOP4_COLORS[idx], linewidth=2.5, label=school)
+ax.set_xlabel("Year", fontsize=12)
+ax.set_ylabel("Cumulative All-Americans", fontsize=12)
+ax.set_title("Cumulative All-Americans by Year — Top 4 Schools (2000–2025)", fontsize=14, fontweight="medium", pad=12)
+ax.legend(loc="upper left", fontsize=11)
+ax.set_ylim(0, None)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.grid(axis="y", alpha=0.3)
+plt.tight_layout()
+chart_aa_cum_path = CHARTS_DIR / "report_04_cumulative_aa_by_year.png"
+chart_aa_cum_site = SITE_CHARTS_DIR / "report_04_cumulative_aa_by_year.png"
+plt.savefig(chart_aa_cum_path, dpi=150)
+plt.savefig(chart_aa_cum_site, dpi=150)
+plt.close()
+print(f"Saved: {chart_aa_cum_path}")
+
+# Chart: Cumulative National Championships by year (top 4 schools)
+fig, ax = plt.subplots(figsize=(10, 6))
+for idx, school in enumerate(top4_nc_schools):
+    sub = cum_nc[cum_nc["School"] == school].sort_values("Year")
+    ax.plot(sub["Year"], sub["Cumulative"], color=TOP4_COLORS[idx], linewidth=2.5, label=school)
+ax.set_xlabel("Year", fontsize=12)
+ax.set_ylabel("Cumulative National Championships", fontsize=12)
+ax.set_title("Cumulative National Championships by Year — Top 4 Schools (2000–2025)", fontsize=14, fontweight="medium", pad=12)
+ax.legend(loc="upper left", fontsize=11)
+ax.set_ylim(0, None)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.grid(axis="y", alpha=0.3)
+plt.tight_layout()
+chart_nc_cum_path = CHARTS_DIR / "report_04_cumulative_nc_by_year.png"
+chart_nc_cum_site = SITE_CHARTS_DIR / "report_04_cumulative_nc_by_year.png"
+plt.savefig(chart_nc_cum_path, dpi=150)
+plt.savefig(chart_nc_cum_site, dpi=150)
+plt.close()
+print(f"Saved: {chart_nc_cum_path}")
+
+# Chart: Tall horizontal bar — schools (y) vs seed-performance differential (x), zero-centered
+# school_for_diff is already sorted descending by Seed_Diff_Sum
+schools_diff = school_for_diff["School"].tolist()
+differentials = school_for_diff["Seed_Diff_Sum"].tolist()
+n_schools = len(schools_diff)
+bar_height = 0.48
+fig_height = max(12, n_schools * bar_height)
+fig, ax = plt.subplots(figsize=(9, fig_height))
+y_pos = np.arange(n_schools)
+lefts = [min(0, v) for v in differentials]
+widths = differentials
+colors = ["#2e7d32" if v >= 0 else "#c62828" for v in differentials]
+ax.barh(y_pos, widths, left=lefts, color=colors, height=0.72)
+ax.axvline(0, color="black", linewidth=1)
+ax.set_yticks(y_pos)
+ax.set_yticklabels(schools_diff, fontsize=10)
+ax.set_xlabel("Seed–performance differential (sum of Place − Seed)", fontsize=12)
+ax.set_ylabel("School", fontsize=12)
+ax.set_title("Seed–Performance Differential by School (≥15 AAs)\nPositive = overperform vs seed, negative = underperform", fontsize=13, fontweight="medium", pad=12)
+ax.invert_yaxis()
+margin = 15
+ax.set_xlim(min(differentials) - margin, max(differentials) + margin)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+plt.tight_layout()
+chart_diff_path = CHARTS_DIR / "report_04_seed_differential_by_school.png"
+chart_diff_site = SITE_CHARTS_DIR / "report_04_seed_differential_by_school.png"
+plt.savefig(chart_diff_path, dpi=150)
+plt.savefig(chart_diff_site, dpi=150)
+plt.close()
+print(f"Saved: {chart_diff_path}")
+
+# Build Report 04 include: markdown tables
 report_04_lines = []
 
 # 1. Seed-Performance differential (overperformers)
@@ -3017,14 +3118,14 @@ report_04_lines.append("|------|--------|-------------------|----------|\n")
 for i, (_, row) in enumerate(top5_underperform.iterrows(), 1):
     report_04_lines.append("| {} | {} | {} | {} |\n".format(i, row["School"], int(row["Seed_Diff_Sum"]), int(row["AA_Count"])))
 
-# 3. Top 10 schools by All-Americans
+# 3. Top 10 schools by All-Americans (table)
 report_04_lines.append("\n### Top 10 schools by All-Americans (total AAs 2000–2025)\n")
 report_04_lines.append("| Rank | School | All-Americans |\n")
 report_04_lines.append("|------|--------|---------------|\n")
 for i, (_, row) in enumerate(top10_aa.iterrows(), 1):
     report_04_lines.append("| {} | {} | {} |\n".format(i, row["School"], int(row["AA_Count"])))
 
-# 4. Top 10 schools by National Championships
+# 4. Top 10 schools by National Championships (table)
 report_04_lines.append("\n### Top 10 schools by National Championships (2000–2025)\n")
 report_04_lines.append("| Rank | School | National titles |\n")
 report_04_lines.append("|------|--------|----------------|\n")

@@ -16,7 +16,7 @@ A data-driven analysis of NCAA Division I Wrestling All-Americans from 2000–20
 | [**Report 01: Experience vs Youth — All-Americans by Eligibility**](reports/report_01_overview.html) | Who makes the podium? How does experience impact national titles and All-American honors? 25 years of trends. |
 | [**Report 02: The Journey (Career Arc)**](reports/report_02_placeholder.html) | Multi-AA funnel, aesthetic progressions, career-arc analyses. |
 | [**Report 03: Bracket/Year Seed/Placement Stats**](reports/report_03_seed_placement.html) | Seed-placement differentials, bracket unpredictability, and year-level seeding statistics. |
-| [**Report 04: Team Performance**](reports/report_04_teams.html) | Seed-performance differential by school (over/underperform), and top 10 schools by All-Americans and national titles. |
+| [**Report 04: Team Performance**](reports/report_04_teams.html) | Seed-performance differential by school (over/underperform); top 4 schools by AAs and NCs with cumulative-by-year line charts. |
 
 ## Additional Analyses
 
