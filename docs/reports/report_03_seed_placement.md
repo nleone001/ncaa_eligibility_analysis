@@ -63,6 +63,13 @@ To identify the most predictable brackets across all 25 years, we analyze two me
 - **Most common**: 1 exact match per bracket (72 out of 250 brackets)
 - **Mean**: 1.6 exact matches per bracket
 
+### Chalk metrics: top results
+
+Tables below list brackets by seed-placement sum (0–10 and the 4 largest sums) and by exact seed-place matches (4/8 and 5/8). Hover for a preview; click a row to expand and see the full podium (1st–8th) with wrestler and seed for each bracket.
+
+{% capture chalk_details %}{% include report_03_chalk_details_tables.md %}{% endcapture %}
+{{ chalk_details | markdownify }}
+
 ## Brackets with Most All-Americans by Eligibility Class
 
 Which brackets had the most All-Americans from each eligibility class? This analysis identifies the year/weight combinations that achieved the maximum count for Freshmen, Sophomores, Juniors, Seniors, and Super Seniors.
