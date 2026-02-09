@@ -800,19 +800,32 @@ if len(transitions_df) > 0:
     def trans_str(row):
         return f"{row['wrestler']} ({row['from_weight']}→{row['to_weight']}: {row['from_place']}→{row['to_place']})"
 
+    # Ordinal suffix for placement (1st, 2nd, 3rd, etc.)
+    def place_ordinal(p):
+        return f"{p}{'st' if p == 1 else 'nd' if p == 2 else 'rd' if p == 3 else 'th'}"
+
+    # Display format for weight-change outcome table: "Name: 157(2nd) → 165(1st)"
+    def trans_str_outcome(row):
+        return f"{row['wrestler']}: {row['from_weight']}({place_ordinal(row['from_place'])}) → {row['to_weight']}({place_ordinal(row['to_place'])})"
+
     weight_flow_data = {}
+    weight_outcome_data = {}  # For outcome table: up_improved, up_worse, up_same, down_improved, down_worse, down_same
     for _, row in transitions_df.iterrows():
         s = trans_str(row)
+        s_outcome = trans_str_outcome(row)
         weight_flow_data.setdefault("all", []).append(s)
         if row["direction"] == "up":
             weight_flow_data.setdefault("up", []).append(s)
             weight_flow_data.setdefault(f"up_{row['place_change']}", []).append(s)
+            weight_outcome_data.setdefault(f"up_{row['place_change']}", []).append(s_outcome)
         else:
             weight_flow_data.setdefault("down", []).append(s)
             weight_flow_data.setdefault(f"down_{row['place_change']}", []).append(s)
+            weight_outcome_data.setdefault(f"down_{row['place_change']}", []).append(s_outcome)
 
     wf_delim = " | "
     weight_flow_transitions = {k: wf_delim.join(v) for k, v in weight_flow_data.items()}
+    weight_outcome_transitions = {k: wf_delim.join(v) for k, v in weight_outcome_data.items()}
 
     # Generate interactive HTML flow diagram
     wf = weight_move_stats
@@ -924,6 +937,37 @@ if len(transitions_df) > 0:
     with open(weight_flow_include_path, "w") as f:
         f.write("\n".join(weight_flow_html))
     print(f"Saved: {weight_flow_include_path}")
+
+    # Weight-change outcome table: Direction | Outcome | Count (last-chance-table format, hover/click)
+    outcome_rows = [
+        ("↑ Up", "Improved", "up_improved", wf["up_improved"]),
+        ("↑ Up", "Worse", "up_worse", wf["up_worse"]),
+        ("↑ Up", "Same", "up_same", wf["up_same"]),
+        ("↓ Down", "Improved", "down_improved", wf["down_improved"]),
+        ("↓ Down", "Worse", "down_worse", wf["down_worse"]),
+        ("↓ Down", "Same", "down_same", wf["down_same"]),
+    ]
+    weight_outcome_table_lines = [
+        '<table class="last-chance-table">',
+        "<thead><tr><th>Direction</th><th>Outcome</th><th>Count</th></tr></thead>",
+        "<tbody>",
+    ]
+    for dir_label, outcome_label, key, count in outcome_rows:
+        places_str = weight_outcome_transitions.get(key, "")
+        row_attrs = ""
+        if places_str:
+            row_attrs = f' data-wrestlers-places="{html_module.escape(places_str)}" data-count="{count}" data-unit="Transitions"'
+        weight_outcome_table_lines.append(f"<tr{row_attrs}>")
+        weight_outcome_table_lines.append(f"<td><strong>{html_module.escape(dir_label)}</strong></td>")
+        weight_outcome_table_lines.append(f"<td>{html_module.escape(outcome_label)}</td>")
+        weight_outcome_table_lines.append(f"<td>{count}</td>")
+        weight_outcome_table_lines.append("</tr>")
+    weight_outcome_table_lines.append("</tbody></table>")
+
+    weight_outcome_include_path = ROOT_DIR / "docs" / "_includes" / "report_02_weight_change_outcomes_table.md"
+    with open(weight_outcome_include_path, "w") as f:
+        f.write("\n".join(weight_outcome_table_lines))
+    print(f"Saved: {weight_outcome_include_path}")
 
 # Eligibility-year combinations by N×AA tier (when AA was earned, by eligibility)
 # For each wrestler: (n_aa, sorted tuple of eligibility years in which they AA'd)
@@ -1623,10 +1667,11 @@ last_chance_script = """
   function showTip(tr, x, y) {
     var listStr = tr.getAttribute('data-wrestlers-places') || tr.getAttribute('data-wrestlers');
     var n = tr.getAttribute('data-count');
+    var unit = tr.getAttribute('data-unit') || 'Wrestlers';
     if (!listStr || !tip) return;
     var title = tip.querySelector('.wrestler-tooltip-title');
     var list = tip.querySelector('.wrestler-tooltip-list');
-    title.textContent = n + ' Wrestlers';
+    title.textContent = n + ' ' + unit;
     var items = listStr.indexOf(PLACES_DELIM) !== -1 ? listStr.split(PLACES_DELIM) : listStr.split(/,\\s*/);
     list.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
     tip.style.left = (x + 16) + 'px';
@@ -1637,11 +1682,12 @@ last_chance_script = """
   function showLcExpand(tr) {
     var listStr = tr.getAttribute('data-wrestlers-places') || tr.getAttribute('data-wrestlers');
     var n = tr.getAttribute('data-count');
+    var unit = tr.getAttribute('data-unit') || 'Wrestlers';
     if (!lcExpandContainer) return;
-    document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers]').forEach(function(r) { r.classList.remove('lc-row-selected'); });
+    document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers], .last-chance-table tbody tr[data-wrestlers-places]').forEach(function(r) { r.classList.remove('lc-row-selected'); });
     tr.classList.add('lc-row-selected');
     var items = listStr && listStr.indexOf(PLACES_DELIM) !== -1 ? listStr.split(PLACES_DELIM) : (listStr ? listStr.split(/,\\s*/) : []);
-    lcExpandContainer.querySelector('.lc-expand-title').textContent = n + ' Wrestlers';
+    lcExpandContainer.querySelector('.lc-expand-title').textContent = n + ' ' + unit;
     lcExpandContainer.querySelector('.lc-expand-list').innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
     var table = tr.closest('table');
     if (table.nextSibling !== lcExpandContainer) {
@@ -1652,14 +1698,14 @@ last_chance_script = """
   }
   function hideLcExpand() {
     if (lcExpandContainer) lcExpandContainer.classList.remove('is-visible');
-    document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers]').forEach(function(r) { r.classList.remove('lc-row-selected'); });
+    document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers], .last-chance-table tbody tr[data-wrestlers-places]').forEach(function(r) { r.classList.remove('lc-row-selected'); });
   }
   document.addEventListener('DOMContentLoaded', function() {
     ensureTip();
     lcExpandContainer = document.createElement('div');
     lcExpandContainer.className = 'last-chance-expand-container';
     lcExpandContainer.innerHTML = '<div class="lc-expand-title"></div><ul class="lc-expand-list"></ul>';
-    var rows = document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers]');
+    var rows = document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers], .last-chance-table tbody tr[data-wrestlers-places]');
     rows.forEach(function(tr) {
       tr.style.cursor = 'pointer';
       tr.addEventListener('mouseenter', function(e) { showTip(tr, e.clientX, e.clientY); });

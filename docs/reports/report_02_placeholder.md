@@ -100,6 +100,11 @@ For wrestlers who AAd at two or more weights, we examine each transition - a con
 ![Weight-change flow: Multi-weight AA transitions → Moving up/down → Improved (green) / Worse (red) / Same (grey)]({{ site.baseurl }}/charts/weight_change_flow.png)
 *Flow diagram: all weight-change transitions on the left; branches to moving up or down (with counts); then to improved (green), worse (red), or same placement (grey).*
 
+{% capture report_02_weight_outcomes %}{% include report_02_weight_change_outcomes_table.md %}{% endcapture %}
+{{ report_02_weight_outcomes }}
+
+*Hover to view wrestlers list for each row. Click a row to view wrestlers list for that row.*
+
 **Findings:**
 
 **The conventional wisdom is that moving up a weight class to bigger, stronger competition could lead to worse results. The data tells a different story:**

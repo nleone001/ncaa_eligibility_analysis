@@ -42,10 +42,11 @@
   function showTip(tr, x, y) {
     var listStr = tr.getAttribute('data-wrestlers-places') || tr.getAttribute('data-wrestlers');
     var n = tr.getAttribute('data-count');
+    var unit = tr.getAttribute('data-unit') || 'Wrestlers';
     if (!listStr || !tip) return;
     var title = tip.querySelector('.wrestler-tooltip-title');
     var list = tip.querySelector('.wrestler-tooltip-list');
-    title.textContent = n + ' Wrestlers';
+    title.textContent = n + ' ' + unit;
     var items = listStr.indexOf(PLACES_DELIM) !== -1 ? listStr.split(PLACES_DELIM) : listStr.split(/,\s*/);
     list.innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
     tip.style.left = (x + 16) + 'px';
@@ -56,11 +57,12 @@
   function showLcExpand(tr) {
     var listStr = tr.getAttribute('data-wrestlers-places') || tr.getAttribute('data-wrestlers');
     var n = tr.getAttribute('data-count');
+    var unit = tr.getAttribute('data-unit') || 'Wrestlers';
     if (!lcExpandContainer) return;
-    document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers]').forEach(function(r) { r.classList.remove('lc-row-selected'); });
+    document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers], .last-chance-table tbody tr[data-wrestlers-places]').forEach(function(r) { r.classList.remove('lc-row-selected'); });
     tr.classList.add('lc-row-selected');
     var items = listStr && listStr.indexOf(PLACES_DELIM) !== -1 ? listStr.split(PLACES_DELIM) : (listStr ? listStr.split(/,\s*/) : []);
-    lcExpandContainer.querySelector('.lc-expand-title').textContent = n + ' Wrestlers';
+    lcExpandContainer.querySelector('.lc-expand-title').textContent = n + ' ' + unit;
     lcExpandContainer.querySelector('.lc-expand-list').innerHTML = items.map(function(item){ return '<li>' + item + '</li>'; }).join('');
     var table = tr.closest('table');
     if (table.nextSibling !== lcExpandContainer) {
@@ -71,14 +73,14 @@
   }
   function hideLcExpand() {
     if (lcExpandContainer) lcExpandContainer.classList.remove('is-visible');
-    document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers]').forEach(function(r) { r.classList.remove('lc-row-selected'); });
+    document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers], .last-chance-table tbody tr[data-wrestlers-places]').forEach(function(r) { r.classList.remove('lc-row-selected'); });
   }
   document.addEventListener('DOMContentLoaded', function() {
     ensureTip();
     lcExpandContainer = document.createElement('div');
     lcExpandContainer.className = 'last-chance-expand-container';
     lcExpandContainer.innerHTML = '<div class="lc-expand-title"></div><ul class="lc-expand-list"></ul>';
-    var rows = document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers]');
+    var rows = document.querySelectorAll('.last-chance-table tbody tr[data-wrestlers], .last-chance-table tbody tr[data-wrestlers-places]');
     rows.forEach(function(tr) {
       tr.style.cursor = 'pointer';
       tr.addEventListener('mouseenter', function(e) { showTip(tr, e.clientX, e.clientY); });
