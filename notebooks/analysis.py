@@ -3144,6 +3144,13 @@ widths = differentials
 colors = ["#2e7d32" if v >= 0 else "#c62828" for v in differentials]
 ax.barh(y_pos, widths, left=lefts, color=colors, height=0.72)
 ax.axvline(0, color="black", linewidth=1)
+# Data labels: differential value at the end of each bar
+label_offset = (max(differentials) - min(differentials)) * 0.02
+for i, (y, val) in enumerate(zip(y_pos, differentials)):
+    if val >= 0:
+        ax.text(val + label_offset, y, str(int(val)), ha="left", va="center", fontsize=8, color="#1a1a1a")
+    else:
+        ax.text(val - label_offset, y, str(int(val)), ha="right", va="center", fontsize=8, color="#1a1a1a")
 ax.set_yticks(y_pos)
 ax.set_yticklabels(schools_diff, fontsize=10)
 ax.set_xlabel("Seed–performance differential (sum of Place − Seed)", fontsize=12)
