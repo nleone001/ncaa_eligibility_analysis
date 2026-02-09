@@ -3105,8 +3105,8 @@ def make_cumulative_plotly(cum_df, schools_list, y_label, title, filename_stem):
         hovermode="x unified",
         hoverlabel=dict(font=dict(size=10), bgcolor="white", bordercolor="#e2e8f0"),
         legend=dict(orientation="h", yanchor="top", y=-0.18, xanchor="center", x=0.5, font=dict(size=10)),
-        margin=dict(t=50, b=100, l=60, r=40),
-        height=500,
+        margin=dict(t=90, b=100, l=60, r=40),
+        height=580,
         template="plotly_white",
         font=dict(size=12),
     )
