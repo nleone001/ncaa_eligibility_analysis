@@ -5,7 +5,7 @@ title: Surviving March Matness: An Analysis of NCAA Wrestling Tournament Chaos
 
 <div class="container" markdown="1">
 
-# Bracket Chaos: Surviving March Matness: An Analysis of NCAA Wrestling Tournament Chaos
+# Surviving March Matness: An Analysis of NCAA Wrestling Tournament Chaos
 
 **Analyzing seed performance and bracket unpredictability across 25 years of NCAA Wrestling Championships.**
 
